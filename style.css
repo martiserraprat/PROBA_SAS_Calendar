@@ -316,3 +316,58 @@ select option { background: #121212; color: white; }
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
+
+/* Estilo para las secciones del modal */
+.info-section {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-section h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #00d1b2; /* El color turquesa que resalta */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-section p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+    color: #eee;
+}
+
+.info-section strong {
+    color: #aaa;
+    font-weight: 500;
+}
+
+/* Botones de enlace dentro del modal */
+.link-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.link-btn {
+    background: #00d1b2;
+    color: #000;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.link-btn:hover {
+    background: #00b89c;
+    transform: translateY(-2px);
+}
