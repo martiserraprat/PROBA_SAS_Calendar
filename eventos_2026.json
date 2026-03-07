@@ -1,0 +1,7101 @@
+[
+  {
+    "id": 7238368,
+    "name": "Pamyati ZRFK, ZT UdSSR and RSFSR V.D. Samotesova",
+    "venue": "Samotesova Arena, Bryansk (RUS)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-10",
+    "disciplines": [
+      {
+        "name": "60m",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Men"
+      },
+      {
+        "name": "60m",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "t.goncharenko@rusathletics.info",
+        "name": "Tatiana Goncharenko"
+      }
+    ]
+  },
+  {
+    "id": 7238367,
+    "name": "ZT UdSSR and RF A.I. Nivin Memorial",
+    "venue": "Arena Veresniki, Kirov (RUS)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-10",
+    "disciplines": [
+      {
+        "name": "60m",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U16",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U16",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U16",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U16",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U16",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh U16",
+        "gender": "Men"
+      },
+      {
+        "name": "60m",
+        "gender": "Women"
+      },
+      {
+        "name": "60m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "60m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "60m U16",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U16",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U16",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U16",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U16",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh U16",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "t.goncharenko@rusathletics.info",
+        "name": "Tatiana Goncharenko"
+      }
+    ]
+  },
+  {
+    "id": 7238366,
+    "name": "The Mayor's of the University city Koltsovo Awards",
+    "venue": "Koltsovo (RUS)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-10",
+    "disciplines": [
+      {
+        "name": "60m",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH (0.91) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "60m",
+        "gender": "Women"
+      },
+      {
+        "name": "60m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH (0.76) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "t.goncharenko@rusathletics.info",
+        "name": "Tatiana Goncharenko"
+      }
+    ]
+  },
+  {
+    "id": 7235933,
+    "name": "High School Meeting - Final",
+    "venue": "Hadar Yosef Stadium, Tel Aviv (ISR)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-09",
+    "disciplines": [
+      {
+        "name": "100m",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "100m",
+        "gender": "Women"
+      },
+      {
+        "name": "800m",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put (3kg) U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "jack@iaa.co.il",
+        "name": "Jack Cohen"
+      }
+    ]
+  },
+  {
+    "id": 7239318,
+    "name": "Race The Gara",
+    "venue": "Misano Adriatico (ITA)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-09",
+    "disciplines": [
+      {
+        "name": "5 km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.lamezzaditreviso.com/regolamento-race-the-gara/",
+      "results": "https://www.lamezzaditreviso.com/regolamento-race-the-gara/"
+    },
+    "contact": [
+      {
+        "email": "salvatore@salvatorebettiol.com",
+        "name": "Salvatore Bettiol"
+      },
+      {
+        "email": "salvatore@salvatorebettiol.com",
+        "name": "Salvatore Bettiol"
+      }
+    ]
+  },
+  {
+    "id": 7237962,
+    "name": "Recordowa Dziesiatka",
+    "venue": "Tor regatowy Malta, Poznan (POL)",
+    "area": "Europe",
+    "category": "E",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "Road Race",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "Road Race",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "recordowadziesiatka.pl",
+      "results": "https://maniacka.kbmaniac.pl/?page_id=3529"
+    },
+    "contact": [
+      {
+        "email": "akujawinski@gmail.com",
+        "name": "Artur Kujawinski"
+      },
+      {
+        "email": "akujawinski@gmail.com",
+        "name": "Artur Kujawinski"
+      }
+    ]
+  },
+  {
+    "id": 7233896,
+    "name": "Estonian Winter Hammer Throwing CUP",
+    "venue": "Niidupargi staadion, Pärnu (EST)",
+    "area": "Europe",
+    "category": "D",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "Hammer Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw (6kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw (5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw (3kg) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.ekjl.ee/",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "reg@ekjl.ee",
+        "name": "Silvi Kask"
+      }
+    ]
+  },
+  {
+    "id": 7234032,
+    "name": "BFTTA Indoor Series 3",
+    "venue": "Lee Valley Athletics Centre, London (GBR)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "60m",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "100m",
+        "gender": "Men"
+      },
+      {
+        "name": "300m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "600m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Men"
+      },
+      {
+        "name": "4x200m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "100m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "300m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "600m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Men"
+      },
+      {
+        "name": "4x200m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "100m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "300m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "600m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U18",
+        "gender": "Men"
+      },
+      {
+        "name": "4x200m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "100m",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "300m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "600m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Women"
+      },
+      {
+        "name": "4x200m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "100m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "300m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "600m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Women"
+      },
+      {
+        "name": "4x200m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "100m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "300m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "600m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U18",
+        "gender": "Women"
+      },
+      {
+        "name": "4x200m sh U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://data.opentrack.run/en-gb/x/2026/GBR/bfti111/",
+      "results": "https://justiming.co.uk/liveresults/liveresults.html?meeting=directory"
+    },
+    "contact": [
+      {
+        "email": "competitions@befittoday.co.uk",
+        "name": "TJ OSSAI"
+      },
+      {
+        "email": "competitions@befittoday.co.uk",
+        "name": "TJ OSSAI"
+      }
+    ]
+  },
+  {
+    "id": 7238409,
+    "name": "Spanish Half Marathon Race Walking Championhips",
+    "venue": "TBC (ESP)",
+    "area": "Europe",
+    "category": "B",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "10km Walk U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon Race Walk",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon Race Walk U23",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Walk U20",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Walk U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon Race Walk",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon Race Walk U23",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "www.rfea.es",
+      "results": "www.rfea.es"
+    },
+    "contact": [
+      {
+        "email": "lsaladie@rfea.es",
+        "name": "Luis Saladie"
+      }
+    ]
+  },
+  {
+    "id": 7235961,
+    "name": "C.D.S. di MARCIA - 2^ Prova (strada)",
+    "venue": "TBD (ITA)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "10km Walk U20",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Walk U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon Race Walk",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon Race Walk U23",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Walk U20",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Walk U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon Race Walk",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon Race Walk U23",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.fidal.it/calendario/C-D-S--di-MARCIA-2%5E-Prova-(strada)-mezza-maratona-di-marcia-Sen-Pro-M-F/COD14447",
+      "results": "https://www.fidal.it/calendario/C-D-S--di-MARCIA-2%5E-Prova-(strada)-mezza-maratona-di-marcia-Sen-Pro-M-F/COD14447"
+    },
+    "contact": [
+      {
+        "email": "globalcalendar@fidal.it",
+        "name": "Lorenzo Cipriani"
+      }
+    ]
+  },
+  {
+    "id": 7237268,
+    "name": "German 10km Road Running Championships",
+    "venue": "Uelzen (GER)",
+    "area": "Europe",
+    "category": "B",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "10km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "wettkampforganisation@leichtathletik.de",
+        "name": "Alexander Mertens"
+      },
+      {
+        "email": "wettkampforganisation@leichtathletik.de",
+        "name": "Alexander Mertens"
+      }
+    ]
+  },
+  {
+    "id": 7235481,
+    "name": "Slovak U18 Indoor Championships",
+    "venue": "Nyíregyházi Atlétikai Centrum, Nyíregyháza (HUN)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "60m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH U18",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U18",
+        "gender": "Men"
+      },
+      {
+        "name": "4x200m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "4x400m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH U18",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U18",
+        "gender": "Women"
+      },
+      {
+        "name": "4x200m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "4x400m sh U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.atletika.sk/",
+      "results": "https://www.atletika.sk/"
+    },
+    "contact": [
+      {
+        "email": "domeny@atletika.sk",
+        "name": "Ján Dömény"
+      }
+    ]
+  },
+  {
+    "id": 7237292,
+    "name": "French Half Marathon Race Walking Championships",
+    "venue": "Lens (FRA)",
+    "area": "Europe",
+    "category": "B",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "Half Marathon Race Walk",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon Race Walk",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "cnm@athle.fr",
+        "name": "CNM FFA"
+      }
+    ]
+  },
+  {
+    "id": 7236693,
+    "name": "Torneio KM Jovem AAIT",
+    "venue": "Pista de Atletismo do Estádio João Paulo II, Angra do Heroismo (POR)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "500m U16",
+        "gender": "Men"
+      },
+      {
+        "name": "600m U16",
+        "gender": "Men"
+      },
+      {
+        "name": "1000m",
+        "gender": "Men"
+      },
+      {
+        "name": "1000m U23",
+        "gender": "Men"
+      },
+      {
+        "name": "1000m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "1000m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "1000m U16",
+        "gender": "Men"
+      },
+      {
+        "name": "500m U16",
+        "gender": "Women"
+      },
+      {
+        "name": "600m U16",
+        "gender": "Women"
+      },
+      {
+        "name": "1000m",
+        "gender": "Women"
+      },
+      {
+        "name": "1000m U23",
+        "gender": "Women"
+      },
+      {
+        "name": "1000m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "1000m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "1000m U16",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://aaitacores.wixsite.com/aait",
+      "results": "https://aaitacores.wixsite.com/aait/programasresultados"
+    },
+    "contact": [
+      {
+        "email": "terceira@fpatletismo.org",
+        "name": "Paula Borba"
+      },
+      {
+        "email": "terceira@fpatletismo.org",
+        "name": "Paula Borba"
+      }
+    ]
+  },
+  {
+    "id": 7235460,
+    "name": "Run For Life",
+    "venue": "Monza National Autodrome, Monza (ITA)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "10km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.runforlifeitaly.it/",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "info@runforlifeitaly.it",
+        "name": "Beatrice Di Virgilio"
+      },
+      {
+        "email": "info@runforlifeitaly.it",
+        "name": "Beatrice Di Virgilio"
+      }
+    ]
+  },
+  {
+    "id": 7235459,
+    "name": "Runner's lab Bashir's run",
+    "venue": "Gent (BEL)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "5 km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road U23",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road U20",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road U18",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road U23",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road U20",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon U18",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road",
+        "gender": "Women"
+      },
+      {
+        "name": "5 km Road U23",
+        "gender": "Women"
+      },
+      {
+        "name": "5 km Road U20",
+        "gender": "Women"
+      },
+      {
+        "name": "5 km Road U18",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road U23",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road U20",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "www.bashirsrun.be\t\t\t\t",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "jens@sportaround.be",
+        "name": "Jens"
+      }
+    ]
+  },
+  {
+    "id": 7236103,
+    "name": "EDP Lisbon Half Marathon",
+    "venue": "Lisboa (POR)",
+    "area": "Europe",
+    "category": "C",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "Half Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://maratonaclubedeportugal.com/corrida-marco/edp-meia-maratona-de-lisboa/",
+      "results": "https://results.sporthive.com/events/7391336032891165440"
+    },
+    "contact": [
+      {
+        "email": "maria.simoes@maratonaportugal.com",
+        "name": "Maria Simões"
+      },
+      {
+        "email": "carlos.moia@maratonaportugal.com",
+        "name": "Carlos Moia"
+      },
+      {
+        "email": "miguelmostaza@telefonica.net",
+        "name": "Miguel Mostaza"
+      },
+      {
+        "email": "mario.spiridon@gmail.com",
+        "name": "Mario Machado"
+      },
+      {
+        "email": "joao.rodrigues@femedica.pt",
+        "name": "Joao Rodrigues"
+      }
+    ]
+  },
+  {
+    "id": 7237334,
+    "name": "WLV - Winterwurfmeeting",
+    "venue": "LAZ Wien, Wien (AUT)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "Discus Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "www.oelv.at",
+      "results": "https://oelv.athmin.at/event-details.aspx?event=35750&int=&returnTo=L2V2ZW50cy5hc3B4"
+    },
+    "contact": [
+      {
+        "email": "karin_windisch@gmx.at",
+        "name": "Karin Purdon"
+      },
+      {
+        "email": "karin_windisch@gmx.at",
+        "name": "Karin Purdon"
+      }
+    ]
+  },
+  {
+    "id": 7237252,
+    "name": "Critériums Nationaux des Jeunes à la Marche U20",
+    "venue": "Lens (FRA)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "5km Walk U20",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Walk U20",
+        "gender": "Men"
+      },
+      {
+        "name": "5km Walk U20",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Walk U20",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "cnm@athle.fr",
+        "name": "CNM FFA"
+      }
+    ]
+  },
+  {
+    "id": 7237467,
+    "name": "XXVII Ed. Maratonina Comune di Brugnera - Alto Livenza",
+    "venue": "Via Santissima, Brugnera (ITA)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "Half Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.atleticabrugnera.com/",
+      "results": "https://www.fidal.it/calendario/XXVII%5E-Maratonina-Comune-di-Brugnera-Alto-Livenza/COD14401"
+    },
+    "contact": [
+      {
+        "email": "aetios.r@gmail.com",
+        "name": "Ezio Rover"
+      }
+    ]
+  },
+  {
+    "id": 7237027,
+    "name": "19.Throwing Cup Montenegro",
+    "venue": "Stadion Topolica, Bar (MNE)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "Shot Put",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw U20",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "ascg@t-com.me",
+        "name": "Milan Madzgalj"
+      }
+    ]
+  },
+  {
+    "id": 7232986,
+    "name": "Straßenlauf „Rund um das Bayer-Kreuz“",
+    "venue": "Leverkusen (GER)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "5 km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road U23",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road U20",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road U18",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road U23",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road U20",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road U18",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road",
+        "gender": "Women"
+      },
+      {
+        "name": "5 km Road U23",
+        "gender": "Women"
+      },
+      {
+        "name": "5 km Road U20",
+        "gender": "Women"
+      },
+      {
+        "name": "5 km Road U18",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road U23",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road U20",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "anne.eich@tsvbayer04.de",
+        "name": "Anne Eich"
+      },
+      {
+        "email": "anne.eich@tsvbayer04.de",
+        "name": "Anne Eich"
+      }
+    ]
+  },
+  {
+    "id": 7238699,
+    "name": "Runner's lab Bashir's run",
+    "venue": "Wouter Weylandtstadion, Gentbrugge (BEL)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "Half Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "www.atletiek.nu",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "info@atletiek.be",
+        "name": "VAL"
+      }
+    ]
+  },
+  {
+    "id": 7237253,
+    "name": "Critériums Nationaux des Jeunes à la Marche U18",
+    "venue": "Lens (FRA)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "5km Walk U18",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Walk U18",
+        "gender": "Men"
+      },
+      {
+        "name": "5km Walk U18",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Walk U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "cnm@athle.fr",
+        "name": "CNM FFA"
+      }
+    ]
+  },
+  {
+    "id": 7237472,
+    "name": "Campionati Regionali Individuali Di Lanci Invernali Cadetti/Allievi - 2^ Giornata + Trofeo Foresti",
+    "venue": "Campo Scuola, Cremona (ITA)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "Javelin Throw (700g) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw (5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw (500g) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw (3kg) U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "tizianozini1955@gmail.com",
+        "name": "Zini Tiziano"
+      }
+    ]
+  },
+  {
+    "id": 7235136,
+    "name": "Belgian U23 Indoor Championships",
+    "venue": "Complexe Sportif de Blocry, Louvain-La-Neuve (BEL)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "60m U23",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH U23",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U23",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U23",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH U23",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U23",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "info@lbfa.be",
+        "name": "LBFA"
+      }
+    ]
+  },
+  {
+    "id": 7235135,
+    "name": "Belgian U20 Indoor Championships",
+    "venue": "Complexe Sportif de Blocry, Louvain-La-Neuve (BEL)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "60m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH (0.99) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (6kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH U20",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "info@lbfa.be",
+        "name": "LBFA"
+      }
+    ]
+  },
+  {
+    "id": 7237192,
+    "name": "Discus Kogel Elite (op uitnodiging)",
+    "venue": "Sportpark De Omzoom, Assendelft (NED)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "Shot Put",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.atletiek.nl/wedstrijdkalender/?id=13503",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "dealeertouwer@hetnet.nl",
+        "name": "WOC AV Lycurgus"
+      },
+      {
+        "email": "dealeertouwer@hetnet.nl",
+        "name": "WOC AV Lycurgus"
+      }
+    ]
+  },
+  {
+    "id": 7227115,
+    "name": "Athens Half Marathon",
+    "venue": "Athina (GRE)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "5 km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "www.segas.gr",
+      "results": "www.segas.gr"
+    },
+    "contact": [
+      {
+        "email": "andreasgogas@gmail.com",
+        "name": "Andreas Gkogkas"
+      }
+    ]
+  },
+  {
+    "id": 7238189,
+    "name": "NIKE Spring Run",
+    "venue": "Fælledparken, Copenhagen (DEN)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "5 km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road U23",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road U20",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road U18",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road U16",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road U23",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road U20",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road U18",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road U16",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon U16",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road",
+        "gender": "Women"
+      },
+      {
+        "name": "5 km Road U23",
+        "gender": "Women"
+      },
+      {
+        "name": "5 km Road U20",
+        "gender": "Women"
+      },
+      {
+        "name": "5 km Road U18",
+        "gender": "Women"
+      },
+      {
+        "name": "5 km Road U16",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road U23",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road U20",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road U18",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road U16",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon U16",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://sparta.dk/events/nike-spring-run-2/",
+      "results": "https://sparta.dk/event-oversigt/deltager-og-resultatliste/andre-loeb-resultatliste/"
+    },
+    "contact": [
+      {
+        "email": "chfr@sparta.dk",
+        "name": "Christian Friis"
+      }
+    ]
+  },
+  {
+    "id": 7236854,
+    "name": "Steirische Winterwurfmeisterschaften",
+    "venue": "Sportzentrum, Knittelfeld (AUT)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "Discus Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw (1,75kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw (1,5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw (6kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw (5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw (700g) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw (3kg) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw (500g) U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://oelv.athmin.at/event-details.aspx?event=35654&int=&returnTo=L2V2ZW50cy5hc3B4",
+      "results": "https://oelv.athmin.at/event-details.aspx?event=35654&int=&returnTo=L2V2ZW50cy5hc3B4"
+    },
+    "contact": [
+      {
+        "email": "wolfgang.muehlthaler@knittelfeld.gv.at",
+        "name": "Wolfgang Mühlthaler"
+      },
+      {
+        "email": "wolfgang.muehlthaler@knittelfeld.gv.at",
+        "name": "Wolfgang Mühlthaler"
+      }
+    ]
+  },
+  {
+    "id": 7236643,
+    "name": "Swiss Cross Country Championships",
+    "venue": "Stadion Hard, Langenthal (SUI)",
+    "area": "Europe",
+    "category": "B",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "XC Long Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Short Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U23 Race U23",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Long Race",
+        "gender": "Women"
+      },
+      {
+        "name": "XC Short Race",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U23 Race U23",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://cross2026.ch/Startseite/",
+      "results": "https://cross2026.ch/Rangliste/"
+    },
+    "contact": [
+      {
+        "email": "info@swiss-athletics.ch",
+        "name": "Schneider Andrea"
+      },
+      {
+        "email": "info@swiss-athletics.ch",
+        "name": "Schneider Andrea"
+      }
+    ]
+  },
+  {
+    "id": 7231409,
+    "name": "Air Loughborough",
+    "venue": "Loughborough University Indoor Track, Loughborough (GBR)",
+    "area": "Europe",
+    "category": "D",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "Pole Vault",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.lboro.ac.uk/sport/sports/athletics/competition-entries/",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "E.Wiltshire@lboro.ac.uk",
+        "name": "Emma Wiltshire"
+      },
+      {
+        "email": "E.Wiltshire@lboro.ac.uk",
+        "name": "Emma Wiltshire"
+      },
+      {
+        "email": "E.Wiltshire@lboro.ac.uk",
+        "name": "Emma Wiltshire"
+      },
+      {
+        "email": "K.Rooney@lboro.ac.uk",
+        "name": "Kate Rooney"
+      }
+    ]
+  },
+  {
+    "id": 7238408,
+    "name": "Championnat de Zone BOU U14 en salle",
+    "venue": "Hall Campus Universitaire, Dijon (FRA)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "High Jump U36(18+)",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U36(18+)",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U36(18+)",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U36(18+)",
+        "gender": "Men"
+      },
+      {
+        "name": "50m U36(18+)",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U36(18+)",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U36(18+)",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U36(18+)",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U36(18+)",
+        "gender": "Women"
+      },
+      {
+        "name": "50m U36(18+)",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.athle.fr/asp.net/main.html/html.aspx?htmlid=5257",
+      "results": null
+    },
+    "contact": []
+  },
+  {
+    "id": 7236007,
+    "name": "HOKA Semi de Paris",
+    "venue": "Paris (FRA)",
+    "area": "Europe",
+    "category": "E",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "Half Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.hokasemideparis.com/",
+      "results": "https://www.hokasemideparis.com/"
+    },
+    "contact": [
+      {
+        "email": "semideparis@aso.fr",
+        "name": "Participants Desk"
+      },
+      {
+        "email": "semideparis@aso.fr",
+        "name": "Participants Desk"
+      },
+      {
+        "email": "semideparis@aso.fr",
+        "name": "Participants Desk"
+      },
+      {
+        "email": "tdelpeuch@aso.fr",
+        "name": "DELPEUCH Thomas"
+      },
+      {
+        "email": "auguin@wanadoo.fr",
+        "name": "AUGUIN René"
+      },
+      {
+        "email": "p.basset@dokever.com",
+        "name": "BASSET Patrick"
+      }
+    ]
+  },
+  {
+    "id": 7236129,
+    "name": "3. VCM Winterlauf",
+    "venue": "Prater Hauptallee, Wien (AUT)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-08",
+    "disciplines": [
+      {
+        "name": "Mile Road",
+        "gender": "Men"
+      },
+      {
+        "name": "5 km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Mile Road",
+        "gender": "Women"
+      },
+      {
+        "name": "5 km Road",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Road",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "www.vienna-marathon.com",
+      "results": "www.vienna-marathon.com"
+    },
+    "contact": [
+      {
+        "email": "office@vienna-marathon.com",
+        "name": "Kathrin Widu"
+      }
+    ]
+  },
+  {
+    "id": 7238709,
+    "name": "Atleta Completo - Fase regional - U14/U16",
+    "venue": "Complexo Municipal de Atletismo Carla Sacramento, Seixal (POR)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "100m",
+        "gender": "Men"
+      },
+      {
+        "name": "200m",
+        "gender": "Men"
+      },
+      {
+        "name": "400m",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m",
+        "gender": "Men"
+      },
+      {
+        "name": "110mH",
+        "gender": "Men"
+      },
+      {
+        "name": "110mH (0.99) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "110mH (0.91) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Octathlon U18 U18",
+        "gender": "Men"
+      },
+      {
+        "name": "300m U16",
+        "gender": "Men"
+      },
+      {
+        "name": "Octathlon U18 U16",
+        "gender": "Men"
+      },
+      {
+        "name": "100m",
+        "gender": "Women"
+      },
+      {
+        "name": "200m",
+        "gender": "Women"
+      },
+      {
+        "name": "400m",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m",
+        "gender": "Women"
+      },
+      {
+        "name": "100mH",
+        "gender": "Women"
+      },
+      {
+        "name": "100mH (0.76/8.50) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Heptathlon U18 U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Heptathlon U16",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://asasetubal.pt/",
+      "results": "https://asasetubal.pt/"
+    },
+    "contact": [
+      {
+        "email": "asas.dtr2020@gmail.com",
+        "name": "João Coelho"
+      },
+      {
+        "email": "asas.dtr2020@gmail.com",
+        "name": "João Coelho"
+      }
+    ]
+  },
+  {
+    "id": 7237469,
+    "name": "Campionati Regionali Cadetti U16",
+    "venue": "Palaindoor O. Bernes, Udine (ITA)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "60m U16",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH U16",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U16",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U16",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U16",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U16",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U16",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH U16",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U16",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U16",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U16",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U16",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://fvg.fidal.it/",
+      "results": "https://fvg.fidal.it/"
+    },
+    "contact": [
+      {
+        "email": "presidente.fvg@fidal.it",
+        "name": "massimo"
+      }
+    ]
+  },
+  {
+    "id": 7237727,
+    "name": "Campionati Regionali Individuali di Lanci lunghi (compresi cadetti il 7-03)",
+    "venue": "Campo Scolastico Domenico Mancinelli, Viterbo (ITA)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "Shot Put U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (6kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw (1,75kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw (1,5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw (6kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw (5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw (700g) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (6kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw (1,75kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw (6kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put (3kg) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw (3kg) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw (500g) U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "tecnico.lazio@fidal.it",
+        "name": "EMILIO DE BONIS"
+      }
+    ]
+  },
+  {
+    "id": 7237271,
+    "name": "Zlatá struna města Pardubic",
+    "venue": "Městský atletický stadion, Pardubice (CZE)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "Hammer Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "tlapakovaiva@email.cz",
+        "name": "Iva Tlapáková"
+      }
+    ]
+  },
+  {
+    "id": 7237708,
+    "name": "High jump meeting Ljubljana",
+    "venue": "Dvorana Grintovec Fakulteta za šport, Ljubljana (SLO)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "High Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www2.arnes.si/~msparo1/video.html#",
+      "results": "https://slovenska-atletika.si/tekmovanja-in-rezultati-2/"
+    },
+    "contact": [
+      {
+        "email": "atletskodrustvo.lj@yahoo.com",
+        "name": "Damjan Šparovec"
+      }
+    ]
+  },
+  {
+    "id": 7238459,
+    "name": "Int. ÖLV-Hallenmeeting #3",
+    "venue": "Sport Arena Wien, Wien (AUT)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "60m",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH (0.99) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60m",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://oelv.athmin.at/event-details.aspx?event=35940&int=&returnTo=L2V2ZW50cy5hc3B4",
+      "results": "https://oelv.athmin.at/event-details.aspx?event=35940&int=&returnTo=L2V2ZW50cy5hc3B4"
+    },
+    "contact": [
+      {
+        "email": "biederbeck@oelv.at",
+        "name": "Thomas Biederbeck"
+      },
+      {
+        "email": "biederbeck@oelv.at",
+        "name": "Thomas Biederbeck"
+      }
+    ]
+  },
+  {
+    "id": 7234115,
+    "name": "Campeonato Madrid U20 Short Track",
+    "venue": "Gallur, Madrid (ESP)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "60m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH (0.99) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (6kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH U20",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "sdiez@atletismomadrid.com",
+        "name": "Santiago Diez Rodriguez"
+      }
+    ]
+  },
+  {
+    "id": 7234114,
+    "name": "Cataluña U20 Indoor Championships",
+    "venue": "Pista Coberta de Catalunya, Sabadell (ESP)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "60m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH (0.99) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (6kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH U20",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "www.fcatletisme.cat",
+      "results": "www.fcatletisme.cat"
+    },
+    "contact": [
+      {
+        "email": "fca@fcatletisme.cat",
+        "name": "Joaquim Erta Borrego"
+      }
+    ]
+  },
+  {
+    "id": 7236852,
+    "name": "Campeonato da AASM de Atleta Completo e Provas Combinadas",
+    "venue": "Complexo Desportivo das Laranjeiras, Ponta Delgada (POR)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "Decathlon U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Decathlon U20 U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Decathlon U18 U18",
+        "gender": "Men"
+      },
+      {
+        "name": "100m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "200m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "400m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "800m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "5000m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "110mH U18",
+        "gender": "Men"
+      },
+      {
+        "name": "110mH (0.99) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "110mH (0.91) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (6kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw (1,75kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw (1,5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw (5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw (6kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw (700g) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "100m",
+        "gender": "Women"
+      },
+      {
+        "name": "200m",
+        "gender": "Women"
+      },
+      {
+        "name": "400m",
+        "gender": "Women"
+      },
+      {
+        "name": "800m",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m",
+        "gender": "Women"
+      },
+      {
+        "name": "5000m",
+        "gender": "Women"
+      },
+      {
+        "name": "100mH",
+        "gender": "Women"
+      },
+      {
+        "name": "Heptathlon",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Heptathlon U18 U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put (3kg) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw (3kg) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw (500g) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "100mH (0.76/8.50) U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://aatletismosmiguel.pt/",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "jneves76@gmail.com",
+        "name": "José Neves"
+      },
+      {
+        "email": "jneves76@gmail.com",
+        "name": "José Neves"
+      }
+    ]
+  },
+  {
+    "id": 7230585,
+    "name": "Swedish U23 Indoor Championships",
+    "venue": "Telekonsult Arena, Växjö (SWE)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "60m U23",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH U23",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Weight Throw U23",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U23",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH U23",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Weight Throw U23",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "www.friidrott.se/arrangemang",
+      "results": "www.friidrottsstatistik.se"
+    },
+    "contact": [
+      {
+        "email": "fredrik.ahlstrom@ifkvaxjo.se",
+        "name": "Fredrik Ahlström"
+      }
+    ]
+  },
+  {
+    "id": 7233425,
+    "name": "41º Campeonato Distrital de Inverno de Pista",
+    "venue": "Estádio Municipal Fontelo, Viseu (POR)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "60m",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "400m",
+        "gender": "Men"
+      },
+      {
+        "name": "400m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "400m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw U18",
+        "gender": "Men"
+      },
+      {
+        "name": "60m",
+        "gender": "Women"
+      },
+      {
+        "name": "60m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "60m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "400m",
+        "gender": "Women"
+      },
+      {
+        "name": "400m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "400m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.atletismoviseu.pt/competition/40o-campeonato-distrital-de-inverno-de-pista-08-02-2025",
+      "results": "https://www.atletismoviseu.pt/competition/40o-campeonato-distrital-de-inverno-de-pista-08-02-2025"
+    },
+    "contact": [
+      {
+        "email": "viseu@fpatletismo.org",
+        "name": "Teresa Mendes"
+      }
+    ]
+  },
+  {
+    "id": 7238263,
+    "name": "TM Winterwurf Hammer/Diskus",
+    "venue": "Wurfanlage Innsbruck - Arzl, Innsbruck (AUT)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "Discus Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw (1,75kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw (1,5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw (1kg) U16",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw (6kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw (5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw (4kg) U16",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw (3kg) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw (3kg) U16",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://oelv.athmin.at/event-details.aspx?event=35888&int=&returnTo=L2V2ZW50cy5hc3B4",
+      "results": "https://oelv.athmin.at/event-details.aspx?event=35888&int=&returnTo=L2V2ZW50cy5hc3B4"
+    },
+    "contact": [
+      {
+        "email": "lukas_haas@drei.at",
+        "name": "Lukas Haas"
+      }
+    ]
+  },
+  {
+    "id": 7235134,
+    "name": "Belgian U18 Indoor Championships",
+    "venue": "Topsporthal Vlaanderen, Gent (BEL)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "60m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH (0.91) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH (0.76) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put (3kg) U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "info@atletiek.be",
+        "name": "VAL"
+      }
+    ]
+  },
+  {
+    "id": 7235308,
+    "name": "2ª Jornada de Lançamentos JV",
+    "venue": "Centro Nacional de Lançamentos, Leiria (POR)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "Shot Put",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Discus Throw U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Hammer Throw U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Javelin Throw U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Discus Throw U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Hammer Throw U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Javelin Throw U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "diogocorreia@juventudevidigalense.org",
+        "name": "Diogo Correia"
+      },
+      {
+        "email": "diogocorreia@juventudevidigalense.org",
+        "name": "Diogo Correia"
+      }
+    ]
+  },
+  {
+    "id": 7236261,
+    "name": "Ukrainian U20 Race Walking Team Championships",
+    "venue": "Uzhgorod (UKR)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "10km Walk U20",
+        "gender": "Men"
+      },
+      {
+        "name": "5km Walk U18",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Walk U18",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Walk U20",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Walk U18",
+        "gender": "Women"
+      },
+      {
+        "name": "5km Walk U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": "https://uaf.org.ua/calendar-flau/?search_year=2026&search_month=&search_country=&search_territory=&search_city=&search_type=&search_name=&search_filter=%D0%9F%D0%BE%D1%88%D1%83%D0%BA"
+    },
+    "contact": [
+      {
+        "email": "yana.athletics@gmail.com",
+        "name": "Yana"
+      }
+    ]
+  },
+  {
+    "id": 7238223,
+    "name": "Campeonatos Regionais de Provas Combinadas - Sub 18 / Torneio Atleta Completo",
+    "venue": "Estádio Municipal de Câmara de Lobos, Câmara de Lobos (POR)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "Decathlon U18 U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Decathlon U20 U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Decathlon U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Decathlon",
+        "gender": "Men"
+      },
+      {
+        "name": "Octathlon U18 U16",
+        "gender": "Men"
+      },
+      {
+        "name": "100m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "200m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "500m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Mile U18",
+        "gender": "Men"
+      },
+      {
+        "name": "2000m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "110mH (0.91) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "100m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "200m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "500m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "2000m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Mile U20",
+        "gender": "Men"
+      },
+      {
+        "name": "110mH (0.99) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "100m U23",
+        "gender": "Men"
+      },
+      {
+        "name": "200m U23",
+        "gender": "Men"
+      },
+      {
+        "name": "500m U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Mile U23",
+        "gender": "Men"
+      },
+      {
+        "name": "2000m U23",
+        "gender": "Men"
+      },
+      {
+        "name": "110mH U23",
+        "gender": "Men"
+      },
+      {
+        "name": "100m",
+        "gender": "Men"
+      },
+      {
+        "name": "200m",
+        "gender": "Men"
+      },
+      {
+        "name": "500m",
+        "gender": "Men"
+      },
+      {
+        "name": "Mile",
+        "gender": "Men"
+      },
+      {
+        "name": "2000m",
+        "gender": "Men"
+      },
+      {
+        "name": "110mH",
+        "gender": "Men"
+      },
+      {
+        "name": "Heptathlon U18 U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Heptathlon U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Heptathlon U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Heptathlon",
+        "gender": "Women"
+      },
+      {
+        "name": "100m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "500m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "2000m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Mile U18",
+        "gender": "Women"
+      },
+      {
+        "name": "200m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "100m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "200m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "500m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "2000m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Mile U20",
+        "gender": "Women"
+      },
+      {
+        "name": "100mH U20",
+        "gender": "Women"
+      },
+      {
+        "name": "100m U23",
+        "gender": "Women"
+      },
+      {
+        "name": "200m U23",
+        "gender": "Women"
+      },
+      {
+        "name": "500m U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Mile U23",
+        "gender": "Women"
+      },
+      {
+        "name": "2000m U23",
+        "gender": "Women"
+      },
+      {
+        "name": "100mH U23",
+        "gender": "Women"
+      },
+      {
+        "name": "100m",
+        "gender": "Women"
+      },
+      {
+        "name": "200m",
+        "gender": "Women"
+      },
+      {
+        "name": "500m",
+        "gender": "Women"
+      },
+      {
+        "name": "Mile",
+        "gender": "Women"
+      },
+      {
+        "name": "2000m",
+        "gender": "Women"
+      },
+      {
+        "name": "100mH",
+        "gender": "Women"
+      },
+      {
+        "name": "100mH (0.76/8.50) U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://atletismodamadeira.pt/event/atleta-completo-camp-reg-p-combinadas-sub-18/",
+      "results": "https://atletismodamadeira.pt/event/atleta-completo-camp-reg-p-combinadas-sub-18/"
+    },
+    "contact": [
+      {
+        "email": "taz353@gmail.com",
+        "name": "Hélder Fernandes"
+      },
+      {
+        "email": "taz353@gmail.com",
+        "name": "Hélder Fernandes"
+      }
+    ]
+  },
+  {
+    "id": 7234173,
+    "name": "Irish Universities Athletics Association Indoor Track & Field",
+    "venue": "National Indoor Arena, Abbotstown, Dublin (IRL)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "400m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "60m",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "2000m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "1000m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "4x400m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "4x200m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "Heptathlon sh",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Men"
+      },
+      {
+        "name": "Weight Throw",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "1000m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "2000m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH U20",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (6kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Weight Throw U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Heptathlon U20 sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Heptathlon sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "4x200m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "4x400m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U23",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH U23",
+        "gender": "Men"
+      },
+      {
+        "name": "110mH U23",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Weight Throw U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Heptathlon sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "4x200m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "4x400m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "2000m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "1000m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "60m",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "2000m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Women"
+      },
+      {
+        "name": "Weight Throw",
+        "gender": "Women"
+      },
+      {
+        "name": "Pentathlon sh",
+        "gender": "Women"
+      },
+      {
+        "name": "4x200m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "4x400m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "1000m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "60m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "1000m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH U20",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Weight Throw U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Pentathlon sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "4x200m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "4x400m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "60m U23",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "1000m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "2000m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH U23",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Weight Throw U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Pentathlon sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "4x200m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "4x400m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "4x400m sh",
+        "gender": "Mixed"
+      },
+      {
+        "name": "4x400m sh U23",
+        "gender": "Mixed"
+      },
+      {
+        "name": "4x400m sh U20",
+        "gender": "Mixed"
+      }
+    ],
+    "links": {
+      "web": "https://iuaa.org/",
+      "results": "https://results.iuaa.org/"
+    },
+    "contact": [
+      {
+        "email": "victoria.i.daniel@gmail.com",
+        "name": "Victoria Isa Daniel"
+      }
+    ]
+  },
+  {
+    "id": 7234033,
+    "name": "England Athletics Age Group CE and Junior Para Championships",
+    "venue": "English Institute of Sport, Sheffield (GBR)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "Heptathlon sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U18",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U16",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U16",
+        "gender": "Men"
+      },
+      {
+        "name": "Heptathlon sh U16",
+        "gender": "Men"
+      },
+      {
+        "name": "Pentathlon sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "60m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Pentathlon U18 sh U16",
+        "gender": "Women"
+      },
+      {
+        "name": "60m U16",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U16",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U16",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U16",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.englandathletics.org/",
+      "results": "https://meets.rosterathletics.com/"
+    },
+    "contact": [
+      {
+        "email": "ejanerichardson@englandathletics.org",
+        "name": "Emily-Jane Richardson"
+      }
+    ]
+  },
+  {
+    "id": 7235225,
+    "name": "9. Polojska ultra 100k",
+    "venue": "Slavonski Brod (CRO)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "Road Race",
+        "gender": "Men"
+      },
+      {
+        "name": "100km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "Road Race",
+        "gender": "Women"
+      },
+      {
+        "name": "100km Road",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "http://mazator.hr/",
+      "results": "https://www.utrka.com/utrke/polojskaultra/2026/info/"
+    },
+    "contact": [
+      {
+        "email": "ultra@mazator.hr",
+        "name": "Tomislav Marinovic"
+      },
+      {
+        "email": "ultra@mazator.hr",
+        "name": "Tomislav Marinovic"
+      }
+    ]
+  },
+  {
+    "id": 7235226,
+    "name": "9. Polojska ultra 50km",
+    "venue": "Slavonski Brod (CRO)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "Road Race",
+        "gender": "Men"
+      },
+      {
+        "name": "50km Road",
+        "gender": "Men"
+      },
+      {
+        "name": "Road Race",
+        "gender": "Women"
+      },
+      {
+        "name": "50km Road",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "http://mazator.hr/",
+      "results": "https://www.utrka.com/utrke/polojskaultra/2026/info/"
+    },
+    "contact": [
+      {
+        "email": "ultra@mazator.hr",
+        "name": "Tomislav Marinovic"
+      },
+      {
+        "email": "ultra@mazator.hr",
+        "name": "Tomislav Marinovic"
+      }
+    ]
+  },
+  {
+    "id": 7235530,
+    "name": "Danish U20 Indoor Championships",
+    "venue": "Spar Nord Arena, Skive (DEN)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "60m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH (0.99) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (6kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "4x200m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH U20",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Women"
+      },
+      {
+        "name": "4x200m sh U20",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "bent@jensen.work",
+        "name": "Bent Jensen"
+      },
+      {
+        "email": "bent@jensen.work",
+        "name": "Bent Jensen"
+      }
+    ]
+  },
+  {
+    "id": 7235531,
+    "name": "Danish U18 Indoor Championships",
+    "venue": "Spar Nord Arena, Skive (DEN)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "60m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH (0.91) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "4x200m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH (0.76) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put (3kg) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "4x200m sh U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "bent@jensen.work",
+        "name": "Bent Jensen"
+      },
+      {
+        "email": "bent@jensen.work",
+        "name": "Bent Jensen"
+      }
+    ]
+  },
+  {
+    "id": 7235532,
+    "name": "Danish U16 Indoor Championships",
+    "venue": "Spar Nord Arena, Skive (DEN)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "60m U16",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U16",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U16",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U16",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh U16",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U16",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U16",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U16",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U16",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (4kg) U16",
+        "gender": "Men"
+      },
+      {
+        "name": "4x200m sh U16",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U16",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U16",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U16",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U16",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh U16",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U16",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U16",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U16",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U16",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put (3kg) U16",
+        "gender": "Women"
+      },
+      {
+        "name": "4x200m sh U16",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "bent@jensen.work",
+        "name": "Bent Jensen"
+      },
+      {
+        "email": "bent@jensen.work",
+        "name": "Bent Jensen"
+      }
+    ]
+  },
+  {
+    "id": 7235533,
+    "name": "Danish U23 Indoor Championships",
+    "venue": "Spar Nord Arena, Skive (DEN)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-03-07",
+    "disciplines": [
+      {
+        "name": "60m U23",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH U23",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put U23",
+        "gender": "Men"
+      },
+      {
+        "name": "4x200m sh U23",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U23",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh U23",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH U23",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U23",
+        "gender": "Women"
+      },
+      {
+        "name": "4x200m sh U23",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "bent@jensen.work",
+        "name": "Bent Jensen"
+      },
+      {
+        "email": "bent@jensen.work",
+        "name": "Bent Jensen"
+      }
+    ]
+  },
+  {
+    "id": 7236395,
+    "name": "BOclassic Alto Adige",
+    "venue": "Bolzano (ITA)",
+    "area": "Europe",
+    "category": "E",
+    "startDate": "2026-12-31",
+    "disciplines": [
+      {
+        "name": "5 km Road",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.boclassic.it",
+      "results": "https://www.boclassic.it/en/cmspre/14.html"
+    },
+    "contact": [
+      {
+        "email": "office@boclassic.it",
+        "name": "Christiane Warasin"
+      },
+      {
+        "email": "office@boclassic.it",
+        "name": "Christiane Warasin"
+      },
+      {
+        "email": "office@boclassic.it",
+        "name": "Christiane Warasin"
+      },
+      {
+        "email": "office@boclassic.it",
+        "name": "Christiane Warasin"
+      },
+      {
+        "email": "francesca.conte.medsport@gmail.com",
+        "name": "Francesca Conte"
+      }
+    ]
+  },
+  {
+    "id": 7236396,
+    "name": "BOclassic Alto Adige - 10km",
+    "venue": "Bolzano (ITA)",
+    "area": "Europe",
+    "category": "E",
+    "startDate": "2026-12-31",
+    "disciplines": [
+      {
+        "name": "10km Road",
+        "gender": "Men"
+      }
+    ],
+    "links": {
+      "web": "https://www.boclassic.it",
+      "results": "https://www.boclassic.it/en/cmspre/14.html"
+    },
+    "contact": [
+      {
+        "email": "office@boclassic.it",
+        "name": "Christiane Warasin"
+      },
+      {
+        "email": "office@boclassic.it",
+        "name": "Christiane Warasin"
+      },
+      {
+        "email": "office@boclassic.it",
+        "name": "Christiane Warasin"
+      },
+      {
+        "email": "office@boclassic.it",
+        "name": "Christiane Warasin"
+      },
+      {
+        "email": "beppe.buriasco@tiscali.it",
+        "name": "Giuseppe Buriasco"
+      },
+      {
+        "email": "francesca.conte.medsport@gmail.com",
+        "name": "Francesca Conte"
+      }
+    ]
+  },
+  {
+    "id": 7236763,
+    "name": "LSU Students Open Indoor Athletics Championships, Z. Šveikauskas & A. Stanislovaitis Cup",
+    "venue": "Lithaunian Sports University Indoor Arena, Kaunas (LTU)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-12-16",
+    "disciplines": [
+      {
+        "name": "60m",
+        "gender": "Men"
+      },
+      {
+        "name": "300m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "600m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "1000m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Men"
+      },
+      {
+        "name": "Distance Medley sh",
+        "gender": "Men"
+      },
+      {
+        "name": "60m",
+        "gender": "Women"
+      },
+      {
+        "name": "300m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "600m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "1000m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Women"
+      },
+      {
+        "name": "Distance Medley sh",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": "https://lengvoji.lt/"
+    },
+    "contact": [
+      {
+        "email": "alfonsasbuliuolis@gmail.com",
+        "name": "Alfonsas Buliuolis"
+      }
+    ]
+  },
+  {
+    "id": 7236472,
+    "name": "World Race Walking Tour",
+    "venue": "St Anne's Park, Dublin (IRL)",
+    "area": "Europe",
+    "category": "C",
+    "startDate": "2026-12-13",
+    "disciplines": [
+      {
+        "name": "3km Walk",
+        "gender": "Men"
+      },
+      {
+        "name": "5km Walk",
+        "gender": "Men"
+      },
+      {
+        "name": "10km Walk",
+        "gender": "Men"
+      },
+      {
+        "name": "20km Walk",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon Race Walk",
+        "gender": "Men"
+      },
+      {
+        "name": "35km Walk",
+        "gender": "Men"
+      },
+      {
+        "name": "Marathon Race Walk",
+        "gender": "Men"
+      },
+      {
+        "name": "3km Walk",
+        "gender": "Women"
+      },
+      {
+        "name": "5km Walk",
+        "gender": "Women"
+      },
+      {
+        "name": "10km Walk",
+        "gender": "Women"
+      },
+      {
+        "name": "20km Walk",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon Race Walk",
+        "gender": "Women"
+      },
+      {
+        "name": "35km Walk",
+        "gender": "Women"
+      },
+      {
+        "name": "Marathon Race Walk",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": "https://meets.rosterathletics.com/public/competitions"
+    },
+    "contact": [
+      {
+        "email": "pierce@savvysportsmgt.com",
+        "name": "Pierce O'Callaghan"
+      },
+      {
+        "email": "pierce@savvysportsmgt.com",
+        "name": "Pierce O'Callaghan"
+      },
+      {
+        "email": "pierce@savvysportsmgt.com",
+        "name": "Pierce O'Callaghan"
+      }
+    ]
+  },
+  {
+    "id": 7181228,
+    "name": "32nd SPAR European Cross Country Championships",
+    "venue": "Park of Friendship, Beograd (SRB)",
+    "area": "Europe",
+    "category": "GL",
+    "startDate": "2026-12-13",
+    "disciplines": [
+      {
+        "name": "XC Senior Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U23 Race U23",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U23 Race U20",
+        "gender": "Women"
+      },
+      {
+        "name": "XC Senior Race U20",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "ede.rutkovszky@european-athletics.org",
+        "name": "Ede Rutkovszky"
+      },
+      {
+        "email": "ede.rutkovszky@european-athletics.org",
+        "name": "Ede Rutkovszky"
+      }
+    ]
+  },
+  {
+    "id": 7239215,
+    "name": "Cupa de Iarna",
+    "venue": "Sala de Atletism Ioan Soter, Bucureşti (ROU)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-12-13",
+    "disciplines": [
+      {
+        "name": "60m",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "400m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Men"
+      },
+      {
+        "name": "60m",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "amabucuresti2000@gmail.com",
+        "name": "Alexandru"
+      },
+      {
+        "email": "amabucuresti2000@gmail.com",
+        "name": "Alexandru"
+      }
+    ]
+  },
+  {
+    "id": 7236713,
+    "name": "Kaunas \"Nemunas\" Open 1000 m Race Cup Competition",
+    "venue": "President Valdas Adamkus athletics indoor arena, Kaunas (LTU)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-12-12",
+    "disciplines": [
+      {
+        "name": "1000m sh U16",
+        "gender": "Men"
+      },
+      {
+        "name": "1000m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "1000m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "1000m sh U16",
+        "gender": "Women"
+      },
+      {
+        "name": "1000m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "1000m sh U20",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": "lengvoji.lt"
+    },
+    "contact": [
+      {
+        "email": "ricardasnorkus64@gmail.com",
+        "name": "Ričardas Norkus"
+      }
+    ]
+  },
+  {
+    "id": 7235578,
+    "name": "Maratón Valencia Trinidad Alfonso Zurich",
+    "venue": "Valencia (ESP)",
+    "area": "Europe",
+    "category": "GW",
+    "startDate": "2026-12-06",
+    "disciplines": [
+      {
+        "name": "Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Marathon",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": " https://www.valenciaciudaddelrunning.com/maraton/maraton/",
+      "results": " https://www.valenciaciudaddelrunning.com/maraton/clasificaciones-maraton-2023/"
+    },
+    "contact": [
+      {
+        "email": "gerencia@correcaminos.org",
+        "name": "Juan Manuel Botella"
+      },
+      {
+        "email": "gerencia@correcaminos.org",
+        "name": "Juan Manuel Botella"
+      },
+      {
+        "email": "gerencia@correcaminos.org",
+        "name": "Juan Manuel Botella"
+      },
+      {
+        "email": "gerencia@correcaminos.org",
+        "name": "Francisco Borao"
+      },
+      {
+        "email": "elite@maratonvalencia.com",
+        "name": "Marc Roig"
+      },
+      {
+        "email": "virlodel@hotmail.com",
+        "name": " Virginia López"
+      }
+    ]
+  },
+  {
+    "id": 7237511,
+    "name": "Course de l'Escalade",
+    "venue": "Genève (SUI)",
+    "area": "Europe",
+    "category": "E",
+    "startDate": "2026-12-06",
+    "disciplines": [
+      {
+        "name": "Road Race",
+        "gender": "Men"
+      },
+      {
+        "name": "Road Race",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://escalade.ch/",
+      "results": "https://escalade.ch/classements/"
+    },
+    "contact": [
+      {
+        "email": "secr@escalade.ch",
+        "name": "Jerry Maspoli"
+      },
+      {
+        "email": "secr@escalade.ch",
+        "name": "Jerry Maspoli"
+      },
+      {
+        "email": "secr@escalade.ch",
+        "name": "Jerry Maspoli"
+      },
+      {
+        "email": "elites@escalade.ch",
+        "name": "Julien Salamun"
+      },
+      {
+        "email": "bruno.fries@escalade.ch",
+        "name": "Bruno Fries"
+      },
+      {
+        "email": "julien.salamun@gmail.com",
+        "name": "Julien Salamun"
+      }
+    ]
+  },
+  {
+    "id": 7236551,
+    "name": "7. Šibenik half marathon RUNESCO - steps of UNESCO World Heritage sites",
+    "venue": "Sibenik (CRO)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-12-05",
+    "disciplines": [
+      {
+        "name": "Half Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon U23",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon U20",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.utrka.com/utrke/unescohalf/2026/info/",
+      "results": "https://www.utrka.com/utrke/unescohalf/2026/rezultati/"
+    },
+    "contact": [
+      {
+        "email": "antezivkovic019@gmail.com",
+        "name": "Ante Živković"
+      }
+    ]
+  },
+  {
+    "id": 7236939,
+    "name": "Låvefesten",
+    "venue": "Nes Arena, Hvam (NOR)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-12-05",
+    "disciplines": [
+      {
+        "name": "60m",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "800m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "1500m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "3000m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH (0.99) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60mH (0.91) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Triple Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (6kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "60m",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "400m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "800m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "1500m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "3000m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH",
+        "gender": "Women"
+      },
+      {
+        "name": "60mH (0.76) U18",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Triple Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put (3kg) U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "ukifriidrett@gmail.com",
+        "name": "Hans Jørgen Borgen"
+      },
+      {
+        "email": "ukifriidrett@gmail.com",
+        "name": "Hans Jørgen Borgen"
+      }
+    ]
+  },
+  {
+    "id": 7238186,
+    "name": "German Cross Country Championships",
+    "venue": "Stadion Weinstadt, Weinstadt (GER)",
+    "area": "Europe",
+    "category": "B",
+    "startDate": "2026-11-29",
+    "disciplines": [
+      {
+        "name": "XC Long Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Short Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Long Race",
+        "gender": "Women"
+      },
+      {
+        "name": "XC Short Race",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "events@leichtathletik.de",
+        "name": "Vanessa Theodosiou"
+      },
+      {
+        "email": "events@leichtathletik.de",
+        "name": "Vanessa Theodosiou"
+      }
+    ]
+  },
+  {
+    "id": 7236710,
+    "name": "Polish Cross Country Championships",
+    "venue": "Kwidzyn (POL)",
+    "area": "Europe",
+    "category": "B",
+    "startDate": "2026-11-28",
+    "disciplines": [
+      {
+        "name": "XC U23 Race U23",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Long Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Short Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U23 Race U23",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Women"
+      },
+      {
+        "name": "XC Long Race",
+        "gender": "Women"
+      },
+      {
+        "name": "XC Short Race",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "maciej.jaloszynski@pzla.pl",
+        "name": "Maciej Jałoszyński"
+      }
+    ]
+  },
+  {
+    "id": 7239477,
+    "name": "Czech Cross Country Championships",
+    "venue": "Golf resort, Dříteč (CZE)",
+    "area": "Europe",
+    "category": "B",
+    "startDate": "2026-11-28",
+    "disciplines": [
+      {
+        "name": "XC Senior Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Long Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Short Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Senior Race",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Women"
+      },
+      {
+        "name": "XC Long Race",
+        "gender": "Women"
+      },
+      {
+        "name": "XC Short Race",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "www.atletika.cz",
+      "results": "www.atletika.cz"
+    },
+    "contact": [
+      {
+        "email": "ldinga@atletika.cz",
+        "name": "Libor Dinga"
+      }
+    ]
+  },
+  {
+    "id": 7236903,
+    "name": "Julestemne",
+    "venue": "Rud friidrettstadion, Bærum (NOR)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-11-28",
+    "disciplines": [
+      {
+        "name": "60m",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U20",
+        "gender": "Men"
+      },
+      {
+        "name": "60m U18",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "200m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "600m sh",
+        "gender": "Men"
+      },
+      {
+        "name": "600m sh U20",
+        "gender": "Men"
+      },
+      {
+        "name": "600m sh U18",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "High Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Pole Vault U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (6kg) U20",
+        "gender": "Men"
+      },
+      {
+        "name": "Shot Put (5kg) U18",
+        "gender": "Men"
+      },
+      {
+        "name": "60m",
+        "gender": "Women"
+      },
+      {
+        "name": "60m U20",
+        "gender": "Women"
+      },
+      {
+        "name": "60m U18",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "200m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "600m sh",
+        "gender": "Women"
+      },
+      {
+        "name": "600m sh U20",
+        "gender": "Women"
+      },
+      {
+        "name": "600m sh U18",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "High Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Pole Vault U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Long Jump U18",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put U20",
+        "gender": "Women"
+      },
+      {
+        "name": "Shot Put (3kg) U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.bul.no/idrottslaget/friidrett/stevner/julestemnet/",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "simen.wifstad@bul.no",
+        "name": "Simen Wifstad"
+      }
+    ]
+  },
+  {
+    "id": 7236040,
+    "name": "Israeli Cross Country Championship",
+    "venue": "Ganei Yeoshua - Hill, Tel Aviv (ISR)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-11-27",
+    "disciplines": [
+      {
+        "name": "XC Senior Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Long Race U18",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Short Race U16",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Senior Race",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Women"
+      },
+      {
+        "name": "XC Long Race U18",
+        "gender": "Women"
+      },
+      {
+        "name": "XC Short Race U16",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": ""
+    },
+    "contact": [
+      {
+        "email": "rogel@iaa.co.il",
+        "name": "Rogel nahum"
+      }
+    ]
+  },
+  {
+    "id": 7239532,
+    "name": "Spanish Cross Country Clubs National Championships",
+    "venue": "Centro de Arqueologia Experimental, Atapuerca (ESP)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-11-22",
+    "disciplines": [
+      {
+        "name": "XC Senior Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U23 Race U23",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Senior Race",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U23 Race U23",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "www.rfea.es",
+      "results": "www.rfea.es"
+    },
+    "contact": [
+      {
+        "email": "lsaladie@rfea.es",
+        "name": "Luis Saladie"
+      }
+    ]
+  },
+  {
+    "id": 7235543,
+    "name": "94th Cinque Mulini",
+    "venue": "San Vittore Olona (ITA)",
+    "area": "Europe",
+    "category": "GL",
+    "startDate": "2026-11-22",
+    "disciplines": [
+      {
+        "name": "XC Senior Race U20",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U23 Race U20",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Senior Race U20",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U23 Race U20",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "www.cinquemulini.org",
+      "results": "www.cinquemulini.org"
+    },
+    "contact": [
+      {
+        "email": "luca.zaffaroni@cinquemulini.org",
+        "name": "Luca Zaffaroni"
+      },
+      {
+        "email": "luca.zaffaroni@cinquemulini.org",
+        "name": "Luca Zaffaroni"
+      }
+    ]
+  },
+  {
+    "id": 7237565,
+    "name": "8. Gazi Half Marathon",
+    "venue": "Gaziantep (TUR)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-11-22",
+    "disciplines": [
+      {
+        "name": "Road Race",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Road Race",
+        "gender": "Women"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://gaziyarimaratonu.gaziantep.bel.tr",
+      "results": "https://gaziyarimaratonu.gaziantep.bel.tr"
+    },
+    "contact": [
+      {
+        "email": "payaza27@gmail.com",
+        "name": "SERDAR KURŞUN"
+      }
+    ]
+  },
+  {
+    "id": 7239239,
+    "name": "Cyprus Cross Country Championships",
+    "venue": "Nicosia (CYP)",
+    "area": "Europe",
+    "category": "B",
+    "startDate": "2026-11-21",
+    "disciplines": [
+      {
+        "name": "XC Senior Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U20 Race U18",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U20 Race U16",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Senior Race",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U20 Race U18",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U20 Race U16",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "",
+      "results": "https://cyprus.opentrack.run/en-gb/x/2024/CYP/cc24-0053/"
+    },
+    "contact": [
+      {
+        "email": "georgant@cytanet.com.cy",
+        "name": "Antonis Georgallides"
+      }
+    ]
+  },
+  {
+    "id": 7238229,
+    "name": "Ring Running Series",
+    "venue": "Hockenheimring, Hockenheim (GER)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-11-21",
+    "disciplines": [
+      {
+        "name": "Half Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Women"
+      },
+      {
+        "name": "Marathon",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://ringrunningseries.com/",
+      "results": "https://www.datasport.de/"
+    },
+    "contact": [
+      {
+        "email": "victoria.hillenbrand@ringrunningseries.com",
+        "name": "Victoria Hillenbrand"
+      }
+    ]
+  },
+  {
+    "id": 7236316,
+    "name": "Verona Run Marathon",
+    "venue": "Verona (ITA)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-11-15",
+    "disciplines": [
+      {
+        "name": "Half Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Half Marathon",
+        "gender": "Women"
+      },
+      {
+        "name": "Marathon",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.veronarunevents.it/",
+      "results": "https://www.veronarunevents.it/"
+    },
+    "contact": [
+      {
+        "email": "stefano@veronarunevents.it",
+        "name": "Stefano Stanzial"
+      },
+      {
+        "email": "stefano@veronarunevents.it",
+        "name": "Stefano Stanzial"
+      }
+    ]
+  },
+  {
+    "id": 7235470,
+    "name": "Sparkassen Cross Pforzheim",
+    "venue": "Pforzheim (GER)",
+    "area": "Europe",
+    "category": "GL",
+    "startDate": "2026-11-14",
+    "disciplines": [
+      {
+        "name": "XC Senior Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U23 Race U23",
+        "gender": "Men"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Short Race",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Short Race U18",
+        "gender": "Men"
+      },
+      {
+        "name": "XC Senior Race",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U23 Race U23",
+        "gender": "Women"
+      },
+      {
+        "name": "XC U20 Race U20",
+        "gender": "Women"
+      },
+      {
+        "name": "XC Short Race",
+        "gender": "Women"
+      },
+      {
+        "name": "XC Short Race U18",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://sparkassencross.de/",
+      "results": "https://sparkassencross.de/ergebnisse-2026/"
+    },
+    "contact": [
+      {
+        "email": "mail@sparkassencross.com",
+        "name": "Stephan Hohl"
+      },
+      {
+        "email": "mail@sparkassencross.com",
+        "name": "Stephan Hohl"
+      }
+    ]
+  },
+  {
+    "id": 7238379,
+    "name": "Marathon des Alpes-Maritimes Nice-Cannes",
+    "venue": "Nice (FRA)",
+    "area": "Europe",
+    "category": "F",
+    "startDate": "2026-11-08",
+    "disciplines": [
+      {
+        "name": "Marathon",
+        "gender": "Men"
+      },
+      {
+        "name": "Marathon U23",
+        "gender": "Men"
+      },
+      {
+        "name": "Marathon",
+        "gender": "Women"
+      },
+      {
+        "name": "Marathon U23",
+        "gender": "Women"
+      }
+    ],
+    "links": {
+      "web": "https://www.marathon06.com/",
+      "results": "https://www.marathon06.com/"
+    },
+    "contact": [
+      {
+        "email": "hugues@azur-sport.org",
+        "name": "Azur Sport Organisation"
+      }
+    ]
+  }
+]
