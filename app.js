@@ -1,4 +1,4 @@
-// 1. REFERENCIAS HTML (Tus referencias de siempre)
+// 1. REFERENCIAS HTML
 const eventGrid = document.getElementById('event-grid');
 const searchInput = document.getElementById('search-input');
 const monthSelect = document.getElementById('filter-month');
@@ -14,14 +14,14 @@ let dateStart = null;
 let dateEnd = null;
 let fp = null; 
 
-// FUNCIÓN PARA EL FILTRO (Extrae el código del país)
+// FUNCIÓN PARA EXTRAER EL CÓDIGO DEL PAÍS (Ej: "Madrid (ESP)" -> "ESP")
 function getOnlyCountryCode(venue) {
     if (!venue) return "INT";
     const match = venue.match(/\(([^)]+)\)$/); 
     return match ? match[1].toUpperCase() : "INT";
 }
 
-// 2. INICIALIZAR CALENDARIO FLATPICKR
+// 2. INICIALIZAR CALENDARIO (FLATPICKR)
 if (window.flatpickr) {
     fp = window.flatpickr("#date-range", {
         mode: "range",
@@ -43,20 +43,18 @@ if (window.flatpickr) {
     });
 }
 
-// 3. CARGA DESDE JSON (Sustituye a Firebase)
+// 3. CARGA DE DATOS DESDE EL JSON DE GITHUB
 async function loadData() {
     try {
-        const response = await fetch('eventos_2026.json');
+        // Añadimos un timestamp para evitar que el navegador guarde una versión vieja (caché)
+        const response = await fetch(`eventos_2026.json?t=${new Date().getTime()}`);
         const data = await response.json();
         
-        // Convertimos las fechas de texto a objetos Date de JS para que funcionen tus filtros
         allEvents = data.map(ev => ({
             ...ev,
-            // Si el scraper guardó startDate, lo convertimos
             parsedDate: new Date(ev.startDate)
         }));
 
-        // Ordenar por fecha
         allEvents.sort((a, b) => a.parsedDate - b.parsedDate);
 
         updateFilterOptions(allEvents);
@@ -67,12 +65,10 @@ async function loadData() {
     }
 }
 
-// 4. ACTUALIZAR OPCIONES DE FILTRO (Tu lógica original)
+// 4. ACTUALIZAR OPCIONES DE LOS SELECTORES
 function updateFilterOptions(events) {
-    const validEvents = events.filter(e => {
-        const year = e.parsedDate.getFullYear();
-        return e.category !== 'F' && e.category !== 'E' && year === 2026;
-    });
+    // Solo mostramos opciones basadas en eventos de 2026 (sin Cat E/F)
+    const validEvents = events.filter(e => e.parsedDate.getFullYear() === 2026);
 
     // Países
     const countryCodes = [...new Set(validEvents.map(e => getOnlyCountryCode(e.venue)))].sort();
@@ -81,28 +77,13 @@ function updateFilterOptions(events) {
         countrySelect.innerHTML += `<option value="${code}">${code}</option>`;
     });
 
-    // Niveles
+    // Niveles (Categorías A, B, C, D...)
     const levels = [...new Set(validEvents.map(e => e.category))].filter(Boolean).sort();
     levelSelect.innerHTML = '<option value="all">Niveles</option>';
     levels.forEach(l => levelSelect.innerHTML += `<option value="${l}">${l}</option>`);
-
-    // Meses
-    const monthNames = {
-        "01": "Enero", "02": "Febrero", "03": "Marzo", "04": "Abril",
-        "05": "Mayo", "06": "Junio", "07": "Julio", "08": "Agosto",
-        "09": "Septiembre", "10": "Octubre", "11": "Noviembre", "12": "Diciembre"
-    };
-    const availableMonths = [...new Set(validEvents.map(e => {
-        return (e.parsedDate.getMonth() + 1).toString().padStart(2, '0');
-    }))].sort();
-
-    monthSelect.innerHTML = '<option value="all">Meses</option>';
-    availableMonths.forEach(m => {
-        monthSelect.innerHTML += `<option value="${m}">${monthNames[m]}</option>`;
-    });
 }
 
-// 5. FILTRADO MAESTRO (Tu lógica exacta de Firebase adaptada)
+// 5. FILTRADO MAESTRO
 function applyFilters() {
     const search = (searchInput.value || "").toLowerCase();
     const month = monthSelect.value;
@@ -111,12 +92,8 @@ function applyFilters() {
 
     const filtered = allEvents.filter(ev => {
         const eventDate = ev.parsedDate;
-        const year = eventDate.getFullYear();
         const m = (eventDate.getMonth() + 1).toString().padStart(2, '0');
         
-        const is2026 = year === 2026;
-        const isNotLowLevel = ev.category !== 'F' && ev.category !== 'E';
-
         const matchesSearch = ev.name.toLowerCase().includes(search) || 
                              ev.venue.toLowerCase().includes(search);
         
@@ -127,13 +104,11 @@ function applyFilters() {
         
         const matchesLevel = level === 'all' || ev.category === level;
         
-        // Adaptación Género: El nuevo scraper guarda disciplinas en un array
+        // Lógica de Género: Buscamos en el array de disciplinas
         let matchesGender = true;
         if (currentGender !== 'all') {
             const target = currentGender === '🚹' ? 'Men' : 'Women';
-            matchesGender = ev.disciplines.some(d => 
-                d.name.includes("Vault") && (d.gender === target || d.gender === 'Both')
-            );
+            matchesGender = ev.disciplines.some(d => d.gender === target || d.gender === 'Both');
         }
 
         let matchesDateRange = true;
@@ -144,13 +119,13 @@ function applyFilters() {
             matchesDateRange = evTime >= start && evTime <= end;
         }
 
-        return is2026 && isNotLowLevel && matchesSearch && matchesMonth && matchesCountry && matchesLevel && matchesGender && matchesDateRange;
+        return matchesSearch && matchesMonth && matchesCountry && matchesLevel && matchesGender && matchesDateRange;
     });
 
     renderEvents(filtered);
 }
 
-// 6. RENDERIZAR TARJETAS (Tu diseño de GOLD, SILVER, etc.)
+// 6. RENDERIZAR TARJETAS EN EL GRID
 function renderEvents(events) {
     eventGrid.innerHTML = '';
     eventCountText.innerText = `${events.length} Competiciones`;
@@ -160,7 +135,7 @@ function renderEvents(events) {
             day: '2-digit', month: 'short', year: '2-digit' 
         });
 
-        // Niveles
+        // Estilos por nivel (Colores de siempre)
         let levelName = ev.category;
         let levelClass = "";
         switch(ev.category) {
@@ -168,10 +143,11 @@ function renderEvents(events) {
             case 'B': levelName = "SILVER"; levelClass = "level-silver"; break;
             case 'C': levelName = "BRONZE"; levelClass = "level-bronze"; break;
             case 'D': levelName = "CHALLENGER"; levelClass = "level-challenger"; break;
+            case 'GW': levelName = "G-WALK"; levelClass = "level-gold"; break;
             default: levelName = ev.category; levelClass = "level-silver";
         }
 
-        // Género (Simplificado para las etiquetas de la tarjeta)
+        // Etiquetas de género (simplificado para la tarjeta)
         const hasMen = ev.disciplines.some(d => d.gender === 'Men' || d.gender === 'Both');
         const hasWomen = ev.disciplines.some(d => d.gender === 'Women' || d.gender === 'Both');
         
@@ -198,7 +174,7 @@ function renderEvents(events) {
     });
 }
 
-// 7. MODAL (Adaptado a la estructura del Scraper)
+// 7. MODAL DETALLADO (CONTACTOS ARREGLADOS)
 function openModal(ev) {
     const modal = document.getElementById('event-modal');
     
@@ -206,24 +182,41 @@ function openModal(ev) {
     document.getElementById('modal-location').innerText = ev.venue;
     document.getElementById('modal-area').innerText = ev.area;
     document.getElementById('modal-cat').innerText = ev.category;
-    
-    // Mostramos las disciplinas en el modal-vault
-    const discs = ev.disciplines.map(d => `${d.name} (${d.gender})`).join(', ');
-    document.getElementById('modal-vault').innerText = discs;
-    
     document.getElementById('modal-date-tag').innerText = ev.parsedDate.toLocaleDateString('es-ES', { dateStyle: 'long' });
 
+    // Disciplinas (Muestra todas las pruebas del mitin)
+    const discs = ev.disciplines.map(d => `${d.name} (${d.gender})`).join(', ');
+    document.getElementById('modal-vault').innerText = discs;
+
+    // Enlaces
     const linksCont = document.getElementById('modal-links');
     linksCont.innerHTML = '';
-    // El scraper de ahora pone el link de WA directamente aquí
-    if (ev.links.web) linksCont.innerHTML += `<a href="${ev.links.web}" target="_blank" class="link-btn">Info Oficial</a>`;
+    if (ev.links.web) {
+        linksCont.innerHTML += `<a href="${ev.links.web}" target="_blank" class="link-btn"><i class="fas fa-external-link-alt"></i> Web Oficial</a>`;
+    }
+    if (ev.links.results) {
+        linksCont.innerHTML += `<a href="${ev.links.results}" target="_blank" class="link-btn"><i class="fas fa-poll"></i> Resultados</a>`;
+    }
 
+    // CONTACTOS (Ahora se muestran los del Scraper)
     const contactCont = document.getElementById('modal-contacts');
-    contactCont.innerHTML = '<p>Revisar web oficial para contacto.</p>';
+    if (ev.contact && ev.contact.length > 0) {
+        contactCont.innerHTML = ev.contact.map(c => `
+            <div class="contact-box" style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; margin-bottom: 8px;">
+                <p style="margin:0; font-weight:bold; color:#fff;"><i class="fas fa-user-tie"></i> ${c.name || 'Organizador'}</p>
+                ${c.email ? `<p style="margin:0;"><i class="fas fa-envelope"></i> <a href="mailto:${c.email}" style="color:#00d1b2;">${c.email}</a></p>` : ''}
+                ${c.phoneNumber ? `<p style="margin:0;"><i class="fas fa-phone"></i> ${c.phoneNumber}</p>` : ''}
+            </div>
+        `).join('');
+    } else {
+        contactCont.innerHTML = '<p style="color:#888; font-style:italic;"><i class="fas fa-info-circle"></i> No hay datos de contacto directo. Consulta la web oficial.</p>';
+    }
 
     modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; 
 }
 
+// CERRAR MODAL
 document.getElementById('close-modal').onclick = () => {
     document.getElementById('event-modal').style.display = 'none';
     document.body.style.overflow = 'auto';
@@ -239,10 +232,21 @@ genderButtons.forEach(btn => {
     btn.addEventListener('click', () => {
         genderButtons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        currentGender = btn.dataset.gender; // Usa 🚹 o 🚺
+        currentGender = btn.dataset.gender; 
         applyFilters();
     });
 });
 
-// Arrancar carga
+// Botón limpiar fechas
+if(clearDateBtn) {
+    clearDateBtn.onclick = () => {
+        fp.clear();
+        dateStart = null;
+        dateEnd = null;
+        clearDateBtn.style.display = "none";
+        applyFilters();
+    };
+}
+
+// INICIO
 loadData();
