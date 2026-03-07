@@ -326,3 +326,10 @@ select option { background: #121212; color: white; }
     border-radius: 12px; margin-top: 10px; 
     border-left: 3px solid var(--accent); 
 }
+
+.level-diamond { 
+    background: linear-gradient(135deg, #00C9FF 0%, #92FE9D 100%); 
+    color: #000; 
+    font-weight: 900; 
+    box-shadow: 0 0 12px rgba(0, 201, 255, 0.6); 
+}

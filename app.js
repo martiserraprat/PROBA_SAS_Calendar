@@ -16,7 +16,13 @@ let dateStart = null;
 let dateEnd = null;
 let fp = null; 
 
-const levelMap = { 'A': 'GOLD', 'B': 'SILVER', 'C': 'BRONZE', 'D': 'CHALLENGER', 'GW': 'G-WALK' };
+const levelMap = { 
+    'A': 'GOLD', 
+    'B': 'SILVER', 
+    'C': 'BRONZE', 
+    'D': 'CHALLENGER', 
+    'GW': 'DIAMOND' 
+};
 
 function getOnlyCountryCode(venue) {
     if (!venue) return "INT";
@@ -182,6 +188,7 @@ function renderEvents(events) {
             case 'B': levelClass = "level-silver"; break;
             case 'C': levelClass = "level-bronze"; break;
             case 'D': levelClass = "level-challenger"; break;
+            case 'GW': levelClass = "level-diamond"; break;
             default: levelClass = "level-silver";
         }
 
