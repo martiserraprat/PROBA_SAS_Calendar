@@ -300,7 +300,7 @@ select option { background: #121212; color: white; }
 .info-section h4 { 
     margin-top: 0;
     margin-bottom: 12px;
-    color: #00d1b2; 
+    color: rgb(0, 112, 243); 
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -314,12 +314,12 @@ select option { background: #121212; color: white; }
 
 .link-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
 .link-btn {
-    background: #00d1b2; color: #000;
+    background: rgb(0, 112, 243); color: #000;
     padding: 10px 18px; border-radius: 8px;
     text-decoration: none; font-weight: bold; font-size: 0.9rem;
     transition: all 0.3s ease;
 }
-.link-btn:hover { background: #00b89c; transform: translateY(-2px); }
+.link-btn:hover { background: rgb(115, 168, 230); transform: translateY(-2px); }
 
 .contact-box { 
     background: #1a1a1a; padding: 15px; 

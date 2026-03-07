@@ -247,8 +247,8 @@ function openModal(ev) {
     const contactCont = document.getElementById('modal-contacts');
     if (ev.contact && ev.contact.length > 0) {
         contactCont.innerHTML = ev.contact.map(c => `
-            <div class="contact-box" style="background:rgba(255,255,255,0.05); padding:12px; border-radius:8px; margin-bottom:12px; border-left:4px solid #00d1b2;">
-                <p style="margin:0 0 5px 0; font-size:0.75rem; text-transform:uppercase; color:#00d1b2; font-weight:bold;">${c.title || 'ORGANIZER'}</p>
+            <div class="contact-box" style="background:rgba(255,255,255,0.05); padding:12px; border-radius:8px; margin-bottom:12px; border-left:4px solid rgb(0, 112, 243);">
+                <p style="margin:0 0 5px 0; font-size:0.75rem; text-transform:uppercase; color:#0070f3; font-weight:bold;">${c.title || 'ORGANIZER'}</p>
                 <p style="margin:0; font-weight:bold; color:#fff;"><i class="fas fa-user-circle"></i> ${c.name || 'N/A'}</p>
                 ${c.email ? `<p style="margin:5px 0 0 0; font-size:0.9rem;"><i class="fas fa-envelope"></i> <a href="mailto:${c.email}" style="color:#fff; opacity:0.8; text-decoration:none;">${c.email}</a></p>` : ''}
                 ${c.phoneNumber ? `<p style="margin:5px 0 0 0; font-size:0.9rem; color:#aaa;"><i class="fas fa-phone"></i> ${c.phoneNumber}</p>` : ''}
