@@ -1,25 +1,10 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-// 1. CONFIGURACIÓN DE FIREBASE
-const firebaseConfig = {
-    apiKey: "AIzaSyDIuhQ-RFhe0aNRUqT1GyRFJijapGvigK4",
-    authDomain: "calendario-be5f3.firebaseapp.com",
-    projectId: "calendario-be5f3",
-    storageBucket: "calendario-be5f3.firebasestorage.app",
-    messagingSenderId: "1036945948634",
-    appId: "1:1036945948634:web:9fa3cd02b4f52946590ae3"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// 2. REFERENCIAS HTML
+// CONFIGURACIÓN DE UI
 const eventGrid = document.getElementById('event-grid');
 const searchInput = document.getElementById('search-input');
 const monthSelect = document.getElementById('filter-month');
 const countrySelect = document.getElementById('filter-country');
 const levelSelect = document.getElementById('filter-level');
+const disciplineSelect = document.getElementById('filter-discipline');
 const eventCountText = document.getElementById('event-count');
 const genderButtons = document.querySelectorAll('.g-btn');
 const clearDateBtn = document.getElementById('clear-date');
@@ -30,13 +15,7 @@ let dateStart = null;
 let dateEnd = null;
 let fp = null; 
 
-// FUNCIÓN PARA EL FILTRO (EXTRAE CÓDIGO)
-function getOnlyCountryCode(venue) {
-    const match = venue.match(/\(([^)]+)\)$/); 
-    return match ? match[1].toUpperCase() : "INT";
-}
-
-// 3. INICIALIZAR CALENDARIO (LUNES)
+// 1. REINSTALAR CALENDARIO FLATPICKR
 if (window.flatpickr) {
     fp = window.flatpickr("#date-range", {
         mode: "range",
@@ -58,151 +37,103 @@ if (window.flatpickr) {
     });
 }
 
-// 4. ESCUCHAR FIREBASE
-onSnapshot(collection(db, "eventos_pertiga"), (snapshot) => {
-    allEvents = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    allEvents.sort((a, b) => a.startDate.seconds - b.startDate.seconds);
-    updateFilterOptions(allEvents);
-    applyFilters();
-});
+// 2. CARGA DE DATOS DESDE GITHUB JSON
+async function loadEvents() {
+    try {
+        const response = await fetch('eventos_2026.json');
+        const data = await response.json();
+        
+        allEvents = data.map(ev => ({
+            ...ev,
+            startDate: new Date(ev.startDate),
+        }));
 
-function updateFilterOptions(events) {
-    // Filtramos primero los eventos válidos para 2026 y niveles permitidos
-    const validEvents = events.filter(e => {
-        const year = e.startDate.toDate().getFullYear();
-        return e.rankingCategory !== 'F' && e.rankingCategory !== 'E' && year === 2026;
-    });
-
-    // --- LÓGICA DE PAÍSES ---
-    const countryCodes = [...new Set(validEvents.map(e => getOnlyCountryCode(e.venue)))].sort();
-    const currentC = countrySelect.value;
-    countrySelect.innerHTML = '<option value="all">Países</option>';
-    countryCodes.forEach(code => {
-        countrySelect.innerHTML += `<option value="${code}">${code}</option>`;
-    });
-    countrySelect.value = countryCodes.includes(currentC) ? currentC : 'all';
-
-    // --- LÓGICA DE NIVELES ---
-    const levels = [...new Set(validEvents.map(e => e.rankingCategory))].filter(Boolean).sort();
-    const currentL = levelSelect.value;
-    levelSelect.innerHTML = '<option value="all">Niveles</option>';
-    levels.forEach(l => levelSelect.innerHTML += `<option value="${l}">${l}</option>`);
-    levelSelect.value = levels.includes(currentL) ? currentL : 'all';
-
-    // --- LÓGICA DE MESES (DINÁMICA) ---
-    const monthNames = {
-        "01": "Enero", "02": "Febrero", "03": "Marzo", "04": "Abril",
-        "05": "Mayo", "06": "Junio", "07": "Julio", "08": "Agosto",
-        "09": "Septiembre", "10": "Octubre", "11": "Noviembre", "12": "Diciembre"
-    };
-
-    // Extraemos los números de mes (01, 02...) presentes en los eventos
-    const availableMonths = [...new Set(validEvents.map(e => {
-        return (e.startDate.toDate().getMonth() + 1).toString().padStart(2, '0');
-    }))].sort();
-
-    const currentM = monthSelect.value;
-    monthSelect.innerHTML = '<option value="all">Meses</option>';
-    availableMonths.forEach(m => {
-        monthSelect.innerHTML += `<option value="${m}">${monthNames[m]}</option>`;
-    });
-    monthSelect.value = availableMonths.includes(currentM) ? currentM : 'all';
+        allEvents.sort((a, b) => a.startDate - b.startDate);
+        
+        updateFilterOptions(allEvents);
+        applyFilters();
+    } catch (error) {
+        console.error("Error cargando el calendario:", error);
+        eventCountText.innerText = "Error 404. Vuelva mas tarde";
+    }
 }
 
-// 6. FILTRADO MAESTRO
+// 3. ACTUALIZAR SELECTORES
+function updateFilterOptions(events) {
+    const countries = [...new Set(events.map(e => {
+        const match = e.venue.match(/\(([^)]+)\)$/);
+        return match ? match[1] : "INT";
+    }))].sort();
+    countrySelect.innerHTML = '<option value="all">🌍 Países</option>' + 
+        countries.map(c => `<option value="${c}">${c}</option>`).join('');
+
+    const disciplines = new Set();
+    events.forEach(e => e.disciplines.forEach(d => disciplines.add(d.name)));
+    const sortedDiscs = [...disciplines].sort();
+    disciplineSelect.innerHTML = '<option value="all">🏃 Todas las Pruebas</option>' + 
+        sortedDiscs.map(d => `<option value="${d}">${d}</option>`).join('');
+
+    const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    const activeMonths = [...new Set(events.map(e => e.startDate.getMonth()))].sort((a,b)=>a-b);
+    monthSelect.innerHTML = '<option value="all">📅 Meses</option>' + 
+        activeMonths.map(m => `<option value="${(m+1).toString().padStart(2,'0')}">${months[m]}</option>`).join('');
+}
+
+// 4. FILTRADO MAESTRO (CON CALENDARIO CORREGIDO)
 function applyFilters() {
     const search = (searchInput.value || "").toLowerCase();
+    const disc = disciplineSelect.value;
     const month = monthSelect.value;
-    const selectedCode = countrySelect.value;
+    const country = countrySelect.value;
     const level = levelSelect.value;
 
     const filtered = allEvents.filter(ev => {
-        const eventDate = ev.startDate.toDate();
-        const year = eventDate.getFullYear();
-        const m = (eventDate.getMonth() + 1).toString().padStart(2, '0');
-        
-        const is2026 = year === 2026;
-        const isNotLowLevel = ev.rankingCategory !== 'F' && ev.rankingCategory !== 'E';
+        const m = (ev.startDate.getMonth() + 1).toString().padStart(2, '0');
+        const venueCountry = ev.venue.match(/\(([^)]+)\)$/)?.[1] || "INT";
 
-        const matchesSearch = ev.name.toLowerCase().includes(search) || 
-                              ev.venue.toLowerCase().includes(search);
-        
+        const matchesSearch = ev.name.toLowerCase().includes(search) || ev.venue.toLowerCase().includes(search);
         const matchesMonth = month === 'all' || m === month;
-        
-        const eventCode = getOnlyCountryCode(ev.venue);
-        const matchesCountry = selectedCode === 'all' || eventCode === selectedCode;
-        
-        const matchesLevel = level === 'all' || ev.rankingCategory === level;
-        
-        let matchesGender = true;
-        if (currentGender !== 'all') {
-            matchesGender = ev.poleVault === 'Both' || ev.poleVault.includes(currentGender === '🚹' ? 'Men' : 'Women');
-        }
+        const matchesCountry = country === 'all' || venueCountry === country;
+        const matchesLevel = level === 'all' || ev.category === level;
 
+        // Filtro de Disciplina + Género
+        const matchesDiscAndGender = ev.disciplines.some(d => {
+            const discMatch = disc === 'all' || d.name === disc;
+            const genderMatch = currentGender === 'all' || d.gender === currentGender || d.gender === 'Both';
+            return discMatch && genderMatch;
+        });
+
+        // Filtro de Rango de Fechas
         let matchesDateRange = true;
         if (dateStart && dateEnd) {
-            const evTime = new Date(eventDate).setHours(0,0,0,0);
-            const start = new Date(dateStart).setHours(0,0,0,0);
-            const end = new Date(dateEnd).setHours(0,0,0,0);
+            const evTime = ev.startDate.setHours(0,0,0,0);
+            const start = dateStart.setHours(0,0,0,0);
+            const end = dateEnd.setHours(0,0,0,0);
             matchesDateRange = evTime >= start && evTime <= end;
         }
 
-        return is2026 && isNotLowLevel && matchesSearch && matchesMonth && matchesCountry && matchesLevel && matchesGender && matchesDateRange;
+        return matchesSearch && matchesMonth && matchesCountry && matchesLevel && matchesDiscAndGender && matchesDateRange;
     });
 
     renderEvents(filtered);
 }
 
-// 7. DIBUJAR TARJETAS (AQUÍ SE MUESTRA EL TEXTO COMPLETO)
-// ... (resto del código igual hasta llegar a renderEvents)
-
+// 5. DIBUJAR TARJETAS
 function renderEvents(events) {
     eventGrid.innerHTML = '';
-    eventCountText.innerText = `${events.length} Competiciones`;
+    eventCountText.innerText = `${events.length} Competiciones en 2026`;
 
     events.forEach(ev => {
-        const dateStr = ev.startDate.toDate().toLocaleDateString('es-ES', { 
-            day: '2-digit', month: 'short', year: '2-digit' 
-        });
-
-        // 1. Lógica de Nombres y Colores para Niveles
-        let levelName = ev.rankingCategory;
-        let levelClass = "";
-        
-        switch(ev.rankingCategory) {
-            case 'A': levelName = "GOLD"; levelClass = "level-gold"; break;
-            case 'B': levelName = "SILVER"; levelClass = "level-silver"; break;
-            case 'C': levelName = "BRONZE"; levelClass = "level-bronze"; break;
-            case 'D': levelName = "CHALLENGER"; levelClass = "level-challenger"; break;
-            default: levelName = ev.rankingCategory; levelClass = "level-silver";
-        }
-
-        // 2. Lógica de Colores para Género
-        let genderLabel = "";
-        let genderClass = "";
-        
-        if (ev.poleVault === 'Both') {
-            genderLabel = "M / F";
-            genderClass = "tag-both";
-        } else if (ev.poleVault.includes('Men')) {
-            genderLabel = "MASCULINO";
-            genderClass = "tag-m";
-        } else {
-            genderLabel = "FEMENINO";
-            genderClass = "tag-f";
-        }
-
+        const dateStr = ev.startDate.toLocaleDateString('es-ES', { day: '2-digit', month: 'short' });
         const card = document.createElement('div');
         card.className = 'event-card';
         card.innerHTML = `
-            <span class="card-date"><i class="far fa-calendar-check"></i> ${dateStr}</span>
+            <span class="card-date"><i class="far fa-calendar"></i> ${dateStr}</span>
             <h3>${ev.name}</h3>
-            <div class="location-info">
-                <i class="fas fa-map-marker-alt"></i> ${ev.venue}
-            </div>
+            <div class="location-info"><i class="fas fa-map-marker-alt"></i> ${ev.venue}</div>
             <div class="card-tags">
-                <span class="tag ${genderClass}">${genderLabel}</span>
-                <span class="tag ${levelClass}">${levelName}</span>
+                <span class="tag cat-${ev.category}">${ev.category}</span>
+                <span class="tag-count">${ev.disciplines.length} Pruebas</span>
             </div>
         `;
         card.onclick = () => openModal(ev);
@@ -210,38 +141,36 @@ function renderEvents(events) {
     });
 }
 
-// 8. MODAL
+// 6. MODAL
 function openModal(ev) {
     const modal = document.getElementById('event-modal');
-    const date = ev.startDate.toDate();
-    
     document.getElementById('modal-title').innerText = ev.name;
     document.getElementById('modal-location').innerText = ev.venue;
     document.getElementById('modal-area').innerText = ev.area;
-    document.getElementById('modal-cat').innerText = ev.rankingCategory;
-    document.getElementById('modal-vault').innerText = ev.poleVault;
-    document.getElementById('modal-date-tag').innerText = date.toLocaleDateString('es-ES', { dateStyle: 'long' });
+    document.getElementById('modal-cat').innerText = ev.category;
+    document.getElementById('modal-date-tag').innerText = ev.startDate.toLocaleDateString('es-ES', { dateStyle: 'full' });
+
+    const discCont = document.getElementById('modal-disciplines');
+    discCont.innerHTML = ev.disciplines.map(d => `
+        <span class="tag ${d.gender === 'Men' ? 'tag-m' : 'tag-f'}">${d.name} (${d.gender === 'Men' ? 'M' : 'F'})</span>
+    `).join('');
 
     const linksCont = document.getElementById('modal-links');
     linksCont.innerHTML = '';
-    if (ev.extraInfo.websiteUrl) linksCont.innerHTML += `<a href="${ev.extraInfo.websiteUrl}" target="_blank" class="link-btn">Web</a>`;
-    if (ev.extraInfo.resultsPageUrl) linksCont.innerHTML += `<a href="${ev.extraInfo.resultsPageUrl}" target="_blank" class="link-btn">Resultados</a>`;
+    if (ev.links.web) linksCont.innerHTML += `<a href="${ev.links.web}" target="_blank" class="link-btn">🌐 Web</a>`;
+    if (ev.links.results) linksCont.innerHTML += `<a href="${ev.links.results}" target="_blank" class="link-btn">📊 Resultados</a>`;
 
     const contactCont = document.getElementById('modal-contacts');
-    contactCont.innerHTML = ev.extraInfo.contactPersons.length > 0 
-        ? ev.extraInfo.contactPersons.map(p => `<div class="contact-box"><strong>${p.name}</strong><br>${p.email}</div>`).join('')
-        : '<p>Sin contacto.</p>';
+    contactCont.innerHTML = ev.contact.length > 0 
+        ? ev.contact.map(c => `<div class="contact-box"><strong>${c.name}</strong><br>${c.email}</div>`).join('')
+        : 'Sin contacto.';
 
     modal.style.display = 'flex';
 }
 
-document.getElementById('close-modal').onclick = () => {
-    document.getElementById('event-modal').style.display = 'none';
-    document.body.style.overflow = 'auto';
-};
-
-// 9. LISTENERS
+// LISTENERS
 searchInput.addEventListener('input', applyFilters);
+disciplineSelect.addEventListener('change', applyFilters);
 monthSelect.addEventListener('change', applyFilters);
 countrySelect.addEventListener('change', applyFilters);
 levelSelect.addEventListener('change', applyFilters);
@@ -254,3 +183,20 @@ genderButtons.forEach(btn => {
         applyFilters();
     });
 });
+
+if(clearDateBtn) {
+    clearDateBtn.onclick = () => {
+        fp.clear();
+        dateStart = null;
+        dateEnd = null;
+        clearDateBtn.style.display = "none";
+        applyFilters();
+    };
+}
+
+document.getElementById('close-modal').onclick = () => {
+    document.getElementById('event-modal').style.display = 'none';
+};
+
+// INICIO
+loadEvents();
