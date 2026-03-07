@@ -241,8 +241,18 @@ function openModal(ev) {
 
     const linksCont = document.getElementById('modal-links');
     linksCont.innerHTML = '';
-    if (ev.links && ev.links.web) linksCont.innerHTML += `<a href="${ev.links.web}" target="_blank" class="link-btn"><i class="fas fa-external-link-alt"></i> Web Oficial</a>`;
-    if (ev.links && ev.links.results) linksCont.innerHTML += `<a href="${ev.links.results}" target="_blank" class="link-btn"><i class="fas fa-poll"></i> Resultados</a>`;
+
+    if (ev.links && ev.links.web) {
+        // Aplicamos la limpieza al link de la web
+        const webUrl = ensureAbsoluteUrl(ev.links.web);
+        linksCont.innerHTML += `<a href="${webUrl}" target="_blank" rel="noopener noreferrer" class="link-btn"><i class="fas fa-external-link-alt"></i> Web Oficial</a>`;
+    }
+
+    if (ev.links && ev.links.results) {
+        // Aplicamos la limpieza al link de resultados
+        const resultsUrl = ensureAbsoluteUrl(ev.links.results);
+        linksCont.innerHTML += `<a href="${resultsUrl}" target="_blank" rel="noopener noreferrer" class="link-btn"><i class="fas fa-poll"></i> Resultados</a>`;
+    }
 
     const contactCont = document.getElementById('modal-contacts');
     if (ev.contact && ev.contact.length > 0) {
@@ -301,6 +311,17 @@ if (scrollContainer) {
         evt.preventDefault();
         scrollContainer.scrollLeft += evt.deltaY;
     });
+}
+
+// Función para asegurar que el enlace sea absoluto
+function ensureAbsoluteUrl(url) {
+    if (!url) return '';
+    // Si ya empieza con http:// o https://, lo devolvemos tal cual
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+        return url;
+    }
+    // Si no, le añadimos https:// al principio
+    return `https://${url}`;
 }
 
 loadData();
