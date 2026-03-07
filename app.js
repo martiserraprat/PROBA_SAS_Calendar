@@ -2,7 +2,7 @@
 const eventGrid = document.getElementById('event-grid');
 const searchInput = document.getElementById('search-input');
 const monthSelect = document.getElementById('filter-month');
-const continentSelect = document.getElementById('filter-continent'); // NUEVO SELECTOR
+const continentSelect = document.getElementById('filter-continent');
 const countrySelect = document.getElementById('filter-country');
 const levelSelect = document.getElementById('filter-level');
 const disciplineSelect = document.getElementById('filter-discipline');
@@ -16,12 +16,16 @@ let dateStart = null;
 let dateEnd = null;
 let fp = null; 
 
+// AÑADIDO: Mapeo de categorías correcto (Incluyendo Diamond League y Mundiales)
 const levelMap = { 
+    'OW': 'OLYMPIC/WORLD',
+    'DF': 'DL FINAL', 
+    'GW': 'DIAMOND', 
+    'GL': 'CHAMPIONSHIP', 
     'A': 'GOLD', 
     'B': 'SILVER', 
     'C': 'BRONZE', 
-    'D': 'CHALLENGER', 
-    'GW': 'DIAMOND' 
+    'D': 'CHALLENGER'
 };
 
 function getOnlyCountryCode(venue) {
@@ -52,27 +56,24 @@ if (window.flatpickr) {
     });
 }
 
-// 3. CARGA DE DATOS (AQUÍ LIMPIAMOS LAS PRUEBAS Y EDADES)
+// 3. CARGA DE DATOS
 async function loadData() {
     try {
         const response = await fetch(`eventos_2026.json?t=${new Date().getTime()}`);
         const data = await response.json();
         
-        // Expresión regular para detectar basura de edades
         const regexSub = /\b(U14|U16|U18|U20|U23|Junior|Youth|Boys|Girls)\b/gi;
 
         allEvents = data
-            // 1. Nos cargamos los mítines que sean exclusivos de categorías menores
             .filter(ev => !regexSub.test(ev.name))
-            // 2. Limpiamos el nombre de las pruebas (disciplinas) por si cuelan alguna
             .map(ev => {
                 let cleanDisciplines = [];
-                if (ev.disciplines) {
+                // Nos aseguramos de que disciplines exista
+                if (ev.disciplines && ev.disciplines.length > 0) {
                     const uniqueD = new Set();
                     ev.disciplines.forEach(d => {
-                        // Quitamos el "U20", "Junior", etc. y dejamos solo "Pole Vault"
                         let cleanName = d.name.replace(regexSub, '').trim();
-                        let key = cleanName + '|' + d.gender; // Para evitar duplicados en el mismo mitin
+                        let key = cleanName + '|' + d.gender;
                         if(!uniqueD.has(key)) {
                             uniqueD.add(key);
                             cleanDisciplines.push({ name: cleanName, gender: d.gender });
@@ -82,7 +83,7 @@ async function loadData() {
                 
                 return {
                     ...ev,
-                    disciplines: cleanDisciplines,
+                    disciplines: cleanDisciplines, // Quedará vacío [] si el JSON no traía nada
                     parsedDate: new Date(ev.startDate)
                 };
             });
@@ -100,17 +101,14 @@ async function loadData() {
 function updateFilterOptions(events) {
     const validEvents = events.filter(e => e.parsedDate.getFullYear() === 2026);
 
-    // Continentes (Áreas)
     const continents = [...new Set(validEvents.map(e => e.area).filter(Boolean))].sort();
     continentSelect.innerHTML = '<option value="all">Continentes</option>';
     continents.forEach(c => continentSelect.innerHTML += `<option value="${c}">${c}</option>`);
 
-    // Países
     const countryCodes = [...new Set(validEvents.map(e => getOnlyCountryCode(e.venue)))].sort();
     countrySelect.innerHTML = '<option value="all">Países</option>';
     countryCodes.forEach(code => countrySelect.innerHTML += `<option value="${code}">${code}</option>`);
 
-    // Niveles
     const levels = [...new Set(validEvents.map(e => e.category))].filter(Boolean).sort();
     levelSelect.innerHTML = '<option value="all">Niveles</option>';
     levels.forEach(l => {
@@ -118,23 +116,20 @@ function updateFilterOptions(events) {
         levelSelect.innerHTML += `<option value="${l}">${displayName}</option>`;
     });
 
-    // Pruebas (Ahora estarán 100% limpias, sin U18 ni cosas raras)
     let allDiscs = [];
     validEvents.forEach(ev => {
-        if(ev.disciplines) {
-            ev.disciplines.forEach(d => allDiscs.push(d.name));
-        }
+        if(ev.disciplines) ev.disciplines.forEach(d => allDiscs.push(d.name));
     });
     const uniqueDiscs = [...new Set(allDiscs)].sort();
     disciplineSelect.innerHTML = '<option value="all">Todas las pruebas</option>';
     uniqueDiscs.forEach(d => disciplineSelect.innerHTML += `<option value="${d}">${d}</option>`);
 }
 
-// 5. FILTRADO MAESTRO
+// 5. FILTRADO MAESTRO (Permite pasar a los que NO tienen info confirmada)
 function applyFilters() {
     const search = (searchInput.value || "").toLowerCase();
     const month = monthSelect.value;
-    const continent = continentSelect.value; // NUEVO
+    const continent = continentSelect.value;
     const selectedCode = countrySelect.value;
     const level = levelSelect.value;
     const disc = disciplineSelect.value; 
@@ -143,19 +138,21 @@ function applyFilters() {
         const eventDate = ev.parsedDate;
         const m = (eventDate.getMonth() + 1).toString().padStart(2, '0');
         
-        const matchesSearch = ev.name.toLowerCase().includes(search) || 
-                             ev.venue.toLowerCase().includes(search);
-        
+        const matchesSearch = ev.name.toLowerCase().includes(search) || ev.venue.toLowerCase().includes(search);
         const matchesMonth = month === 'all' || m === month;
-        const matchesContinent = continent === 'all' || ev.area === continent; // NUEVO
+        const matchesContinent = continent === 'all' || ev.area === continent;
         const matchesCountry = selectedCode === 'all' || getOnlyCountryCode(ev.venue) === selectedCode;
         const matchesLevel = level === 'all' || ev.category === level;
-        const matchesDisc = disc === 'all' || ev.disciplines.some(d => d.name === disc);
+        
+        // Magia aquí: Si ev.disciplines está VACÍO (0), se da por VÁLIDO el filtro para que no desaparezca
+        const hasNoDiscs = !ev.disciplines || ev.disciplines.length === 0;
+        
+        const matchesDisc = disc === 'all' || hasNoDiscs || ev.disciplines.some(d => d.name === disc);
         
         let matchesGender = true;
         if (currentGender !== 'all') {
             const target = currentGender === '🚹' ? 'Men' : 'Women';
-            matchesGender = ev.disciplines.some(d => (disc === 'all' || d.name === disc) && (d.gender === target || d.gender === 'Both'));
+            matchesGender = hasNoDiscs || ev.disciplines.some(d => (disc === 'all' || d.name === disc) && (d.gender === target || d.gender === 'Both'));
         }
 
         let matchesDateRange = true;
@@ -166,7 +163,6 @@ function applyFilters() {
             matchesDateRange = evTime >= start && evTime <= end;
         }
 
-        // Aplicamos todos los filtros juntos
         return matchesSearch && matchesMonth && matchesContinent && matchesCountry && matchesLevel && matchesDisc && matchesGender && matchesDateRange;
     });
 
@@ -184,18 +180,31 @@ function renderEvents(events) {
         let levelName = levelMap[ev.category] || ev.category;
         let levelClass = "";
         switch(ev.category) {
+            case 'OW': levelClass = "level-diamond"; break;
+            case 'DF': levelClass = "level-diamond"; break;
+            case 'GW': levelClass = "level-diamond"; break;
+            case 'GL': levelClass = "level-gold"; break;
             case 'A': levelClass = "level-gold"; break;
             case 'B': levelClass = "level-silver"; break;
             case 'C': levelClass = "level-bronze"; break;
             case 'D': levelClass = "level-challenger"; break;
-            case 'GW': levelClass = "level-diamond"; break;
             default: levelClass = "level-silver";
         }
 
-        const hasMen = ev.disciplines.some(d => d.gender === 'Men' || d.gender === 'Both');
-        const hasWomen = ev.disciplines.some(d => d.gender === 'Women' || d.gender === 'Both');
-        let genderLabel = (hasMen && hasWomen) ? "M / F" : (hasMen ? "MASCULINO" : "FEMENINO");
-        let genderClass = (hasMen && hasWomen) ? "tag-both" : (hasMen ? "tag-m" : "tag-f");
+        // Determinar qué etiqueta poner si NO hay disciplinas
+        let genderLabel = "M / F";
+        let genderClass = "tag-both";
+        
+        if (ev.disciplines && ev.disciplines.length > 0) {
+            const hasMen = ev.disciplines.some(d => d.gender === 'Men' || d.gender === 'Both');
+            const hasWomen = ev.disciplines.some(d => d.gender === 'Women' || d.gender === 'Both');
+            genderLabel = (hasMen && hasWomen) ? "M / F" : (hasMen ? "MASCULINO" : "FEMENINO");
+            genderClass = (hasMen && hasWomen) ? "tag-both" : (hasMen ? "tag-m" : "tag-f");
+        } else {
+            // Etiqueta si no hay info
+            genderLabel = "TBD / INFO";
+            genderClass = "level-silver"; // Usamos el fondo gris neutro
+        }
 
         const card = document.createElement('div');
         card.className = 'event-card';
@@ -213,7 +222,7 @@ function renderEvents(events) {
     });
 }
 
-// 7. MODAL
+// 7. MODAL CON AVISO DE "POR CONFIRMAR"
 function openModal(ev) {
     const modal = document.getElementById('event-modal');
     document.getElementById('modal-title').innerText = ev.name;
@@ -221,12 +230,19 @@ function openModal(ev) {
     document.getElementById('modal-date-tag').innerText = ev.parsedDate.toLocaleDateString('es-ES', { dateStyle: 'long' });
     document.getElementById('modal-area').innerText = ev.area || "-";
     document.getElementById('modal-cat').innerText = levelMap[ev.category] || ev.category || "-";
-    document.getElementById('modal-vault').innerText = ev.disciplines.map(d => `${d.name} (${d.gender})`).join(', ');
+    
+    // AQUÍ ESTÁ EL AVISO
+    const vaultContainer = document.getElementById('modal-vault');
+    if (ev.disciplines && ev.disciplines.length > 0) {
+        vaultContainer.innerHTML = ev.disciplines.map(d => `${d.name} (${d.gender})`).join(', ');
+    } else {
+        vaultContainer.innerHTML = '<span style="color: #ffcc00; font-weight: 600;"><i class="fas fa-exclamation-triangle"></i> Pruebas por confirmar. Buscar en la web oficial.</span>';
+    }
 
     const linksCont = document.getElementById('modal-links');
     linksCont.innerHTML = '';
-    if (ev.links.web) linksCont.innerHTML += `<a href="${ev.links.web}" target="_blank" class="link-btn"><i class="fas fa-external-link-alt"></i> Web</a>`;
-    if (ev.links.results) linksCont.innerHTML += `<a href="${ev.links.results}" target="_blank" class="link-btn"><i class="fas fa-poll"></i> Resultados</a>`;
+    if (ev.links && ev.links.web) linksCont.innerHTML += `<a href="${ev.links.web}" target="_blank" class="link-btn"><i class="fas fa-external-link-alt"></i> Web Oficial</a>`;
+    if (ev.links && ev.links.results) linksCont.innerHTML += `<a href="${ev.links.results}" target="_blank" class="link-btn"><i class="fas fa-poll"></i> Resultados</a>`;
 
     const contactCont = document.getElementById('modal-contacts');
     if (ev.contact && ev.contact.length > 0) {
@@ -239,7 +255,7 @@ function openModal(ev) {
             </div>
         `).join('');
     } else {
-        contactCont.innerHTML = '<p style="color:#777; font-style:italic;">Sin datos de contacto.</p>';
+        contactCont.innerHTML = '<p style="color:#777; font-style:italic;"><i class="fas fa-clock"></i> Contacto no publicado aún. Revisa la web oficial.</p>';
     }
 
     modal.style.display = 'flex';
@@ -254,7 +270,7 @@ document.getElementById('close-modal').onclick = () => {
 // 8. LISTENERS
 searchInput.addEventListener('input', applyFilters);
 monthSelect.addEventListener('change', applyFilters);
-continentSelect.addEventListener('change', applyFilters); // NUEVO
+continentSelect.addEventListener('change', applyFilters);
 countrySelect.addEventListener('change', applyFilters);
 levelSelect.addEventListener('change', applyFilters);
 disciplineSelect.addEventListener('change', applyFilters);
@@ -276,6 +292,15 @@ if(clearDateBtn) {
         clearDateBtn.style.display = "none";
         applyFilters();
     };
+}
+
+// Activa el scroll lateral con la rueda del ratón en PC (Si lo dejaste puesto)
+const scrollContainer = document.querySelector('.filter-wrapper');
+if (scrollContainer) {
+    scrollContainer.addEventListener('wheel', (evt) => {
+        evt.preventDefault();
+        scrollContainer.scrollLeft += evt.deltaY;
+    });
 }
 
 loadData();
