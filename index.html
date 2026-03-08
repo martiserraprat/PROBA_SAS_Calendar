@@ -127,32 +127,59 @@
             </div>
         </div>
     </div>
+
     <div id="login-modal" class="modal-overlay">
         <div class="modal-content login-box">
             <button id="close-login"><i class="fas fa-times"></i></button>
-            <div class="login-header">
-                <i class="fas fa-user-shield"></i>
-                <h2>Portal de Usuario</h2>
-                <p>Accede para gestionar la temporada</p>
-            </div>
             
-            <form id="login-form">
-                <div class="input-group">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" id="email-input" placeholder="Correo electrónico" required>
+            <div id="login-view">
+                <div class="login-header">
+                    <i class="fas fa-user-shield"></i>
+                    <h2>Portal Mánager</h2>
+                    <p>Accede para gestionar tus atletas</p>
                 </div>
-                <div class="input-group">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" id="password-input" placeholder="Contraseña" required>
-                </div>
-                <button type="submit" class="auth-btn">Iniciar Sesión</button>
-            </form>
-            
-            <div id="login-error" style="color: #ff4d4d; font-size: 0.9rem; margin-top: 15px; display: none;">
-                Credenciales incorrectas.
+                <form id="login-form">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="login-email" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="login-password" placeholder="Contraseña" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Iniciar Sesión</button>
+                </form>
+                <p class="auth-switch">¿No tienes cuenta? <a href="#" id="go-to-signup">Regístrate gratis</a></p>
             </div>
+
+            <div id="signup-view" style="display: none;">
+                <div class="login-header">
+                    <i class="fas fa-user-plus"></i>
+                    <h2>Nueva Cuenta</h2>
+                    <p>Únete a la élite del atletismo</p>
+                </div>
+                <form id="signup-form">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="signup-name" placeholder="Nombre completo / Agencia" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="signup-email" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="signup-password" placeholder="Crea una contraseña (mín. 6 caracteres)" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Crear Cuenta</button>
+                </form>
+                <p class="auth-switch">¿Ya eres miembro? <a href="#" id="go-to-login">Inicia sesión</a></p>
+            </div>
+
+            <div id="auth-error" class="error-msg" style="display: none;"></div>
         </div>
     </div>
+    
 </body>
 
 </html>

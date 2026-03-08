@@ -540,3 +540,26 @@ select option { background: #121212; color: white; }
 .modal-content.login-box {
     animation: modalFade 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+
+.auth-switch {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+.auth-switch a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-switch a:hover { text-decoration: underline; }
+
+.error-msg {
+    color: #ff4d4d;
+    font-size: 0.85rem;
+    margin-top: 15px;
+    background: rgba(255, 77, 77, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+}

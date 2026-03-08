@@ -363,4 +363,100 @@ document.getElementById('login-form').addEventListener('submit', (e) => {
     // Aquí conectaremos con Supabase
 });
 
+const loginView = document.getElementById('login-view');
+const signupView = document.getElementById('signup-view');
+const authError = document.getElementById('auth-error');
+
+document.getElementById('go-to-signup').onclick = (e) => {
+    e.preventDefault();
+    loginView.style.display = 'none';
+    signupView.style.display = 'block';
+    authError.style.display = 'none';
+};
+
+document.getElementById('go-to-login').onclick = (e) => {
+    e.preventDefault();
+    signupView.style.display = 'none';
+    loginView.style.display = 'block';
+    authError.style.display = 'none';
+};
+
+// --- LÓGICA DE AUTENTICACIÓN ---
+
+const loginForm = document.getElementById('login-form');
+const loginError = document.getElementById('login-error');
+
+if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Evita que la página se recargue
+        
+        const email = document.getElementById('email-input').value;
+        const password = document.getElementById('password-input').value;
+        const btn = e.target.querySelector('button');
+
+        // Feedback visual: deshabilitar botón mientras carga
+        btn.innerText = "Verificando...";
+        btn.disabled = true;
+        loginError.style.display = 'none';
+
+        try {
+            // Intentar iniciar sesión en Supabase
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email: email,
+                password: password,
+            });
+
+            if (error) throw error;
+
+            if (data.user) {
+                console.log("¡Login correcto!", data.user);
+                // Si el login es un éxito, saltamos al dashboard del mánager
+                window.location.href = 'manager/dashboard.html';
+            }
+
+        } catch (error) {
+            console.error("Error de login:", error.message);
+            loginError.innerText = "Email o contraseña incorrectos.";
+            loginError.style.display = 'block';
+            btn.innerText = "Iniciar Sesión";
+            btn.disabled = false;
+        }
+    });
+}
+
+// --- LÓGICA DE REGISTRO ---
+const signupForm = document.getElementById('signup-form');
+
+if (signupForm) {
+    signupForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('signup-name').value;
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
+        const btn = e.target.querySelector('button');
+
+        btn.innerText = "Creando cuenta...";
+        btn.disabled = true;
+
+        const { data, error } = await supabase.auth.signUp({
+            email: email,
+            password: password,
+            options: {
+                data: { full_name: name } // Guardamos el nombre en la metadata del usuario
+            }
+        });
+
+        if (error) {
+            authError.innerText = error.message;
+            authError.style.display = 'block';
+            btn.innerText = "Crear Cuenta";
+            btn.disabled = false;
+        } else {
+            alert("¡Registro exitoso! Ya puedes iniciar sesión.");
+            // Opcional: mandarlo directo al dashboard
+            window.location.href = 'manager/dashboard.html';
+        }
+    });
+}
+
 loadData();
