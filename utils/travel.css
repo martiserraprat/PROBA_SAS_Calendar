@@ -218,21 +218,26 @@ body {
     gap: 12px;
     padding-top: 20px;
     border-top: 1px solid var(--border);
+    width: 100%; /* Asegura que no se pase del padre */
+    box-sizing: border-box;
 }
 
 .inputs-row {
     display: flex;
     gap: 12px;
+    flex-wrap: wrap; /* <--- ESTO ES CLAVE: permite que los inputs bajen si no caben */
 }
 
 .inputs-row input {
-    flex: 1;
+    flex: 1 1 150px; /* <--- Crece y se encoge, con una base de 150px */
+    min-width: 0;    /* <--- Evita que el input "empuje" el borde hacia afuera */
     background: #000;
     border: 1px solid var(--border);
     color: white;
     padding: 12px;
     border-radius: var(--radius-md);
     font-size: 0.9rem;
+    width: 100%;     /* Por defecto ocupa su espacio asignado */
 }
 
 .btn-search-main {
@@ -395,3 +400,14 @@ body {
     .drive-label { min-width: 0; }
     .btn-drive-compact { width: 100%; justify-content: center; }
 }
+
+.travel-card, 
+.radar-col, 
+.pill-right,
+.grid-travel,
+.airport-pill {
+    min-width: 0; /* Crucial: permite que el elemento sea más pequeño que su contenido */
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
