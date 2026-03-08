@@ -29,38 +29,41 @@
             </div>
 
             <div class="travel-card">
-                <h3><i class="fas fa-plane"></i> Planificador de Vuelo</h3>
-                
+                <h3><i class="fas fa-plane"></i>Aeropuertos más cercanos:</h3>
                 <div id="step-1" class="setup-box">
                     <p>Introduce tu ciudad actual para calcular aeropuertos:</p>
                     <div class="input-group">
                         <input type="text" id="user-city-input" placeholder="Ej: Barcelona, Madrid...">
-                        <button type="button" id="btn-configurar">Configurar Viaje</button>
+                        <button type="button" id="btn-configurar">Planificar Viaje</button>
                     </div>
                 </div>
-
                 <div id="step-2" class="selection-area" style="display: none;">
+                    
+                    <h4 class="selection-title">
+                        Seleccione los aeropuertos para consultar vuelos:
+                    </h4>
+
                     <div class="radar-wrapper">
                         <div class="radar-col">
-                            <h5><i class="fas fa-plane-departure"></i> Aeropuertos Origen</h5>
+                            <h5><i class="fas fa-plane-departure"></i> Origen (Cerca de ti)</h5>
                             <div id="origin-airports" class="airports-grid"></div>
                         </div>
                         <div class="radar-col">
-                            <h5><i class="fas fa-plane-arrival"></i> Aeropuertos Destino</h5>
+                            <h5><i class="fas fa-plane-arrival"></i> Destino (Evento)</h5>
                             <div id="destination-airports" class="airports-grid"></div>
                         </div>
                     </div>
 
                     <form id="flight-form" class="final-form">
                         <div class="inputs-row">
-                            <input type="text" id="origin-input" readonly placeholder="Origen">
-                            <input type="text" id="destination-input" readonly placeholder="Selecciona un aeropuerto abajo..." class="flight-input">
+                            <input type="text" id="origin-input" readonly placeholder="IATA Origen">
+                            <input type="text" id="destination-input" readonly placeholder="IATA Destino">
                         </div>
                         <div class="inputs-row">
-                            <input type="date" id="date-outbound" required title="Fecha de ida">
-                            <input type="date" id="date-return" required title="Fecha de vuelta">
+                            <input type="date" id="date-outbound" required>
+                            <input type="date" id="date-return" required>
                         </div>
-                        <button type="submit" class="btn-search-main">Buscar en Skyscanner</button>
+                        <button type="submit" class="btn-search-main">Buscar vuelos en Google</button>
                     </form>
                 </div>
             </div>
