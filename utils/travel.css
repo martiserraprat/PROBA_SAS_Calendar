@@ -333,3 +333,65 @@ body {
     color: #fff;
     opacity: 0.8;
 }
+
+/* DRIVE CARD (estética compacta y moderna) */
+.drive-card {
+    padding: 18px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+    border: 1px solid var(--border);
+}
+
+.drive-card h3 {
+    margin: 0 0 12px 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.drive-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.drive-label {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    min-width: 220px;
+}
+
+/* Botón compacto con icono y texto */
+.btn-drive-compact {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0,112,243,0.12);
+    color: var(--accent);
+    border: 1px solid rgba(0,112,243,0.18);
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .14s ease, box-shadow .14s ease;
+}
+
+.btn-drive-compact i { font-size: 0.95rem; }
+
+/* Hover */
+.btn-drive-compact:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,112,243,0.12);
+}
+
+/* Si quieres usar una variante más pequeña en móvil */
+@media (max-width: 640px) {
+    .drive-content { flex-direction: column; align-items: stretch; gap: 8px; }
+    .drive-label { min-width: 0; }
+    .btn-drive-compact { width: 100%; justify-content: center; }
+}
