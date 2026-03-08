@@ -1,5 +1,5 @@
 const supabaseUrl = 'https://efynirousktejtpumudd.supabase.co';
-const supabaseKey = 'TU_ANON_KEY_AQUI'; 
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVmeW5pcm91c2t0ZWp0cHVtdWRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5NjQxMTYsImV4cCI6MjA4ODU0MDExNn0._Zs-VQDUB8O3Hfulnnyt7Kf2THUb-fo3YX_PEEdgVBA'; 
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 async function loadDashboard() {
@@ -12,7 +12,25 @@ async function loadDashboard() {
         return;
     }
 
-    // 2. Traer los atletas de este mánager
+    // --- ¡NUEVO! 2. Actualizar el perfil del usuario en la barra lateral ---
+    const userName = user.user_metadata?.full_name || 'Mánager';
+    const userRole = user.user_metadata?.role === 'manager' ? 'Representante' : 'Atleta';
+    
+    // Cambiamos el nombre y el rol en el HTML
+    document.querySelector('.user-name').innerText = userName;
+    document.querySelector('.user-role').innerText = userRole;
+
+    // (Opcional) Cambiar la imagen del avatar con la inicial del nombre
+    const avatarImg = document.querySelector('.user-pill img');
+    if (avatarImg) {
+        // Generamos un avatar bonito con la primera letra del nombre
+        const initials = userName.charAt(0).toUpperCase();
+        avatarImg.src = `https://ui-avatars.com/api/?name=${initials}&background=0070f3&color=fff`;
+    }
+    // ----------------------------------------------------------------------
+
+    // 3. Traer los atletas de este mánager (de tu tabla "atletas")
+    // OJO: Esta parte fallará si aún no has creado la tabla "atletas" en Supabase
     const { data: atletas, error } = await supabase
         .from('atletas')
         .select('*')

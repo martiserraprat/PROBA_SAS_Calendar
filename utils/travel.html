@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logística y Viaje | APEX ATHLETICS</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="travel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="module" src="travels.js"></script>
+</head>
+<body>
+    <div class="top-gradient"></div>
+    <div class="travel-container">
+        <header class="travel-header">
+            <div class="header-content">
+                <span class="header-tag">Centro de Logística</span>
+                <h1 id="destination-title">Cargando...</h1>
+            </div>
+            <a href="../index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</a>
+        </header>
+
+        <div class="grid-travel">
+            <div class="travel-card">
+                <h3><i class="fas fa-map-marked-alt"></i> Sede del Evento</h3>
+                <div class="map-container">
+                    <iframe id="gmap-iframe" width="100%" height="100%" frameborder="0"></iframe>
+                </div>
+            </div>
+
+            <div class="travel-card">
+                <h3><i class="fas fa-plane"></i> Planificador de Vuelo</h3>
+                
+                <div id="step-1" class="setup-box">
+                    <p>Introduce tu ciudad actual para calcular aeropuertos:</p>
+                    <div class="input-group">
+                        <input type="text" id="user-city-input" placeholder="Ej: Barcelona, Madrid...">
+                        <button type="button" id="btn-configurar">Configurar Viaje</button>
+                    </div>
+                </div>
+
+                <div id="step-2" class="selection-area" style="display: none;">
+                    <div class="radar-wrapper">
+                        <div class="radar-col">
+                            <h5><i class="fas fa-plane-departure"></i> Aeropuertos Origen</h5>
+                            <div id="origin-airports" class="airports-grid"></div>
+                        </div>
+                        <div class="radar-col">
+                            <h5><i class="fas fa-plane-arrival"></i> Aeropuertos Destino</h5>
+                            <div id="destination-airports" class="airports-grid"></div>
+                        </div>
+                    </div>
+
+                    <form id="flight-form" class="final-form">
+                        <div class="inputs-row">
+                            <input type="text" id="origin-input" readonly placeholder="Origen">
+                            <input type="text" id="destination-input" readonly placeholder="Selecciona un aeropuerto abajo..." class="flight-input">
+                        </div>
+                        <div class="inputs-row">
+                            <input type="date" id="date-outbound" required title="Fecha de ida">
+                            <input type="date" id="date-return" required title="Fecha de vuelta">
+                        </div>
+                        <button type="submit" class="btn-search-main">Buscar en Skyscanner</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

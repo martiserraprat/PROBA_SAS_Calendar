@@ -12,6 +12,7 @@ const clearDateBtn = document.getElementById('clear-date');
 const supabaseUrl = 'https://efynirousktejtpumudd.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVmeW5pcm91c2t0ZWp0cHVtdWRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5NjQxMTYsImV4cCI6MjA4ODU0MDExNn0._Zs-VQDUB8O3Hfulnnyt7Kf2THUb-fo3YX_PEEdgVBA'; //NO TE HAGAS EL HEROE SOLO SIRVE PARA LEER LAS COMPES CRACK :)
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+console.log("Llave pillada por Supabase:", supabase['auth']['headers']);
 
 let allEvents = [];
 let currentGender = 'all';
@@ -282,7 +283,25 @@ function openModal(ev) {
     } else {
         contactCont.innerHTML = '<p style="color:#777; font-style:italic;"><i class="fas fa-clock"></i> Contacto no publicado aún. Revisa la web oficial.</p>';
     }
+    // --- LÓGICA DEL BOTÓN DE VIAJE ---
+    const tripBtn = document.getElementById('btn-manage-trip');
+    
+    // Le quitamos acciones anteriores por si acaso
+    tripBtn.onclick = null; 
+    
+    // Le decimos qué pasa al hacer clic
+    tripBtn.onclick = () => {
+        const destinoCodificado = encodeURIComponent(ev.venue);
+        
+        // Extraemos la fecha del evento en formato AAAA-MM-DD
+        const year = ev.parsedDate.getFullYear();
+        const month = String(ev.parsedDate.getMonth() + 1).padStart(2, '0');
+        const day = String(ev.parsedDate.getDate()).padStart(2, '0');
+        const fechaFormateada = `${year}-${month}-${day}`;
 
+        // ¡Ahora mandamos el destino Y LA FECHA!
+        window.location.href = `utils/travel.html?destino=${destinoCodificado}&fecha=${fechaFormateada}`;
+    };
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden'; 
 }
@@ -344,25 +363,39 @@ const profileBtn = document.getElementById('profile-btn');
 const loginModal = document.getElementById('login-modal');
 const closeLoginBtn = document.getElementById('close-login');
 
-// Abrir modal de login
-profileBtn.addEventListener('click', () => {
-    loginModal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-});
+// Abrir modal
+// Abrir modal O redirigir si ya está logueado
+if (profileBtn) {
+    profileBtn.addEventListener('click', async () => {
+        // 1. Preguntamos a Supabase si hay una sesión activa guardada
+        const { data: { session } } = await supabase.auth.getSession();
 
-// Cerrar modal de login
-closeLoginBtn.addEventListener('click', () => {
-    loginModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-});
+        if (session) {
+            // 2. Si HAY sesión, no abrimos el modal. ¡Lo mandamos directo a su panel!
+            console.log("Usuario detectado:", session.user.email);
+            const role = session.user.user_metadata?.role || 'athlete';
+            
+            if (role === 'manager') {
+                window.location.href = 'manager/dashboard.html';
+            } else {
+                window.location.href = 'athlete/profile.html';
+            }
+        } else {
+            // 3. Si NO hay sesión, abrimos el modal de login normal
+            loginModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    });
+}
+// Cerrar modal
+if (closeLoginBtn) {
+    closeLoginBtn.addEventListener('click', () => {
+        loginModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+}
 
-// Prevenir que la página recargue al enviar el formulario (por ahora)
-document.getElementById('login-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    console.log("Intentando iniciar sesión...");
-    // Aquí conectaremos con Supabase
-});
-
+// --- INTERCAMBIO DE VISTAS (LOGIN / REGISTRO) ---
 const loginView = document.getElementById('login-view');
 const signupView = document.getElementById('signup-view');
 const authError = document.getElementById('auth-error');
@@ -381,26 +414,23 @@ document.getElementById('go-to-login').onclick = (e) => {
     authError.style.display = 'none';
 };
 
-// --- LÓGICA DE AUTENTICACIÓN ---
-
+// --- 1. LÓGICA DE LOGIN ARREGLADA ---
 const loginForm = document.getElementById('login-form');
-const loginError = document.getElementById('login-error');
 
 if (loginForm) {
     loginForm.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Evita que la página se recargue
+        e.preventDefault(); 
         
-        const email = document.getElementById('email-input').value;
-        const password = document.getElementById('password-input').value;
+        // Usamos los IDs correctos de tu HTML
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
         const btn = e.target.querySelector('button');
 
-        // Feedback visual: deshabilitar botón mientras carga
         btn.innerText = "Verificando...";
         btn.disabled = true;
-        loginError.style.display = 'none';
+        authError.style.display = 'none';
 
         try {
-            // Intentar iniciar sesión en Supabase
             const { data, error } = await supabase.auth.signInWithPassword({
                 email: email,
                 password: password,
@@ -409,40 +439,52 @@ if (loginForm) {
             if (error) throw error;
 
             if (data.user) {
-                console.log("¡Login correcto!", data.user);
-                // Si el login es un éxito, saltamos al dashboard del mánager
-                window.location.href = 'manager/dashboard.html';
+                console.log("¡Login correcto!");
+                // Redirigir según el rol guardado en metadata (o por defecto manager)
+                const role = data.user.user_metadata?.role || 'manager';
+                if (role === 'manager') {
+                    window.location.href = 'manager/dashboard.html';
+                } else {
+                    window.location.href = 'athlete/profile.html';
+                }
             }
 
         } catch (error) {
             console.error("Error de login:", error.message);
-            loginError.innerText = "Email o contraseña incorrectos.";
-            loginError.style.display = 'block';
+            authError.innerText = "Email o contraseña incorrectos.";
+            authError.style.display = 'block';
             btn.innerText = "Iniciar Sesión";
             btn.disabled = false;
         }
     });
 }
 
-// --- LÓGICA DE REGISTRO ---
+// --- 2. LÓGICA DE REGISTRO ARREGLADA ---
 const signupForm = document.getElementById('signup-form');
 
 if (signupForm) {
     signupForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        
+        // Capturamos todos los campos, INCLUIDO EL ROL
         const name = document.getElementById('signup-name').value;
         const email = document.getElementById('signup-email').value;
         const password = document.getElementById('signup-password').value;
-        const btn = e.target.querySelector('button');
+        const role = document.getElementById('signup-role').value; 
 
+        const btn = e.target.querySelector('button');
         btn.innerText = "Creando cuenta...";
         btn.disabled = true;
+        authError.style.display = 'none';
 
         const { data, error } = await supabase.auth.signUp({
             email: email,
             password: password,
             options: {
-                data: { full_name: name } // Guardamos el nombre en la metadata del usuario
+                data: { 
+                    full_name: name,
+                    role: role // Ahora enviamos el rol correctamente
+                }
             }
         });
 
@@ -451,12 +493,35 @@ if (signupForm) {
             authError.style.display = 'block';
             btn.innerText = "Crear Cuenta";
             btn.disabled = false;
+        } else if (data.user && data.user.identities && data.user.identities.length === 0) {
+            // EL TRUCO ESTÁ AQUÍ: Si identities está vacío, el correo ya existía
+            authError.innerText = "Este correo ya está registrado. Por favor, inicia sesión.";
+            authError.style.display = 'block';
+            btn.innerText = "Crear Cuenta";
+            btn.disabled = false;
         } else {
-            alert("¡Registro exitoso! Ya puedes iniciar sesión.");
-            // Opcional: mandarlo directo al dashboard
-            window.location.href = 'manager/dashboard.html';
+            alert("¡Registro exitoso! Revisa tu correo."); // O redirigir directo
+            if (role === 'manager') {
+                window.location.href = 'manager/dashboard.html';
+            } else {
+                window.location.href = 'athlete/profile.html';
+            }
         }
+
     });
 }
 
+async function checkCurrentSession() {
+    const { data: { session } } = await supabase.auth.getSession();
+    
+    if (session) {
+        // Si está logueado, cambiamos el texto del botón del header
+        const profileText = document.querySelector('.profile-text');
+        if (profileText) {
+            profileText.innerText = "Mi Dashboard";
+        }
+    }
+}
+
 loadData();
+checkCurrentSession();
