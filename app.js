@@ -9,6 +9,9 @@ const disciplineSelect = document.getElementById('filter-discipline');
 const eventCountText = document.getElementById('event-count');
 const genderButtons = document.querySelectorAll('.g-btn');
 const clearDateBtn = document.getElementById('clear-date');
+const supabaseUrl = 'https://efynirousktejtpumudd.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVmeW5pcm91c2t0ZWp0cHVtdWRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5NjQxMTYsImV4cCI6MjA4ODU0MDExNn0._Zs-VQDUB8O3Hfulnnyt7Kf2THUb-fo3YX_PEEdgVBA'; //NO TE HAGAS EL HEROE SOLO SIRVE PARA LEER LAS COMPES CRACK :)
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 let allEvents = [];
 let currentGender = 'all';
@@ -27,6 +30,8 @@ const levelMap = {
     'C': 'BRONZE', 
     'D': 'CHALLENGER'
 };
+
+const regexSub = /\b(U14|U16|U18|U20|U23|Junior|Youth)\b/gi;
 
 function getOnlyCountryCode(venue) {
     if (!venue) return "INT";
@@ -56,19 +61,25 @@ if (window.flatpickr) {
     });
 }
 
-// 3. CARGA DE DATOS
 async function loadData() {
     try {
-        const response = await fetch(`eventos_2026.json?t=${new Date().getTime()}`);
-        const data = await response.json();
+        console.log("⏳ Conectando con Supabase...");
         
-        const regexSub = /\b(U14|U16|U18|U20|U23|Junior|Youth|Boys|Girls)\b/gi;
+        // 1. Pedimos los datos a la nube en lugar de al archivo local
+        const { data, error } = await supabase
+            .from('eventos') // Nombre de tu tabla
+            .select('*');
 
+        // Si hay un problema de permisos o de conexión, salta aquí
+        if (error) throw error; 
+        
+        console.log(`✅ ¡Éxito! ${data.length} eventos descargados de la base de datos.`);
+
+        // 2. Procesamos los datos igual que antes
         allEvents = data
             .filter(ev => !regexSub.test(ev.name))
             .map(ev => {
                 let cleanDisciplines = [];
-                // Nos aseguramos de que disciplines exista
                 if (ev.disciplines && ev.disciplines.length > 0) {
                     const uniqueD = new Set();
                     ev.disciplines.forEach(d => {
@@ -83,17 +94,21 @@ async function loadData() {
                 
                 return {
                     ...ev,
-                    disciplines: cleanDisciplines, // Quedará vacío [] si el JSON no traía nada
+                    disciplines: cleanDisciplines,
                     parsedDate: new Date(ev.startDate)
                 };
             });
 
+        // 3. Ordenar y renderizar
         allEvents.sort((a, b) => a.parsedDate - b.parsedDate);
 
         updateFilterOptions(allEvents);
         applyFilters();
+
     } catch (error) {
-        console.error("Error:", error);
+        console.error("❌ Error conectando a Supabase:", error);
+        // Opcional: Mostrar un aviso en la web si falla
+        eventGrid.innerHTML = `<p style="color: red; padding: 20px;">Error al cargar el calendario. Por favor, recarga la página.</p>`;
     }
 }
 
