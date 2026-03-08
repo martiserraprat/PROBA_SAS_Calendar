@@ -1,4 +1,4 @@
-// 1. REFERENCIAS HTML
+// 1. CONFIGURACIÓN Y REFERENCIAS
 const eventGrid = document.getElementById('event-grid');
 const searchInput = document.getElementById('search-input');
 const monthSelect = document.getElementById('filter-month');
@@ -9,38 +9,27 @@ const disciplineSelect = document.getElementById('filter-discipline');
 const eventCountText = document.getElementById('event-count');
 const genderButtons = document.querySelectorAll('.g-btn');
 const clearDateBtn = document.getElementById('clear-date');
+
 const supabaseUrl = 'https://efynirousktejtpumudd.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVmeW5pcm91c2t0ZWp0cHVtdWRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5NjQxMTYsImV4cCI6MjA4ODU0MDExNn0._Zs-VQDUB8O3Hfulnnyt7Kf2THUb-fo3YX_PEEdgVBA'; //NO TE HAGAS EL HEROE SOLO SIRVE PARA LEER LAS COMPES CRACK :)
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVmeW5pcm91c2t0ZWp0cHVtdWRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5NjQxMTYsImV4cCI6MjA4ODU0MDExNn0._Zs-VQDUB8O3Hfulnnyt7Kf2THUb-fo3YX_PEEdgVBA';
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-console.log("Llave pillada por Supabase:", supabase['auth']['headers']);
 
 let allEvents = [];
 let currentGender = 'all';
 let dateStart = null;
 let dateEnd = null;
-let fp = null; 
+let fp = null;
 
-// AÑADIDO: Mapeo de categorías correcto (Incluyendo Diamond League y Mundiales)
-const levelMap = { 
-    'OW': 'OLYMPIC/WORLD',
-    'DF': 'DL FINAL', 
-    'GW': 'DIAMOND', 
-    'GL': 'CHAMPIONSHIP', 
-    'A': 'GOLD', 
-    'B': 'SILVER', 
-    'C': 'BRONZE', 
-    'D': 'CHALLENGER'
-};
-
+const levelMap = { 'OW': 'OLYMPIC/WORLD', 'DF': 'DL FINAL', 'GW': 'DIAMOND', 'GL': 'CHAMPIONSHIP', 'A': 'GOLD', 'B': 'SILVER', 'C': 'BRONZE', 'D': 'CHALLENGER' };
 const regexSub = /\b(U14|U16|U18|U20|U23|Junior|Youth)\b/gi;
 
 function getOnlyCountryCode(venue) {
     if (!venue) return "INT";
-    const match = venue.match(/\(([^)]+)\)$/); 
+    const match = venue.match(/\(([^)]+)\)$/);
     return match ? match[1].toUpperCase() : "INT";
 }
 
-// 2. CALENDARIO
+// 2. INICIALIZAR CALENDARIO
 if (window.flatpickr) {
     fp = window.flatpickr("#date-range", {
         mode: "range",
@@ -62,107 +51,142 @@ if (window.flatpickr) {
     });
 }
 
+// 3. CARGA DE DATOS OPTIMIZADA
 async function loadData() {
     try {
-        console.log("⏳ Conectando con Supabase...");
-        
-        // 1. Pedimos los datos a la nube en lugar de al archivo local
+        const cacheKey = 'events_data_2026';
+        const cacheTimeKey = 'events_data_time';
+        const cachedData = localStorage.getItem(cacheKey);
+        const lastFetch = localStorage.getItem(cacheTimeKey);
+        const oneHour = 60 * 60 * 1000;
+
+        if (cachedData && lastFetch && (Date.now() - lastFetch < oneHour)) {
+            console.log("🚀 Cargando desde caché local");
+            processAndRender(JSON.parse(cachedData));
+            return;
+        }
+
+        console.log("⏳ Descargando de Supabase...");
         const { data, error } = await supabase
-            .from('eventos') // Nombre de tu tabla
-            .select('*');
+            .from('eventos')
+            .select('id, name, venue, startDate, area, category, disciplines');
 
-        // Si hay un problema de permisos o de conexión, salta aquí
-        if (error) throw error; 
-        
-        console.log(`✅ ¡Éxito! ${data.length} eventos descargados de la base de datos.`);
+        if (error) throw error;
 
-        // 2. Procesamos los datos igual que antes
-        allEvents = data
-            .filter(ev => !regexSub.test(ev.name))
-            .map(ev => {
-                let cleanDisciplines = [];
-                if (ev.disciplines && ev.disciplines.length > 0) {
-                    const uniqueD = new Set();
-                    ev.disciplines.forEach(d => {
-                        let cleanName = d.name.replace(regexSub, '').trim();
-                        let key = cleanName + '|' + d.gender;
-                        if(!uniqueD.has(key)) {
-                            uniqueD.add(key);
-                            cleanDisciplines.push({ name: cleanName, gender: d.gender });
-                        }
-                    });
-                }
-                
-                return {
-                    ...ev,
-                    disciplines: cleanDisciplines,
-                    parsedDate: new Date(ev.startDate)
-                };
-            });
-
-        // 3. Ordenar y renderizar
-        allEvents.sort((a, b) => a.parsedDate - b.parsedDate);
-
-        updateFilterOptions(allEvents);
-        applyFilters();
+        localStorage.setItem(cacheKey, JSON.stringify(data));
+        localStorage.setItem(cacheTimeKey, Date.now());
+        processAndRender(data);
 
     } catch (error) {
-        console.error("❌ Error conectando a Supabase:", error);
-        // Opcional: Mostrar un aviso en la web si falla
-        eventGrid.innerHTML = `<p style="color: red; padding: 20px;">Error al cargar el calendario. Por favor, recarga la página.</p>`;
+        console.error("❌ Error:", error);
+        eventGrid.innerHTML = `<p style="color: red; padding: 20px;">Error al cargar datos.</p>`;
     }
 }
 
-// 4. ACTUALIZAR SELECTORES DINÁMICOS
-function updateFilterOptions(events) {
-    const validEvents = events.filter(e => e.parsedDate.getFullYear() === 2026);
-
-    const continents = [...new Set(validEvents.map(e => e.area).filter(Boolean))].sort();
-    continentSelect.innerHTML = '<option value="all">Continentes</option>';
-    continents.forEach(c => continentSelect.innerHTML += `<option value="${c}">${c}</option>`);
-
-    const countryCodes = [...new Set(validEvents.map(e => getOnlyCountryCode(e.venue)))].sort();
-    countrySelect.innerHTML = '<option value="all">Países</option>';
-    countryCodes.forEach(code => countrySelect.innerHTML += `<option value="${code}">${code}</option>`);
-
-    const levels = [...new Set(validEvents.map(e => e.category))].filter(Boolean).sort();
-    levelSelect.innerHTML = '<option value="all">Niveles</option>';
-    levels.forEach(l => {
-        const displayName = levelMap[l] || l;
-        levelSelect.innerHTML += `<option value="${l}">${displayName}</option>`;
-    });
-
-    let allDiscs = [];
-    validEvents.forEach(ev => {
-        if(ev.disciplines) ev.disciplines.forEach(d => allDiscs.push(d.name));
-    });
-    const uniqueDiscs = [...new Set(allDiscs)].sort();
-    disciplineSelect.innerHTML = '<option value="all">Todas las pruebas</option>';
-    uniqueDiscs.forEach(d => disciplineSelect.innerHTML += `<option value="${d}">${d}</option>`);
+function processAndRender(data) {
+    allEvents = data
+        .filter(ev => !regexSub.test(ev.name))
+        .map(ev => ({
+            ...ev,
+            parsedDate: new Date(ev.startDate)
+        }));
+    allEvents.sort((a, b) => a.parsedDate - b.parsedDate);
+    updateFilterOptions(allEvents);
+    applyFilters();
 }
 
-// 5. FILTRADO MAESTRO (Permite pasar a los que NO tienen info confirmada)
+// 4. MODAL DETALLES
+async function openModal(simpleEv) {
+    const modal = document.getElementById('event-modal');
+    document.getElementById('modal-title').innerText = simpleEv.name;
+    document.getElementById('modal-location').innerText = simpleEv.venue;
+    document.getElementById('modal-date-tag').innerText = simpleEv.parsedDate.toLocaleDateString('es-ES', { dateStyle: 'long' });
+    document.getElementById('modal-area').innerText = simpleEv.area || "-";
+    document.getElementById('modal-cat').innerText = levelMap[simpleEv.category] || simpleEv.category || "-";
+    
+    const vaultContainer = document.getElementById('modal-vault');
+    vaultContainer.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Cargando detalles...';
+
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    try {
+        const { data, error } = await supabase
+            .from('eventos')
+            .select('links, contact, disciplines')
+            .eq('id', simpleEv.id)
+            .single();
+
+        if (error) throw error;
+
+        // Disciplinas
+        if (data.disciplines && data.disciplines.length > 0) {
+            vaultContainer.innerHTML = data.disciplines.map(d => `${d.name} (${d.gender})`).join(', ');
+        } else {
+            vaultContainer.innerHTML = '<span style="color: #ffcc00; font-weight: 600;"><i class="fas fa-exclamation-triangle"></i> Pruebas por confirmar.</span>';
+        }
+
+        // Links
+        const linksCont = document.getElementById('modal-links');
+        linksCont.innerHTML = '';
+        if (data.links?.web) linksCont.innerHTML += `<a href="${ensureAbsoluteUrl(data.links.web)}" target="_blank" class="link-btn"><i class="fas fa-external-link-alt"></i> Web Oficial</a>`;
+        if (data.links?.results) linksCont.innerHTML += `<a href="${ensureAbsoluteUrl(data.links.results)}" target="_blank" class="link-btn"><i class="fas fa-poll"></i> Resultados</a>`;
+
+        // Contactos
+        const contactCont = document.getElementById('modal-contacts');
+        contactCont.innerHTML = data.contact?.length > 0 
+            ? data.contact.map(c => `
+                <div class="contact-box" style="border-left:4px solid #0070f3; padding:12px; margin-bottom:12px; background:rgba(255,255,255,0.05);">
+                    <p style="color:#0070f3; font-size:0.75rem; font-weight:bold; margin:0;">${c.title || 'ORGANIZER'}</p>
+                    <p style="margin:2px 0; font-weight:bold; color:#fff;"><i class="fas fa-user-circle"></i> ${c.name || 'N/A'}</p>
+                    ${c.email ? `<p style="margin:5px 0 0 0; font-size:0.9rem;"><i class="fas fa-envelope"></i> <a href="mailto:${c.email}" style="color:#fff; opacity:0.8;">${c.email}</a></p>` : ''}
+                </div>`).join('')
+            : '<p style="color:#777; font-style:italic;">Contacto no publicado.</p>';
+
+        // Viaje
+        const tripBtn = document.getElementById('btn-manage-trip');
+        tripBtn.onclick = () => {
+            const dateStr = simpleEv.parsedDate.toISOString().split('T')[0];
+            window.location.href = `utils/travel.html?destino=${encodeURIComponent(simpleEv.venue)}&fecha=${dateStr}`;
+        };
+
+    } catch (e) {
+        vaultContainer.innerHTML = "Error al conectar con el servidor.";
+    }
+}
+
+// 5. CERRAR MODALES
+document.getElementById('close-modal').onclick = () => {
+    document.getElementById('event-modal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+};
+
+const closeLoginBtn = document.getElementById('close-login');
+if (closeLoginBtn) {
+    closeLoginBtn.onclick = () => {
+        document.getElementById('login-modal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    };
+}
+
+// 6. FILTROS Y RENDER (ETIQUETAS RECUPERADAS)
 function applyFilters() {
     const search = (searchInput.value || "").toLowerCase();
     const month = monthSelect.value;
     const continent = continentSelect.value;
     const selectedCode = countrySelect.value;
     const level = levelSelect.value;
-    const disc = disciplineSelect.value; 
+    const disc = disciplineSelect.value;
 
     const filtered = allEvents.filter(ev => {
-        const eventDate = ev.parsedDate;
-        const m = (eventDate.getMonth() + 1).toString().padStart(2, '0');
-        
+        const m = (ev.parsedDate.getMonth() + 1).toString().padStart(2, '0');
         const matchesSearch = ev.name.toLowerCase().includes(search) || ev.venue.toLowerCase().includes(search);
         const matchesMonth = month === 'all' || m === month;
         const matchesContinent = continent === 'all' || ev.area === continent;
         const matchesCountry = selectedCode === 'all' || getOnlyCountryCode(ev.venue) === selectedCode;
         const matchesLevel = level === 'all' || ev.category === level;
         
-        // Magia aquí: Si ev.disciplines está VACÍO (0), se da por VÁLIDO el filtro para que no desaparezca
         const hasNoDiscs = !ev.disciplines || ev.disciplines.length === 0;
-        
         const matchesDisc = disc === 'all' || hasNoDiscs || ev.disciplines.some(d => d.name === disc);
         
         let matchesGender = true;
@@ -173,10 +197,8 @@ function applyFilters() {
 
         let matchesDateRange = true;
         if (dateStart && dateEnd) {
-            const evTime = new Date(eventDate).setHours(0,0,0,0);
-            const start = new Date(dateStart).setHours(0,0,0,0);
-            const end = new Date(dateEnd).setHours(0,0,0,0);
-            matchesDateRange = evTime >= start && evTime <= end;
+            const evTime = new Date(ev.parsedDate).setHours(0,0,0,0);
+            matchesDateRange = evTime >= new Date(dateStart).setHours(0,0,0,0) && evTime <= new Date(dateEnd).setHours(0,0,0,0);
         }
 
         return matchesSearch && matchesMonth && matchesContinent && matchesCountry && matchesLevel && matchesDisc && matchesGender && matchesDateRange;
@@ -185,29 +207,23 @@ function applyFilters() {
     renderEvents(filtered);
 }
 
-// 6. RENDERIZAR TARJETAS
 function renderEvents(events) {
     eventGrid.innerHTML = '';
     eventCountText.innerText = `${events.length} Competiciones`;
 
     events.forEach(ev => {
         const dateStr = ev.parsedDate.toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: '2-digit' });
-
+        
+        // Estética del nivel
         let levelName = levelMap[ev.category] || ev.category;
-        let levelClass = "";
-        switch(ev.category) {
-            case 'OW': levelClass = "level-diamond"; break;
-            case 'DF': levelClass = "level-diamond"; break;
-            case 'GW': levelClass = "level-diamond"; break;
-            case 'GL': levelClass = "level-gold"; break;
-            case 'A': levelClass = "level-gold"; break;
-            case 'B': levelClass = "level-silver"; break;
-            case 'C': levelClass = "level-bronze"; break;
-            case 'D': levelClass = "level-challenger"; break;
-            default: levelClass = "level-silver";
-        }
+        let levelClass = "level-silver";
+        if (['OW','DF','GW'].includes(ev.category)) levelClass = "level-diamond";
+        else if (['GL','A'].includes(ev.category)) levelClass = "level-gold";
+        else if (ev.category === 'B') levelClass = "level-silver";
+        else if (ev.category === 'C') levelClass = "level-bronze";
+        else if (ev.category === 'D') levelClass = "level-challenger";
 
-        // Determinar qué etiqueta poner si NO hay disciplinas
+        // RECUPERADO: Lógica de la etiqueta de género
         let genderLabel = "M / F";
         let genderClass = "tag-both";
         
@@ -217,9 +233,8 @@ function renderEvents(events) {
             genderLabel = (hasMen && hasWomen) ? "M / F" : (hasMen ? "MASCULINO" : "FEMENINO");
             genderClass = (hasMen && hasWomen) ? "tag-both" : (hasMen ? "tag-m" : "tag-f");
         } else {
-            // Etiqueta si no hay info
             genderLabel = "TBD / INFO";
-            genderClass = "level-silver"; // Usamos el fondo gris neutro
+            genderClass = "level-silver"; 
         }
 
         const card = document.createElement('div');
@@ -238,96 +253,7 @@ function renderEvents(events) {
     });
 }
 
-// 7. MODAL CON AVISO DE "POR CONFIRMAR"
-function openModal(ev) {
-    const modal = document.getElementById('event-modal');
-    document.getElementById('modal-title').innerText = ev.name;
-    document.getElementById('modal-location').innerText = ev.venue;
-    document.getElementById('modal-date-tag').innerText = ev.parsedDate.toLocaleDateString('es-ES', { dateStyle: 'long' });
-    document.getElementById('modal-area').innerText = ev.area || "-";
-    document.getElementById('modal-cat').innerText = levelMap[ev.category] || ev.category || "-";
-    
-    // AQUÍ ESTÁ EL AVISO
-    const vaultContainer = document.getElementById('modal-vault');
-    if (ev.disciplines && ev.disciplines.length > 0) {
-        vaultContainer.innerHTML = ev.disciplines.map(d => `${d.name} (${d.gender})`).join(', ');
-    } else {
-        vaultContainer.innerHTML = '<span style="color: #ffcc00; font-weight: 600;"><i class="fas fa-exclamation-triangle"></i> Pruebas por confirmar. Buscar en la web oficial.</span>';
-    }
-
-    const linksCont = document.getElementById('modal-links');
-    linksCont.innerHTML = '';
-
-    if (ev.links && ev.links.web) {
-        // Aplicamos la limpieza al link de la web
-        const webUrl = ensureAbsoluteUrl(ev.links.web);
-        linksCont.innerHTML += `<a href="${webUrl}" target="_blank" rel="noopener noreferrer" class="link-btn"><i class="fas fa-external-link-alt"></i> Web Oficial</a>`;
-    }
-
-    if (ev.links && ev.links.results) {
-        // Aplicamos la limpieza al link de resultados
-        const resultsUrl = ensureAbsoluteUrl(ev.links.results);
-        linksCont.innerHTML += `<a href="${resultsUrl}" target="_blank" rel="noopener noreferrer" class="link-btn"><i class="fas fa-poll"></i> Resultados</a>`;
-    }
-
-    const contactCont = document.getElementById('modal-contacts');
-    if (ev.contact && ev.contact.length > 0) {
-        contactCont.innerHTML = ev.contact.map(c => `
-            <div class="contact-box" style="background:rgba(255,255,255,0.05); padding:12px; border-radius:8px; margin-bottom:12px; border-left:4px solid rgb(0, 112, 243);">
-                <p style="margin:0 0 5px 0; font-size:0.75rem; text-transform:uppercase; color:#0070f3; font-weight:bold;">${c.title || 'ORGANIZER'}</p>
-                <p style="margin:0; font-weight:bold; color:#fff;"><i class="fas fa-user-circle"></i> ${c.name || 'N/A'}</p>
-                ${c.email ? `<p style="margin:5px 0 0 0; font-size:0.9rem;"><i class="fas fa-envelope"></i> <a href="mailto:${c.email}" style="color:#fff; opacity:0.8; text-decoration:none;">${c.email}</a></p>` : ''}
-                ${c.phoneNumber ? `<p style="margin:5px 0 0 0; font-size:0.9rem; color:#aaa;"><i class="fas fa-phone"></i> ${c.phoneNumber}</p>` : ''}
-            </div>
-        `).join('');
-    } else {
-        contactCont.innerHTML = '<p style="color:#777; font-style:italic;"><i class="fas fa-clock"></i> Contacto no publicado aún. Revisa la web oficial.</p>';
-    }
-    // --- LÓGICA DEL BOTÓN DE VIAJE ---
-    const tripBtn = document.getElementById('btn-manage-trip');
-    
-    // Le quitamos acciones anteriores por si acaso
-    tripBtn.onclick = null; 
-    
-    // Le decimos qué pasa al hacer clic
-    tripBtn.onclick = () => {
-        const destinoCodificado = encodeURIComponent(ev.venue);
-        
-        // Extraemos la fecha del evento en formato AAAA-MM-DD
-        const year = ev.parsedDate.getFullYear();
-        const month = String(ev.parsedDate.getMonth() + 1).padStart(2, '0');
-        const day = String(ev.parsedDate.getDate()).padStart(2, '0');
-        const fechaFormateada = `${year}-${month}-${day}`;
-
-        // ¡Ahora mandamos el destino Y LA FECHA!
-        window.location.href = `utils/travel.html?destino=${destinoCodificado}&fecha=${fechaFormateada}`;
-    };
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; 
-}
-
-document.getElementById('close-modal').onclick = () => {
-    document.getElementById('event-modal').style.display = 'none';
-    document.body.style.overflow = 'auto';
-};
-
-// 8. LISTENERS
-searchInput.addEventListener('input', applyFilters);
-monthSelect.addEventListener('change', applyFilters);
-continentSelect.addEventListener('change', applyFilters);
-countrySelect.addEventListener('change', applyFilters);
-levelSelect.addEventListener('change', applyFilters);
-disciplineSelect.addEventListener('change', applyFilters);
-
-genderButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        genderButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentGender = btn.dataset.gender; 
-        applyFilters();
-    });
-});
-
+// BOTÓN CLEAR DATE
 if(clearDateBtn) {
     clearDateBtn.onclick = () => {
         fp.clear();
@@ -338,97 +264,78 @@ if(clearDateBtn) {
     };
 }
 
-// Activa el scroll lateral con la rueda del ratón en PC (Si lo dejaste puesto)
-const scrollContainer = document.querySelector('.filter-wrapper');
-if (scrollContainer) {
-    scrollContainer.addEventListener('wheel', (evt) => {
-        evt.preventDefault();
-        scrollContainer.scrollLeft += evt.deltaY;
-    });
+// HELPERS
+function updateFilterOptions(events) {
+    const validEvents = events.filter(e => e.parsedDate.getFullYear() === 2026);
+    continentSelect.innerHTML = '<option value="all">Continentes</option>' + [...new Set(validEvents.map(e => e.area).filter(Boolean))].sort().map(c => `<option value="${c}">${c}</option>`).join('');
+    countrySelect.innerHTML = '<option value="all">Países</option>' + [...new Set(validEvents.map(e => getOnlyCountryCode(e.venue)))].sort().map(code => `<option value="${code}">${code}</option>`).join('');
+    levelSelect.innerHTML = '<option value="all">Niveles</option>' + [...new Set(validEvents.map(e => e.category))].filter(Boolean).sort().map(l => `<option value="${l}">${levelMap[l] || l}</option>`).join('');
+    
+    let allDiscs = [];
+    validEvents.forEach(ev => ev.disciplines?.forEach(d => allDiscs.push(d.name)));
+    disciplineSelect.innerHTML = '<option value="all">Todas las pruebas</option>' + [...new Set(allDiscs)].sort().map(d => `<option value="${d}">${d}</option>`).join('');
 }
 
-// Función para asegurar que el enlace sea absoluto
 function ensureAbsoluteUrl(url) {
     if (!url) return '';
-    // Si ya empieza con http:// o https://, lo devolvemos tal cual
-    if (url.startsWith('http://') || url.startsWith('https://')) {
-        return url;
-    }
-    // Si no, le añadimos https:// al principio
-    return `https://${url}`;
+    return (url.startsWith('http://') || url.startsWith('https://')) ? url : `https://${url}`;
 }
 
-// --- LÓGICA DEL PORTAL MÁNAGER ---
+
+// --- LÓGICA DE AUTH (LOGIN / REGISTRO / DASHBOARD) ---
+
 const profileBtn = document.getElementById('profile-btn');
 const loginModal = document.getElementById('login-modal');
-const closeLoginBtn = document.getElementById('close-login');
+const loginView = document.getElementById('login-view');
+const signupView = document.getElementById('signup-view');
+const authError = document.getElementById('auth-error');
 
-// Abrir modal
-// Abrir modal O redirigir si ya está logueado
+// Abrir modal O ir al dashboard si ya hay sesión
 if (profileBtn) {
     profileBtn.addEventListener('click', async () => {
-        // 1. Preguntamos a Supabase si hay una sesión activa guardada
         const { data: { session } } = await supabase.auth.getSession();
 
         if (session) {
-            // 2. Si HAY sesión, no abrimos el modal. ¡Lo mandamos directo a su panel!
-            console.log("Usuario detectado:", session.user.email);
             const role = session.user.user_metadata?.role || 'athlete';
-            
             if (role === 'manager') {
                 window.location.href = 'manager/dashboard.html';
             } else {
                 window.location.href = 'athlete/profile.html';
             }
         } else {
-            // 3. Si NO hay sesión, abrimos el modal de login normal
             loginModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
     });
 }
-// Cerrar modal
-if (closeLoginBtn) {
-    closeLoginBtn.addEventListener('click', () => {
-        loginModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-}
 
-// --- INTERCAMBIO DE VISTAS (LOGIN / REGISTRO) ---
-const loginView = document.getElementById('login-view');
-const signupView = document.getElementById('signup-view');
-const authError = document.getElementById('auth-error');
-
+// Intercambio Login/Registro
 document.getElementById('go-to-signup').onclick = (e) => {
     e.preventDefault();
     loginView.style.display = 'none';
     signupView.style.display = 'block';
-    authError.style.display = 'none';
+    if(authError) authError.style.display = 'none';
 };
 
 document.getElementById('go-to-login').onclick = (e) => {
     e.preventDefault();
     signupView.style.display = 'none';
     loginView.style.display = 'block';
-    authError.style.display = 'none';
+    if(authError) authError.style.display = 'none';
 };
 
-// --- 1. LÓGICA DE LOGIN ARREGLADA ---
+// Formulario de Login
 const loginForm = document.getElementById('login-form');
-
 if (loginForm) {
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault(); 
-        
-        // Usamos los IDs correctos de tu HTML
         const email = document.getElementById('login-email').value;
         const password = document.getElementById('login-password').value;
         const btn = e.target.querySelector('button');
 
         btn.innerText = "Verificando...";
         btn.disabled = true;
-        authError.style.display = 'none';
+        if(authError) authError.style.display = 'none';
 
         try {
             const { data, error } = await supabase.auth.signInWithPassword({
@@ -439,34 +346,25 @@ if (loginForm) {
             if (error) throw error;
 
             if (data.user) {
-                console.log("¡Login correcto!");
-                // Redirigir según el rol guardado en metadata (o por defecto manager)
                 const role = data.user.user_metadata?.role || 'manager';
-                if (role === 'manager') {
-                    window.location.href = 'manager/dashboard.html';
-                } else {
-                    window.location.href = 'athlete/profile.html';
-                }
+                window.location.href = role === 'manager' ? 'manager/dashboard.html' : 'athlete/profile.html';
             }
-
         } catch (error) {
-            console.error("Error de login:", error.message);
-            authError.innerText = "Email o contraseña incorrectos.";
-            authError.style.display = 'block';
+            if(authError) {
+                authError.innerText = "Email o contraseña incorrectos.";
+                authError.style.display = 'block';
+            }
             btn.innerText = "Iniciar Sesión";
             btn.disabled = false;
         }
     });
 }
 
-// --- 2. LÓGICA DE REGISTRO ARREGLADA ---
+// Formulario de Registro
 const signupForm = document.getElementById('signup-form');
-
 if (signupForm) {
     signupForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        // Capturamos todos los campos, INCLUIDO EL ROL
         const name = document.getElementById('signup-name').value;
         const email = document.getElementById('signup-email').value;
         const password = document.getElementById('signup-password').value;
@@ -475,7 +373,7 @@ if (signupForm) {
         const btn = e.target.querySelector('button');
         btn.innerText = "Creando cuenta...";
         btn.disabled = true;
-        authError.style.display = 'none';
+        if(authError) authError.style.display = 'none';
 
         const { data, error } = await supabase.auth.signUp({
             email: email,
@@ -483,45 +381,56 @@ if (signupForm) {
             options: {
                 data: { 
                     full_name: name,
-                    role: role // Ahora enviamos el rol correctamente
+                    role: role 
                 }
             }
         });
 
         if (error) {
-            authError.innerText = error.message;
-            authError.style.display = 'block';
+            if(authError) {
+                authError.innerText = error.message;
+                authError.style.display = 'block';
+            }
             btn.innerText = "Crear Cuenta";
             btn.disabled = false;
         } else if (data.user && data.user.identities && data.user.identities.length === 0) {
-            // EL TRUCO ESTÁ AQUÍ: Si identities está vacío, el correo ya existía
-            authError.innerText = "Este correo ya está registrado. Por favor, inicia sesión.";
-            authError.style.display = 'block';
+            if(authError) {
+                authError.innerText = "Este correo ya está registrado. Por favor, inicia sesión.";
+                authError.style.display = 'block';
+            }
             btn.innerText = "Crear Cuenta";
             btn.disabled = false;
         } else {
-            alert("¡Registro exitoso! Revisa tu correo."); // O redirigir directo
-            if (role === 'manager') {
-                window.location.href = 'manager/dashboard.html';
-            } else {
-                window.location.href = 'athlete/profile.html';
-            }
+            alert("¡Registro exitoso! Revisa tu correo o inicia sesión directamente.");
+            window.location.href = role === 'manager' ? 'manager/dashboard.html' : 'athlete/profile.html';
         }
-
     });
 }
 
+// Chequeo inicial de sesión para cambiar texto del botón
 async function checkCurrentSession() {
     const { data: { session } } = await supabase.auth.getSession();
-    
     if (session) {
-        // Si está logueado, cambiamos el texto del botón del header
         const profileText = document.querySelector('.profile-text');
-        if (profileText) {
-            profileText.innerText = "Mi Dashboard";
-        }
+        if (profileText) profileText.innerText = "Mi Dashboard";
     }
 }
 
+// Inicializar datos y sesión
 loadData();
 checkCurrentSession();
+
+// Listeners
+[searchInput, monthSelect, continentSelect, countrySelect, levelSelect, disciplineSelect].forEach(el => {
+    el.addEventListener('change', applyFilters);
+    el.addEventListener('input', applyFilters);
+});
+
+genderButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        genderButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentGender = btn.dataset.gender;
+        applyFilters();
+    });
+});
