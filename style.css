@@ -333,3 +333,210 @@ select option { background: #121212; color: white; }
     font-weight: 900; 
     box-shadow: 0 0 12px rgba(0, 201, 255, 0.6); 
 }
+
+/* --- BOTÓN FLOTANTE PERFIL --- */
+.main-header {
+    position: relative; /* Obligatorio para que el botón flote dentro */
+    padding: 60px 20px 30px;
+    text-align: center;
+}
+
+.profile-btn-floating {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 8px 16px;
+    border-radius: 30px; /* Bordes más redondeados y modernos */
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.profile-btn-floating i { 
+    font-size: 1.2rem; 
+    color: var(--text-dim); 
+    transition: 0.3s; 
+}
+
+/* Efecto hover elegante */
+.profile-btn-floating:hover { 
+    background: rgba(255, 255, 255, 0.08); 
+    border-color: var(--accent); 
+    color: white;
+}
+.profile-btn-floating:hover i { color: var(--accent); }
+
+/* En móvil, para que no choque con el título, dejamos solo el icono */
+@media (max-width: 600px) {
+    .profile-btn-floating {
+        top: 15px;
+        right: 15px;
+        padding: 10px;
+        border-radius: 50%; /* Se vuelve un círculo perfecto */
+    }
+    .profile-text { display: none; } /* Ocultamos el texto "Acceso Mánager" */
+    .profile-btn-floating i { font-size: 1.4rem; margin: 0; }
+}
+
+/* --- LOGIN POP-UP GORGEOUS STYLE --- */
+.login-box {
+    max-width: 400px;
+    background: rgba(15, 15, 15, 0.95); /* Fondo casi negro profundo */
+    backdrop-filter: blur(25px) saturate(180%); /* Efecto cristal esmerilado */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+    border-radius: 28px;
+    padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 
+                0 0 40px rgba(0, 112, 243, 0.1); /* Brillo azul muy suave */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* El destello decorativo superior */
+.login-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 20%, rgba(0, 112, 243, 0.15), transparent 40%);
+    pointer-events: none;
+}
+
+.login-header i {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, #0070f3, #00d1ff);
+    
+    /* Versión para Chrome, Safari, Edge */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Versión estándar (la que te pide el aviso) */
+    background-clip: text;
+    
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(0, 112, 243, 0.3));
+}
+
+.login-header h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 0 0 8px;
+    color: white;
+}
+
+.login-header p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin-bottom: 35px;
+}
+
+/* Inputs con estilo moderno */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.input-group input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px 16px 16px 52px;
+    border-radius: 14px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Al escribir o hacer focus */
+.input-group input:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(0, 112, 243, 0.15);
+}
+
+.input-group input:focus + i {
+    color: var(--accent);
+}
+
+/* Botón principal potente */
+.auth-btn {
+    width: 100%;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    box-shadow: 0 10px 20px -5px rgba(0, 112, 243, 0.4);
+}
+
+.auth-btn:hover {
+    background: #0080ff;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px -5px rgba(0, 112, 243, 0.5);
+}
+
+.auth-btn:active {
+    transform: translateY(0);
+}
+
+/* Botón cerrar minimalista */
+#close-login {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    color: var(--text-dim);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#close-login:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Animación de entrada */
+@keyframes modalFade {
+    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-content.login-box {
+    animation: modalFade 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}

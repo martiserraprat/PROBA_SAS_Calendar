@@ -339,4 +339,28 @@ function ensureAbsoluteUrl(url) {
     return `https://${url}`;
 }
 
+// --- LÓGICA DEL PORTAL MÁNAGER ---
+const profileBtn = document.getElementById('profile-btn');
+const loginModal = document.getElementById('login-modal');
+const closeLoginBtn = document.getElementById('close-login');
+
+// Abrir modal de login
+profileBtn.addEventListener('click', () => {
+    loginModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+});
+
+// Cerrar modal de login
+closeLoginBtn.addEventListener('click', () => {
+    loginModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+// Prevenir que la página recargue al enviar el formulario (por ahora)
+document.getElementById('login-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log("Intentando iniciar sesión...");
+    // Aquí conectaremos con Supabase
+});
+
 loadData();
