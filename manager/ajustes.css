@@ -1,0 +1,37 @@
+/* --- ESTILOS PARA AJUSTES --- */
+.settings-card {
+    background: #0f0f0f;
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: 18px;
+    max-width: 600px;
+}
+.settings-card h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+.form-group label {
+    font-size: 0.85rem;
+    color: #ccc;
+    font-weight: 600;
+}
+.custom-input {
+    background: #111;
+    border: 1px solid var(--border-color);
+    color: #fff;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+.custom-input:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+}

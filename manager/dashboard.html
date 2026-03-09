@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script type="module" src="dashboard.js"></script>
+    <link rel="stylesheet" href="ajustes.css">
 </head>
 <body>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
@@ -20,10 +21,10 @@
             </div>
             
             <nav class="sidebar-nav">
-                <a href="#" class="nav-item active"><i class="fas fa-user-friends"></i> Atletas</a>
+                <a href="dashboard.html" class="nav-item active"><i class="fas fa-user-friends"></i> Atletas</a>
                 <a href="../index.html" class="nav-item"><i class="fas fa-search-location"></i> Buscar Mítines</a>
                 <a href="#" class="nav-item"><i class="fas fa-file-signature"></i> Inscripciones</a>
-                <a href="#" class="nav-item"><i class="fas fa-cog"></i> Ajustes</a>
+                <a href="ajustes.html" class="nav-item"><i class="fas fa-cog"></i> Ajustes</a>
             </nav>
 
             <div class="sidebar-footer">
@@ -70,16 +71,20 @@
             </div>
 
             <div class="athletes-section">
-                <div class="section-bar">
-                    <h3>Lista de Representados</h3>
-                    <div class="filter-pills">
-                        <span class="pill active">Todos</span>
-                        <span class="pill">Hombres</span>
-                        <span class="pill">Mujeres</span>
+            <div class="section-bar">
+                <h3>Lista de Representados</h3>
+                <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                    <div class="filter-pills" id="gender-filters">
+                        <span class="pill active" data-gender="all">Todos</span>
+                        <span class="pill" data-gender="Man">Hombres</span>
+                        <span class="pill" data-gender="Woman">Mujeres</span>
                     </div>
+                    <select id="discipline-filter" class="custom-select">
+                        <option value="all">Todas las pruebas</option>
+                        </select>
                 </div>
-                <div class="athlete-grid" id="athlete-grid">
-                    </div>
+            </div>
+            <div class="athlete-grid" id="athlete-grid"></div>
             </div>
         </main>
     </div>

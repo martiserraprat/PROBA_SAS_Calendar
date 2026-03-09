@@ -1,0 +1,2523 @@
+[
+  {
+    "id": 140546,
+    "name": "Sylvia Manuela ABMAYR",
+    "country": "Germany",
+    "url": "https://worldathletics.org/athletes/athlete-representatives/directory/140546",
+    "email": "info@afro-sport.de",
+    "mobile": "+49 171 260 58 38",
+    "website": "http://www.afro-sport.de",
+    "athletes": [
+      {
+        "name": "Joshua ABUAKU",
+        "country": "Germany",
+        "birthdate": "07 JUL 1996",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "60 Metres",
+            "mark": "7.18",
+            "venue": "Frankfurt (GER) (i)",
+            "date": "19 JAN 2019"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "10.99",
+            "venue": "HLV-Leistungszentrum, Frankfurt (GER)",
+            "date": "07 JUN 2020"
+          },
+          {
+            "discipline": "150 Metres",
+            "mark": "16.17",
+            "venue": "McArthur Stadium, Potchefstroom (RSA)",
+            "date": "30 JAN 2024"
+          },
+          {
+            "discipline": "150 Metres",
+            "mark": "15.90",
+            "venue": "Schönbuchstadion, Pliezhausen (GER)",
+            "date": "08 MAY 2022"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "21.78",
+            "venue": "HLV-Leistungszentrum, Frankfurt (GER)",
+            "date": "07 JUN 2020"
+          },
+          {
+            "discipline": "200 Metres Short Track",
+            "mark": "22.20",
+            "venue": "Frankfurt-Kalbach (GER) (i)",
+            "date": "01 FEB 2017"
+          },
+          {
+            "discipline": "300 Metres",
+            "mark": "33.01",
+            "venue": "Schönbuchstadion, Pliezhausen (GER)",
+            "date": "08 MAY 2022"
+          },
+          {
+            "discipline": "300 Metres Short Track",
+            "mark": "34.41",
+            "venue": "Erfurt (GER) (i)",
+            "date": "25 JAN 2019"
+          },
+          {
+            "discipline": "400 Metres",
+            "mark": "46.53",
+            "venue": "Südweststadion, Ludwigshafen (GER)",
+            "date": "23 JUL 2022"
+          },
+          {
+            "discipline": "400 Metres Short Track",
+            "mark": "48.21",
+            "venue": "Leipzig (GER) (i)",
+            "date": "27 FEB 2016"
+          },
+          {
+            "discipline": "800 Metres",
+            "mark": "1:58.12",
+            "venue": "Frankfurt (GER) (i)",
+            "date": "13 JAN 2019"
+          },
+          {
+            "discipline": "800 Metres Short Track",
+            "mark": "1:58.12",
+            "venue": "Frankfurt (GER) (i)",
+            "date": "13 JAN 2019"
+          },
+          {
+            "discipline": "60 Metres Hurdles (91.4cm)",
+            "mark": "8.19",
+            "venue": "Leverkusen (GER) (i)",
+            "date": "19 JAN 2013"
+          },
+          {
+            "discipline": "110 Metres Hurdles (91.4cm)",
+            "mark": "14.67",
+            "venue": "Mönchengladbach (GER)",
+            "date": "20 JUL 2012"
+          },
+          {
+            "discipline": "300 Metres Hurdles",
+            "mark": "34.81",
+            "venue": "McArthur Stadium, Potchefstroom (RSA)",
+            "date": "06 FEB 2024"
+          },
+          {
+            "discipline": "400 Metres Hurdles",
+            "mark": "48.12",
+            "venue": "Olympiastadion, Berlin (GER)",
+            "date": "03 SEP 2023"
+          },
+          {
+            "discipline": "400m hurdles (84.0cm)",
+            "mark": "54.16",
+            "venue": "Recklinghausen (GER)",
+            "date": "20 MAY 2013"
+          },
+          {
+            "discipline": "4x400 Metres Relay",
+            "mark": "3:03.08",
+            "venue": "Universitätsstadion Am Biopark, Regensburg (GER)",
+            "date": "15 JUN 2025"
+          },
+          {
+            "discipline": "4x400 Metres Relay Mixed",
+            "mark": "3:13.21",
+            "venue": "Estadio Vallehermoso, Madrid (ESP)",
+            "date": "29 JUN 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14536209"
+      },
+      {
+        "name": "Enoch ADEGOKE",
+        "country": "Nigeria",
+        "birthdate": "08 MAR 2000",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "60 Metres",
+            "mark": "6.70",
+            "venue": "Hartwig-Gauder-Halle, Erfurt (GER) (i)",
+            "date": "13 FEB 2026"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "9.98",
+            "venue": "National Stadium, Tokyo (JPN)",
+            "date": "31 JUL 2021"
+          },
+          {
+            "discipline": "150 Metres",
+            "mark": "15.33",
+            "venue": "Schönbuchstadion, Pliezhausen (GER)",
+            "date": "05 MAY 2024"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "21.07",
+            "venue": "Abidjan (CIV)",
+            "date": "19 APR 2019"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "21.00",
+            "venue": "Stephen Keshi Stadium, Asaba (NGR)",
+            "date": "18 FEB 2024"
+          },
+          {
+            "discipline": "4x100 Metres Relay",
+            "mark": "38.52",
+            "venue": "Gold Coast (AUS)",
+            "date": "13 APR 2018"
+          },
+          {
+            "discipline": "4x200 Metres Relay",
+            "mark": "1:22.08",
+            "venue": "International Stadium, Yokohama (JPN)",
+            "date": "12 MAY 2019"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14756061"
+      },
+      {
+        "name": "Mohammad Amin ALSALAMI",
+        "country": "Germany",
+        "birthdate": "25 JUL 1994",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "60 Metres",
+            "mark": "6.91",
+            "venue": "Sportforum, Berlin (GER) (i)",
+            "date": "28 JAN 2024"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "10.67",
+            "venue": "Friedrich-Stephan-Stadion, Rheinau-Freistett (GER)",
+            "date": "09 JUL 2022"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "10.61",
+            "venue": "Ernst-Reuter-Sportfeld, Zehlendorf, Berlin (GER)",
+            "date": "16 JUL 2022"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "21.62",
+            "venue": "Wieslaw Maniak Municipal Athletic Stadium, Szczecin (POL)",
+            "date": "06 SEP 2023"
+          },
+          {
+            "discipline": "300 Metres",
+            "mark": "35.06",
+            "venue": "Uniwersytetu Warmińsko-Mazurskiego, Olsztyn (POL)",
+            "date": "01 SEP 2024"
+          },
+          {
+            "discipline": "400 Metres",
+            "mark": "48.84",
+            "venue": "Ernst-Reuter-Sportfeld, Zehlendorf, Berlin (GER)",
+            "date": "16 JUL 2022"
+          },
+          {
+            "discipline": "Long Jump",
+            "mark": "7.88",
+            "venue": "Weiherstadion, Hechingen (GER)",
+            "date": "02 JUL 2022"
+          },
+          {
+            "discipline": "Triple Jump",
+            "mark": "16.28",
+            "venue": "Heinz-Steyer-Stadion, Dresden (GER)",
+            "date": "03 AUG 2025"
+          },
+          {
+            "discipline": "4x100 Metres Relay",
+            "mark": "40.55",
+            "venue": "Leichtathletikstadion, Rostock (GER)",
+            "date": "15 JUN 2024"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14738672"
+      },
+      {
+        "name": "Batuhan ALTINTAŞ",
+        "country": "Türkiye",
+        "birthdate": "28 APR 1996",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "60 Metres",
+            "mark": "6.85",
+            "venue": "Ataköy Arena, Istanbul (TUR) (i)",
+            "date": "20 JAN 2024"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "10.44",
+            "venue": "Atatürk Stadyumu, Izmir (TUR)",
+            "date": "31 MAY 2025"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "10.42",
+            "venue": "Atatürk Stadyumu, Izmir (TUR)",
+            "date": "31 MAY 2025"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "20.91",
+            "venue": "AFU Athletics Stadium, Tashkent (UZB)",
+            "date": "21 JUN 2025"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "20.91=",
+            "venue": "Konstantinos Baglatzis Municipal Stadium, Vari (GRE)",
+            "date": "05 JUL 2025"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "20.91=",
+            "venue": "Panthessaliko Stadium, Volos (GRE)",
+            "date": "27 JUL 2025"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "20.89",
+            "venue": "Atatürk Stadyumu, Izmir (TUR)",
+            "date": "03 SEP 2025"
+          },
+          {
+            "discipline": "200 Metres Short Track",
+            "mark": "21.33",
+            "venue": "Istanbul (TUR) (i)",
+            "date": "21 FEB 2016"
+          },
+          {
+            "discipline": "300 Metres",
+            "mark": "32.76",
+            "venue": "Ankara (TUR)",
+            "date": "31 JUL 2016"
+          },
+          {
+            "discipline": "300 Metres Short Track",
+            "mark": "33.30",
+            "venue": "Ataköy Arena, Istanbul (TUR) (i)",
+            "date": "12 JAN 2020"
+          },
+          {
+            "discipline": "400 Metres",
+            "mark": "45.85",
+            "venue": "Erzurum (TUR)",
+            "date": "11 JUN 2017"
+          },
+          {
+            "discipline": "400 Metres Short Track",
+            "mark": "46.55",
+            "venue": "Wien (AUT) (i)",
+            "date": "30 JAN 2016"
+          },
+          {
+            "discipline": "600 Metres",
+            "mark": "1:19.88",
+            "venue": "Istanbul (TUR) (i)",
+            "date": "11 JAN 2015"
+          },
+          {
+            "discipline": "600 Metres Short Track",
+            "mark": "1:19.88",
+            "venue": "Istanbul (TUR) (i)",
+            "date": "11 JAN 2015"
+          },
+          {
+            "discipline": "800 Metres",
+            "mark": "1:51.92",
+            "venue": "Ankara (TUR)",
+            "date": "16 AUG 2015"
+          },
+          {
+            "discipline": "800 Metres Short Track",
+            "mark": "1:52.32",
+            "venue": "Istanbul (TUR) (i)",
+            "date": "26 DEC 2015"
+          },
+          {
+            "discipline": "Long Jump",
+            "mark": "6.29",
+            "venue": "Isparta (TUR)",
+            "date": "10 MAY 2015"
+          },
+          {
+            "discipline": "Long Jump",
+            "mark": "6.74",
+            "venue": "Isparta (TUR)",
+            "date": "10 MAY 2015"
+          },
+          {
+            "discipline": "Triple Jump",
+            "mark": "13.32",
+            "venue": "Ankara (TUR)",
+            "date": "04 JUL 2010"
+          },
+          {
+            "discipline": "4x100 Metres Relay",
+            "mark": "38.96",
+            "venue": "Stadion Śląski, Chorzów (POL)",
+            "date": "24 JUN 2023"
+          },
+          {
+            "discipline": "4x400 Metres Relay",
+            "mark": "3:02.22",
+            "venue": "Erzurum (TUR)",
+            "date": "12 JUN 2016"
+          },
+          {
+            "discipline": "4x400 Metres Relay Short Track",
+            "mark": "3:14.86",
+            "venue": "Istanbul (TUR) (i)",
+            "date": "21 FEB 2015"
+          },
+          {
+            "discipline": "4x400 Metres Relay Mixed",
+            "mark": "3:20.31",
+            "venue": "Minsk (BLR)",
+            "date": "23 JUN 2019"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14441289"
+      },
+      {
+        "name": "Özlem BECEREK",
+        "country": "Türkiye",
+        "birthdate": "22 APR 2002",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "Shot Put (3kg)",
+            "mark": "12.80",
+            "venue": "Istanbul (TUR) (i)",
+            "date": "15 JAN 2017"
+          },
+          {
+            "discipline": "Discus Throw",
+            "mark": "61.96",
+            "venue": "Stade Complexe Olympique, Oran (ALG)",
+            "date": "30 JUN 2022"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14776186"
+      },
+      {
+        "name": "Luna BULMAHN",
+        "country": "Germany",
+        "birthdate": "26 NOV 1999",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "60 Metres",
+            "mark": "7.66",
+            "venue": "Leichtathletikhalle im Sportforum, Chemnitz (GER) (i)",
+            "date": "22 JAN 2021"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "11.95",
+            "venue": "Barnestadion, Wunstorf (GER)",
+            "date": "18 MAY 2022"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "11.55",
+            "venue": "Estadio Municipal de Santa Lucia, Vecindario (ESP)",
+            "date": "10 APR 2021"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "23.87",
+            "venue": "Mannheim (GER)",
+            "date": "30 JUN 2019"
+          },
+          {
+            "discipline": "200 Metres Short Track",
+            "mark": "24.07",
+            "venue": "Sportleistungszentrum, Hannover (GER) (i)",
+            "date": "06 FEB 2022"
+          },
+          {
+            "discipline": "300 Metres",
+            "mark": "36.89",
+            "venue": "Estadio Municipal de Santa Lucia, Vecindario (ESP)",
+            "date": "10 APR 2021"
+          },
+          {
+            "discipline": "300 Metres Short Track",
+            "mark": "37.97",
+            "venue": "Leichtathletikhalle im Sportforum, Chemnitz (GER) (i)",
+            "date": "22 JAN 2022"
+          },
+          {
+            "discipline": "400 Metres",
+            "mark": "51.28",
+            "venue": "Olympiastadion, Berlin (GER)",
+            "date": "04 SEP 2022"
+          },
+          {
+            "discipline": "400 Metres Short Track",
+            "mark": "53.09",
+            "venue": "Helmut-Körnig-Halle, Dortmund (GER) (i)",
+            "date": "01 MAR 2026"
+          },
+          {
+            "discipline": "60 Metres Hurdles (76.2cm)",
+            "mark": "9.68",
+            "venue": "Hannover (GER) (i)",
+            "date": "03 JAN 2015"
+          },
+          {
+            "discipline": "300 Metres Hurdles",
+            "mark": "45.75",
+            "venue": "Köln (GER)",
+            "date": "16 AUG 2014"
+          },
+          {
+            "discipline": "Long Jump",
+            "mark": "5.13",
+            "venue": "Hannover (GER) (i)",
+            "date": "26 JAN 2014"
+          },
+          {
+            "discipline": "4x100 Metres Relay",
+            "mark": "45.75",
+            "venue": "Erika-Fisch-Stadion, Hannover (GER)",
+            "date": "14 MAY 2022"
+          },
+          {
+            "discipline": "4x200 Metres Relay Short Track",
+            "mark": "1:37.59",
+            "venue": "Leipzig (GER) (i)",
+            "date": "28 FEB 2016"
+          },
+          {
+            "discipline": "4x400 Metres Relay",
+            "mark": "3:25.90",
+            "venue": "Stadio Olimpico, Roma (ITA)",
+            "date": "11 JUN 2024"
+          },
+          {
+            "discipline": "4x400 Metres Relay Mixed",
+            "mark": "3:17.85",
+            "venue": "Khalifa International Stadium, Doha (QAT)",
+            "date": "28 SEP 2019"
+          },
+          {
+            "discipline": "4x400 Metres Relay Mixed Short Track",
+            "mark": "3:30.60",
+            "venue": "Sportleistungszentrum, Hannover (GER) (i)",
+            "date": "08 FEB 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14628857"
+      },
+      {
+        "name": "Jule INSINNA",
+        "country": "Liechtenstein",
+        "birthdate": "07 OCT 2003",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "Shot Put",
+            "mark": "13.62",
+            "venue": "Sportanlage Rheinwiese, Schaan (LIE)",
+            "date": "18 MAY 2024"
+          },
+          {
+            "discipline": "Shot Put (3kg)",
+            "mark": "11.52",
+            "venue": "Stade Pierre de Coubertin, Lausanne (SUI)",
+            "date": "06 SEP 2020"
+          },
+          {
+            "discipline": "Discus Throw",
+            "mark": "52.54",
+            "venue": "Stade d’Ecossia à Pont-Chalais, Sierre (SUI)",
+            "date": "22 FEB 2026"
+          },
+          {
+            "discipline": "Javelin Throw",
+            "mark": "44.87",
+            "venue": "Stadion Deutweg, Winterthur (SUI)",
+            "date": "02 MAR 2024"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14951910"
+      },
+      {
+        "name": "Usheoritse ITSEKIRI",
+        "country": "Nigeria",
+        "birthdate": "31 JAN 1998",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "50 Metres",
+            "mark": "5.71",
+            "venue": "Field House, Saskatoon (CAN) (i)",
+            "date": "26 JAN 2024"
+          },
+          {
+            "discipline": "60 Metres",
+            "mark": "6.61",
+            "venue": "Field House, Saskatoon (CAN) (i)",
+            "date": "09 MAR 2023"
+          },
+          {
+            "discipline": "60 Metres",
+            "mark": "6.61=",
+            "venue": "Universiade Pavilion, Edmonton (CAN) (i)",
+            "date": "08 FEB 2025"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "10.02",
+            "venue": "Complexe Sportif Prince Moulay Abdellah, Rabat (MAR)",
+            "date": "27 AUG 2019"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "10.02=",
+            "venue": "Alumni Stadium, London (CAN)",
+            "date": "28 MAY 2023"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "10.02=",
+            "venue": "Samuel Ogbemudia Stadium, Benin City (NGR)",
+            "date": "05 JUL 2023"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "9.97",
+            "venue": "Alumni Stadium, Guelph (CAN)",
+            "date": "04 JUN 2024"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "20.34",
+            "venue": "Alumni Field, Windsor (CAN)",
+            "date": "24 JUN 2023"
+          },
+          {
+            "discipline": "300 Metres",
+            "mark": "34.70",
+            "venue": "James Daly Fieldhouse, Winnipeg (CAN) (i)",
+            "date": "04 FEB 2023"
+          },
+          {
+            "discipline": "300 Metres Short Track",
+            "mark": "34.70",
+            "venue": "James Daly Fieldhouse, Winnipeg (CAN) (i)",
+            "date": "04 FEB 2023"
+          },
+          {
+            "discipline": "4x100 Metres Relay",
+            "mark": "38.20",
+            "venue": "Nemzeti Atlétikai Központ, Budapest (HUN)",
+            "date": "25 AUG 2023"
+          },
+          {
+            "discipline": "4x100 Metres Relay",
+            "mark": "38.20=",
+            "venue": "Stade de France, Paris (FRA)",
+            "date": "08 AUG 2024"
+          },
+          {
+            "discipline": "4x200 Metres Relay Short Track",
+            "mark": "1:27.74",
+            "venue": "Field House, Saskatoon (CAN) (i)",
+            "date": "11 MAR 2023"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14705042"
+      },
+      {
+        "name": "Christina LAHRS",
+        "country": "Germany",
+        "birthdate": "08 JAN 2004",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "800 Metres",
+            "mark": "2:54.73",
+            "venue": "Leichtathletikhallen Manfort, Leverkusen (GER) (i)",
+            "date": "01 FEB 2020"
+          },
+          {
+            "discipline": "800 Metres Short Track",
+            "mark": "2:54.73",
+            "venue": "Leichtathletikhallen Manfort, Leverkusen (GER) (i)",
+            "date": "01 FEB 2020"
+          },
+          {
+            "discipline": "60 Metres Hurdles (76.2cm)",
+            "mark": "10.01",
+            "venue": "Leichtathletikhallen Manfort, Leverkusen (GER) (i)",
+            "date": "01 FEB 2020"
+          },
+          {
+            "discipline": "High Jump",
+            "mark": "1.46",
+            "venue": "Leichtathletikhallen Manfort, Leverkusen (GER) (i)",
+            "date": "01 FEB 2020"
+          },
+          {
+            "discipline": "Long Jump",
+            "mark": "4.49",
+            "venue": "Leichtathletikhallen Manfort, Leverkusen (GER) (i)",
+            "date": "01 FEB 2020"
+          },
+          {
+            "discipline": "Shot Put (3kg)",
+            "mark": "12.99",
+            "venue": "Sportleistungszentrum, Hannover (GER) (i)",
+            "date": "17 JAN 2020"
+          },
+          {
+            "discipline": "Javelin Throw",
+            "mark": "53.25",
+            "venue": "Michael-Hoffmann-Stadion, Mannheim (GER)",
+            "date": "24 JUN 2023"
+          },
+          {
+            "discipline": "Javelin Throw (500g)",
+            "mark": "51.99",
+            "venue": "Frankenstadion, Heilbronn (GER)",
+            "date": "06 SEP 2020"
+          },
+          {
+            "discipline": "Pentathlon Girls Short Track",
+            "mark": "2840",
+            "venue": "Leichtathletikhallen Manfort, Leverkusen (GER) (i)",
+            "date": "01 FEB 2020"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14876522"
+      },
+      {
+        "name": "Tizian LAURIA",
+        "country": "Germany",
+        "birthdate": "24 MAR 2003",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "Shot Put",
+            "mark": "20.17",
+            "venue": "Wieslaw Maniak Municipal Athletic Stadium, Szczecin (POL)",
+            "date": "06 AUG 2025"
+          },
+          {
+            "discipline": "Shot Put (6kg)",
+            "mark": "21.15",
+            "venue": "Alfred-Barner-Stadion, Riederich (GER)",
+            "date": "15 JUN 2022"
+          },
+          {
+            "discipline": "Shot Put (5kg)",
+            "mark": "20.40",
+            "venue": "Sportgelände Hinter Lauh, Geislingen (GER)",
+            "date": "20 SEP 2020"
+          },
+          {
+            "discipline": "Shot Put (4kg)",
+            "mark": "19.29",
+            "venue": "München (GER) (i)",
+            "date": "22 DEC 2018"
+          },
+          {
+            "discipline": "Discus Throw",
+            "mark": "54.92",
+            "venue": "Jahnstadion, Neubrandenburg (GER)",
+            "date": "22 JUN 2022"
+          },
+          {
+            "discipline": "Discus Throw (1,75kg)",
+            "mark": "60.33",
+            "venue": "Werferzentrum Brandberge, Halle (GER)",
+            "date": "21 MAY 2022"
+          },
+          {
+            "discipline": "Discus Throw (1,5kg)",
+            "mark": "63.44",
+            "venue": "Werferzentrum Brandberge, Halle (GER)",
+            "date": "15 AUG 2020"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14839534"
+      },
+      {
+        "name": "Katharina MAISCH",
+        "country": "Germany",
+        "birthdate": "12 JUN 1997",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "60 Metres",
+            "mark": "8.14",
+            "venue": "Sindelfingen (GER) (i)",
+            "date": "08 DEC 2012"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "26.37",
+            "venue": "Vaterstetten (GER)",
+            "date": "23 AUG 2014"
+          },
+          {
+            "discipline": "200 Metres Short Track",
+            "mark": "27.05",
+            "venue": "Sindelfingen (GER) (i)",
+            "date": "08 DEC 2012"
+          },
+          {
+            "discipline": "800 Metres",
+            "mark": "2:32.11",
+            "venue": "Vaterstetten (GER)",
+            "date": "24 AUG 2014"
+          },
+          {
+            "discipline": "60 Metres Hurdles",
+            "mark": "8.85",
+            "venue": "Sindelfingen (GER) (i)",
+            "date": "08 FEB 2014"
+          },
+          {
+            "discipline": "60 Metres Hurdles (76.2cm)",
+            "mark": "8.95",
+            "venue": "Karlsruhe (GER) (i)",
+            "date": "19 JAN 2014"
+          },
+          {
+            "discipline": "100 Metres Hurdles",
+            "mark": "15.10",
+            "venue": "Aulendorf (GER)",
+            "date": "03 AUG 2013"
+          },
+          {
+            "discipline": "100 Metres Hurdles (76.2cm)",
+            "mark": "14.50",
+            "venue": "Karlsbad (GER)",
+            "date": "25 MAY 2014"
+          },
+          {
+            "discipline": "High Jump",
+            "mark": "1.47",
+            "venue": "Vaterstetten (GER)",
+            "date": "23 AUG 2014"
+          },
+          {
+            "discipline": "Long Jump",
+            "mark": "5.42",
+            "venue": "Ulm (GER) (i)",
+            "date": "01 MAR 2014"
+          },
+          {
+            "discipline": "Shot Put",
+            "mark": "19.25",
+            "venue": "UNION-Stadion, Schönebeck (GER)",
+            "date": "21 JUN 2025"
+          },
+          {
+            "discipline": "Shot Put (3kg)",
+            "mark": "17.14",
+            "venue": "Wattenscheid, Bochum (GER)",
+            "date": "08 AUG 2014"
+          },
+          {
+            "discipline": "Discus Throw",
+            "mark": "48.82",
+            "venue": "Sportplatz, Großolbersdorf (GER)",
+            "date": "04 SEP 2021"
+          },
+          {
+            "discipline": "Javelin Throw",
+            "mark": "44.13",
+            "venue": "Unterlenningen (GER)",
+            "date": "23 JUL 2017"
+          },
+          {
+            "discipline": "Javelin Throw (500g)",
+            "mark": "43.33",
+            "venue": "Balingen (GER)",
+            "date": "14 SEP 2014"
+          },
+          {
+            "discipline": "Heptathlon",
+            "mark": "4753",
+            "venue": "Vaterstetten (GER)",
+            "date": "24 AUG 2014"
+          },
+          {
+            "discipline": "Heptathlon U18",
+            "mark": "4347",
+            "venue": "Bressanone, Trentino-Alto Adige (ITA)",
+            "date": "19 MAY 2013"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14508777"
+      },
+      {
+        "name": "Seye OGUNLEWE",
+        "country": "Nigeria",
+        "birthdate": "30 AUG 1991",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "60 Metres",
+            "mark": "6.68",
+            "venue": "Lee Valley (GBR) (i)",
+            "date": "27 JAN 2013"
+          },
+          {
+            "discipline": "60 Metres",
+            "mark": "6.68=",
+            "venue": "Lee Valley (GBR) (i)",
+            "date": "27 JAN 2013"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "10.03",
+            "venue": "Yabatech Sport Complex, Lagos (NGR)",
+            "date": "14 JUL 2023"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "10.03=",
+            "venue": "Stade de La Charrière, La Chaux-de-Fonds (SUI)",
+            "date": "14 JUL 2024"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "9.96",
+            "venue": "London Marathon Community Track, London (GBR)",
+            "date": "18 AUG 2024"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "20.45",
+            "venue": "Stade de La Charrière, La Chaux-de-Fonds (SUI)",
+            "date": "14 JUL 2024"
+          },
+          {
+            "discipline": "4x100 Metres Relay",
+            "mark": "38.20",
+            "venue": "Nemzeti Atlétikai Központ, Budapest (HUN)",
+            "date": "25 AUG 2023"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14373436"
+      },
+      {
+        "name": "Fola OLAOYE",
+        "country": "Nigeria",
+        "birthdate": "21 NOV 1996",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "60 Metres",
+            "mark": "6.60",
+            "venue": "Hartwig-Gauder-Halle, Erfurt (GER) (i)",
+            "date": "31 JAN 2025"
+          },
+          {
+            "discipline": "60 Metres",
+            "mark": "6.60=",
+            "venue": "PSD Bank Dome, Düsseldorf (GER) (i)",
+            "date": "24 JAN 2026"
+          },
+          {
+            "discipline": "60 Metres",
+            "mark": "6.60=",
+            "venue": "Helmut-Körnig-Halle, Dortmund (GER) (i)",
+            "date": "08 FEB 2026"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "10.21",
+            "venue": "Paul-Greifzu-Stadion, Dessau (GER)",
+            "date": "21 JUN 2025"
+          },
+          {
+            "discipline": "150 Metres",
+            "mark": "15.51",
+            "venue": "Schönbuchstadion, Pliezhausen (GER)",
+            "date": "18 MAY 2025"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "20.85",
+            "venue": "Wieslaw Maniak Municipal Athletic Stadium, Szczecin (POL)",
+            "date": "06 AUG 2025"
+          },
+          {
+            "discipline": "200 Metres Short Track",
+            "mark": "21.88",
+            "venue": "Werner-von-Linde-Halle, München (GER) (i)",
+            "date": "11 FEB 2024"
+          },
+          {
+            "discipline": "4x100 Metres Relay",
+            "mark": "40.03",
+            "venue": "Heinz-Steyer-Stadion, Dresden (GER)",
+            "date": "01 JUN 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14873538"
+      },
+      {
+        "name": "Kristina OVCHINNIKOVA",
+        "country": "Kazakhstan",
+        "birthdate": "21 MAR 2001",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "High Jump",
+            "mark": "1.96",
+            "venue": "Central Stadium, Almaty (KAZ)",
+            "date": "08 JUN 2021"
+          },
+          {
+            "discipline": "High Jump",
+            "mark": "1.96=",
+            "venue": "Central Stadium, Almaty (KAZ)",
+            "date": "25 JUN 2022"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14824486"
+      },
+      {
+        "name": "Steven RICHTER",
+        "country": "Germany",
+        "birthdate": "05 APR 2003",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "Shot Put",
+            "mark": "19.36",
+            "venue": "Turnhalle Am Regenbogen, Rochlitz (GER) (i)",
+            "date": "04 FEB 2024"
+          },
+          {
+            "discipline": "Shot Put (6kg)",
+            "mark": "20.77",
+            "venue": "Turnhalle Am Regenbogen, Rochlitz (GER) (i)",
+            "date": "06 FEB 2022"
+          },
+          {
+            "discipline": "Shot Put (5kg)",
+            "mark": "21.68",
+            "venue": "Kohlbergstadion, Pirna (GER)",
+            "date": "23 SEP 2020"
+          },
+          {
+            "discipline": "Shot Put (4kg)",
+            "mark": "16.28",
+            "venue": "Rochlitz (GER) (i)",
+            "date": "04 FEB 2018"
+          },
+          {
+            "discipline": "Discus Throw",
+            "mark": "69.61",
+            "venue": "Millican Field at Throw Town, Ramona, OK (USA)",
+            "date": "13 APR 2025"
+          },
+          {
+            "discipline": "Discus Throw (1,75kg)",
+            "mark": "67.27",
+            "venue": "Michael-Hoffmann-Stadion, Mannheim (GER)",
+            "date": "02 JUL 2022"
+          },
+          {
+            "discipline": "Discus Throw (1,5kg)",
+            "mark": "65.95",
+            "venue": "Werferzentrum Brandberge, Halle (GER)",
+            "date": "15 AUG 2020"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14828356"
+      },
+      {
+        "name": "Silas RISTL",
+        "country": "Germany",
+        "birthdate": "01 APR 1995",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "Shot Put",
+            "mark": "20.27",
+            "venue": "GPS Stadium, Nicosia (CYP)",
+            "date": "16 MAR 2025"
+          },
+          {
+            "discipline": "Shot Put (6kg)",
+            "mark": "18.12",
+            "venue": "Wiesbaden (GER)",
+            "date": "10 MAY 2014"
+          },
+          {
+            "discipline": "Shot Put (5kg)",
+            "mark": "18.12",
+            "venue": "Mönchengladbach (GER)",
+            "date": "20 JUL 2012"
+          },
+          {
+            "discipline": "Discus Throw",
+            "mark": "52.79",
+            "venue": "Wetzlar (GER)",
+            "date": "02 JUL 2017"
+          },
+          {
+            "discipline": "Discus Throw (1,75kg)",
+            "mark": "52.29",
+            "venue": "Wattenscheid, Bochum (GER)",
+            "date": "09 AUG 2014"
+          },
+          {
+            "discipline": "Discus Throw (1,5kg)",
+            "mark": "54.77",
+            "venue": "Aulendorf (GER)",
+            "date": "04 AUG 2012"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14467485"
+      },
+      {
+        "name": "Ersu ŞAŞMA",
+        "country": "Türkiye",
+        "birthdate": "30 SEP 1999",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "Pole Vault",
+            "mark": "5.92",
+            "venue": "Olympiastadion, Berlin (GER)",
+            "date": "27 JUL 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14737427"
+      },
+      {
+        "name": "Eda TUĞSUZ",
+        "country": "Türkiye",
+        "birthdate": "27 MAR 1997",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "Discus Throw",
+            "mark": "31.03",
+            "venue": "Brno (CZE)",
+            "date": "21 SEP 2013"
+          },
+          {
+            "discipline": "Javelin Throw",
+            "mark": "67.21",
+            "venue": "Baku (AZE)",
+            "date": "18 MAY 2017"
+          },
+          {
+            "discipline": "Javelin Throw (500g)",
+            "mark": "58.96",
+            "venue": "Baku (AZE)",
+            "date": "31 MAY 2014"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14590157"
+      },
+      {
+        "name": "Yannick WOLF",
+        "country": "Germany",
+        "birthdate": "12 MAY 2000",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "60 Metres",
+            "mark": "6.58",
+            "venue": "Helmut-Körnig-Halle, Dortmund (GER) (i)",
+            "date": "28 FEB 2026"
+          },
+          {
+            "discipline": "100 Metres",
+            "mark": "10.05",
+            "venue": "Universitätsstadion Am Biopark, Regensburg (GER)",
+            "date": "14 JUN 2025"
+          },
+          {
+            "discipline": "150 Metres",
+            "mark": "15.52",
+            "venue": "Stadion Werner-von-Linde-Halle, München (GER)",
+            "date": "01 MAY 2021"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "21.32",
+            "venue": "Stadion Oberwerth, Koblenz (GER)",
+            "date": "27 JUN 2021"
+          },
+          {
+            "discipline": "200 Metres",
+            "mark": "21.24",
+            "venue": "Michael-Hoffmann-Stadion, Mannheim (GER)",
+            "date": "15 MAY 2021"
+          },
+          {
+            "discipline": "200 Metres Short Track",
+            "mark": "21.76",
+            "venue": "Leichtathletikhallen Manfort, Leverkusen (GER) (i)",
+            "date": "25 JAN 2025"
+          },
+          {
+            "discipline": "Long Jump",
+            "mark": "7.64",
+            "venue": "Werner-von-Linde-Halle, München (GER) (i)",
+            "date": "15 JAN 2023"
+          },
+          {
+            "discipline": "Long Jump",
+            "mark": "7.64=",
+            "venue": "Helmut-Körnig-Halle, Dortmund (GER) (i)",
+            "date": "19 FEB 2023"
+          },
+          {
+            "discipline": "4x100 Metres Relay",
+            "mark": "38.21",
+            "venue": "Olympic Stadium, London (GBR)",
+            "date": "23 JUL 2023"
+          },
+          {
+            "discipline": "4x200 Metres Relay Short Track",
+            "mark": "1:25.43",
+            "venue": "Helmut-Körnig-Halle, Dortmund (GER) (i)",
+            "date": "19 FEB 2023"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14717484"
+      }
+    ]
+  },
+  {
+    "id": 415578,
+    "name": "Tadesse ABRAHAM",
+    "country": "Switzerland",
+    "url": "https://worldathletics.org/athletes/athlete-representatives/directory/415578",
+    "email": "tade@tadesse-abraham.ch",
+    "mobile": null,
+    "website": null,
+    "athletes": [
+      {
+        "name": "Nguse AMLOSOM",
+        "country": "Eritrea",
+        "birthdate": "10 NOV 1986",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "5000 Metres",
+            "mark": "13:30.22",
+            "venue": "Icahn Stadium, New York, NY (USA)",
+            "date": "13 JUN 2015"
+          },
+          {
+            "discipline": "10,000 Metres",
+            "mark": "27:28.10",
+            "venue": "Wageningen (NED)",
+            "date": "30 MAY 2012"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "28:19",
+            "venue": "Groesbeek (NED)",
+            "date": "03 JUN 2012"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "28:09",
+            "venue": "Madrid (ESP)",
+            "date": "31 DEC 2016"
+          },
+          {
+            "discipline": "15 Kilometres Road",
+            "mark": "42:28",
+            "venue": "Nijmegen (NED)",
+            "date": "18 NOV 2012"
+          },
+          {
+            "discipline": "10 Miles Road",
+            "mark": "45:28",
+            "venue": "Amsterdam (NED)",
+            "date": "22 SEP 2013"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "59:39",
+            "venue": "Ras Al Khaimah (UAE)",
+            "date": "14 FEB 2014"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:08:23",
+            "venue": "Málaga (ESP)",
+            "date": "12 DEC 2021"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14474162"
+      },
+      {
+        "name": "Kasanesh BAZE",
+        "country": "Ethiopia",
+        "birthdate": "23 OCT 1999",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "Road Race",
+            "mark": "23:29",
+            "venue": "Genève (SUI)",
+            "date": "03 DEC 2023"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "33:10",
+            "venue": "Chon Buri (THA)",
+            "date": "17 SEP 2023"
+          },
+          {
+            "discipline": "15 Kilometres Road",
+            "mark": "50:10",
+            "venue": "Utica, NY (USA)",
+            "date": "14 JUL 2024"
+          },
+          {
+            "discipline": "10 Miles Road",
+            "mark": "51:38",
+            "venue": "Washington, DC (USA)",
+            "date": "07 APR 2024"
+          },
+          {
+            "discipline": "20 Kilometres Road",
+            "mark": "1:07:05",
+            "venue": "Paris (FRA)",
+            "date": "09 OCT 2022"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:08:40",
+            "venue": "Gent (BEL)",
+            "date": "12 MAR 2023"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:22:06",
+            "venue": "Košice (SVK)",
+            "date": "05 OCT 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/15049168"
+      },
+      {
+        "name": "Chala DEREBA",
+        "country": "Ethiopia",
+        "birthdate": "18 APR 2005",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "Marathon",
+            "mark": "2:13:02",
+            "venue": "Barcelona (ESP)",
+            "date": "16 MAR 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/15215340"
+      },
+      {
+        "name": "Aynalem DESTA",
+        "country": "Ethiopia",
+        "birthdate": "21 JAN 2004",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "5000 Metres",
+            "mark": "16:04.7h",
+            "venue": "Hawassa (ETH)",
+            "date": "02 APR 2022"
+          },
+          {
+            "discipline": "3000 Metres Steeplechase",
+            "mark": "9:48.79",
+            "venue": "Moi International Sports Centre, Kasarani, Nairobi (KEN)",
+            "date": "13 MAY 2023"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:12:19",
+            "venue": "Bogotá (COL)",
+            "date": "27 JUL 2025"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:17:37",
+            "venue": "Amsterdam (NED)",
+            "date": "19 OCT 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/15009589"
+      },
+      {
+        "name": "Debash DESTA",
+        "country": "Ethiopia",
+        "birthdate": "11 MAY 2005",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "30:21",
+            "venue": "Valencia (ESP)",
+            "date": "11 JAN 2026"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:08:10",
+            "venue": "Roma (ITA)",
+            "date": "20 OCT 2024"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/15006149"
+      },
+      {
+        "name": "Netsanet DESTA",
+        "country": "Ethiopia",
+        "birthdate": "26 OCT 2000",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "800 Metres",
+            "mark": "1:59.39",
+            "venue": "FBK Stadium, Hengelo (NED)",
+            "date": "08 JUN 2021"
+          },
+          {
+            "discipline": "800 Metres Short Track",
+            "mark": "2:03.57",
+            "venue": "Helmut-Körnig-Halle, Dortmund (GER) (i)",
+            "date": "12 FEB 2022"
+          },
+          {
+            "discipline": "1500 Metres",
+            "mark": "4:00.69",
+            "venue": "Stade Charléty, Paris (FRA)",
+            "date": "20 JUN 2025"
+          },
+          {
+            "discipline": "1500 Metres Short Track",
+            "mark": "4:04.24",
+            "venue": "Arena Stade Couvert, Liévin (FRA) (i)",
+            "date": "10 FEB 2024"
+          },
+          {
+            "discipline": "Mile",
+            "mark": "4:24.80",
+            "venue": "Atletická hala, Ostrava (CZE) (i)",
+            "date": "30 JAN 2024"
+          },
+          {
+            "discipline": "Mile Short Track",
+            "mark": "4:24.80",
+            "venue": "Atletická hala, Ostrava (CZE) (i)",
+            "date": "30 JAN 2024"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:08:10",
+            "venue": "Barcelona (ESP)",
+            "date": "15 FEB 2026"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14805824"
+      },
+      {
+        "name": "Musie ESTIFANOS",
+        "country": "Eritrea",
+        "birthdate": "01 JAN 1984",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "10,000 Metres",
+            "mark": "29:47.43",
+            "venue": "Asmara (ERI)",
+            "date": "19 SEP 2021"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "29:43",
+            "venue": "Keren (ERI)",
+            "date": "13 JUN 2021"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:14:26",
+            "venue": "Castellón (ESP)",
+            "date": "16 FEB 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14773932"
+      },
+      {
+        "name": "Tigist GEZAHAGN",
+        "country": "Ethiopia",
+        "birthdate": "12 MAR 2000",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "3000 Metres",
+            "mark": "9:06.89",
+            "venue": "Stadion Śląski, Chorzów (POL)",
+            "date": "16 JUL 2023"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "31:08",
+            "venue": "Lille (FRA)",
+            "date": "18 NOV 2023"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:06:20",
+            "venue": "Valencia (ESP)",
+            "date": "22 OCT 2023"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:21:14",
+            "venue": "Doha (QAT)",
+            "date": "16 JAN 2026"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14896244"
+      },
+      {
+        "name": "Natnael HABTAY",
+        "country": "Eritrea",
+        "birthdate": "24 AUG 2005",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "800 Metres",
+            "mark": "1:52.81",
+            "venue": "Asmara (ERI)",
+            "date": "19 SEP 2021"
+          },
+          {
+            "discipline": "1500 Metres",
+            "mark": "3:59.17",
+            "venue": "Asmara (ERI)",
+            "date": "25 JUL 2021"
+          },
+          {
+            "discipline": "5000 Metres",
+            "mark": "13:40.29",
+            "venue": "LAZ Wien, Wien (AUT)",
+            "date": "14 JUN 2025"
+          },
+          {
+            "discipline": "Mile Road",
+            "mark": "4:03.18",
+            "venue": "Riga (LAT)",
+            "date": "01 OCT 2023"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "28:43",
+            "venue": "Langueux (FRA)",
+            "date": "21 JUN 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14985204"
+      },
+      {
+        "name": "Tsige HAILESLASE",
+        "country": "Ethiopia",
+        "birthdate": "21 SEP 2000",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "3000 Metres",
+            "mark": "9:06.0h",
+            "venue": "Bahir Dar (ETH)",
+            "date": "13 JAN 2017"
+          },
+          {
+            "discipline": "5000 Metres",
+            "mark": "15:18.32",
+            "venue": "Shanghai Stadium, Shanghai (CHN)",
+            "date": "13 MAY 2017"
+          },
+          {
+            "discipline": "10,000 Metres",
+            "mark": "32:39.00",
+            "venue": "FBK Stadium, Hengelo (NED)",
+            "date": "08 JUN 2021"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "32:03",
+            "venue": "Valencia (ESP)",
+            "date": "02 DEC 2018"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:08:30",
+            "venue": "Herzogenaurach (GER)",
+            "date": "12 SEP 2021"
+          },
+          {
+            "discipline": "25 Kilometres Road",
+            "mark": "1:28:37",
+            "venue": "Kolkata (IND)",
+            "date": "17 DEC 2023"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:22:10",
+            "venue": "Hamburg (GER)",
+            "date": "23 APR 2023"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14792225"
+      },
+      {
+        "name": "Freweyni HAILU",
+        "country": "Ethiopia",
+        "birthdate": "12 FEB 2001",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "800 Metres",
+            "mark": "1:57.57",
+            "venue": "Stadion Śląski, Chorzów (POL)",
+            "date": "20 JUN 2021"
+          },
+          {
+            "discipline": "800 Metres Short Track",
+            "mark": "2:00.46",
+            "venue": "Messehalle, Karlsruhe (GER) (i)",
+            "date": "27 JAN 2023"
+          },
+          {
+            "discipline": "1000 Metres",
+            "mark": "2:40.86",
+            "venue": "Liévin (FRA) (i)",
+            "date": "10 FEB 2019"
+          },
+          {
+            "discipline": "1000 Metres Short Track",
+            "mark": "2:40.86",
+            "venue": "Liévin (FRA) (i)",
+            "date": "10 FEB 2019"
+          },
+          {
+            "discipline": "1500 Metres",
+            "mark": "3:54.16",
+            "venue": "Stadio Olimpico, Roma (ITA)",
+            "date": "30 AUG 2024"
+          },
+          {
+            "discipline": "1500 Metres Short Track",
+            "mark": "3:55.28",
+            "venue": "Kujawsko-Pomorska Arena, Toruń (POL) (i)",
+            "date": "06 FEB 2024"
+          },
+          {
+            "discipline": "Mile",
+            "mark": "4:14.79",
+            "venue": "Stade Louis II, Monaco (MON)",
+            "date": "21 JUL 2023"
+          },
+          {
+            "discipline": "Mile Short Track",
+            "mark": "4:17.36",
+            "venue": "Atletická hala, Ostrava (CZE) (i)",
+            "date": "30 JAN 2024"
+          },
+          {
+            "discipline": "2000 Metres",
+            "mark": "5:25.86",
+            "venue": "Sports Park Mladost, Zagreb (CRO)",
+            "date": "14 SEP 2021"
+          },
+          {
+            "discipline": "3000 Metres",
+            "mark": "8:19.98",
+            "venue": "Arena Stade Couvert, Liévin (FRA) (i)",
+            "date": "13 FEB 2025"
+          },
+          {
+            "discipline": "3000 Metres Short Track",
+            "mark": "8:19.98",
+            "venue": "Arena Stade Couvert, Liévin (FRA) (i)",
+            "date": "13 FEB 2025"
+          },
+          {
+            "discipline": "5000 Metres",
+            "mark": "14:19.33",
+            "venue": "Stadio Olimpico, Roma (ITA)",
+            "date": "06 JUN 2025"
+          },
+          {
+            "discipline": "Mile Road",
+            "mark": "4:23.06",
+            "venue": "Riga (LAT)",
+            "date": "01 OCT 2023"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14836656"
+      },
+      {
+        "name": "Samiya HASSAN NOUR",
+        "country": "Djibouti",
+        "birthdate": "05 DEC 1999",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "1500 Metres",
+            "mark": "4:15.29",
+            "venue": "Stade d'Athlétisme Hautepierre, Strasbourg (FRA)",
+            "date": "16 JUN 2023"
+          },
+          {
+            "discipline": "3000 Metres",
+            "mark": "9:25.23",
+            "venue": "Djibouti (DJI)",
+            "date": "11 JAN 2020"
+          },
+          {
+            "discipline": "5000 Metres",
+            "mark": "14:45.93",
+            "venue": "Påskbergsvallen, Varberg (SWE)",
+            "date": "22 JUL 2025"
+          },
+          {
+            "discipline": "10,000 Metres",
+            "mark": "32:17.72",
+            "venue": "Riyadh (KSA)",
+            "date": "17 NOV 2025"
+          },
+          {
+            "discipline": "5 Kilometres Road",
+            "mark": "15:14",
+            "venue": "Paris (FRA)",
+            "date": "05 APR 2024"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "30:40",
+            "venue": "Meijijingu Gaien area, Tokyo (JPN)",
+            "date": "03 MAY 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14786622"
+      },
+      {
+        "name": "Hani Idriss HERSI",
+        "country": "Djibouti",
+        "birthdate": "15 NOV 1999",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "3000 Metres",
+            "mark": "8:24.05",
+            "venue": "Stade Gouled, Djibouti (DJI)",
+            "date": "25 MAR 2022"
+          },
+          {
+            "discipline": "5000 Metres",
+            "mark": "13:43.76",
+            "venue": "Putbosstadion, Oordegem (BEL)",
+            "date": "09 AUG 2025"
+          },
+          {
+            "discipline": "10,000 Metres",
+            "mark": "28:35.54",
+            "venue": "Miloud HEDEFI Athletics Stadium, Oran (ALG)",
+            "date": "30 APR 2025"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "28:56",
+            "venue": "Djibouti (DJI)",
+            "date": "25 NOV 2022"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:01:03",
+            "venue": "Vila Nova de Famalicão (POR)",
+            "date": "19 OCT 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14786619"
+      },
+      {
+        "name": "Mehari KAHSL HIWET",
+        "country": "Ethiopia",
+        "birthdate": null,
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "10,000 Metres",
+            "mark": "38:30.64",
+            "venue": "Bangkok (THA)",
+            "date": "06 MAY 2014"
+          },
+          {
+            "discipline": "15 Kilometres Road",
+            "mark": "51:21",
+            "venue": "San Sebastián (ESP)",
+            "date": "16 OCT 2011"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14494685"
+      },
+      {
+        "name": "Aron KIFLE",
+        "country": "Eritrea",
+        "birthdate": "20 FEB 1998",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "3000 Metres",
+            "mark": "7:52.19",
+            "venue": "Hayward Field, Eugene, OR (USA)",
+            "date": "27 MAY 2017"
+          },
+          {
+            "discipline": "5000 Metres",
+            "mark": "13:05.00",
+            "venue": "LAZ Wien, Wien (AUT)",
+            "date": "22 JUN 2024"
+          },
+          {
+            "discipline": "10,000 Metres",
+            "mark": "27:09.74",
+            "venue": "Estadio Enrique Lopez Cuenca, Nerja (ESP)",
+            "date": "14 JUN 2024"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "29:19",
+            "venue": "Asmara (ERI)",
+            "date": "18 DEC 2016"
+          },
+          {
+            "discipline": "15 Kilometres Road",
+            "mark": "45:08",
+            "venue": "Bilbao (ESP)",
+            "date": "29 NOV 2015"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "59:51",
+            "venue": "New Delhi (IND)",
+            "date": "21 OCT 2018"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:07:12",
+            "venue": "Amsterdam (NED)",
+            "date": "19 OCT 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14693555"
+      },
+      {
+        "name": "Abraham MEDAHINE",
+        "country": "Eritrea",
+        "birthdate": "1986",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "Marathon",
+            "mark": "2:12:23",
+            "venue": "Zürich (SUI)",
+            "date": "23 APR 2023"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/15087441"
+      },
+      {
+        "name": "Solomon MEHARI",
+        "country": "Eritrea",
+        "birthdate": "01 JAN 1997",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "1500 Metres",
+            "mark": "3:51.55",
+            "venue": "Plasencia (ESP)",
+            "date": "28 JUN 2017"
+          },
+          {
+            "discipline": "5000 Metres",
+            "mark": "13:52.01",
+            "venue": "Barcelona (ESP)",
+            "date": "30 JUN 2016"
+          },
+          {
+            "discipline": "10,000 Metres",
+            "mark": "29:45.01",
+            "venue": "Maia (POR)",
+            "date": "12 JUL 2017"
+          },
+          {
+            "discipline": "3000 Metres Steeplechase",
+            "mark": "8:34.89",
+            "venue": "Castellón (ESP)",
+            "date": "04 JUL 2017"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "30:05",
+            "venue": "Keren (ERI)",
+            "date": "13 JUN 2021"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:26:56",
+            "venue": "Abu Dhabi (UAE)",
+            "date": "13 DEC 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14757794"
+      },
+      {
+        "name": "Getaneh MOLLA",
+        "country": "Ethiopia",
+        "birthdate": "10 JAN 1994",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "1500 Metres",
+            "mark": "3:44.91",
+            "venue": "Luanda (ANG)",
+            "date": "02 JAN 2016"
+          },
+          {
+            "discipline": "3000 Metres",
+            "mark": "7:46.06",
+            "venue": "Cobb Track and Angell Field, Palo Alto, CA (USA)",
+            "date": "30 JUN 2019"
+          },
+          {
+            "discipline": "2 Miles",
+            "mark": "8:18.88",
+            "venue": "Cobb Track and Angell Field, Palo Alto, CA (USA)",
+            "date": "30 JUN 2019"
+          },
+          {
+            "discipline": "5000 Metres",
+            "mark": "12:59.58",
+            "venue": "Boudewijnstadion, Bruxelles (BEL)",
+            "date": "31 AUG 2018"
+          },
+          {
+            "discipline": "10,000 Metres",
+            "mark": "27:44.61",
+            "venue": "FBK Stadium, Hengelo (NED)",
+            "date": "08 JUN 2021"
+          },
+          {
+            "discipline": "3000 Metres Steeplechase",
+            "mark": "8:41.50",
+            "venue": "Addis Abeba (ETH)",
+            "date": "24 APR 2016"
+          },
+          {
+            "discipline": "8 Kilometres Road",
+            "mark": "22:50",
+            "venue": "Trier (GER)",
+            "date": "31 DEC 2016"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "28:18",
+            "venue": "Boulder, CO (USA)",
+            "date": "28 MAY 2018"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "59:52",
+            "venue": "København (DEN)",
+            "date": "18 SEP 2022"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:03:34",
+            "venue": "Dubai (UAE)",
+            "date": "25 JAN 2019"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14635616"
+      },
+      {
+        "name": "Bosena MULATIE",
+        "country": "Ethiopia",
+        "birthdate": "21 NOV 2001",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "5000 Metres",
+            "mark": "14:53.15",
+            "venue": "Hayward Field, Eugene, OR (USA)",
+            "date": "25 MAY 2024"
+          },
+          {
+            "discipline": "10,000 Metres",
+            "mark": "30:17.77",
+            "venue": "Hayward Field, Eugene, OR (USA)",
+            "date": "16 JUL 2022"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "30:50",
+            "venue": "Valencia (ESP)",
+            "date": "12 JAN 2020"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:05:46",
+            "venue": "Ras Al Khaimah (UAE)",
+            "date": "19 FEB 2022"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:19:00",
+            "venue": "Berlin (GER)",
+            "date": "29 SEP 2024"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14921807"
+      },
+      {
+        "name": "Lomi MULETA",
+        "country": "Ethiopia",
+        "birthdate": "29 NOV 2001",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "3000 Metres",
+            "mark": "8:40.96",
+            "venue": "Atletická hala, Ostrava (CZE) (i)",
+            "date": "04 FEB 2025"
+          },
+          {
+            "discipline": "3000 Metres Short Track",
+            "mark": "8:40.96",
+            "venue": "Atletická hala, Ostrava (CZE) (i)",
+            "date": "04 FEB 2025"
+          },
+          {
+            "discipline": "5000 Metres",
+            "mark": "14:58.46",
+            "venue": "LAZ Wien, Wien (AUT)",
+            "date": "22 JUN 2024"
+          },
+          {
+            "discipline": "3000 Metres Steeplechase",
+            "mark": "9:06.07",
+            "venue": "Stade de France, Paris (FRA)",
+            "date": "06 AUG 2024"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "31:01",
+            "venue": "Valencia (ESP)",
+            "date": "12 JAN 2025"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:12:13",
+            "venue": "Lisboa (POR)",
+            "date": "26 OCT 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14893973"
+      },
+      {
+        "name": "Chala REGASA",
+        "country": "Ethiopia",
+        "birthdate": "30 APR 1997",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "800 Metres",
+            "mark": "1:52.58",
+            "venue": "Leiden (NED)",
+            "date": "14 JUN 2014"
+          },
+          {
+            "discipline": "1500 Metres",
+            "mark": "3:34.57",
+            "venue": "FBK Stadium, Hengelo (NED)",
+            "date": "10 JUN 2017"
+          },
+          {
+            "discipline": "1500 Metres Short Track",
+            "mark": "3:41.31",
+            "venue": "Mondeville (FRA) (i)",
+            "date": "03 FEB 2018"
+          },
+          {
+            "discipline": "3000 Metres",
+            "mark": "7:38.78",
+            "venue": "Mestský Stadion, Ostrava (CZE)",
+            "date": "13 JUN 2018"
+          },
+          {
+            "discipline": "3000 Metres Short Track",
+            "mark": "7:53.47",
+            "venue": "Gent (BEL) (i)",
+            "date": "10 FEB 2018"
+          },
+          {
+            "discipline": "5000 Metres",
+            "mark": "13:06.98",
+            "venue": "Heusden-Zolder (BEL)",
+            "date": "21 JUL 2018"
+          },
+          {
+            "discipline": "10,000 Metres",
+            "mark": "28:32.3h",
+            "venue": "Addis Abeba (ETH)",
+            "date": "06 APR 2021"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "27:23",
+            "venue": "Valencia (ESP)",
+            "date": "13 JAN 2019"
+          },
+          {
+            "discipline": "10 Miles Road",
+            "mark": "48:32",
+            "venue": "Amsterdam (NED)",
+            "date": "22 SEP 2019"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "59:10",
+            "venue": "Barcelona (ESP)",
+            "date": "03 APR 2022"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:05:06",
+            "venue": "Rotterdam (NED)",
+            "date": "13 APR 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14650107"
+      },
+      {
+        "name": "Abebe Chala ROBI",
+        "country": "Ethiopia",
+        "birthdate": "1996",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "400 Metres",
+            "mark": "49.60",
+            "venue": "Réduit (MRI)",
+            "date": "29 AUG 2013"
+          },
+          {
+            "discipline": "400 Metres Hurdles",
+            "mark": "52.13",
+            "venue": "Addis Abeba (ETH)",
+            "date": "06 MAR 2015"
+          },
+          {
+            "discipline": "4x400 Metres Relay",
+            "mark": "3:15.1h",
+            "venue": "Réduit (MRI)",
+            "date": "31 AUG 2013"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14602092"
+      },
+      {
+        "name": "Oqbe Kibrom RUESOM",
+        "country": "Eritrea",
+        "birthdate": "01 JAN 1998",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "Road Race",
+            "mark": "21:19",
+            "venue": "Genève (SUI)",
+            "date": "08 DEC 2024"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "29:57",
+            "venue": "Asmara (ERI)",
+            "date": "18 DEC 2016"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:01:01",
+            "venue": "Sevilla (ESP)",
+            "date": "29 JAN 2023"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:05:37",
+            "venue": "Berlin (GER)",
+            "date": "29 SEP 2024"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14919658"
+      },
+      {
+        "name": "Abderezak SULEMAN",
+        "country": "Eritrea",
+        "birthdate": "30 NOV 2003",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "800 Metres",
+            "mark": "1:46.56",
+            "venue": "Avlo Atletiekclub, Lokeren (BEL)",
+            "date": "22 MAY 2022"
+          },
+          {
+            "discipline": "1500 Metres",
+            "mark": "3:37.96",
+            "venue": "Stadio G. Teghil, Lignano Sabbiadoro (ITA)",
+            "date": "13 JUL 2025"
+          },
+          {
+            "discipline": "5000 Metres",
+            "mark": "13:17.89",
+            "venue": "Estadio Iberoamericano, Huelva (ESP)",
+            "date": "06 JUN 2023"
+          },
+          {
+            "discipline": "Road Race",
+            "mark": "21:18",
+            "venue": "Genève (SUI)",
+            "date": "07 DEC 2025"
+          },
+          {
+            "discipline": "5 Kilometres Road",
+            "mark": "14:07",
+            "venue": "Riga (LAT)",
+            "date": "01 OCT 2023"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "27:49",
+            "venue": "Castellón (ESP)",
+            "date": "25 FEB 2024"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14984272"
+      },
+      {
+        "name": "Dolshi TESFU",
+        "country": "Eritrea",
+        "birthdate": "17 JUN 1999",
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "5000 Metres",
+            "mark": "15:43.38",
+            "venue": "Five Rings Sports Center, Wuhan (CHN)",
+            "date": "24 OCT 2019"
+          },
+          {
+            "discipline": "10,000 Metres",
+            "mark": "31:12.86",
+            "venue": "FBK Stadium, Hengelo (NED)",
+            "date": "08 JUN 2021"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "32:41",
+            "venue": "Herzogenaurach (GER)",
+            "date": "30 APR 2022"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:10:59",
+            "venue": "Lisboa (POR)",
+            "date": "17 OCT 2021"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:20:40",
+            "venue": "Valencia (ESP)",
+            "date": "04 DEC 2022"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14786771"
+      }
+    ]
+  },
+  {
+    "id": 421439,
+    "name": "Anon ADIROJANANON",
+    "country": "Thailand",
+    "url": "https://worldathletics.org/athletes/athlete-representatives/directory/421439",
+    "email": "anon.adiro@gmail.com",
+    "mobile": "+66 811717689",
+    "website": null,
+    "athletes": [
+      {
+        "name": "Martha BIREHAN",
+        "country": "Ethiopia",
+        "birthdate": null,
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "36:37",
+            "venue": "Chon Buri (THA)",
+            "date": "18 SEP 2022"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:19:47",
+            "venue": "Bangkok (THA)",
+            "date": "04 DEC 2022"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:51:01",
+            "venue": "Buri Ram (THA)",
+            "date": "24 JAN 2026"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14943209"
+      },
+      {
+        "name": "Takele EBISA",
+        "country": "Ethiopia",
+        "birthdate": null,
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "10,000 Metres",
+            "mark": "30:21.8h",
+            "venue": "Hawassa (ETH)",
+            "date": "28 MAR 2022"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "31:50",
+            "venue": "Nakhon Ratchasima (THA)",
+            "date": "12 NOV 2023"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:09:32",
+            "venue": "Krabi (THA)",
+            "date": "15 SEP 2024"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:15:14",
+            "venue": "Dalian (CHN)",
+            "date": "12 MAY 2019"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14795812"
+      },
+      {
+        "name": "Alexander MUHIA",
+        "country": "Kenya",
+        "birthdate": "1994",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "10,000 Metres",
+            "mark": "29:06.13",
+            "venue": "Moi International Sports Centre, Kasarani, Nairobi (KEN)",
+            "date": "27 APR 2022"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "29:53",
+            "venue": "Okpekpe (NGR)",
+            "date": "28 MAY 2022"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:04:09",
+            "venue": "Bangkok (THA)",
+            "date": "04 DEC 2022"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:18:21",
+            "venue": "Chon Buri (THA)",
+            "date": "09 NOV 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14910082"
+      },
+      {
+        "name": "Simon MUTHONI",
+        "country": "Kenya",
+        "birthdate": "27 FEB 1995",
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "3000 Metres",
+            "mark": "8:25.32",
+            "venue": "Andorf (AUT)",
+            "date": "15 AUG 2015"
+          },
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "28:37",
+            "venue": "Istanbul (TUR)",
+            "date": "31 OCT 2021"
+          },
+          {
+            "discipline": "15 Kilometres Road",
+            "mark": "45:35",
+            "venue": "Istanbul (TUR)",
+            "date": "07 NOV 2021"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:01:19",
+            "venue": "Piacenza (ITA)",
+            "date": "08 MAY 2016"
+          },
+          {
+            "discipline": "25 Kilometres Road",
+            "mark": "1:20:35",
+            "venue": "Samedan (SUI)",
+            "date": "17 AUG 2014"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14662110"
+      },
+      {
+        "name": "Wongvichai PREMKAMON",
+        "country": "Thailand",
+        "birthdate": null,
+        "gender": "Woman",
+        "personal_bests": [
+          {
+            "discipline": "10 Kilometres Road",
+            "mark": "37:23",
+            "venue": "Bangkok (THA)",
+            "date": "03 DEC 2023"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:24:53",
+            "venue": "Dubai (UAE)",
+            "date": "11 NOV 2023"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/15111081"
+      },
+      {
+        "name": "Arthit SODA",
+        "country": "Thailand",
+        "birthdate": null,
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:10:50",
+            "venue": "Chon Buri (THA)",
+            "date": "21 DEC 2025"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/15272602"
+      },
+      {
+        "name": "Wendwesen TILAHUN",
+        "country": "Ethiopia",
+        "birthdate": null,
+        "gender": "Man",
+        "personal_bests": [
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:08:55",
+            "venue": "Nakhon Ratchasima (THA)",
+            "date": "12 NOV 2023"
+          },
+          {
+            "discipline": "Half Marathon",
+            "mark": "1:08:28",
+            "venue": "Krabi (THA)",
+            "date": "07 SEP 2025"
+          },
+          {
+            "discipline": "Marathon",
+            "mark": "2:12:57",
+            "venue": "Pune (IND)",
+            "date": "29 JAN 2017"
+          }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14675823"
+      }
+    ]
+  },
+  {
+    "id": 999999,
+    "name": "Martí SERRA PRAT",
+    "country": "Spain",
+    "url": "https://worldathletics.org/athletes/athlete-representatives/directory/999999",
+    "email": "martiserraprat5@gmail.com",
+    "mobile": "+34 600 000 000",
+    "website": "https://apex-athletics.com",
+    "athletes": [
+      {
+        "name": "Jakob INGEBRIGTSEN",
+        "country": "Norway",
+        "birthdate": "19 SEP 2000",
+        "gender": "Man",
+        "personal_bests": [
+          { "discipline": "1500 Metres", "mark": "3:26.73", "venue": "Monaco (MON)", "date": "12 JUL 2024" },
+          { "discipline": "5000 Metres", "mark": "12:48.45", "venue": "Firenze (ITA)", "date": "10 JUN 2021" }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14681285"
+      },
+      {
+        "name": "Faith KIPYEGON",
+        "country": "Kenya",
+        "birthdate": "10 JAN 1994",
+        "gender": "Woman",
+        "personal_bests": [
+          { "discipline": "1500 Metres", "mark": "3:49.04", "venue": "Paris (FRA)", "date": "07 JUL 2024" },
+          { "discipline": "5000 Metres", "mark": "14:05.20", "venue": "Paris (FRA)", "date": "09 JUN 2023" }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14413305"
+      },
+      {
+        "name": "Armand DUPLANTIS",
+        "country": "Sweden",
+        "birthdate": "10 NOV 1999",
+        "gender": "Man",
+        "personal_bests": [
+          { "discipline": "Pole Vault", "mark": "6.26", "venue": "Chorzów (POL)", "date": "25 AUG 2024" }
+        ],
+        "url": "https://worldathletics.org/athletes/_/14592534"
+      }
+    ]
+  }
+]

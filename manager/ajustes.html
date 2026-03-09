@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajustes | APEX ATHLETICS</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="ajustes.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">APEX<span>ATHLETICS</span></div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><i class="fas fa-user-friends"></i> Atletas</a>
+                <a href="../index.html" class="nav-item"><i class="fas fa-search-location"></i> Buscar Mítines</a>
+                <a href="#" class="nav-item"><i class="fas fa-file-signature"></i> Inscripciones</a>
+                <a href="ajustes.html" class="nav-item active"><i class="fas fa-cog"></i> Ajustes</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-pill">
+                    <img src="https://ui-avatars.com/api/?name=M&background=0070f3&color=fff" alt="Avatar" id="user-avatar">
+                    <div class="user-info">
+                        <span class="user-name">Cargando...</span>
+                        <span class="user-role">...</span>
+                    </div>
+                    <i class="fas fa-sign-out-alt" id="logout-btn"></i>
+                </div>
+            </div>
+        </aside>
+        <main class="main-viewport">
+            <header class="view-header">
+                <div class="header-text">
+                    <h1>Ajustes de Cuenta</h1>
+                    <p>Vincula tu perfil oficial de World Athletics</p>
+                </div>
+            </header>
+
+            <div class="settings-card">
+                <h3>Verificación Oficial</h3>
+                <p style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">
+                    Introduce tu nombre exacto de World Athletics. Enviaremos un enlace seguro a tu correo oficial registrado para validar tu identidad.
+                </p>
+                
+                <div class="form-group">
+                    <label for="repre-name">Nombre del Representante</label>
+                    <input type="text" id="repre-name" placeholder="Ej: Sylvia Manuela ABMAYR" class="custom-input">
+                </div>
+
+                <button id="verify-btn" class="btn-primary" style="margin-top: 15px; width: 100%; justify-content: center;">
+                    <i class="fas fa-envelope"></i> Enviar Enlace de Verificación
+                </button>
+                
+                <div id="status-message" style="display: none; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 0.9rem;">
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="ajustes.js"></script>
+</body>
+</html>

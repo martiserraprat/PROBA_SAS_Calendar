@@ -117,3 +117,74 @@ body {
     transition: 0.3s;
     cursor: pointer;
 }
+
+.athlete-name:hover {
+    color: var(--accent-blue);
+    text-decoration: underline;
+}
+
+/* --- ESTILOS DE GÉNERO --- */
+:root {
+    --accent-man: #3b82f6;   /* Azul vibrante */
+    --accent-woman: #ec4899; /* Rosa/Fucsia vibrante */
+}
+
+/* Tarjetas de Hombres */
+.card-man {
+    border-left: 4px solid var(--accent-man);
+}
+.card-man:hover {
+    border-color: var(--accent-man);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
+}
+.card-man .gender-badge {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--accent-man);
+}
+
+/* Tarjetas de Mujeres */
+.card-woman {
+    border-left: 4px solid var(--accent-woman);
+}
+.card-woman:hover {
+    border-color: var(--accent-woman);
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.1);
+}
+.card-woman .gender-badge {
+    background: rgba(236, 72, 153, 0.1);
+    color: var(--accent-woman);
+}
+
+/* Etiqueta de género dentro de la tarjeta */
+.gender-badge {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* --- ESTILOS DEL SELECT DE PRUEBAS --- */
+.custom-select {
+    background: #111;
+    color: #666;
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 20px; /* A juego con las pills */
+    font-size: 0.85rem;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    appearance: none; /* Quita la flecha por defecto en algunos navegadores */
+}
+.custom-select:hover, .custom-select:focus {
+    color: #fff;
+    border-color: var(--accent-blue);
+}
+.custom-select option {
+    background: #111;
+    color: #fff;
+}
