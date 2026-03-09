@@ -11,8 +11,10 @@
     <script type="module" src="dashboard.js"></script>
 </head>
 <body>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
     <div class="dashboard-layout">
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="logo">APEX<span>ATHLETICS</span></div>
             </div>
@@ -26,10 +28,10 @@
 
             <div class="sidebar-footer">
                 <div class="user-pill">
-                    <img src="https://ui-avatars.com/api/?name=Manager+Name&background=0070f3&color=fff" alt="Avatar">
+                    <img src="https://ui-avatars.com/api/?name=M&background=0070f3&color=fff" alt="Avatar" id="user-avatar">
                     <div class="user-info">
-                        <span class="user-name">ERROR</span>
-                        <span class="user-role">ERROR</span>
+                        <span class="user-name">Cargando...</span>
+                        <span class="user-role">...</span>
                     </div>
                     <i class="fas fa-sign-out-alt" id="logout-btn"></i>
                 </div>
@@ -37,6 +39,11 @@
         </aside>
 
         <main class="main-viewport">
+            <div class="mobile-header">
+                <div class="logo">APEX<span>ATHLETICS</span></div>
+                <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+
             <header class="view-header">
                 <div class="header-text">
                     <h1>Gestión de Atletas</h1>
@@ -50,14 +57,14 @@
             <div class="stats-row">
                 <div class="stat-card">
                     <span class="stat-label">Atletas Activos</span>
-                    <span class="stat-value">0</span>
+                    <span class="stat-value" id="stat-count">0</span>
                 </div>
                 <div class="stat-card">
                     <span class="stat-label">Mítines este mes</span>
                     <span class="stat-value">0</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-label">Puntos World Athletics</span>
+                    <span class="stat-label">Puntos WA</span>
                     <span class="stat-value">0</span>
                 </div>
             </div>
