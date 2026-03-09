@@ -1,265 +1,148 @@
-let supabaseClient;
+// --- CONFIGURACIÓN SUPABASE ---
+const supabaseUrl = 'https://efynirousktejtpumudd.supabase.co';
+const supabaseKey = 'TU_CLAVE_ANON_AQUÍ'; // <-- Pon tu clave Real
+const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-try {
-    const supabaseUrl = 'https://efynirousktejtpumudd.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVmeW5pcm91c2t0ZWp0cHVtdWRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5NjQxMTYsImV4cCI6MjA4ODU0MDExNn0._Zs-VQDUB8O3Hfulnnyt7Kf2THUb-fo3YX_PEEdgVBA';
+async function initDashboard() {
+    console.log("🚀 Iniciando Dashboard...");
     
-    // Inicializamos el cliente usando el objeto global de la librería
-    supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
-    console.log("🚀 Cliente de Supabase listo");
-} catch (e) {
-    console.error("❌ Error inicializando Supabase:", e);
-}
+    // 1. OBTENER SESIÓN ACTUAL
+    const { data: { session } } = await supabaseClient.auth.getSession();
 
-async function comprobarSesion() {
-    // Esto detecta automáticamente el código del Magic Link en la URL
-    const { data: { session }, error } = await supabase.auth.getSession();
-
-    if (error) {
-        console.error("Error recuperando sesión:", error.message);
+    if (!session) {
+        mostrarEstadoVacio("No hay sesión activa. Por favor, verifica tu identidad en Ajustes.", true);
         return;
     }
 
-    if (session) {
-        console.log("✅ ¡SESIÓN ACTIVA!", session.user.email);
-        
-        // CAMBIO VISUAL: Ponemos el nombre del representante en la interfaz
-        const nombreGuardado = localStorage.getItem('nombreRepresentante');
-        document.querySelector('.user-name').innerText = nombreGuardado || session.user.email;
-        document.querySelector('.user-role').innerText = "Representante Verificado";
-        
-        // Aquí llamarías a tu función de cargarAtletas()
-        // cargarAtletas(session.user.email); 
-    } else {
-        console.log("❌ No hay sesión activa. Redirigiendo a ajustes...");
-        // Opcional: window.location.href = 'ajustes.html';
-    }
-}
+    const user = session.user;
+    console.log("👤 Usuario logueado:", user.email);
 
-// Ejecutar al cargar la página
-document.addEventListener('DOMContentLoaded', comprobarSesion);
+    // 2. VERIFICAR SI HAY UNA ACTUALIZACIÓN DE PERFIL PENDIENTE (Viene de Ajustes)
+    const waIdPendiente = localStorage.getItem('wa_id_pendiente');
+    const nombrePendiente = localStorage.getItem('nombreRepresentante');
 
+    if (waIdPendiente) {
+        console.log("🔄 Actualizando perfil en la BD...");
+        const { error: updateError } = await supabaseClient
+            .from('profiles')
+            .upsert({ 
+                id: user.id, 
+                is_verified: true, 
+                wa_id: parseInt(waIdPendiente),
+                full_name: nombrePendiente,
+                official_email: user.email,
+                role: 'manager'
+            });
 
-const menuToggle = document.getElementById('menu-toggle');
-const sidebar = document.getElementById('sidebar');
-const overlay = document.getElementById('sidebar-overlay');
-
-function toggleMenu() {
-    if (sidebar) sidebar.classList.toggle('active');
-    if (overlay) overlay.classList.toggle('active');
-}
-
-if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
-if (overlay) overlay.addEventListener('click', toggleMenu);
-
-
-// ==========================================
-// 2. VARIABLES GLOBALES PARA LOS FILTROS
-// ==========================================
-let todosLosAtletas = [];
-let filtroGeneroActual = 'all';
-let filtroPruebaActual = 'all';
-
-
-// ==========================================
-// 3. CARGA DE DATOS (JSON)
-// ==========================================
-async function loadDashboard() {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-    return;
+        if (!updateError) {
+            console.log("✅ Perfil actualizado correctamente.");
+            localStorage.removeItem('wa_id_pendiente');
+        } else {
+            console.error("❌ Error actualizando perfil:", updateError.message);
+        }
     }
 
-    document.querySelector('.user-name').innerText = 'Admin Local';
-    document.querySelector('.user-role').innerText = 'Visor de Datos';
+    // 3. CONSULTAR ATLETAS EN SUPABASE (Los IDs que gestionas)
+    const { data: misAtletasDB, error: dbError } = await supabaseClient
+        .from('atletas')
+        .select('wa_id')
+        .eq('manager_id', user.id);
 
-    // 1. LEER EL NOMBRE GUARDADO EN AJUSTES
-    const nombreRepresentante = localStorage.getItem('nombreRepresentante');
-    const grid = document.getElementById('athlete-grid');
-
-    // Si no hay nombre guardado o está vacío, paramos aquí
-    if (!nombreRepresentante) {
-            grid.innerHTML = `
-                <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: #0f0f0f; border: 1px dashed #333; border-radius: 15px;">
-                    <i class="fas fa-id-badge" style="font-size: 3rem; color: #444; margin-bottom: 15px;"></i>
-                    <h3 style="color: #fff; margin-bottom: 5px;">Representante no configurado</h3>
-                    <p style="color: #888; margin-bottom: 20px;">No sabemos de quién mostrar los datos.</p>
-                    <a href="ajustes.html" class="btn-primary" style="display: inline-flex; width: auto; text-decoration: none; margin: 0 auto; padding: 10px 20px;">
-                        Ir a Ajustes
-                    </a>
-                </div>
-            `;
-        document.getElementById('stat-count').innerText = "0";
-        return; 
+    if (dbError) {
+        console.error("❌ Error al leer atletas de la BD:", dbError.message);
+        return;
     }
 
+    // 4. CARGAR DATOS PESADOS DEL JSON Y FILTRAR
     try {
         const response = await fetch('./datos_world_athletics.json');
-        if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
-        const agentes = await response.json();
+        const infoWA = await response.json();
 
-        let todasLasDisciplinas = new Set(); 
-
-        // 2. FILTRAR POR EL REPRESENTANTE GUARDADO
-        agentes.forEach(agente => {
-            // Comparamos los nombres pasándolo todo a minúsculas por si hay fallos de mayúsculas
-            if (agente.name.toLowerCase() === nombreRepresentante.toLowerCase()) {
-                
-                if (agente.athletes && agente.athletes.length > 0) {
-                    const atletasConRepre = agente.athletes.map(a => {
-                        if (a.personal_bests) {
-                            a.personal_bests.forEach(pb => todasLasDisciplinas.add(pb.discipline));
-                        }
-                        return { ...a, representative_name: agente.name };
-                    });
-                    todosLosAtletas = todosLosAtletas.concat(atletasConRepre);
-                }
-            }
-        });
-
-        // Ordenar alfabéticamente
-        todosLosAtletas.sort((a, b) => a.name.localeCompare(b.name));
-
-        // Rellenar el selector de pruebas
-        const selectPruebas = document.getElementById('discipline-filter');
-        if (selectPruebas) {
-            Array.from(todasLasDisciplinas).sort().forEach(disc => {
-                if(disc) {
-                    const option = document.createElement('option');
-                    option.value = disc;
-                    option.textContent = disc;
-                    selectPruebas.appendChild(option);
-                }
+        // Buscamos los datos de los atletas cuyos IDs están en nuestra BD
+        const listaFinalAtletas = [];
+        
+        if (misAtletasDB && misAtletasDB.length > 0) {
+            misAtletasDB.forEach(atletaDB => {
+                // Buscamos en el JSON global
+                infoWA.forEach(representante => {
+                    const encontrado = representante.athletes.find(a => a.url.includes(atletaDB.wa_id) || a.wa_id === atletaDB.wa_id);
+                    if (encontrado) listaFinalAtletas.push(encontrado);
+                });
             });
         }
 
-        // Renderizar y activar filtros
-        renderAtletas(todosLosAtletas);
-        activarFiltros();
-
-    } catch (error) {
-        console.error("Error cargando el JSON:", error);
-        if (grid) {
-            grid.innerHTML = `
-                <div style="grid-column: 1/-1; text-align: center; padding: 50px; border: 1px solid #ff4d4d; border-radius: 10px; background: rgba(255,0,0,0.1);">
-                    <h3 style="color: #ff4d4d;">Error al cargar los datos</h3>
-                    <p style="color: #ccc;">Asegúrate de estar usando un servidor local (Live Server).</p>
-                </div>
-            `;
+        // 5. RENDERIZAR O MOSTRAR VACÍO
+        if (listaFinalAtletas.length > 0) {
+            renderizarAtletas(listaFinalAtletas);
+        } else {
+            mostrarEstadoVacio("Actualmente no tienes atletas asignados en la base de datos.", false);
         }
+
+        // Actualizar UI del usuario
+        actualizarInterfazUsuario(user.email);
+
+    } catch (err) {
+        console.error("❌ Error cargando el JSON:", err);
+        mostrarEstadoVacio("Error al cargar los datos de los atletas.", false);
     }
 }
 
-// ==========================================
-// 4. RENDERIZADO DE TARJETAS
-// ==========================================
-function renderAtletas(lista) {
+function renderizarAtletas(atletas) {
     const grid = document.getElementById('athlete-grid');
-    if (!grid) return;
-    
     grid.innerHTML = '';
     
-    const countEl = document.getElementById('stat-count');
-    if (countEl) countEl.innerText = lista.length;
-
-    if (!lista || lista.length === 0) {
-        grid.innerHTML = `<p style="color: #666; grid-column: 1/-1; text-align: center; padding: 50px;">No hay atletas que coincidan con los filtros.</p>`;
-        return;
-    }
-
-    lista.forEach(atleta => {
-        let pruebas = "Sin pruebas";
-        if (atleta.personal_bests && atleta.personal_bests.length > 0) {
-            const disciplinasUnicas = [...new Set(atleta.personal_bests.map(pb => pb.discipline))];
-            pruebas = disciplinasUnicas.slice(0, 3).join(', ');
-            if (disciplinasUnicas.length > 3) pruebas += '...';
-        }
-
-        const isMan = atleta.gender === "Man";
-        const cardColorClass = isMan ? "card-man" : "card-woman";
-        const genderIcon = isMan ? "fa-mars" : "fa-venus";
-        const genderText = isMan ? "Hombre" : "Mujer";
-
+    atletas.forEach(atleta => {
         const card = document.createElement('div');
-        card.className = `athlete-card ${cardColorClass}`;
+        card.className = `athlete-card ${atleta.gender === 'Man' ? 'card-man' : 'card-woman'}`;
+        
+        // Sacamos la mejor marca (la primera de la lista)
+        const pb = atleta.personal_bests[0] || { mark: 'N/A', discipline: 'N/A' };
+        
         card.innerHTML = `
-            <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px;">
-                <div class="gender-badge"><i class="fas ${genderIcon}"></i> ${genderText}</div>
-                <span style="color: #888; font-size: 0.75rem;"><i class="fas fa-flag"></i> ${atleta.country || '--'}</span>
+            <div class="gender-badge">${atleta.gender === 'Man' ? '♂ HOMBRE' : '♀ MUJER'}</div>
+            <h3 class="athlete-name">${atleta.name}</h3>
+            <p style="color: #888; font-size: 0.8rem;">${atleta.country}</p>
+            <div style="margin-top: 15px;">
+                <span class="stat-label">${pb.discipline}</span>
+                <span class="stat-value" style="font-size: 1.2rem;">${pb.mark}</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
-                <div style="flex-grow: 1; overflow: hidden;">
-                    <h3 class="athlete-name" onclick="abrirFichaCompleta('${atleta.url}')" style="margin: 0; font-size: 1.15rem; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${atleta.name}">
-                        ${atleta.name}
-                    </h3>
-                    <span style="display: block; color: var(--text-gray); font-size: 0.8rem; margin-top: 4px;">${pruebas}</span>
-                </div>
-            </div>
-            <button class="btn-primary" style="width: 100%; font-size: 0.8rem; padding: 8px; background: #1a1a1a; color: #fff; border: 1px solid #333;" onclick="abrirFichaCompleta('${atleta.url}')">
-                Ver Ficha Completa
-            </button>
+            <a href="${atleta.url}" target="_blank" style="color: var(--accent-blue); font-size: 0.7rem; text-decoration: none; margin-top: 10px; display: block;">
+                Ver ficha oficial →
+            </a>
         `;
         grid.appendChild(card);
     });
+    
+    document.getElementById('stat-count').innerText = atletas.length;
 }
 
-
-// ==========================================
-// 5. LÓGICA DE FILTROS COMBINADOS
-// ==========================================
-function aplicarFiltros() {
-    let filtrados = todosLosAtletas;
-
-    // Filtro por género
-    if (filtroGeneroActual !== 'all') {
-        filtrados = filtrados.filter(a => a.gender === filtroGeneroActual);
-    }
-
-    // Filtro por prueba
-    if (filtroPruebaActual !== 'all') {
-        filtrados = filtrados.filter(a => {
-            if (!a.personal_bests) return false;
-            return a.personal_bests.some(pb => pb.discipline === filtroPruebaActual);
-        });
-    }
-
-    renderAtletas(filtrados);
+function mostrarEstadoVacio(mensaje, mostrarBotonAjustes) {
+    const grid = document.getElementById('athlete-grid');
+    grid.innerHTML = `
+        <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: #0f0f0f; border: 1px dashed #333; border-radius: 15px;">
+            <i class="fas fa-user-slash" style="font-size: 3rem; color: #444; margin-bottom: 15px;"></i>
+            <h3 style="color: #fff; margin-bottom: 5px;">Atletas</h3>
+            <p style="color: #888; margin-bottom: 20px;">${mensaje}</p>
+            ${mostrarBotonAjustes ? 
+                `<a href="ajustes.html" class="btn-primary" style="display: inline-flex; width: auto; text-decoration: none; margin: 0 auto; padding: 10px 20px;">Ir a Ajustes</a>` 
+                : ''}
+        </div>
+    `;
 }
 
-function activarFiltros() {
-    const pills = document.querySelectorAll('#gender-filters .pill');
-    pills.forEach(pill => {
-        pill.addEventListener('click', (e) => {
-            pills.forEach(p => p.classList.remove('active'));
-            e.target.classList.add('active');
-            
-            filtroGeneroActual = e.target.getAttribute('data-gender'); 
-            aplicarFiltros();
-        });
-    });
-
-    const selectPruebas = document.getElementById('discipline-filter');
-    if (selectPruebas) {
-        selectPruebas.addEventListener('change', (e) => {
-            filtroPruebaActual = e.target.value;
-            e.target.style.color = e.target.value === 'all' ? '#666' : '#fff';
-            e.target.style.borderColor = e.target.value === 'all' ? 'var(--border-color)' : 'var(--accent-blue)';
-            aplicarFiltros();
-        });
-    }
+function actualizarInterfazUsuario(email) {
+    const nombre = localStorage.getItem('nombreRepresentante') || email;
+    document.querySelector('.user-name').innerText = nombre;
+    document.querySelector('.user-role').innerText = "Manager Verificado";
+    document.getElementById('user-avatar').src = `https://ui-avatars.com/api/?name=${nombre}&background=0070f3&color=fff`;
 }
 
+// Inicializar al cargar el DOM
+document.addEventListener('DOMContentLoaded', initDashboard);
 
-// ==========================================
-// 6. UTILIDADES
-// ==========================================
-window.abrirFichaCompleta = function(urlAtleta) {
-    if (urlAtleta && urlAtleta !== 'undefined') {
-        window.open(urlAtleta, '_blank');
-    } else {
-        alert("Enlace no disponible para este atleta.");
-    }
-}
-
-// INICIALIZAR DASHBOARD
-loadDashboard();
+// Lógica para cerrar sesión
+document.getElementById('logout-btn').onclick = async () => {
+    await supabaseClient.auth.signOut();
+    localStorage.clear();
+    window.location.href = 'ajustes.html';
+};
