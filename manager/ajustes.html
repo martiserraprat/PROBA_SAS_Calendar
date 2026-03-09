@@ -35,39 +35,82 @@
             </div>
         </aside>
 
-        <main class="main-viewport">
-            <div class="mobile-header">
-                <div class="logo">APEX<span>ATHLETICS</span></div>
-                <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+    <main class="main-viewport">
+        <div class="mobile-header">
+            <div class="logo">APEX<span>ATHLETICS</span></div>
+            <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+
+        <header class="view-header">
+            <div class="header-text">
+                <h1>Ajustes</h1>
+                <p>Configuración de tu cuenta y preferencias</p>
             </div>
+        </header>
 
-            <header class="view-header">
-                <div class="header-text">
-                    <h1>Ajustes</h1>
-                    <p>Configuración de tu cuenta y preferencias</p>
-                </div>
-            </header>
-
+        <div class="settings-container">
+            <!-- Tarjeta principal de verificación -->
             <div class="settings-card">
-                <h3>Verificación de Mánager Oficial</h3>
-                <p style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">
-                    Introduce tu <b>correo electrónico oficial</b> registrado en World Athletics. 
-                    Comprobaremos nuestra base de datos y te enviaremos un enlace de acceso seguro.
-                </p>
-                
-                <div class="form-group">
-                    <label for="repre-email">Correo Electrónico Oficial</label>
-                    <input type="email" id="repre-email" placeholder="ejemplo@worldathletics.org" class="custom-input">
+                <div class="settings-header">
+                    <div class="settings-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Verificación Oficial</h3>
+                        <p>Conviértete en manager verificado</p>
+                    </div>
                 </div>
 
-                <button id="save-settings-btn" class="btn-primary" style="margin-top: 15px; width: 100%; justify-content: center;">
-                    <i class="fas fa-paper-plane"></i> Verificar y Enviar Enlace
+                <div class="info-message">
+                    <i class="fas fa-info-circle"></i>
+                    <p>
+                        <strong>¿Cómo funciona?</strong> Introduce el correo electrónico que tienes registrado en 
+                        World Athletics. Si coincides con nuestra base de datos, te enviaremos un enlace mágico 
+                        para acceder al panel de atletas de forma segura.
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <label for="repre-email">
+                        <i class="fas fa-envelope"></i>
+                        Correo Electrónico Oficial
+                    </label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-at input-icon"></i>
+                        <input 
+                            type="email" 
+                            id="repre-email" 
+                            placeholder="tucorreo@worldathletics.org" 
+                            class="custom-input"
+                            autocomplete="off"
+                        >
+                    </div>
+                </div>
+
+                <button id="save-settings-btn" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                    Verificar y Enviar Enlace
                 </button>
-                
-                <div id="save-message" style="display: none; padding: 15px; border-radius: 10px; margin-top: 15px; font-size: 0.9rem;">
+
+                <div id="save-message"></div>
+            </div>
+
+            <!-- Tarjeta de ayuda adicional -->
+            <div class="settings-help-card">
+                <div class="help-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <div class="help-content">
+                    <h4>¿No recibes el correo?</h4>
+                    <p>
+                        Revisa tu bandeja de spam o asegúrate de que el correo introducido coincide 
+                        exactamente con el registrado en World Athletics. Si el problema persiste, 
+                        contacta con <a href="#">soporte@apexathletics.com</a>
+                    </p>
                 </div>
             </div>
-        </main>
+        </div>
+    </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="../utils/logoout.js"></script>

@@ -1,37 +1,172 @@
-/* --- ESTILOS PARA AJUSTES --- */
-.settings-card {
-    background: #0f0f0f;
+/* --- ESTILOS RADICALES PARA AJUSTES --- */
+:root {
+    --bg-dark: #0a0a0a;
+    --card-bg: #141414;
+    --border-color: #262626;
+    --accent-blue: #0070f3;
+    --accent-blue-hover: #005bb5;
+    --text-main: #ededed;
+    --text-muted: #888888;
+}
+
+.settings-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px 0;
+}
+
+.premium-card {
+    background: linear-gradient(145deg, var(--card-bg) 0%, #0d0d0d 100%);
     border: 1px solid var(--border-color);
-    padding: 30px;
-    border-radius: 18px;
-    max-width: 600px;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
 }
-.settings-card h3 {
+
+/* Brillo superior en la tarjeta */
+.premium-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent-blue), #5e00f3);
+}
+
+.card-icon-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icon-circle {
+    background: rgba(0, 112, 243, 0.1);
+    color: var(--accent-blue);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 0 20px rgba(0, 112, 243, 0.2);
+}
+
+.premium-card h3 {
     margin-top: 0;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--text-main);
 }
+
+.card-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
+
 .form-group label {
     font-size: 0.85rem;
     color: #ccc;
     font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
-.custom-input {
-    background: #111;
-    border: 1px solid var(--border-color);
-    color: #fff;
-    padding: 12px 15px;
-    border-radius: 10px;
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    color: #666;
     font-size: 1rem;
-    outline: none;
     transition: 0.3s;
 }
+
+.custom-input {
+    width: 100%;
+    background: #0a0a0a;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 14px 15px 14px 45px; /* Espacio para el icono */
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
 .custom-input:focus {
     border-color: var(--accent-blue);
-    box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+    box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.15);
+}
+
+.custom-input:focus + .input-icon, 
+.input-wrapper:focus-within .input-icon {
+    color: var(--accent-blue);
+}
+
+/* Botón Pro */
+.btn-primary {
+    background: var(--accent-blue);
+    color: #fff;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 112, 243, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: var(--accent-blue-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 112, 243, 0.4);
+}
+
+.btn-primary:disabled {
+    background: #333;
+    color: #888;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Notificaciones animadas */
+.notification-box {
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

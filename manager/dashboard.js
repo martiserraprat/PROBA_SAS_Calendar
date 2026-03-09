@@ -391,7 +391,7 @@ function abrirModal(atleta) {
     let infoPersonalHTML = `
         <div class="athlete-info-section">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                <h3 style="margin:0; display: flex; align-items: center; gap: 10px;">
+                <h3 style="margin:0; display: flex; align-items: center; gap: 10px; color: white;">
                     <i class="fas fa-id-card"></i> Información Personal
                 </h3>
                 <span class="modal-gender-badge ${genderClass}">

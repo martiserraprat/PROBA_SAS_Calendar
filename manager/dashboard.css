@@ -194,9 +194,9 @@ body {
    Anula los estilos globales de .modal-content
    ======================================== */
 
-/* Overlay específico */
+/* Overlay específico - OCULTO POR DEFECTO */
 #athleteModal.modal-overlay {
-    display: flex !important;
+    display: none !important;  /* OCULTO COMPLETAMENTE */
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
@@ -207,14 +207,17 @@ body {
     z-index: 2000 !important;
     align-items: center !important;
     justify-content: center !important;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
+/* Cuando está activo - MOSTRAR */
 #athleteModal.modal-overlay.active {
+    display: flex !important;
     opacity: 1 !important;
     visibility: visible !important;
+    pointer-events: all !important;
 }
 
 /* Container principal - ANULA .modal-content */
@@ -240,6 +243,7 @@ body {
     transform: scale(1) !important;
 }
 
+/* Resto del código sigue igual... */
 /* Header */
 #athleteModal .modal-header {
     all: initial !important;
@@ -550,4 +554,321 @@ body {
     #athleteModal .pb-grid {
         grid-template-columns: 1fr !important;
     }
+}
+
+/* ========================================
+   AJUSTES - DISEÑO PROFESIONAL
+   ======================================== */
+
+.settings-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Tarjeta principal */
+.settings-card {
+    background: linear-gradient(145deg, #0f0f0f, #0a0a0a);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 35px;
+    margin-bottom: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.settings-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px rgba(0, 112, 243, 0.15);
+}
+
+/* Encabezado con icono */
+.settings-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.settings-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 112, 243, 0.1);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--accent-blue);
+    border: 1px solid rgba(0, 112, 243, 0.2);
+}
+
+.settings-header h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.settings-header p {
+    margin: 5px 0 0;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+/* Mensaje informativo */
+.info-message {
+    background: rgba(0, 112, 243, 0.05);
+    border: 1px solid rgba(0, 112, 243, 0.15);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.info-message i {
+    color: var(--accent-blue);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.info-message p {
+    margin: 0;
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.info-message strong {
+    color: white;
+}
+
+/* Formulario elegante */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ccc;
+    margin-bottom: 8px;
+}
+
+.form-group label i {
+    color: var(--accent-blue);
+    font-size: 1rem;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    z-index: 1;
+}
+
+.custom-input {
+    width: 100%;
+    background: #111;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 16px 16px 16px 48px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.custom-input:hover {
+    border-color: #444;
+}
+
+.custom-input:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 4px rgba(0, 112, 243, 0.15);
+    background: #1a1a1a;
+}
+
+.custom-input::placeholder {
+    color: #444;
+}
+
+/* Botón principal mejorado */
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-blue), #0060d0);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 112, 243, 0.4);
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Mensajes de notificación */
+#save-message {
+    display: none;
+    padding: 18px 20px;
+    border-radius: 14px;
+    margin-top: 25px;
+    font-size: 0.95rem;
+    animation: slideIn 0.3s ease;
+    border-left: 4px solid;
+}
+
+#save-message.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border-left-color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+#save-message.error {
+    background: rgba(255, 77, 77, 0.1);
+    color: #ff4d4d;
+    border-left-color: #ff4d4d;
+    border: 1px solid rgba(255, 77, 77, 0.2);
+}
+
+#save-message i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tarjeta de ayuda/info adicional */
+.settings-help-card {
+    background: #0a0a0a;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 25px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.help-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--text-gray);
+    flex-shrink: 0;
+}
+
+.help-content h4 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.help-content p {
+    margin: 0;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.help-content a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.help-content a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .settings-card {
+        padding: 25px;
+    }
+    
+    .settings-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .info-message {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .settings-help-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Animación de carga */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.fa-spinner {
+    animation: spin 1s linear infinite;
 }
