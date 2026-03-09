@@ -58,14 +58,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
             console.log("📧 Enviando link a:", agenteEncontrado.email);
 
-            // 3. Enviar Magic Link con Supabase
             const { error } = await supabaseClient.auth.signInWithOtp({
                 email: agenteEncontrado.email,
                 options: {
-                    emailRedirectTo: window.location.origin + '/dashboard.html'
+                    // NO USES window.location.origin, pon la URL completa a mano:
+                    emailRedirectTo: 'https://martiserraprat.github.io/PROBA_SAS_Calendar/manager/dashboard.html'
                 }
             });
-
             if (error) throw error;
 
             // Éxito
