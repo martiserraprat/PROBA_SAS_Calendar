@@ -46,20 +46,29 @@
 
             <div class="settings-card">
                 <h3>Verificación Oficial</h3>
-                <p style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">
-                    Introduce tu nombre exacto de World Athletics. Enviaremos un enlace seguro a tu correo oficial registrado para validar tu identidad.
+                <p id="instruction-text" style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">
+                    Introduce tu nombre de World Athletics para recibir tu código.
                 </p>
                 
-                <div class="form-group">
-                    <label for="repre-name">Nombre del Representante</label>
-                    <input type="text" id="repre-name" placeholder="Ej: Sylvia Manuela ABMAYR" class="custom-input">
+                <div id="step-1">
+                    <div class="form-group">
+                        <label for="repre-name">Nombre del Representante</label>
+                        <input type="text" id="repre-name" placeholder="Ej: Sylvia Manuela ABMAYR" class="custom-input">
+                    </div>
+                    <button id="verify-btn" class="btn-primary" style="margin-top: 15px; width: 100%; justify-content: center;">
+                        <i class="fas fa-paper-plane"></i> Solicitar Código
+                    </button>
                 </div>
 
-                <button id="verify-btn" class="btn-primary" style="margin-top: 15px; width: 100%; justify-content: center;">
-                    <i class="fas fa-envelope"></i> Enviar Enlace de Verificación
-                </button>
-                
-                <div id="status-message" style="display: none; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 0.9rem;">
+                <div id="step-2" style="display: none;">
+                    <div class="form-group">
+                        <label for="otp-code">Código de 6 dígitos</label>
+                        <input type="text" id="otp-code" placeholder="000000" class="custom-input" maxlength="6" style="text-align: center; letter-spacing: 5px; font-size: 1.5rem;">
+                    </div>
+                    <button id="confirm-otp-btn" class="btn-primary" style="margin-top: 15px; width: 100%; background: #00c853;">
+                        <i class="fas fa-check-circle"></i> Verificar Código
+                    </button>
+                    <button id="back-btn" style="background:none; border:none; color:#666; margin-top:10px; cursor:pointer; font-size:0.8rem;">← Volver a intentar</button>
                 </div>
             </div>
         </main>

@@ -3,56 +3,32 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 async function init() {
-    console.log("🚀 Dashboard iniciado");
-    
     const { data: { session } } = await supabaseClient.auth.getSession();
-
     if (!session) {
-        renderEstadoVacio("Debes verificar tu identidad en Ajustes para acceder.", true);
+        window.location.href = "ajustes.html";
         return;
     }
 
-    const user = session.user;
+    // 1. Miramos si está verificado en la tabla de Supabase
+    const { data: perfil, error } = await supabaseClient
+        .from('profiles')
+        .select('*')
+        .eq('id', session.user.id)
+        .single();
 
-    // --- LÓGICA DE ACTUALIZACIÓN TRAS MAGIC LINK ---
-    const nombrePendiente = localStorage.getItem('nombreRepresentante');
+    if (perfil && perfil.is_verified) {
+        // 2. Buscamos sus atletas en el JSON usando su wa_id
+        const res = await fetch('./datos_world_athletics.json');
+        const agentes = await res.json();
+        const yo = agentes.find(a => a.wa_id === perfil.wa_id);
 
-    if (nombrePendiente) {
-        console.log("🔄 Confirmando identidad para:", nombrePendiente);
-        
-        try {
-            const res = await fetch('./datos_world_athletics.json');
-            const infoWA = await res.json();
-            const datosAgente = infoWA.find(a => a.name === nombrePendiente);
-
-            if (datosAgente) {
-                // Actualizamos el perfil en Supabase para que sea persistente
-                const { error: updateError } = await supabaseClient
-                    .from('profiles')
-                    .upsert({ 
-                        id: user.id, 
-                        is_verified: true, 
-                        wa_id: datosAgente.wa_id,
-                        full_name: datosAgente.name,
-                        official_email: user.email,
-                        role: 'manager'
-                    });
-
-                if (!updateError) {
-                    console.log("✅ Perfil activado en BD.");
-                    localStorage.removeItem('nombreRepresentante');
-                    // Limpiamos la URL de tokens
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                }
-            }
-        } catch (err) {
-            console.error("Error procesando verificación:", err);
+        if (yo) {
+            renderizarCards(yo.athletes);
+            actualizarUIUsuario(yo.name);
         }
+    } else {
+        renderEstadoVacio("Tu cuenta no está vinculada. Ve a Ajustes.", true);
     }
-
-    // --- CARGAR DATOS ---
-    cargarDatosDashboard(user);
-    initMenuMovil();
 }
 
 async function cargarDatosDashboard(user) {
