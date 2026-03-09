@@ -1,30 +1,31 @@
-// --- CONFIGURACIÓN SUPABASE ---
+// --- 1. CONFIGURACIÓN E INICIALIZACIÓN ---
 const supabaseUrl = 'https://efynirousktejtpumudd.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVmeW5pcm91c2t0ZWp0cHVtdWRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5NjQxMTYsImV4cCI6MjA4ODU0MDExNn0._Zs-VQDUB8O3Hfulnnyt7Kf2THUb-fo3YX_PEEdgVBA';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVmeW5pcm91c2t0ZWp0cHVtdWRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5NjQxMTYsImV4cCI6MjA4ODU0MDExNn0._Zs-VQDUB8O3Hfulnnyt7Kf2THUb-fo3YX_PEEdgVBA';
 const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-async function initDashboard() {
-    console.log("🚀 Iniciando Dashboard...");
+// Función principal que arranca el Dashboard
+async function init() {
+    console.log("🚀 Dashboard iniciado");
     
-    // 1. OBTENER SESIÓN ACTUAL
-    const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
+    // Comprobar si hay sesión activa
+    const { data: { session } } = await supabaseClient.auth.getSession();
 
     if (!session) {
-        console.log("Nadie logueado");
-        mostrarEstadoVacio("No hay sesión activa. Por favor, verifica tu identidad en Ajustes.", true);
+        console.warn("⚠️ No hay sesión activa");
+        renderEstadoVacio("Debes verificar tu identidad en Ajustes para acceder.", true);
         return;
     }
 
     const user = session.user;
-    console.log("👤 Usuario logueado:", user.email);
+    console.log("👤 Usuario detectado:", user.email);
 
-    // 2. VINCULAR PERFIL (IMPORTANTE)
-    // Si entramos por primera vez, necesitamos decirle a la tabla 'profiles' quiénes somos
+    // --- 2. LÓGICA DE VERIFICACIÓN (PASAR A TRUE EN BD) ---
     const waIdPendiente = localStorage.getItem('wa_id_pendiente');
     const nombrePendiente = localStorage.getItem('nombreRepresentante');
 
     if (waIdPendiente) {
-        console.log("🔄 Actualizando perfil en la BD con ID:", waIdPendiente);
+        console.log("🔄 Detectado registro pendiente. Actualizando base de datos...");
+        
         const { error: updateError } = await supabaseClient
             .from('profiles')
             .upsert({ 
@@ -37,132 +38,139 @@ async function initDashboard() {
             });
 
         if (!updateError) {
-            console.log("✅ Perfil vinculado en la BD.");
+            console.log("✅ Perfil verificado con éxito en la BD.");
             localStorage.removeItem('wa_id_pendiente');
+            // Recargamos para limpiar la URL de tokens y aplicar cambios
+            window.location.reload(); 
+            return;
         } else {
-            console.error("❌ Error upsert profile:", updateError.message);
+            console.error("❌ Error actualizando is_verified:", updateError.message);
         }
     }
 
-    // 3. CONSULTAR ATLETAS
+    // --- 3. CARGAR ATLETAS DEL MANAGER ---
+    cargarDatosDashboard(user);
+    initMenuMovil();
+}
+
+async function cargarDatosDashboard(user) {
+    // Consultar IDs de atletas asociados en Supabase
     const { data: misAtletasDB, error: dbError } = await supabaseClient
         .from('atletas')
         .select('wa_id')
         .eq('manager_id', user.id);
 
-    // 4. CARGAR JSON Y FILTRAR
+    if (dbError) {
+        console.error("Error consultando atletas:", dbError.message);
+    }
+
     try {
         const response = await fetch('./datos_world_athletics.json');
         const infoWA = await response.json();
+        let listaAtletasFinal = [];
 
-        let listaFinalAtletas = [];
-        
-        // Si tenemos atletas en la BD, los filtramos del JSON
+        // Filtrar el JSON usando los IDs de la base de datos
         if (misAtletasDB && misAtletasDB.length > 0) {
-            const idsEnBD = misAtletasDB.map(a => parseInt(a.wa_id));
+            const idsPermitidos = misAtletasDB.map(a => parseInt(a.wa_id));
             
             infoWA.forEach(repre => {
                 repre.athletes.forEach(atleta => {
-                    // Extraer ID de la URL si no viene directo
-                    const idUrl = parseInt(atleta.url.split('/').pop());
-                    if (idsEnBD.includes(idUrl)) {
-                        listaFinalAtletas.push(atleta);
+                    const idAtleta = parseInt(atleta.url.split('/').pop());
+                    if (idsPermitidos.includes(idAtleta)) {
+                        listaAtletasFinal.push(atleta);
                     }
                 });
             });
         }
 
-        if (listaFinalAtletas.length > 0) {
-            renderizarAtletas(listaFinalAtletas);
+        // Renderizar resultados
+        if (listaAtletasFinal.length > 0) {
+            renderizarCards(listaAtletasFinal);
         } else {
-            // MENSAJE SI NO HAY ATLETAS ASIGNADOS EN LA BD
-            mostrarEstadoVacio("No tienes atletas asignados a tu cuenta todavía.", false);
+            renderEstadoVacio("No tienes atletas asignados actualmente.", false);
         }
 
-        actualizarInterfazUsuario(user.email);
+        actualizarUIUsuario(user.email);
 
     } catch (err) {
-        console.error("❌ Error:", err);
-        mostrarEstadoVacio("Error al conectar con el servidor de datos.", false);
+        console.error("Error cargando JSON:", err);
     }
 }
 
-// --- FUNCIONES DE INTERFAZ ---
+// --- 4. FUNCIONES DE INTERFAZ Y UI ---
 
-function mostrarEstadoVacio(mensaje, mostrarBotonAjustes) {
-    const grid = document.getElementById('athlete-grid');
-    if(!grid) return;
-    
-    grid.innerHTML = `
-        <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: #0f0f0f; border: 1px dashed #333; border-radius: 15px; width: 100%; box-sizing: border-box;">
-            <i class="fas fa-user-friends" style="font-size: 3rem; color: #333; margin-bottom: 15px;"></i>
-            <h3 style="color: #fff; margin-bottom: 10px;">Tu Lista de Atletas</h3>
-            <p style="color: #888; margin-bottom: 25px; max-width: 300px; margin-left: auto; margin-right: auto;">${mensaje}</p>
-            ${mostrarBotonAjustes ? 
-                `<a href="ajustes.html" class="btn-primary" style="display: inline-flex; width: auto; text-decoration: none; margin: 0 auto; padding: 12px 25px;">Ir a Ajustes</a>` 
-                : ''}
-        </div>
-    `;
-}
-
-// --- LÓGICA DEL MENÚ MÓVIL (HAMBURGUESA) ---
-function initMobileMenu() {
-    const menuToggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('sidebar-overlay');
-
-    if (menuToggle && sidebar && overlay) {
-        menuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-            overlay.classList.toggle('active');
-        });
-
-        overlay.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-            overlay.classList.remove('active');
-        });
-    }
-}
-
-function renderizarAtletas(atletas) {
+function renderizarCards(atletas) {
     const grid = document.getElementById('athlete-grid');
     grid.innerHTML = '';
+    
     atletas.forEach(atleta => {
+        const pb = atleta.personal_bests[0] || { mark: '-', discipline: '-' };
         const card = document.createElement('div');
         card.className = `athlete-card ${atleta.gender === 'Man' ? 'card-man' : 'card-woman'}`;
-        const pb = atleta.personal_bests[0] || { mark: '-', discipline: '-' };
         card.innerHTML = `
-            <div class="gender-badge">${atleta.gender === 'Man' ? '♂ Man' : '♀ Woman'}</div>
+            <div class="gender-badge">${atleta.gender === 'Man' ? '♂ HOMBRE' : '♀ MUJER'}</div>
             <h3 class="athlete-name">${atleta.name}</h3>
-            <p style="color: #666; font-size: 0.8rem;">${atleta.country}</p>
-            <div style="margin-top: 15px;">
+            <p style="color: #666; font-size: 0.8rem; margin-bottom: 10px;">${atleta.country}</p>
+            <div class="stat-row">
                 <span class="stat-label">${pb.discipline}</span>
-                <span class="stat-value">${pb.mark}</span>
+                <span class="stat-value" style="font-size: 1.1rem; display:block;">${pb.mark}</span>
             </div>
+            <a href="${atleta.url}" target="_blank" style="font-size: 0.7rem; color: #0070f3; text-decoration: none; display: block; margin-top: 10px;">Ficha World Athletics →</a>
         `;
         grid.appendChild(card);
     });
     document.getElementById('stat-count').innerText = atletas.length;
 }
 
-function actualizarInterfazUsuario(email) {
-    const nombre = localStorage.getItem('nombreRepresentante') || email;
-    const nameEl = document.querySelector('.user-name');
-    const roleEl = document.querySelector('.user-role');
-    if(nameEl) nameEl.innerText = nombre;
-    if(roleEl) roleEl.innerText = "Manager Verificado";
+function renderEstadoVacio(mensaje, conBoton) {
+    const grid = document.getElementById('athlete-grid');
+    grid.innerHTML = `
+        <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: #0f0f0f; border: 1px dashed #333; border-radius: 18px; width: 100%;">
+            <i class="fas fa-user-friends" style="font-size: 3rem; color: #222; margin-bottom: 15px;"></i>
+            <h3 style="margin-bottom: 10px;">Panel de Atletas</h3>
+            <p style="color: #666; margin-bottom: 20px;">${mensaje}</p>
+            ${conBoton ? '<a href="ajustes.html" class="btn-primary" style="text-decoration:none; display:inline-flex; margin: 0 auto;">Ir a Ajustes</a>' : ''}
+        </div>
+    `;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    initDashboard();
-    initMobileMenu();
-});
+function actualizarUIUsuario(email) {
+    const nombre = localStorage.getItem('nombreRepresentante') || email;
+    document.querySelector('.user-name').innerText = nombre;
+    document.querySelector('.user-role').innerText = "Manager Verificado";
+    document.getElementById('user-avatar').src = `https://ui-avatars.com/api/?name=${nombre}&background=0070f3&color=fff`;
+}
 
+// Lógica para la Hamburguesa (Menú Móvil)
+function initMenuMovil() {
+    const toggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    if (toggle) {
+        toggle.onclick = () => {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        };
+    }
+    
+    if (overlay) {
+        overlay.onclick = () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        };
+    }
+}
+
+// Cerrar sesión
 const logoutBtn = document.getElementById('logout-btn');
-if(logoutBtn) {
+if (logoutBtn) {
     logoutBtn.onclick = async () => {
         await supabaseClient.auth.signOut();
         localStorage.clear();
         window.location.href = 'ajustes.html';
     };
 }
+
+// Disparar inicio
+document.addEventListener('DOMContentLoaded', init);
