@@ -1,7 +1,3 @@
-const supabaseUrl = 'https://efynirousktejtpumudd.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVmeW5pcm91c2t0ZWp0cHVtdWRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5NjQxMTYsImV4cCI6MjA4ODU0MDExNn0._Zs-VQDUB8O3Hfulnnyt7Kf2THUb-fo3YX_PEEdgVBA';
-const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
-
 // Elementos del DOM
 const emailInput = document.getElementById('repre-email');
 const saveBtn = document.getElementById('save-settings-btn');
@@ -160,73 +156,6 @@ async function checkCurrentSession() {
         console.log('No hay sesión activa');
     }
 }
-
-// ========================================
-// FUNCIONALIDAD DEL MENÚ MÓVIL (HAMBURGUESA)
-// ========================================
-
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('sidebar-overlay');
-
-    if (menuToggle && sidebar && overlay) {
-        console.log("✅ Menú móvil inicializado");
-        
-        menuToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            sidebar.classList.toggle('active');
-            overlay.classList.toggle('active');
-            
-            // Cambiar icono (opcional)
-            const icon = menuToggle.querySelector('i');
-            if (icon) {
-                if (sidebar.classList.contains('active')) {
-                    icon.className = 'fas fa-times';
-                } else {
-                    icon.className = 'fas fa-bars';
-                }
-            }
-        });
-
-        overlay.addEventListener('click', function() {
-            sidebar.classList.remove('active');
-            overlay.classList.remove('active');
-            
-            // Restaurar icono
-            const icon = menuToggle.querySelector('i');
-            if (icon) {
-                icon.className = 'fas fa-bars';
-            }
-        });
-
-        // Cerrar menú al hacer click en un enlace (opcional)
-        const navLinks = sidebar.querySelectorAll('.nav-item');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 992) {
-                    sidebar.classList.remove('active');
-                    overlay.classList.remove('active');
-                    const icon = menuToggle.querySelector('i');
-                    if (icon) icon.className = 'fas fa-bars';
-                }
-            });
-        });
-
-        // Cerrar con tecla ESC
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && sidebar.classList.contains('active')) {
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-                const icon = menuToggle.querySelector('i');
-                if (icon) icon.className = 'fas fa-bars';
-            }
-        });
-    } else {
-        console.warn("⚠️ No se encontraron elementos del menú móvil");
-    }
-});
 
 // Ejecutar al cargar
 checkCurrentSession();

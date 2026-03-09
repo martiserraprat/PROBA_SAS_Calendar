@@ -1,7 +1,3 @@
-const supabaseUrl = 'https://efynirousktejtpumudd.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVmeW5pcm91c2t0ZWp0cHVtdWRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5NjQxMTYsImV4cCI6MjA4ODU0MDExNn0._Zs-VQDUB8O3Hfulnnyt7Kf2THUb-fo3YX_PEEdgVBA';
-const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
-
 let todosLosAtletas = [];
 let filtroGeneroActual = 'all';
 let filtroPruebaActual = 'all';
@@ -340,36 +336,8 @@ function activarFiltros() {
     }
 }
 
-// --- 7. EVENTOS DE INICIO ---
 document.addEventListener('DOMContentLoaded', () => {
     loadDashboard();
-
-    // Menú móvil
-    const menuToggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('sidebar-overlay');
-
-    if (menuToggle && sidebar && overlay) {
-        menuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-            overlay.classList.toggle('active');
-        });
-        overlay.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-            overlay.classList.remove('active');
-        });
-    }
-
-    // Botón Logout
-    const logoutBtn = document.getElementById('logout-btn');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', async () => {
-            console.log("Cerrando sesión...");
-            await supabaseClient.auth.signOut();
-            localStorage.clear();
-            window.location.href = '../index.html'; 
-        });
-    }
 });
 
 // --- FUNCIONES PARA EL MODAL ---

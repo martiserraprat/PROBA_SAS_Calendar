@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link rel="stylesheet" href="css/dashboard.js">
 </head>
 <body>
@@ -99,6 +98,13 @@
             </div>
         </div>
     </div>
+    <!-- Scripts compartidos -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../utils/js/auth-guard.js"></script>  <!-- PRIMERO: protección -->
+    <script src="../utils/js/menu-movil.js"></script>   <!-- SEGUNDO: menú -->
+    <script src="../utils/js/logout.js"></script>       <!-- TERCERO: logout -->
+
+    <!-- Script específico de la página -->
     <script src="js/dashboard.js"></script>
 </body>
 </html>
