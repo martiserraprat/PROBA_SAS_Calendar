@@ -434,3 +434,57 @@ genderButtons.forEach(btn => {
         applyFilters();
     });
 });
+
+// ========================================
+// MOSTRAR MENSAJES DE AUTENTICACIÓN
+// ========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mensaje = sessionStorage.getItem('auth_message');
+    const msgContainer = document.getElementById('auth-message');
+    
+    if (mensaje && msgContainer) {
+        let texto = '';
+        let icono = '';
+        
+        switch(mensaje) {
+            case 'sesion_cerrada':
+                texto = 'Sesión cerrada correctamente';
+                icono = 'fa-check-circle';
+                break;
+            case 'sesion_expirada':
+                texto = 'Tu sesión ha expirado. Por favor, inicia sesión de nuevo.';
+                icono = 'fa-clock';
+                break;
+            case 'acceso_restringido':
+                texto = 'Acceso restringido. Debes iniciar sesión.';
+                icono = 'fa-shield-alt';
+                break;
+            case 'error_verificacion':
+                texto = 'Error de verificación. Por favor, inicia sesión.';
+                icono = 'fa-exclamation-triangle';
+                break;
+            default:
+                texto = 'Por favor, inicia sesión para continuar';
+                icono = 'fa-info-circle';
+        }
+        
+        // Mostrar mensaje
+        msgContainer.style.display = 'flex';
+        msgContainer.innerHTML = `
+            <i class="fas ${icono}"></i>
+            <span>${texto}</span>
+        `;
+        
+        // Auto-ocultar después de 5 segundos
+        setTimeout(() => {
+            msgContainer.style.opacity = '0';
+            setTimeout(() => {
+                msgContainer.style.display = 'none';
+            }, 300);
+        }, 5000);
+        
+        // Limpiar el mensaje
+        sessionStorage.removeItem('auth_message');
+    }
+});
