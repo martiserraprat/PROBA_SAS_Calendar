@@ -573,3 +573,75 @@ select option { background: #121212; color: white; }
     color: white;
     appearance: none; /* Quita la flecha fea por defecto */
 }
+
+/* Mensaje de autenticación */
+.auth-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #0f0f0f;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-blue);
+    border-radius: 12px;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    font-size: 0.95rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    animation: slideInRight 0.3s ease;
+    max-width: 350px;
+    backdrop-filter: blur(10px);
+}
+
+.auth-message i {
+    color: var(--accent-blue);
+    font-size: 1.2rem;
+}
+
+.auth-message.error {
+    border-left-color: #ff4d4d;
+}
+
+.auth-message.error i {
+    color: #ff4d4d;
+}
+
+.auth-message.success {
+    border-left-color: #10b981;
+}
+
+.auth-message.success i {
+    color: #10b981;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .auth-message {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+        font-size: 0.85rem;
+        padding: 12px 15px;
+    }
+}

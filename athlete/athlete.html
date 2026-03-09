@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Panel | Atleta APEX</title>
+    <link rel="stylesheet" href="../../manager/dashboard.css">
+    <link rel="stylesheet" href="css/athlete.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="dashboard-layout">
+        <!-- SIDEBAR (igual que manager pero con iconos diferentes) -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">APEX<span>ATHLETE</span></div>
+                <div class="atleta-badge">ATLETA</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item active">
+                    <i class="fas fa-home"></i> Inicio
+                </a>
+                <a href="calendario.html" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i> Calendario
+                </a>
+                <a href="competiciones.html" class="nav-item">
+                    <i class="fas fa-trophy"></i> Competiciones
+                </a>
+                <a href="marcas.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i> Marcas Personales
+                </a>
+                <a href="perfil.html" class="nav-item">
+                    <i class="fas fa-user"></i> Mi Perfil
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-pill">
+                    <img src="https://ui-avatars.com/api/?name=ATLETA&background=00d1ff&color=fff" alt="Avatar">
+                    <div class="user-info">
+                        <span class="user-name">Carlos Rodríguez</span>
+                        <span class="user-role">Atleta</span>
+                    </div>
+                    <i class="fas fa-sign-out-alt" id="logout-btn"></i>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-viewport">
+            <!-- HEADER MÓVIL -->
+            <div class="mobile-header">
+                <div class="logo">APEX<span>ATHLETE</span></div>
+                <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+
+            <!-- CONTENIDO PRINCIPAL -->
+            <header class="view-header">
+                <div class="header-text">
+                    <h1>¡Bienvenido, Carlos! <span class="atleta-badge">ATLETA</span></h1>
+                    <p>Tu progreso y próximas competiciones</p>
+                </div>
+                <div class="header-actions">
+                    <a href="perfil.html" class="btn-primary" style="text-decoration: none;">
+                        <i class="fas fa-user-edit"></i> Mi Perfil
+                    </a>
+                </div>
+            </header>
+
+            <!-- ESTADÍSTICAS RÁPIDAS -->
+            <div class="stats-grid">
+                <div class="stat-card-atleta">
+                    <div class="stat-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>Mejor Marca</h4>
+                        <span class="stat-number">10.02</span>
+                        <span class="stat-label">100m</span>
+                    </div>
+                </div>
+
+                <div class="stat-card-atleta">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>Competiciones</h4>
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">este año</span>
+                    </div>
+                </div>
+
+                <div class="stat-card-atleta">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>Próxima cita</h4>
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">días</span>
+                    </div>
+                </div>
+
+                <div class="stat-card-atleta">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h4>Ranking</h4>
+                        <span class="stat-number">#24</span>
+                        <span class="stat-label">nacional</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRID DE DOS COLUMNAS -->
+            <div class="dashboard-grid">
+                <!-- PRÓXIMAS COMPETICIONES -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h3><i class="fas fa-calendar-alt"></i> Próximas Competiciones</h3>
+                        <a href="calendario.html" class="view-all">Ver todo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="section-content">
+                        <div class="event-list">
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <span class="day">15</span>
+                                    <span class="month">MAR</span>
+                                </div>
+                                <div class="event-info">
+                                    <h4>Campeonato de España</h4>
+                                    <p><i class="fas fa-map-marker-alt"></i> Madrid · 100m</p>
+                                </div>
+                                <span class="event-status">Confirmado</span>
+                            </div>
+
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <span class="day">22</span>
+                                    <span class="month">MAR</span>
+                                </div>
+                                <div class="event-info">
+                                    <h4>Meeting Internacional</h4>
+                                    <p><i class="fas fa-map-marker-alt"></i> Barcelona · 200m</p>
+                                </div>
+                                <span class="event-status pending">Pendiente</span>
+                            </div>
+
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <span class="day">05</span>
+                                    <span class="month">ABR</span>
+                                </div>
+                                <div class="event-info">
+                                    <h4>Liga de Clubes</h4>
+                                    <p><i class="fas fa-map-marker-alt"></i> Valencia · 4x100m</p>
+                                </div>
+                                <span class="event-status">Inscrito</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ÚLTIMAS MARCAS -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h3><i class="fas fa-chart-line"></i> Últimas Marcas</h3>
+                        <a href="marcas.html" class="view-all">Ver todo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="section-content">
+                        <div class="pb-list">
+                            <div class="pb-item">
+                                <div class="pb-discipline">
+                                    <span class="discipline">100m</span>
+                                    <span class="pb-value">10.02</span>
+                                </div>
+                                <div class="pb-details">
+                                    <span><i class="fas fa-map-marker-alt"></i> Madrid</span>
+                                    <span><i class="fas fa-calendar"></i> 15 Feb 2026</span>
+                                </div>
+                            </div>
+
+                            <div class="pb-item">
+                                <div class="pb-discipline">
+                                    <span class="discipline">200m</span>
+                                    <span class="pb-value">20.45</span>
+                                </div>
+                                <div class="pb-details">
+                                    <span><i class="fas fa-map-marker-alt"></i> Barcelona</span>
+                                    <span><i class="fas fa-calendar"></i> 3 Ene 2026</span>
+                                </div>
+                            </div>
+
+                            <div class="pb-item">
+                                <div class="pb-discipline">
+                                    <span class="discipline">400m</span>
+                                    <span class="pb-value">46.53</span>
+                                </div>
+                                <div class="pb-details">
+                                    <span><i class="fas fa-map-marker-alt"></i> Valencia</span>
+                                    <span><i class="fas fa-calendar"></i> 22 Dic 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROGRESO DE ENTRENAMIENTO -->
+            <div class="section-card" style="margin-bottom: 30px;">
+                <div class="section-header">
+                    <h3><i class="fas fa-dumbbell"></i> Progreso de Entrenamiento</h3>
+                    <span class="atleta-badge">Última semana</span>
+                </div>
+                <div class="section-content">
+                    <div class="progress-stats">
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Intensidad</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Volumen</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Descanso</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMPETICIONES DESTACADAS -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h3><i class="fas fa-star"></i> Competiciones Destacadas</h3>
+                    <a href="competiciones.html" class="view-all">Ver histórico <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="section-content">
+                    <div class="highlights-grid">
+                        <div class="highlight-card">
+                            <div class="highlight-icon">
+                                <i class="fas fa-gold"></i>
+                            </div>
+                            <div class="highlight-info">
+                                <h4>Campeonato de España</h4>
+                                <p>1º puesto · 100m</p>
+                                <span class="highlight-date">2025</span>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon silver">
+                                <i class="fas fa-silver"></i>
+                            </div>
+                            <div class="highlight-info">
+                                <h4>Meeting Barcelona</h4>
+                                <p>2º puesto · 200m</p>
+                                <span class="highlight-date">2025</span>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon bronze">
+                                <i class="fas fa-bronze"></i>
+                            </div>
+                            <div class="highlight-info">
+                                <h4>Liga Nacional</h4>
+                                <p>3º puesto · 4x100m</p>
+                                <span class="highlight-date">2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../utils/js/auth-guard.js"></script>
+    <script src="../utils/js/menu-movil.js"></script>
+    <script src="../utils/js/logout.js"></script>
+    <script src="js/athlete-dashboard.js"></script>
+</body>
+</html>

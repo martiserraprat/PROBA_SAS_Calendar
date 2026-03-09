@@ -300,7 +300,7 @@ if (profileBtn) {
             if (role === 'manager') {
                 window.location.href = 'manager/dashboard.html';
             } else {
-                window.location.href = 'athlete/profile.html';
+                window.location.href = 'athlete/athlete.html';
             }
         } else {
             loginModal.style.display = 'flex';
@@ -347,7 +347,7 @@ if (loginForm) {
 
             if (data.user) {
                 const role = data.user.user_metadata?.role || 'manager';
-                window.location.href = role === 'manager' ? 'manager/dashboard.html' : 'athlete/profile.html';
+                window.location.href = role === 'manager' ? 'manager/dashboard.html' : 'athlete/athlete.html';
             }
         } catch (error) {
             if(authError) {
@@ -402,7 +402,7 @@ if (signupForm) {
             btn.disabled = false;
         } else {
             alert("¡Registro exitoso! Revisa tu correo o inicia sesión directamente.");
-            window.location.href = role === 'manager' ? 'manager/dashboard.html' : 'athlete/profile.html';
+            window.location.href = role === 'manager' ? 'manager/dashboard.html' : 'athlete/athlete.html';
         }
     });
 }
