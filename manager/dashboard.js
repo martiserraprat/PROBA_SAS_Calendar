@@ -1,9 +1,3 @@
-// --- 1. CONFIGURACIÓN SUPABASE ---
-const supabaseUrl = 'https://efynirousktejtpumudd.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVmeW5pcm91c2t0ZWp0cHVtdWRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5NjQxMTYsImV4cCI6MjA4ODU0MDExNn0._Zs-VQDUB8O3Hfulnnyt7Kf2THUb-fo3YX_PEEdgVBA'; 
-const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
-
-// --- 2. VARIABLES GLOBALES ---
 let todosLosAtletas = [];
 let filtroGeneroActual = 'all';
 let filtroPruebaActual = 'all';
@@ -11,8 +5,10 @@ let filtroPruebaActual = 'all';
 // --- 3. CARGA DE DATOS Y VERIFICACIÓN ---
 async function loadDashboard() {
     console.log("🚀 Esperando confirmación de sesión...");
+    const grid = document.getElementById('athlete-grid');
+    if (grid) grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #666;"><i class="fas fa-spinner fa-spin"></i> Cargando panel...</div>';
 
-    // 1. ESCUCHADOR DE CAMBIO DE ESTADO (Para captar el Magic Link al aterrizar)
+    // 1. ESCUCHADOR DE CAMBIO DE ESTADO
     supabaseClient.auth.onAuthStateChange(async (event, session) => {
         console.log("🔔 Evento de Auth detectado:", event);
 
@@ -20,7 +16,12 @@ async function loadDashboard() {
             if (session) {
                 console.log("✅ Sesión confirmada para:", session.user.email);
                 await ejecutarVerificacionPendiente(session.user);
+            } else {
+                console.log("🚫 No hay sesión activa.");
+                renderEstadoVacio("No hay sesión activa. Por favor, verifica tu identidad en Ajustes.", true);
             }
+        } else if (event === 'SIGNED_OUT') {
+            renderEstadoVacio("Sesión cerrada.", true);
         }
     });
 }
@@ -42,14 +43,78 @@ async function ejecutarVerificacionPendiente(user) {
             localStorage.removeItem('wa_id_pendiente');
             localStorage.removeItem('nombreRepresentante');
             
-            // DAMOS UN SEGUNDO PARA QUE LA BD PROCESE Y RECARGAMOS
             setTimeout(() => { window.location.reload(); }, 500);
         } else {
             console.error("❌ ERROR EN RPC:", error.message);
+            renderEstadoVacio("Hubo un error al verificar tu cuenta.", true);
         }
     } else {
-        // Si no hay nada pendiente, cargamos los atletas normalmente
-        await cargarAtletasVerificados();
+        // AQUÍ ESTABA EL FALLO: LLAMÁBAMOS A UNA FUNCIÓN QUE NO EXISTÍA
+        await cargarAtletasVerificados(user);
+    }
+}
+
+// ESTA ES LA FUNCIÓN QUE FALTABA
+async function cargarAtletasVerificados(user) {
+    try {
+        console.log("📥 Obteniendo datos oficiales del manager...");
+        
+        // 1. Miramos si el usuario está verificado en la BD
+        const { data: perfil, error: perfilErr } = await supabaseClient
+            .from('profiles')
+            .select('*')
+            .eq('id', user.id)
+            .single();
+
+        if (perfilErr || !perfil || !perfil.is_verified) {
+            renderEstadoVacio("Tu perfil no está verificado. Ve a Ajustes para vincular tu cuenta oficial.", true);
+            return;
+        }
+
+        // 2. Actualizamos su nombre en la interfaz
+        const nameEl = document.querySelector('.user-name');
+        const roleEl = document.querySelector('.user-role');
+        if (nameEl) nameEl.innerText = perfil.full_name;
+        if (roleEl) roleEl.innerText = 'Manager Oficial';
+
+        // 3. Buscamos a sus atletas en el JSON
+        const response = await fetch('../datos_world_athletics.json');
+        const agentes = await response.json();
+        let todasLasDisciplinas = new Set();
+
+        const agenteEncontrado = agentes.find(ag => ag.name.toLowerCase() === perfil.full_name.toLowerCase());
+
+        if (agenteEncontrado && agenteEncontrado.athletes && agenteEncontrado.athletes.length > 0) {
+            todosLosAtletas = agenteEncontrado.athletes.map(a => {
+                if (a.personal_bests) {
+                    a.personal_bests.forEach(pb => todasLasDisciplinas.add(pb.discipline));
+                }
+                return a;
+            });
+
+            todosLosAtletas.sort((a, b) => a.name.localeCompare(b.name));
+
+            // 4. Rellenar los filtros de pruebas
+            const selectPruebas = document.getElementById('discipline-filter');
+            if (selectPruebas) {
+                selectPruebas.innerHTML = '<option value="all">Todas las pruebas</option>';
+                Array.from(todasLasDisciplinas).sort().forEach(disc => {
+                    const option = document.createElement('option');
+                    option.value = disc;
+                    option.textContent = disc;
+                    selectPruebas.appendChild(option);
+                });
+            }
+
+            renderAtletas(todosLosAtletas);
+            activarFiltros();
+        } else {
+            renderEstadoVacio("Eres mánager verificado, pero no tienes atletas registrados en nuestra base de datos.", false);
+        }
+
+    } catch (error) {
+        console.error("❌ Error cargando atletas:", error);
+        renderEstadoVacio("Hubo un error al cargar la lista de atletas.", false);
     }
 }
 
@@ -60,7 +125,7 @@ function renderEstadoVacio(mensaje, mostrarBoton) {
     grid.innerHTML = `
         <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: #0f0f0f; border: 1px dashed #333; border-radius: 15px;">
             <i class="fas fa-user-shield" style="font-size: 3rem; color: #444; margin-bottom: 15px;"></i>
-            <h3 style="color: #fff; margin-bottom: 5px;">Acceso Restringido</h3>
+            <h3 style="color: #fff; margin-bottom: 5px;">Panel de Atletas</h3>
             <p style="color: #888; margin-bottom: 20px;">${mensaje}</p>
             ${mostrarBoton ? `<a href="ajustes.html" class="btn-primary" style="display:inline-block; text-decoration:none;">Ir a Ajustes</a>` : ''}
         </div>
