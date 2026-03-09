@@ -10,73 +10,46 @@ let filtroPruebaActual = 'all';
 
 // --- 3. CARGA DE DATOS Y VERIFICACIÓN ---
 async function loadDashboard() {
-    console.log("🚀 Iniciando Dashboard Seguro...");
-    const grid = document.getElementById('athlete-grid');
-    
-    // 1. Ponemos un spinner o mensaje de carga inicial
-    if (grid) grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #666;"><i class="fas fa-spinner fa-spin"></i> Verificando credenciales...</div>';
+    console.log("🚀 Esperando confirmación de sesión...");
 
-    try {
-        // A. Obtener sesión
-        const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
+    // 1. ESCUCHADOR DE CAMBIO DE ESTADO (Para captar el Magic Link al aterrizar)
+    supabaseClient.auth.onAuthStateChange(async (event, session) => {
+        console.log("🔔 Evento de Auth detectado:", event);
 
-        if (sessionError || !session) {
-            console.warn("⚠️ No hay sesión activa");
-            renderEstadoVacio("No hay sesión activa. Por favor, verifica tu identidad en Ajustes.", true);
-            return;
-        }
-
-        // B. Procesar verificación pendiente (RPC)
-        const waIdPendiente = localStorage.getItem('wa_id_pendiente');
-        const nombrePendiente = localStorage.getItem('nombreRepresentante');
-
-        if (waIdPendiente && nombrePendiente) {
-            const { error } = await supabaseClient.rpc('verificar_manager', {
-                id_wa_input: parseInt(waIdPendiente),
-                nombre_input: nombrePendiente
-            });
-            if (!error) {
-                localStorage.removeItem('wa_id_pendiente');
-                localStorage.removeItem('nombreRepresentante');
-                window.location.reload(); 
-                return;
+        if (event === 'SIGNED_IN' || event === 'INITIAL_SESSION') {
+            if (session) {
+                console.log("✅ Sesión confirmada para:", session.user.email);
+                await ejecutarVerificacionPendiente(session.user);
             }
         }
+    });
+}
 
-        // C. Obtener perfil verificado
-        const { data: perfil, error: perfilErr } = await supabaseClient
-            .from('profiles')
-            .select('*')
-            .single();
+async function ejecutarVerificacionPendiente(user) {
+    const waId = localStorage.getItem('wa_id_pendiente');
+    const nombre = localStorage.getItem('nombreRepresentante');
 
-        // IMPORTANTE: Si el perfil no existe o no está verificado, MOSTRAR EL MENSAJE
-        if (perfilErr || !perfil || !perfil.is_verified) {
-            console.log("🚫 Perfil no verificado o error de perfil");
-            renderEstadoVacio("Tu perfil no está verificado en la base de datos oficial.", true);
-            return;
-        }
-
-        // Si llegamos aquí, el usuario es válido. Actualizamos UI.
-        document.querySelector('.user-name').innerText = perfil.full_name;
-        document.querySelector('.user-role').innerText = 'Manager Oficial';
-
-        // D. Cargar y filtrar JSON
-        const response = await fetch('../datos_world_athletics.json');
-        const agentes = await response.json();
+    if (waId && nombre) {
+        console.log("🛡️ DATOS DETECTADOS. Lanzando validación RPC...");
         
-        const agenteEncontrado = agentes.find(ag => ag.name.toLowerCase() === perfil.full_name.toLowerCase());
+        const { error } = await supabaseClient.rpc('verificar_manager', {
+            id_wa_input: parseInt(waId),
+            nombre_input: nombre
+        });
 
-        if (agenteEncontrado && agenteEncontrado.athletes) {
-            todosLosAtletas = agenteEncontrado.athletes;
-            renderAtletas(todosLosAtletas);
-            activarFiltros();
+        if (!error) {
+            console.log("🎉 PERFIL ACTUALIZADO EN BD.");
+            localStorage.removeItem('wa_id_pendiente');
+            localStorage.removeItem('nombreRepresentante');
+            
+            // DAMOS UN SEGUNDO PARA QUE LA BD PROCESE Y RECARGAMOS
+            setTimeout(() => { window.location.reload(); }, 500);
         } else {
-            renderEstadoVacio("Eres mánager verificado, pero no tienes atletas asignados en el JSON.", false);
+            console.error("❌ ERROR EN RPC:", error.message);
         }
-
-    } catch (error) {
-        console.error("❌ Error crítico:", error);
-        renderEstadoVacio("Hubo un error al conectar con Supabase. Revisa tu conexión.", true);
+    } else {
+        // Si no hay nada pendiente, cargamos los atletas normalmente
+        await cargarAtletasVerificados();
     }
 }
 
