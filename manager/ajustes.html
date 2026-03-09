@@ -6,8 +6,6 @@
     <title>Ajustes | APEX ATHLETICS</title>
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="ajustes.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <div class="sidebar-overlay" id="sidebar-overlay"></div>
@@ -27,53 +25,52 @@
 
             <div class="sidebar-footer">
                 <div class="user-pill">
-                    <img src="https://ui-avatars.com/api/?name=M&background=0070f3&color=fff" alt="Avatar" id="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=A&background=0070f3&color=fff" alt="Avatar" id="user-avatar">
                     <div class="user-info">
-                        <span class="user-name">Cargando...</span>
-                        <span class="user-role">...</span>
+                        <span class="user-name">Admin Local</span>
+                        <span class="user-role">Visor de Datos</span>
                     </div>
                     <i class="fas fa-sign-out-alt" id="logout-btn"></i>
                 </div>
             </div>
         </aside>
+
         <main class="main-viewport">
+            <div class="mobile-header">
+                <div class="logo">APEX<span>ATHLETICS</span></div>
+                <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+
             <header class="view-header">
                 <div class="header-text">
-                    <h1>Ajustes de Cuenta</h1>
-                    <p>Vincula tu perfil oficial de World Athletics</p>
+                    <h1>Ajustes</h1>
+                    <p>Configuración de tu cuenta y preferencias</p>
                 </div>
             </header>
 
             <div class="settings-card">
-                <h3>Verificación Oficial</h3>
-                <p id="instruction-text" style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">
-                    Introduce tu nombre de World Athletics para recibir tu código.
+                <h3>Verificación de Mánager Oficial</h3>
+                <p style="color: #888; font-size: 0.85rem; margin-bottom: 20px;">
+                    Introduce tu <b>correo electrónico oficial</b> registrado en World Athletics. 
+                    Comprobaremos nuestra base de datos y te enviaremos un enlace de acceso seguro.
                 </p>
                 
-                <div id="step-1">
-                    <div class="form-group">
-                        <label for="repre-name">Nombre del Representante</label>
-                        <input type="text" id="repre-name" placeholder="Ej: Sylvia Manuela ABMAYR" class="custom-input">
-                    </div>
-                    <button id="verify-btn" class="btn-primary" style="margin-top: 15px; width: 100%; justify-content: center;">
-                        <i class="fas fa-paper-plane"></i> Solicitar Código
-                    </button>
+                <div class="form-group">
+                    <label for="repre-email">Correo Electrónico Oficial</label>
+                    <input type="email" id="repre-email" placeholder="ejemplo@worldathletics.org" class="custom-input">
                 </div>
 
-                <div id="step-2" style="display: none;">
-                    <div class="form-group">
-                        <label for="otp-code">Código de 6 dígitos</label>
-                        <input type="text" id="otp-code" placeholder="000000" class="custom-input" maxlength="6" style="text-align: center; letter-spacing: 5px; font-size: 1.5rem;">
-                    </div>
-                    <button id="confirm-otp-btn" class="btn-primary" style="margin-top: 15px; width: 100%; background: #00c853;">
-                        <i class="fas fa-check-circle"></i> Verificar Código
-                    </button>
-                    <button id="back-btn" style="background:none; border:none; color:#666; margin-top:10px; cursor:pointer; font-size:0.8rem;">← Volver a intentar</button>
+                <button id="save-settings-btn" class="btn-primary" style="margin-top: 15px; width: 100%; justify-content: center;">
+                    <i class="fas fa-paper-plane"></i> Verificar y Enviar Enlace
+                </button>
+                
+                <div id="save-message" style="display: none; padding: 15px; border-radius: 10px; margin-top: 15px; font-size: 0.9rem;">
                 </div>
             </div>
         </main>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../utils/logoout.js"></script>
     <script src="ajustes.js"></script>
 </body>
 </html>
