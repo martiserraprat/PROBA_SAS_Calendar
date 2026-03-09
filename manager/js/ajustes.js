@@ -45,7 +45,7 @@ saveBtn.addEventListener('click', async () => {
 
     try {
         // 1. Cargar el JSON con manejo de errores
-        const response = await fetch('datos_world_athletics.json');
+        const response = await fetch('json/datos_world_athletics.json');
         
         if (!response.ok) {
             throw new Error('No se pudo cargar la base de datos de managers');

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Cargar JSON de aeropuertos
     try {
-        const response = await fetch('aeropuertos.json');
+        const response = await fetch('json/aeropuertos.json');
         dbAeropuertos = await response.json();
     } catch (e) { 
         console.error("Error cargando aeropuertos.json", e); 

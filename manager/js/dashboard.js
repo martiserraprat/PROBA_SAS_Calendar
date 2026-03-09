@@ -160,7 +160,7 @@ async function cargarAtletasVerificados(user) {
         if (roleEl) roleEl.innerText = 'Manager Oficial';
 
         // 4. Buscamos a sus atletas en el JSON
-        const response = await fetch('./datos_world_athletics.json');
+        const response = await fetch('./json/datos_world_athletics.json');
         if (!response.ok) {
             throw new Error("No se encontró el archivo JSON.");
         }
