@@ -188,3 +188,366 @@ body {
     background: #111;
     color: #fff;
 }
+
+/* ========================================
+   SOBRESCRITURA COMPLETA PARA MODAL DE ATLETAS
+   Anula los estilos globales de .modal-content
+   ======================================== */
+
+/* Overlay específico */
+#athleteModal.modal-overlay {
+    display: flex !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(8px) !important;
+    z-index: 2000 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+#athleteModal.modal-overlay.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Container principal - ANULA .modal-content */
+#athleteModal .modal-container {
+    all: initial !important; /* Reset total */
+    display: block !important;
+    background: #0f0f0f !important;
+    border: 1px solid #1a1a1a !important;
+    border-radius: 24px !important;
+    width: 90% !important;
+    max-width: 800px !important; /* TU max-width */
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    position: relative !important;
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+    padding: 0 !important; /* QUITA el padding del otro modal */
+    margin: 0 auto !important;
+}
+
+#athleteModal.active .modal-container {
+    transform: scale(1) !important;
+}
+
+/* Header */
+#athleteModal .modal-header {
+    all: initial !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 24px 30px !important;
+    border-bottom: 1px solid #1a1a1a !important;
+    background: #0a0a0a !important;
+    border-radius: 24px 24px 0 0 !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+}
+
+#athleteModal .modal-header h2 {
+    all: initial !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.5px !important;
+    color: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Botón cerrar - ANULA posición absolute */
+#athleteModal .modal-close {
+    all: initial !important;
+    background: none !important;
+    border: none !important;
+    color: #888 !important;
+    font-size: 1.8rem !important;
+    cursor: pointer !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    transition: all 0.2s !important;
+    position: static !important; /* ¡IMPORTANTE! Anula el absolute */
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+}
+
+#athleteModal .modal-close:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+}
+
+/* Contenido - ANULA completamente .modal-content */
+#athleteModal .modal-content {
+    all: initial !important;
+    display: block !important;
+    padding: 30px !important; /* TU padding */
+    background: transparent !important;
+    border: none !important;
+    width: auto !important;
+    max-width: none !important;
+    border-radius: 0 !important;
+    position: static !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+/* Info personal */
+#athleteModal .athlete-info-section {
+    all: initial !important;
+    display: block !important;
+    background: #0a0a0a !important;
+    border-radius: 18px !important;
+    padding: 20px !important;
+    margin-bottom: 30px !important;
+    border: 1px solid #1a1a1a !important;
+}
+
+#athleteModal .athlete-info-grid {
+    all: initial !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 20px !important;
+}
+
+#athleteModal .info-item {
+    all: initial !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+}
+
+#athleteModal .info-label {
+    all: initial !important;
+    color: #888 !important;
+    font-size: 0.7rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    font-weight: 700 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+#athleteModal .info-value {
+    all: initial !important;
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: white !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+#athleteModal .info-value i {
+    color: #0070f3 !important;
+    width: 20px !important;
+}
+
+/* Marcas personales */
+#athleteModal .pb-section {
+    all: initial !important;
+    display: block !important;
+    background: #0a0a0a !important;
+    border-radius: 18px !important;
+    padding: 20px !important;
+    border: 1px solid #1a1a1a !important;
+}
+
+#athleteModal .pb-section h3 {
+    all: initial !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin: 0 0 20px 0 !important;
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    color: white !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+#athleteModal .pb-section h3 i {
+    color: #0070f3 !important;
+}
+
+#athleteModal .pb-grid {
+    all: initial !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+    gap: 15px !important;
+}
+
+#athleteModal .pb-card {
+    all: initial !important;
+    display: block !important;
+    background: #111 !important;
+    border: 1px solid #1a1a1a !important;
+    border-radius: 14px !important;
+    padding: 15px !important;
+    transition: all 0.2s !important;
+}
+
+#athleteModal .pb-card:hover {
+    border-color: #0070f3 !important;
+    transform: translateY(-2px) !important;
+}
+
+#athleteModal .pb-discipline {
+    all: initial !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    margin-bottom: 8px !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+#athleteModal .pb-discipline i {
+    color: #0070f3 !important;
+    font-size: 0.9rem !important;
+    opacity: 0.7 !important;
+}
+
+#athleteModal .pb-mark {
+    all: initial !important;
+    font-size: 1.3rem !important;
+    font-weight: 800 !important;
+    color: #0070f3 !important;
+    margin-bottom: 5px !important;
+    display: block !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+#athleteModal .pb-venue {
+    all: initial !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    font-size: 0.75rem !important;
+    color: #888 !important;
+    margin-bottom: 3px !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+#athleteModal .pb-venue i {
+    font-size: 0.6rem !important;
+}
+
+#athleteModal .pb-date {
+    all: initial !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    font-size: 0.7rem !important;
+    color: #444 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* Badge de género */
+#athleteModal .modal-gender-badge {
+    all: initial !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 4px 12px !important;
+    border-radius: 20px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    margin-left: 15px !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+#athleteModal .modal-gender-badge.man {
+    background: rgba(59, 130, 246, 0.15) !important;
+    color: #3b82f6 !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+}
+
+#athleteModal .modal-gender-badge.woman {
+    background: rgba(236, 72, 153, 0.15) !important;
+    color: #ec4899 !important;
+    border: 1px solid rgba(236, 72, 153, 0.3) !important;
+}
+
+/* Botón WA */
+#athleteModal .modal-wa-btn {
+    all: initial !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: #111 !important;
+    color: #fff !important;
+    border: 1px solid #1a1a1a !important;
+    padding: 12px 24px !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+    text-decoration: none !important;
+    margin-top: 20px !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+#athleteModal .modal-wa-btn:hover {
+    background: #0070f3 !important;
+    border-color: #0070f3 !important;
+}
+
+/* Scroll */
+#athleteModal .modal-container::-webkit-scrollbar {
+    width: 8px !important;
+}
+
+#athleteModal .modal-container::-webkit-scrollbar-track {
+    background: #0a0a0a !important;
+    border-radius: 0 0 24px 0 !important;
+}
+
+#athleteModal .modal-container::-webkit-scrollbar-thumb {
+    background: #333 !important;
+    border-radius: 4px !important;
+}
+
+#athleteModal .modal-container::-webkit-scrollbar-thumb:hover {
+    background: #0070f3 !important;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #athleteModal .modal-container {
+        width: 95% !important;
+        max-height: 90vh !important;
+    }
+    
+    #athleteModal .modal-header {
+        padding: 20px !important;
+    }
+    
+    #athleteModal .modal-header h2 {
+        font-size: 1.4rem !important;
+    }
+    
+    #athleteModal .modal-content {
+        padding: 20px !important;
+    }
+    
+    #athleteModal .pb-grid {
+        grid-template-columns: 1fr !important;
+    }
+}

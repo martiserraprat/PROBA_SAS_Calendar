@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script type="module" src="dashboard.js"></script>
-    <script src="../utils/logoout.js"></script>
     <link rel="stylesheet" href="ajustes.css">
 </head>
 <body>
@@ -89,5 +87,18 @@
             </div>
         </main>
     </div>
+    <!-- MODAL / POPUP -->
+    <div id="athleteModal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 id="modalAthleteName">Detalles del Atleta</h2>
+                <button class="modal-close" onclick="cerrarModal()">&times;</button>
+            </div>
+            <div class="modal-content" id="modalContent">
+                <!-- El contenido se llena dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
 </body>
 </html>
