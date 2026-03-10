@@ -430,3 +430,55 @@
         gap: 8px; /* Espacio entre el icono y el texto dentro del botón */
     }
 }
+
+/* ========================================
+   ESTILOS SOLO PARA EL MENÚ DESPLEGABLE
+   ======================================== */
+
+.dropdown-menu {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    right: 0; /* Lo alinea a la derecha del botón */
+    margin-top: 5px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    min-width: 170px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Activa la visibilidad cuando se añade esta clase con JS */
+.dropdown-menu.show {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    padding: 10px 15px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-item:hover {
+    background: #222;
+    color: #fff;
+}
+
+/* En móvil, el menú ocupa el ancho del contenedor */
+@media (max-width: 992px) {
+    #cargar-datos-dropdown { width: 100%; }
+    .dropdown-menu { width: 100%; left: 0; right: auto; }
+}

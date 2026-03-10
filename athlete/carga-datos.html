@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sincronización WA | Atleta APEX</title>
+    <link rel="stylesheet" href="../manager/css/dashboard.css">
+    <link rel="stylesheet" href="css/athlete.css">
+    <link rel="stylesheet" href="css/cargads.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">APEX<span>ATHLETE</span></div>
+                <div class="atleta-badge">ATLETA</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-home"></i> Inicio
+                </a>
+                <a href="carga-datos.html" class="nav-item active">
+                    <i class="fas fa-sync"></i> Sincronizar WA
+                </a>
+                </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-pill">
+                    <img src="https://ui-avatars.com/api/?name=ATLETA&background=00d1ff&color=fff" alt="Avatar">
+                    <div class="user-info">
+                        <span class="user-name" id="sidebar-user-name">Usuario</span>
+                        <span class="user-role">Atleta</span>
+                    </div>
+                    <i class="fas fa-sign-out-alt" id="logout-btn"></i>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-viewport">
+            <div class="mobile-header">
+                <div class="logo">APEX<span>ATHLETE</span></div>
+                <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+
+            <div class="sync-container">
+                <div class="sync-card">
+                    <div class="sync-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h2 class="sync-title">Sincronización Automática</h2>
+                    <p class="sync-desc">
+                        Pega tu enlace oficial de World Athletics. Nuestro sistema extraerá tus marcas personales, resultados recientes y progresión para mantener tu perfil actualizado al instante.
+                    </p>
+
+                    <div class="input-group">
+                        <label for="wa-url" style="color: #888; font-size: 0.85rem; font-weight: bold; text-transform: uppercase;">Enlace de World Athletics</label>
+                        <input type="url" id="wa-url" class="wa-input" placeholder="Ej: https://worldathletics.org/athletes/spain/tu-nombre-12345678" autocomplete="off">
+                    </div>
+
+                    <button id="btn-iniciar-sync" class="btn-sync">
+                        <i class="fas fa-cloud-download-alt"></i> Cargar Datos Oficiales
+                    </button>
+
+                    <div id="status-message" class="status-box"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../utils/js/auth-guard.js"></script>
+    <script src="../utils/js/menu-movil.js"></script>
+    <script src="../utils/js/logout.js"></script>
+    <script src="js/carga-datos.js"></script>
+</body>
+</html>

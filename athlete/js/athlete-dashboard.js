@@ -166,11 +166,43 @@ function mostrarEstadosVacios() {
     });
 }
 
-// Iniciar al cargar el DOM
+// ==========================================
+// INICIALIZACIÓN Y EVENTOS DEL DOM
+// ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Un pequeño respiro para que window.supabaseClient exista
+    // 1. Carga inicial
     setTimeout(cargarDatosAtleta, 200);
 
-    const btn = document.getElementById('btn-cargar-datos');
-    if(btn) btn.addEventListener('click', cargarDatosAtleta);
+    // 2. Lógica del Menú Desplegable "Cargar Datos"
+    const btnCargar = document.getElementById('btn-cargar-datos');
+    const menuCargar = document.getElementById('menu-cargar-datos');
+
+    if (btnCargar && menuCargar) {
+        // A. Abrir/Cerrar menú
+        btnCargar.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation(); 
+            menuCargar.classList.toggle('show');
+        });
+
+        // B. Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!menuCargar.contains(e.target) && !btnCargar.contains(e.target)) {
+                menuCargar.classList.remove('show');
+            }
+        });
+
+        // C. Acción: Carga Manual (Se queda igual si aún no tiene HTML asignado)
+        const btnManual = document.getElementById('btn-carga-manual');
+        if (btnManual) {
+            btnManual.addEventListener('click', (e) => {
+                e.preventDefault();
+                menuCargar.classList.remove('show'); 
+                console.log("🔧 Has pulsado Carga Manual");
+            });
+        }
+        
+        // ❌ EL BLOQUE 'D' DE CARGA AUTOMÁTICA LO HEMOS BORRADO ❌
+        // Ahora el HTML se encarga de enviarte a 'carga-datos.html' directamente.
+    }
 });
