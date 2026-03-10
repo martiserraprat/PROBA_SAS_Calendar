@@ -77,16 +77,20 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             // 5. Upsert (Insertar o Actualizar si ya existe) en Supabase
+            // 5. Upsert (Insertar o Actualizar si ya existe) en Supabase
             const { error: dbError } = await client
                 .from('atletas')
-                .upsert(atletaPayload, { onConflict: 'wa_id' }); // onConflict es clave para actualizar
+                .upsert(atletaPayload, { onConflict: 'wa_id' });
 
             if (dbError) {
                 console.error("Error DB:", dbError);
-                // Si tienes un error de unicidad aquí, significa que otro usuario ya reclamó ese wa_id
-                if (dbError.code === '23505') {
-                    throw new Error('Este perfil de World Athletics ya está vinculado a otra cuenta.');
+                
+                // Código 23505: Violación de unicidad. 
+                // Código 42501 o 'security': Bloqueo por nuestras políticas de seguridad (RLS)
+                if (dbError.code === '23505' || dbError.code === '42501' || dbError.message.includes('security')) {
+                    throw new Error('Este perfil ya está registrado en APEX. Si eres tú, <a href="mailto:soporte@tuweb.com" style="color: #00d1ff; text-decoration: underline; font-weight: bold;">contacta con nuestro servicio técnico</a> para reclamar tus datos.');
                 }
+                
                 throw new Error('Error al guardar en la base de datos.');
             }
 
