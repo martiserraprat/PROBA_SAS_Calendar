@@ -459,3 +459,58 @@
         justify-content: center;
     }
 }
+
+/* La pastilla "Píldora" inteligente */
+.cal-mini-event {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra el contenido si solo hay icono */
+    gap: 4px;
+    padding: 3px 6px;
+    margin: 2px auto;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* Evitamos que la pastilla fuerce el ancho de la celda */
+    width: fit-content;
+    max-width: 95%; 
+    overflow: hidden; /* Corta lo que sobresalga */
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+/* El icono siempre se ve */
+.mini-icon {
+    font-size: 0.8rem;
+    flex-shrink: 0; /* Obliga al icono a no encogerse nunca */
+}
+
+/* El texto que "desaparece" si no cabe */
+.mini-text {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    
+    /* ESTA ES LA MAGIA: */
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Regla inteligente para pantallas pequeñas */
+@media (max-width: 600px) {
+    /* Si la pantalla es pequeña, ocultamos el texto 
+       y dejamos la pastilla circular con el icono */
+    .mini-text {
+        display: none; 
+    }
+    
+    .cal-mini-event {
+        width: 28px;   /* Se vuelve un círculo */
+        height: 28px;
+        padding: 0;
+        border-radius: 50%;
+    }
+}

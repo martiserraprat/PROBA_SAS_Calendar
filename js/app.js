@@ -19,6 +19,7 @@ let currentGender = 'all';
 let dateStart = null;
 let dateEnd = null;
 let fp = null;
+let eventoAbiertoActual = null;
 
 const levelMap = { 'OW': 'OLYMPIC/WORLD', 'DF': 'DL FINAL', 'GW': 'DIAMOND', 'GL': 'CHAMPIONSHIP', 'A': 'GOLD', 'B': 'SILVER', 'C': 'BRONZE', 'D': 'CHALLENGER' };
 const regexSub = /\b(U14|U16|U18|U20|U23|Junior|Youth)\b/gi;
@@ -97,6 +98,15 @@ function processAndRender(data) {
 
 // 4. MODAL DETALLES
 async function openModal(simpleEv) {
+    eventoAbiertoActual = simpleEv;
+    const btnAddCal = document.getElementById('btn-add-calendar');
+    if (btnAddCal) {
+        btnAddCal.innerHTML = '<i class="fas fa-calendar-plus"></i> Añadir al Calendario';
+        btnAddCal.disabled = false;
+        btnAddCal.style.opacity = '1';
+        btnAddCal.style.background = 'transparent';
+    }
+
     const modal = document.getElementById('event-modal');
     document.getElementById('modal-title').innerText = simpleEv.name;
     document.getElementById('modal-location').innerText = simpleEv.venue;
@@ -488,3 +498,78 @@ document.addEventListener('DOMContentLoaded', function() {
         sessionStorage.removeItem('auth_message');
     }
 });
+
+// ==========================================
+// LÓGICA DEL AVISO DE LOGIN
+// ==========================================
+const authWarningModal = document.getElementById('auth-warning-modal');
+
+// Botón cancelar del aviso
+document.getElementById('btn-close-warning')?.addEventListener('click', () => {
+    authWarningModal.style.display = 'none';
+    // Si queremos, podemos reabrir el modal del evento donde estaba
+    document.getElementById('event-modal').style.display = 'flex'; 
+});
+
+// Botón ir a login desde el aviso
+document.getElementById('btn-warning-to-login')?.addEventListener('click', () => {
+    authWarningModal.style.display = 'none';
+    document.getElementById('login-modal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+});
+
+// ==========================================
+// AÑADIR EVENTO AL CALENDARIO DEL ATLETA
+// ==========================================
+const btnAddCalendar = document.getElementById('btn-add-calendar');
+
+if (btnAddCalendar) {
+    btnAddCalendar.addEventListener('click', async () => {
+        if (!eventoAbiertoActual) return;
+
+        // 1. Comprobar si el usuario tiene sesión iniciada
+        const { data: { session } } = await supabase.auth.getSession();
+        
+        if (!session) {
+            // 🔥 AHORA SÍ: Ocultamos el evento y mostramos el AVISO
+            document.getElementById('event-modal').style.display = 'none';
+            authWarningModal.style.display = 'flex';
+            return;
+        }
+
+        // Si está logueado, empezamos a guardar
+        btnAddCalendar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando...';
+        btnAddCalendar.disabled = true;
+
+        // 2. Preparamos los datos para la base de datos
+        const fechaFormat = eventoAbiertoActual.startDate || eventoAbiertoActual.parsedDate.toISOString().split('T')[0];
+
+        const payload = {
+            atleta_user_id: session.user.id,
+            evento_oficial_id: eventoAbiertoActual.id,
+            titulo_personalizado: eventoAbiertoActual.name,
+            fecha_inicio: fechaFormat,
+            lugar: eventoAbiertoActual.venue,
+            estado: 'planeado', 
+            observaciones: 'Añadido desde el buscador oficial de APEX.'
+        };
+
+        // 3. Subir a Supabase
+        const { error } = await supabase.from('calendario_atletas').insert([payload]);
+
+        if (error) {
+            console.error("Error al guardar:", error);
+            alert("Error al añadir al calendario: " + error.message);
+            btnAddCalendar.innerHTML = '<i class="fas fa-calendar-plus"></i> Añadir al Calendario';
+            btnAddCalendar.disabled = false;
+        } else {
+            // ¡Éxito! Cambiamos el diseño del botón
+            btnAddCalendar.innerHTML = '<i class="fas fa-check"></i> Añadido a tu calendario';
+            btnAddCalendar.style.background = 'rgba(0, 209, 255, 0.15)';
+            btnAddCalendar.style.border = '1px solid transparent';
+            
+            // Forzamos el borrado de la caché del calendario personal para que se actualice al entrar
+            localStorage.removeItem('apex_calendario'); 
+        }
+    });
+}

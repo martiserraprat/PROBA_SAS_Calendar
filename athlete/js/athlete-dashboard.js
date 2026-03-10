@@ -1,9 +1,9 @@
 // ========================================
-// athlete-dashboard.js - Datos To Guapo Fino
+// athlete-dashboard.js - Optimizado con Caché (sessionStorage)
 // ========================================
 
-async function cargarDatosAtleta() {
-    const client = window.supabaseClient;
+async function cargarDatosAtleta(forceRefresh = false) {
+    const client = window.supabaseClient || window.supabase;
 
     if (!client) {
         console.error("No se encontró window.supabaseClient.");
@@ -14,23 +14,63 @@ async function cargarDatosAtleta() {
     const iconOriginal = btnCargar ? btnCargar.innerHTML : '';
     
     try {
-        if(btnCargar) btnCargar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Cargando...';
+        if(btnCargar && forceRefresh) btnCargar.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
 
+        // 1. INTENTAR LEER DE LA CACHÉ (Si no estamos forzando la recarga)
+        if (!forceRefresh) {
+            const cacheGuardada = sessionStorage.getItem('apex_dashboard_atleta');
+            if (cacheGuardada) {
+                console.log("⚡ Cargando Dashboard desde la caché local");
+                const datosCacheados = JSON.parse(cacheGuardada);
+                
+                // Pintar datos cacheados
+                actualizarNombresUI(datosCacheados.profile);
+                if (datosCacheados.atleta) {
+                    renderizarDashboard(datosCacheados.atleta);
+                } else {
+                    mostrarEstadosVacios();
+                }
+                return; // Cortamos aquí, ¡0 consultas a la base de datos!
+            }
+        }
+
+        console.log("☁️ Consultando a Supabase para el Dashboard...");
+
+        // 2. Obtener usuario actual
         const { data: { user }, error: authError } = await client.auth.getUser();
-        if (authError || !user) return;
+        
+        if (authError || !user) {
+            console.error("Error de sesión:", authError);
+            return;
+        }
 
-        // Nombre de usuario desde profiles
-        const { data: profile } = await client.from('profiles').select('full_name').eq('id', user.id).single();
-        const nombreCompleto = profile?.full_name || "Atleta";
-        const primerNombre = nombreCompleto.split(' ')[0];
+        // 3. CONSULTA 1: Traer el FULL NAME
+        const { data: profile, error: profileError } = await client
+            .from('profiles')
+            .select('full_name')
+            .eq('id', user.id)
+            .single();
 
-        if(document.getElementById('header-user-name')) document.getElementById('header-user-name').textContent = primerNombre;
-        if(document.getElementById('sidebar-user-name')) document.getElementById('sidebar-user-name').textContent = nombreCompleto;
+        if (profileError) console.error("Error en profiles:", profileError);
 
-        // Datos deportivos
-        const { data: atleta, error: dbError } = await client.from('atletas').select('*').eq('atleta_user_id', user.id).single();
+        actualizarNombresUI(profile);
+
+        // 4. CONSULTA 2: Traer datos deportivos
+        const { data: atleta, error: dbError } = await client
+            .from('atletas')
+            .select('*')
+            .eq('atleta_user_id', user.id)
+            .single();
+
+        // 5. GUARDAR EN CACHÉ PARA LA PRÓXIMA VEZ
+        const datosParaGuardar = {
+            profile: profile,
+            atleta: atleta || null
+        };
+        sessionStorage.setItem('apex_dashboard_atleta', JSON.stringify(datosParaGuardar));
 
         if (dbError || !atleta) {
+            console.warn("No hay ficha técnica en la tabla 'atletas'.");
             mostrarEstadosVacios();
             return;
         }
@@ -40,11 +80,21 @@ async function cargarDatosAtleta() {
     } catch (error) {
         console.error("Error crítico:", error);
     } finally {
-        if(btnCargar) btnCargar.innerHTML = iconOriginal;
+        if(btnCargar && forceRefresh) btnCargar.innerHTML = iconOriginal;
     }
 }
 
-// Función segura para leer el JSONB (por si viene como string o como objeto)
+// Función auxiliar para no repetir código
+function actualizarNombresUI(profile) {
+    const nombreCompleto = profile?.full_name || "Atleta";
+    const primerNombre = nombreCompleto.split(' ')[0];
+
+    const headerName = document.getElementById('header-user-name');
+    const sidebarName = document.getElementById('sidebar-user-name');
+    if(headerName) headerName.textContent = primerNombre;
+    if(sidebarName) sidebarName.textContent = nombreCompleto;
+}
+
 function parsearDatos(campo) {
     if (!campo) return [];
     if (typeof campo === 'string') {
@@ -54,19 +104,14 @@ function parsearDatos(campo) {
 }
 
 function renderizarDashboard(atleta) {
-    // 1. País
     const paisEl = document.getElementById('stat-pais');
     if(paisEl) paisEl.textContent = atleta.codigo_pais || atleta.pais || 'N/D';
     
-    // 2. Extraer arrays
     let marcas = parsearDatos(atleta.marcas_personales);
     let recientes = parsearDatos(atleta.resultados_recientes);
     
-    // 3. ENCONTRAR LA MEJOR MARCA ABSOLUTA (Por puntuación WA)
     if (marcas.length > 0) {
-        // Ordenamos de mayor a menor puntuación WA
         marcas.sort((a, b) => (b.puntuacion || 0) - (a.puntuacion || 0));
-        
         const laMejor = marcas[0];
         const mejorM = document.getElementById('stat-mejor-marca');
         const mejorP = document.getElementById('stat-mejor-marca-prueba');
@@ -75,11 +120,9 @@ function renderizarDashboard(atleta) {
         if(mejorP) mejorP.textContent = laMejor.disciplina || '';
     }
 
-    // 4. Conteo de competiciones (usamos resultados recientes)
     const compEl = document.getElementById('stat-competiciones');
     if(compEl) compEl.textContent = recientes.length;
 
-    // Renderizados de tablas
     renderizarMarcasTop(marcas);
     renderizarResultados(recientes);
     renderizarProximasCompeticiones([]); 
@@ -94,7 +137,6 @@ function renderizarMarcasTop(marcasOrdenadas) {
         return;
     }
 
-    // Cogemos solo el Top 3 de sus mejores marcas por puntos WA
     contenedor.innerHTML = marcasOrdenadas.slice(0, 3).map(m => `
         <div class="pb-item" style="display: flex; flex-direction: column; gap: 4px;">
             <div class="pb-discipline" style="display: flex; justify-content: space-between; align-items: center;">
@@ -118,7 +160,6 @@ function renderizarResultados(resultados) {
         return;
     }
 
-    // Mostrar los últimos 4 resultados
     contenedor.innerHTML = resultados.slice(0, 4).map(r => {
         let puestoNum = parseInt(r.puesto) || 0;
         let iconClass = '';
@@ -144,6 +185,7 @@ function renderizarResultados(resultados) {
         `;
     }).join('');
 }
+
 function renderizarProximasCompeticiones(eventos) {
     const contenedor = document.getElementById('lista-proximas-competiciones');
     if(contenedor) {
@@ -166,7 +208,8 @@ function mostrarEstadosVacios() {
 // INICIALIZACIÓN
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(cargarDatosAtleta, 200);
+    // Carga normal (intentará leer de la caché primero)
+    setTimeout(() => cargarDatosAtleta(false), 200);
 
     const btnCargar = document.getElementById('btn-cargar-datos');
     const menuCargar = document.getElementById('menu-cargar-datos');
@@ -189,6 +232,9 @@ document.addEventListener('DOMContentLoaded', () => {
             btnManual.addEventListener('click', (e) => {
                 e.preventDefault();
                 menuCargar.classList.remove('show'); 
+                
+                // 🚨 MAGIA: Si el usuario le da a "Carga Manual", forzamos refresco saltando la caché
+                cargarDatosAtleta(true);
             });
         }
     }

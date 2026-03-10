@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Redirigir al inicio después de 2 segundos para ver los datos
             setTimeout(() => {
-                window.location.href = 'index.html';
+                window.location.href = 'athlete.html';
             }, 2500);
 
         } catch (error) {
