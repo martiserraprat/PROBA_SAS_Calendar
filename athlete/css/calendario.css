@@ -1,0 +1,461 @@
+/* ========================================
+   ESTILOS DEL CALENDARIO - APEX ATHLETE
+   ======================================== */
+
+/* ========================================
+   BOTONES TOGGLE (LISTA / MES)
+   ======================================== */
+.view-toggle {
+    display: flex;
+    background: #111;
+    border-radius: 12px;
+    padding: 4px;
+    border: 1px solid #333;
+}
+
+.toggle-btn {
+    background: transparent;
+    border: none;
+    color: #888;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.toggle-btn.active {
+    background: #333;
+    color: white;
+}
+
+/* ========================================
+   VISTA LISTA
+   ======================================== */
+.month-separator {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0 15px 0;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.month-separator::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #333;
+}
+
+.cal-event-card {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    transition: 0.2s;
+    align-items: center;
+}
+
+.cal-event-card:hover {
+    border-color: #444;
+    transform: translateX(5px);
+}
+
+.ev-date-box {
+    text-align: center;
+    min-width: 60px;
+}
+
+.ev-date-box .day {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: white;
+    display: block;
+    line-height: 1;
+}
+
+.ev-date-box .month {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.ev-info {
+    flex: 1;
+}
+
+.ev-info h4 {
+    margin: 0 0 5px;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.ev-info p {
+    margin: 0;
+    color: #aaa;
+    font-size: 0.9rem;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.ev-obs {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #888;
+    background: #111;
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 3px solid #333;
+}
+
+/* ESTADOS */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.status-planeado {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    border: 1px solid #444;
+}
+
+.status-pendiente {
+    background: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.status-confirmado {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* ========================================
+   VISTA CALENDARIO GRID
+   ======================================== */
+.calendar-header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header-nav button {
+    background: #111;
+    border: 1px solid #333;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.calendar-header-nav button:hover {
+    background: #00d1ff;
+    border-color: #00d1ff;
+    color: #000;
+}
+
+.calendar-header-nav h3 {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+}
+
+.calendar-grid {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* Cabecera de días perfectamente alineada a las 7 columnas */
+.cal-days-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: #111;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.cal-day-name {
+    text-align: center;
+    padding: 12px 5px;
+    font-weight: bold;
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.cal-dias-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: #1a1a1a;
+}
+
+.cal-cell {
+    background: #0a0a0a;
+    min-height: 100px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cal-cell.empty {
+    background: #050505;
+}
+
+.cal-cell-date {
+    font-weight: bold;
+    color: #666;
+    font-size: 0.9rem;
+    align-self: flex-end;
+    margin-bottom: 2px;
+}
+
+.cal-cell.today .cal-cell-date {
+    background: #00d1ff;
+    color: #000;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.cal-mini-event {
+    font-size: 0.7rem;
+    padding: 4px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.mini-planeado {
+    background: #333;
+    color: #ccc;
+}
+
+.mini-pendiente {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+    border-left: 2px solid #ffc107;
+}
+
+.mini-confirmado {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    border-left: 2px solid #10b981;
+}
+
+/* ========================================
+   MODAL - CORREGIDO PARA TU HTML ESPECÍFICO
+   ======================================== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+/* Respetamos la estructura de tu HTML */
+.modal-container {
+    background: #0f0f0f;
+    border: 1px solid #2a2a2a;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 28px !important; /* Forzamos el padding que quieres */
+}
+
+/* Cabecera del modal (tu estructura con div directo) */
+.modal-container > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #222;
+}
+
+.modal-container > div:first-child h2 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: white;
+}
+
+.modal-container > div:first-child button {
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 1.8rem;
+    line-height: 1;
+    padding: 0 5px;
+    transition: color 0.2s;
+}
+
+.modal-container > div:first-child button:hover {
+    color: #00d1ff;
+}
+
+/* Grupos de formulario (usando las clases que tienes en HTML) */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ccc;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Estilos para inputs, selects y textareas */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px !important; /* Respetamos pero aseguramos consistencia */
+    border-radius: 8px !important;
+    background: #111 !important;
+    border: 1px solid #333 !important;
+    color: white !important;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00d1ff !important;
+    box-shadow: 0 0 0 2px rgba(0, 209, 255, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Botón de guardar (btn-primary dentro del modal) */
+.modal-container .btn-primary {
+    width: 100%;
+    padding: 16px !important;
+    background: #00d1ff !important;
+    color: #000 !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-container .btn-primary:hover {
+    background: #00b8e6 !important;
+}
+
+.modal-container .btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* ========================================
+   MEDIA QUERIES (RESPONSIVE)
+   ======================================== */
+@media (max-width: 768px) {
+    .cal-event-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .status-badge {
+        align-self: flex-start;
+    }
+    .cal-cell {
+        min-height: 80px;
+        padding: 4px;
+    }
+    .cal-mini-event {
+        font-size: 0.6rem;
+        padding: 2px 4px;
+    }
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .modal-container {
+        padding: 20px !important;
+    }
+    .modal-container > div:first-child h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Espaciado para los botones de la cabecera */
+.header-actions {
+    display: flex;
+    flex-wrap: wrap; /* Hace que los botones bajen si la pantalla es pequeña */
+    gap: 15px; /* Separación perfecta ENTRE los botones */
+    margin-top: 10px; /* Un poco de aire extra respecto al texto de arriba */
+}
+
+/* Opcional: Que en móviles los botones ocupen el 100% para no verse apretados */
+@media (max-width: 600px) {
+    .header-actions .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+}

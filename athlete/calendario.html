@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Calendario | Atleta APEX</title>
+    <link rel="stylesheet" href="../manager/css/dashboard.css">
+    <link rel="stylesheet" href="css/athlete.css">
+    <link rel="stylesheet" href="css/calendario.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">APEX<span>ATHLETE</span></div>
+                <div class="atleta-badge">ATLETA</div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
+                <a href="calendario.html" class="nav-item active"><i class="fas fa-calendar-alt"></i> Calendario</a>
+                <a href="../index.html" class="nav-item"><i class="fas fa-trophy"></i> Competiciones</a>
+                <a href="marcas.html" class="nav-item"><i class="fas fa-chart-line"></i> Marcas Personales</a>
+                <a href="perfil.html" class="nav-item"><i class="fas fa-user"></i> Mi Perfil</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-pill">
+                    <img src="https://ui-avatars.com/api/?name=ATLETA&background=00d1ff&color=fff" alt="Avatar">
+                    <div class="user-info">
+                        <span class="user-name" id="sidebar-user-name">Usuario</span>
+                        <span class="user-role">Atleta</span>
+                    </div>
+                    <i class="fas fa-sign-out-alt" id="logout-btn"></i>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-viewport">
+            <div class="mobile-header">
+                <div class="logo">APEX<span>ATHLETE</span></div>
+                <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+
+            <header class="view-header" style="flex-wrap: wrap; gap: 20px;">
+                <div class="header-text">
+                    <h1>Mi Calendario</h1>
+                    <p>Planifica tu temporada al milímetro</p>
+                </div>
+                <div class="header-actions">
+                    <div class="view-toggle">
+                        <button id="btn-vista-lista" class="toggle-btn active"><i class="fas fa-list"></i> Lista</button>
+                        <button id="btn-vista-mes" class="toggle-btn"><i class="fas fa-th"></i> Mes</button>
+                    </div>
+                    
+                    <button id="btn-buscar-oficial" class="btn-primary" style="background: linear-gradient(135deg, #00d1ff, #0070f3);">
+                        <i class="fas fa-globe"></i> Explorar Eventos WA
+                    </button>
+                    
+                    <button id="btn-nuevo-evento-personal" class="btn-primary" style="background: transparent; border: 1px solid #00d1ff; color: #00d1ff;">
+                        <i class="fas fa-plus"></i> Añadir Control Local
+                    </button>
+                </div>
+            </header>
+
+            <div id="vista-lista" class="calendar-view-container active">
+                <div id="lista-eventos-container"></div>
+            </div>
+
+            <div id="vista-mes" class="calendar-view-container" style="display: none;">
+                <div class="calendar-header-nav">
+                    <button id="cal-prev"><i class="fas fa-chevron-left"></i></button>
+                    <h3 id="cal-mes-año">Mes Año</h3>
+                    <button id="cal-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar-grid">
+                    <div class="cal-days-header">
+                        <div class="cal-day-name">Lun</div>
+                        <div class="cal-day-name">Mar</div>
+                        <div class="cal-day-name">Mié</div>
+                        <div class="cal-day-name">Jue</div>
+                        <div class="cal-day-name">Vie</div>
+                        <div class="cal-day-name">Sáb</div>
+                        <div class="cal-day-name">Dom</div>
+                    </div>
+                    <div id="cal-dias-container" class="cal-dias-grid"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="eventoModal" class="modal-overlay">
+        <div class="modal-container" style="max-width: 500px; padding: 25px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                <h2 style="margin: 0;">Añadir Evento</h2>
+                <button id="close-modal" style="background: none; border: none; color: white; cursor: pointer; font-size: 1.5rem;"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <form id="form-evento">
+                <div class="form-group">
+                    <label>Nombre de la Competición</label>
+                    <input type="text" id="ev-titulo" required placeholder="Ej: Control RFEA / Meeting Madrid" style="width: 100%; padding: 12px; border-radius: 8px; background: #111; border: 1px solid #333; color: white;">
+                </div>
+                <div class="form-group" style="margin-top: 15px;">
+                    <label>Fecha</label>
+                    <input type="date" id="ev-fecha" required style="width: 100%; padding: 12px; border-radius: 8px; background: #111; border: 1px solid #333; color: white;">
+                </div>
+                <div class="form-group" style="margin-top: 15px;">
+                    <label>Lugar / Ciudad</label>
+                    <input type="text" id="ev-lugar" placeholder="Ej: Estadio Vallehermoso" style="width: 100%; padding: 12px; border-radius: 8px; background: #111; border: 1px solid #333; color: white;">
+                </div>
+                <div class="form-group" style="margin-top: 15px;">
+                    <label>Estado</label>
+                    <select id="ev-estado" style="width: 100%; padding: 12px; border-radius: 8px; background: #111; border: 1px solid #333; color: white;">
+                        <option value="planeado">🗓️ Planeado (Tengo pensado ir)</option>
+                        <option value="pendiente">⏳ Solicitado (Pendiente confirmación)</option>
+                        <option value="confirmado">✅ Confirmado (Lista de salida ok)</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-top: 15px;">
+                    <label>Observaciones</label>
+                    <textarea id="ev-obs" rows="3" placeholder="Ej: Viaje a las 10:00, llevar clavos..." style="width: 100%; padding: 12px; border-radius: 8px; background: #111; border: 1px solid #333; color: white; resize: vertical;"></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 20px; padding: 15px; justify-content: center;">Guardar Evento</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../utils/js/auth-guard.js"></script>
+    <script src="../utils/js/menu-movil.js"></script>
+    <script src="../utils/js/logout.js"></script>
+    <script src="js/calendario.js"></script>
+</body>
+</html>
