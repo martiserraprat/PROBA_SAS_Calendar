@@ -386,28 +386,47 @@
     }
 }
 
-.header-actions {
-    margin-right: 50px !important; /* Ajusta este valor a tu gusto para separarlo del borde derecho */
-}
-
-@media (max-width: 992px) {
-    /* Evita que el contenedor del botón empuje todo */
-    .header-actions {
-        width: auto !important;
-        display: inline-block !important;
-    }
-
-    /* Devuelve al botón su tamaño natural */
-    .view-header .btn-primary {
-        width: max-content !important; /* O usa 'auto' */
-        padding: 10px 20px !important; /* Ajusta el aire interno a tu gusto */
-        margin: 10px 0; /* Separa un poco del texto de arriba */
-    }
-}
 
 @media (max-width: 600px) {
     .view-header {
         align-items: flex-start !important; /* Alinea texto y botón a la izquierda */
         gap: 10px !important;
+    }
+}
+
+/* ========================================
+   MODIFICACIÓN: BOTONES EN ORDENADOR (> 992px)
+   ======================================== */
+
+@media (min-width: 993px) {
+    /* 1. Aseguramos que la cabecera ponga el texto a la izquierda y los botones a la derecha */
+    .view-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    /* 2. El contenedor de los botones en línea */
+    .header-actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px; /* Espacio perfecto entre los dos botones */
+        width: auto;
+        margin-right: 0; /* Reseteamos márgenes raros */
+    }
+
+    /* 3. Estilo de los botones para que no se estiren */
+    .header-actions .btn-primary,
+    .header-actions button,
+    .header-actions a {
+        width: auto; /* Ancho natural del texto */
+        padding: 10px 24px; /* Un poco más de aire a los lados */
+        font-size: 0.95rem;
+        white-space: nowrap; /* Evita que el texto salte a otra línea */
+        display: flex;
+        align-items: center;
+        gap: 8px; /* Espacio entre el icono y el texto dentro del botón */
     }
 }
