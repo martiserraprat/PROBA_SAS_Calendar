@@ -8,13 +8,13 @@
   "background_color": "#050505",
   "icons": [
     {
-      "src": "img/icon.png",
+      "src": "img/icon_white.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any"
     },
     {
-      "src": "img/icon_white.png",
+      "src": "img/icon.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
