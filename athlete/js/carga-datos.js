@@ -37,15 +37,20 @@ document.addEventListener('DOMContentLoaded', () => {
             inputUrl.disabled = true;
             showStatus('loading', 'Extrayendo datos de World Athletics... Esto puede tardar unos segundos.', '<i class="fas fa-spinner fa-spin"></i>');
 
-            // 2. Llamada a tu API de Render
+            // 2. Llamada a tu API
             const apiUrl = `https://api-world-athletics.onrender.com/api/atleta?url=${encodeURIComponent(url)}`;
             const response = await fetch(apiUrl);
             
             if (!response.ok) {
-                throw new Error('La API no pudo extraer los datos. Verifica la URL.');
+                throw new Error('La API no pudo extraer los datos. Verifica que la URL sea correcta y pública.');
             }
 
             const waData = await response.json();
+
+            // Validación extra: Asegurarnos de que la API devolvió un atleta real
+            if (!waData || !waData.id) {
+                throw new Error('Los datos extraídos están incompletos. Inténtalo de nuevo.');
+            }
 
             showStatus('loading', 'Datos extraídos. Guardando en tu perfil de APEX...', '<i class="fas fa-save"></i>');
 
@@ -54,10 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (authError || !user) throw new Error('Sesión no válida. Vuelve a iniciar sesión.');
 
             // 4. Mapear datos al formato exacto de tu tabla `atletas`
-            // Nota: JSONB en Supabase desde JS se pasa como objetos/arrays normales
             const atletaPayload = {
-                wa_id: parseInt(waData.id), // PRIMARY KEY
-                atleta_user_id: user.id, // Vínculo de seguridad
+                wa_id: parseInt(waData.id), // PRIMARY KEY (o UNIQUE)
+                atleta_user_id: user.id,    // UNIQUE KEY
                 nombre: waData.nombre,
                 apellido: waData.apellido,
                 nombre_completo: waData.nombre_completo,
@@ -76,19 +80,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 ultima_actualizacion: new Date().toISOString()
             };
 
-            // 5. Upsert (Insertar o Actualizar si ya existe) en Supabase
-            // 5. Upsert (Insertar o Actualizar si ya existe) en Supabase
+            // 5. Upsert basado en el USUARIO (atleta_user_id), no en el wa_id.
+            // Esto asegura que si el usuario ya guardó datos manuales en su perfil, se sobreescriban
+            // correctamente en SU fila, en lugar de intentar crear una fila duplicada.
             const { error: dbError } = await client
                 .from('atletas')
-                .upsert(atletaPayload, { onConflict: 'wa_id' });
+                .upsert(atletaPayload, { onConflict: 'atleta_user_id' });
 
             if (dbError) {
                 console.error("Error DB:", dbError);
                 
-                // Código 23505: Violación de unicidad. 
-                // Código 42501 o 'security': Bloqueo por nuestras políticas de seguridad (RLS)
-                if (dbError.code === '23505' || dbError.code === '42501' || dbError.message.includes('security')) {
-                    throw new Error('Este perfil ya está registrado en APEX. Si eres tú, <a href="mailto:soporte@tuweb.com" style="color: #00d1ff; text-decoration: underline; font-weight: bold;">contacta con nuestro servicio técnico</a> para reclamar tus datos.');
+                // Código 23505: Violación de unicidad (Ej: Alguien más ya registró este wa_id)
+                if (dbError.code === '23505' || dbError.code === '42501' || (dbError.message && dbError.message.includes('security'))) {
+                    throw new Error('Este perfil de World Athletics ya está reclamado por otra cuenta en APEX. Si eres tú, <a href="mailto:soporte@tuweb.com" style="color: #00d1ff; text-decoration: underline; font-weight: bold;">contacta con soporte</a>.');
                 }
                 
                 throw new Error('Error al guardar en la base de datos.');
@@ -106,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error("Error en la sincronización:", error);
             showStatus('error', error.message || 'Ha ocurrido un error inesperado.', '<i class="fas fa-times-circle"></i>');
         } finally {
-            // Restaurar botones si falla (si acierta se redirige)
+            // Restaurar botones si falla
             btnSync.disabled = false;
             inputUrl.disabled = false;
         }

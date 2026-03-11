@@ -97,24 +97,26 @@ function getAnio(fecha) {
 // =============================================
 
 // --- HERO ---
-function actualizarHero(atleta, email) {
-    const nombre = atleta?.nombre_completo || `${atleta?.nombre || ''} ${atleta?.apellido || ''}`.trim() || 'Tu nombre';
+function actualizarHero(atleta, email, nombreUsuario) {
+    // 1. Usamos el nombre del profile siempre que esté disponible
+    const nombre = nombreUsuario || `${atleta?.nombre || ''} ${atleta?.apellido || ''}`.trim() || 'Atleta';
+    
     document.getElementById('hero-name').textContent = nombre;
     document.getElementById('hero-email').textContent = email || '';
 
-    // Avatar dinámico con iniciales
+    // Avatar dinámico con el nombre del usuario
     const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(nombre)}&background=0070f3&color=fff&size=200`;
     document.getElementById('hero-avatar').src = avatarUrl;
     document.getElementById('sidebar-avatar').src = `https://ui-avatars.com/api/?name=${encodeURIComponent(nombre)}&background=00d1ff&color=fff`;
     document.getElementById('sidebar-user-name').textContent = nombre;
 
-    // Meta badges
     const metaEl = document.getElementById('hero-meta');
     metaEl.innerHTML = '';
 
     const genero = atleta?.genero;
     if (genero) {
-        const isMale = genero === 'M';
+        // Normalización del género para los badges
+        const isMale = genero.toUpperCase().startsWith('M') || genero.toUpperCase() === 'HOMBRE';
         const gb = document.createElement('span');
         gb.className = `gender-badge-hero ${isMale ? 'man' : 'woman'}`;
         gb.innerHTML = `<i class="fas ${isMale ? 'fa-mars' : 'fa-venus'}"></i> ${isMale ? 'Masculino' : 'Femenino'}`;
@@ -145,16 +147,6 @@ function actualizarHero(atleta, email) {
             tag.title = 'Ver perfil en World Athletics';
             tag.onclick = () => window.open(atleta.url_perfil, '_blank');
         }
-        metaEl.appendChild(tag);
-    }
-
-    // Disciplina principal (la de mayor puntuación)
-    const marcas = atleta?.marcas_personales || [];
-    const mejores = getDisciplinasPrincipales(marcas);
-    if (mejores.length > 0) {
-        const tag = document.createElement('span');
-        tag.className = 'meta-tag';
-        tag.innerHTML = `<i class="fas fa-running"></i> ${mejores[0].disciplina}`;
         metaEl.appendChild(tag);
     }
 }
@@ -442,18 +434,28 @@ async function cargarPerfil() {
         ]);
 
         if (pErr && pErr.code !== 'PGRST116') throw pErr;
-        if (aErr && aErr.code !== 'PGRST116') console.warn('Sin datos atleta:', aErr.message);
+        
+        // Si no hay atleta, no pasa nada, seguimos con los datos del perfil
+        _atletaData = atleta || null;
 
-        _atletaData = atleta;
+        // 1. PRIORIZAR EL NOMBRE DEL PERFIL (Usuario)
+        const nombreCompleto = profile?.full_name || `${atleta?.nombre || ''} ${atleta?.apellido || ''}`.trim() || 'Atleta';
+        const nombrePartes = nombreCompleto.split(' ');
+        const nombreStr = atleta?.nombre || nombrePartes[0] || '';
+        const apellidoStr = atleta?.apellido || nombrePartes.slice(1).join(' ') || '';
 
         // Rellenar formularios
-        const nombre = atleta?.nombre || profile?.full_name?.split(' ')[0] || '';
-        const apellido = atleta?.apellido || '';
-
-        document.getElementById('inp-nombre').value = nombre;
-        document.getElementById('inp-apellido').value = apellido;
+        document.getElementById('inp-nombre').value = nombreStr;
+        document.getElementById('inp-apellido').value = apellidoStr;
         document.getElementById('inp-pais').value = atleta?.pais || '';
-        document.getElementById('inp-genero').value = atleta?.genero || '';
+        
+        // 2. MAPEO DE GÉNERO ROBUSTO
+        let gen = (atleta?.genero || '').toUpperCase().trim();
+        if(gen.startsWith('M') || gen === 'HOMBRE' || gen === 'MALE') gen = 'M';
+        else if(gen.startsWith('W') || gen.startsWith('F') || gen === 'MUJER') gen = 'W';
+        else gen = '';
+        document.getElementById('inp-genero').value = gen;
+        
         document.getElementById('inp-fecha-nac').value = atleta?.fecha_nacimiento
             ? atleta.fecha_nacimiento.substring(0, 10) : '';
         document.getElementById('inp-wa-id').value = atleta?.wa_id || profile?.wa_id || '';
@@ -468,21 +470,26 @@ async function cargarPerfil() {
 
         // Guardar originales
         _originalInfoData = {
-            nombre, apellido,
+            nombre: nombreStr, apellido: apellidoStr,
             pais: atleta?.pais || '',
-            genero: atleta?.genero || '',
+            genero: gen,
             fecha_nac: atleta?.fecha_nacimiento?.substring(0, 10) || ''
         };
         _originalSocialData = { ...redes };
 
-        // Renderizar todas las secciones
-        actualizarHero(atleta, session.user.email);
-        renderStatsMini(atleta);
-        renderMarcasTabla(atleta?.marcas_personales || []);
-        renderTop10(atleta?.top_10_historico || []);
-        renderMejoresTemporada(atleta?.mejores_temporada || []);
-        renderProgresion(atleta?.progresion_historica || []);
-        renderResultadosRecientes(atleta?.resultados_recientes || []);
+        // Renderizar todas las secciones (pasando el nombre del usuario al hero)
+        actualizarHero(_atletaData, session.user.email, nombreCompleto);
+        renderStatsMini(_atletaData);
+        renderMarcasTabla(_atletaData?.marcas_personales || []);
+        renderTop10(_atletaData?.top_10_historico || []);
+        renderMejoresTemporada(_atletaData?.mejores_temporada || []);
+        renderProgresion(_atletaData?.progresion_historica || []);
+        renderResultadosRecientes(_atletaData?.resultados_recientes || []);
+
+        // Si no tiene WA ID, lanzamos un aviso amistoso
+        if (!_atletaData) {
+            setTimeout(() => showToast('Sin ID de World Athletics vinculado. Algunas funciones están limitadas.', 'info', 5000), 500);
+        }
 
     } catch (err) {
         console.error('Error cargando perfil:', err);
@@ -508,8 +515,10 @@ document.getElementById('btn-save-info').addEventListener('click', async () => {
         const fechaNac = document.getElementById('inp-fecha-nac').value;
         const nombreCompleto = `${nombre} ${apellido}`.trim();
 
+        // 1. Siempre podemos actualizar el nombre en la tabla 'profiles'
         await sc.from('profiles').update({ full_name: nombreCompleto }).eq('id', uid);
 
+        // 2. Solo intentamos actualizar 'atletas' si el atleta ya existe en la BD
         if (_atletaData) {
             await sc.from('atletas').update({
                 nombre, apellido,
@@ -518,13 +527,16 @@ document.getElementById('btn-save-info').addEventListener('click', async () => {
                 fecha_nacimiento: fechaNac || null
             }).eq('atleta_user_id', uid);
 
-            // Actualizar caché local
             _atletaData = { ..._atletaData, nombre, apellido, nombre_completo: nombreCompleto, pais, genero, fecha_nacimiento: fechaNac };
+            showToast('Información personal actualizada correctamente', 'success');
+        } else {
+            // Si no existe, no podemos insertarlo sin WA ID por culpa de la BD
+            showToast('Nombre guardado. Necesitas un WA ID para guardar país o género.', 'info', 5000);
         }
 
         _originalInfoData = { nombre, apellido, pais, genero, fecha_nac: fechaNac };
-        actualizarHero(_atletaData, window.currentSession.user.email);
-        showToast('Información personal actualizada correctamente', 'success');
+        actualizarHero(_atletaData, window.currentSession.user.email, nombreCompleto);
+        
     } catch (err) {
         console.error(err);
         showToast('Error al guardar la información: ' + err.message, 'error');
@@ -533,6 +545,7 @@ document.getElementById('btn-save-info').addEventListener('click', async () => {
         btn.innerHTML = '<i class="fas fa-save"></i> Guardar';
     }
 });
+
 
 document.getElementById('btn-cancel-info').addEventListener('click', () => {
     if (!_originalInfoData) return;

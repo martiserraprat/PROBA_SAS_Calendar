@@ -14,3 +14,48 @@
 .status-box.success { display: block; background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; color: #10b981; }
 .status-box.error { display: block; background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; color: #ef4444; }
 .status-box.loading { display: block; background: rgba(0, 209, 255, 0.1); border: 1px solid #00d1ff; color: #00d1ff; text-align: center; }
+
+
+.alert-box {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px 18px;
+    border-radius: 12px;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.alert-box i {
+    font-size: 1.2rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.alert-box strong {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.alert-warning {
+    background: rgba(255, 193, 7, 0.08);
+    border-left: 4px solid #ffc107;
+    color: #e0e0e0;
+}
+.alert-warning i, .alert-warning strong {
+    color: #ffc107;
+}
+
+.alert-info {
+    background: rgba(0, 112, 243, 0.08);
+    border-left: 4px solid var(--accent-athlete, #0070f3);
+    color: #e0e0e0;
+    margin-top: 25px;
+    margin-bottom: 0;
+}
+.alert-info i, .alert-info strong {
+    color: var(--accent-athlete, #0070f3);
+}
