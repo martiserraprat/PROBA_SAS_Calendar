@@ -1,18 +1,23 @@
 {
-  "short_name": "APEXATHLETICS",
+  "short_name": "APEX",
   "name": "APEX ATHLETICS",
-  "icons": [
-    {
-      "src": "icon.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "any maskable"
-    }
-  ],
   "start_url": "/PROBA_SAS_Calendar/index.html",
   "scope": "/PROBA_SAS_Calendar/",
   "display": "standalone",
   "theme_color": "#050505",
-  "background_color": "#050505"
+  "background_color": "#050505",
+  "icons": [
+    {
+      "src": "img/icon.png", 
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable" 
+    },
+    {
+      "src": "img/icon_white.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any" 
+    }
+  ]
 }
-

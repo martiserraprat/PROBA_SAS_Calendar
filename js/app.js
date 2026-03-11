@@ -412,7 +412,7 @@ if (signupForm) {
             btn.disabled = false;
         } else {
             alert("¡Registro exitoso! Revisa tu correo o inicia sesión directamente.");
-            window.location.href = role === 'manager' ? 'manager/dashboard.html' : 'athlete/athlete.html';
+            window.location.href = role === 'manager' ? 'manager/dashboard.html' : 'athlete/carga-datos.js';
         }
     });
 }
