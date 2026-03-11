@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // 1. Bloquear interfaz y mostrar carga
             btnSync.disabled = true;
             inputUrl.disabled = true;
-            showStatus('loading', 'Extrayendo datos de World Athletics... Esto puede tardar unos segundos.', '<i class="fas fa-spinner fa-spin"></i>');
+            showStatus('loading', 'Extrayendo datos de World Athletics... Esto puede tardar hasta 2 minutos. Por favor, no cierres esta ventana..', '<i class="fas fa-spinner fa-spin"></i>');
 
             // 2. Llamada a tu API
             const apiUrl = `https://api-world-athletics.onrender.com/api/atleta?url=${encodeURIComponent(url)}`;
