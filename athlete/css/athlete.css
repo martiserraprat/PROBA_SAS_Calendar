@@ -553,3 +553,127 @@
     margin-top: 2px;
 }
 
+/* ========================================
+   CORRECCIÓN DE BOTONES EN CABECERA
+   ======================================== */
+
+.header-actions {
+    display: flex;
+    flex-wrap: wrap; /* Permite que bajen si no caben, pero manteniendo su forma */
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-end; /* Alinea a la derecha en PC */
+}
+
+/* Forzar que los botones no se deformen y mantengan su texto en una línea */
+.header-actions .btn-primary, 
+.header-actions .dropdown-container button {
+    white-space: nowrap;    /* Evita que el texto salte de línea dentro del botón */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    min-width: max-content; /* Se asegura de ocupar lo que necesite el texto */
+    width: auto;            /* No permite que se encojan más allá de su contenido */
+}
+
+/* Ajuste específico para móvil (Pantallas pequeñas) */
+@media (max-width: 992px) {
+    .view-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: flex-start;
+        display: grid; /* Cambiamos a grid para que ocupen todo el ancho uniformemente */
+        grid-template-columns: 1fr; /* Uno encima de otro */
+    }
+
+    .header-actions .btn-primary,
+    .header-actions .dropdown-container,
+    .header-actions .dropdown-container button {
+        width: 100% !important; /* En móvil, que ocupen todo el ancho */
+        justify-content: center;
+    }
+    
+    .dropdown-menu {
+        width: 100%;
+        position: static; /* Evita que flote sobre otros elementos en móvil */
+        margin-top: 10px;
+    }
+}
+
+/* En tablets/PC pequeños para que no se peguen al borde */
+@media (min-width: 993px) {
+    .header-actions {
+        flex-direction: row;
+        flex-wrap: nowrap; /* En PC queremos que siempre estén en línea */
+    }
+}
+
+/* ========================================
+   ADAPTACIÓN EXTREMA: MÓVILES PEQUEÑOS (< 350px)
+   ======================================== */
+
+@media (max-width: 350px) {
+    /* 1. Evitar desbordamientos generales en la pantalla */
+    body, .main-viewport {
+        overflow-x: hidden; 
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    /* 2. FORZAR LA CASILLA AZUL Y BOTONES: Uno encima del otro, sin partir palabras */
+    .header-actions {
+        display: flex !important;
+        flex-direction: column !important; /* Fuerza a que estén en formato torre */
+        width: 100% !important;
+        gap: 10px !important;
+    }
+
+    .header-actions .btn-primary, 
+    .header-actions .dropdown-container,
+    .header-actions .dropdown-container button {
+        width: 100% !important;
+        box-sizing: border-box !important; /* Vital: Evita que el padding sume ancho extra */
+        white-space: nowrap !important;    /* Mantiene "Cargar info" en una sola línea */
+        font-size: 0.85rem !important;     /* Letra ligeramente más pequeña para que quepa */
+        padding: 12px 10px !important;
+        justify-content: center !important;
+        margin: 0 !important;
+    }
+
+    /* 3. FORZAR LOS CUBITOS: Romper el minmax y dejarlos en 1 sola columna estricta */
+    .stats-grid, 
+    .dashboard-grid, 
+    .highlights-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* 1 sola columna, ignorando anchos mínimos */
+        gap: 15px !important;
+        width: 100% !important;
+    }
+
+    /* Ajuste interior de los cubitos para que no se ahoguen */
+    .stat-card-atleta, 
+    .highlight-card, 
+    .event-item {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 12px !important;
+    }
+
+    /* Reducir los iconos un poco para dar más espacio al texto */
+    .stat-icon {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        font-size: 1.2rem !important;
+    }
+
+    .stat-content .stat-number {
+        font-size: 1.3rem !important; 
+    }
+}
