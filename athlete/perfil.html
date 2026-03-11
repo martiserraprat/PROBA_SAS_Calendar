@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil | Atleta APEX</title>
+    <link rel="stylesheet" href="../manager/css/dashboard.css">
+    <link rel="stylesheet" href="css/athlete.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="toast-container" id="toast-container"></div>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">APEX<span>ATHLETE</span></div>
+                <div class="atleta-badge">ATLETA</div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../index.html" class="nav-item">
+                    <i class="fas fa-home"></i> Inicio
+                </a>
+                <a href="calendario.html" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i> Calendario
+                </a>
+                <a href="../index.html" class="nav-item">
+                    <i class="fas fa-trophy"></i> Competiciones
+                </a>
+                <a href="marcas.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i> Marcas Personales
+                </a>
+                <a href="perfil.html" class="nav-item active">
+                    <i class="fas fa-user"></i> Mi Perfil
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-pill">
+                    <img src="https://ui-avatars.com/api/?name=ATLETA&background=00d1ff&color=fff" alt="Avatar" id="sidebar-avatar">
+                    <div class="user-info">
+                        <span class="user-name" id="sidebar-user-name">Cargando...</span>
+                        <span class="user-role">Atleta</span>
+                    </div>
+                    <i class="fas fa-sign-out-alt" id="logout-btn" title="Cerrar sesión"></i>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-viewport">
+            <!-- Mobile header -->
+            <div class="mobile-header">
+                <div class="logo">APEX<span>ATHLETE</span></div>
+                <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+
+            <!-- Page header -->
+            <header class="view-header">
+                <div>
+                    <h1><i class="fas fa-user-circle" style="color:var(--accent-blue); font-size:1.6rem; vertical-align:middle; margin-right:10px;"></i>Mi Perfil</h1>
+                    <p>Gestiona tu información personal y preferencias</p>
+                </div>
+                <div style="display:flex; gap:10px;">
+                    <button class="btn-secondary" id="btn-refresh" title="Recargar datos">
+                        <i class="fas fa-sync-alt"></i> Actualizar
+                    </button>
+                    <a href="../athlete/index.html" class="btn-primary" style="text-decoration:none;">
+                        <i class="fas fa-arrow-left"></i> Volver al Panel
+                    </a>
+                </div>
+            </header>
+
+            <!-- HERO del perfil -->
+            <div class="profile-hero" id="profile-hero">
+                <div class="profile-avatar-wrap">
+                    <img src="https://ui-avatars.com/api/?name=...&background=0070f3&color=fff&size=200"
+                         alt="Avatar" class="profile-avatar" id="hero-avatar">
+                    <div class="avatar-edit-btn" title="Cambiar foto">
+                        <i class="fas fa-pen"></i>
+                    </div>
+                </div>
+                <div class="profile-hero-info">
+                    <h2 id="hero-name"><span class="skeleton" style="width:200px; height:32px; display:inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
+                    <div id="hero-email" style="color:#666; font-size:0.9rem; margin-top:4px;"></div>
+                    <div class="profile-hero-meta" id="hero-meta">
+                        <!-- Badges dinámicos -->
+                    </div>
+                </div>
+                <div class="profile-hero-actions">
+                    <button class="btn-primary" id="btn-save-all">
+                        <i class="fas fa-save"></i> Guardar Cambios
+                    </button>
+                    <a href="carga-datos.html" class="btn-secondary" style="text-decoration:none;">
+                        <i class="fas fa-robot"></i> Actualizar Datos WA
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats mini -->
+            <div class="stats-mini" id="stats-mini">
+                <div class="stat-mini-card">
+                    <span class="stat-mini-val" id="stat-marcas">-</span>
+                    <div class="stat-mini-label">Disciplinas</div>
+                </div>
+                <div class="stat-mini-card">
+                    <span class="stat-mini-val" id="stat-competiciones-total">-</span>
+                    <div class="stat-mini-label">Competiciones</div>
+                </div>
+                <div class="stat-mini-card">
+                    <span class="stat-mini-val" id="stat-mejor-score">-</span>
+                    <div class="stat-mini-label" id="stat-mejor-score-label">WA Score</div>
+                </div>
+                <div class="stat-mini-card">
+                    <span class="stat-mini-val" id="stat-temporadas">-</span>
+                    <div class="stat-mini-label">Temporadas</div>
+                </div>
+                <div class="stat-mini-card">
+                    <span class="stat-mini-val" id="stat-ultima-actualizacion">-</span>
+                    <div class="stat-mini-label">Actualización</div>
+                </div>
+            </div>
+
+            <!-- Grid principal -->
+            <div class="profile-grid">
+
+                <!-- Información Personal -->
+                <div class="profile-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-id-card"></i></div>
+                        <div>
+                            <h3>Información Personal</h3>
+                            <p>Datos básicos de tu perfil</p>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group-inline">
+                            <label class="form-label"><i class="fas fa-user"></i>Nombre</label>
+                            <input type="text" id="inp-nombre" class="form-input" placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group-inline">
+                            <label class="form-label"><i class="fas fa-user"></i>Apellido</label>
+                            <input type="text" id="inp-apellido" class="form-input" placeholder="Tu apellido">
+                        </div>
+                    </div>
+                    <div class="form-row single">
+                        <div class="form-group-inline">
+                            <label class="form-label"><i class="fas fa-envelope"></i>Email (no editable)</label>
+                            <input type="email" id="inp-email" class="form-input" readonly placeholder="tu@email.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group-inline">
+                            <label class="form-label"><i class="fas fa-flag"></i>País</label>
+                            <input type="text" id="inp-pais" class="form-input" placeholder="País">
+                        </div>
+                        <div class="form-group-inline">
+                            <label class="form-label"><i class="fas fa-venus-mars"></i>Género</label>
+                            <select id="inp-genero" class="form-input form-select">
+                                <option value="">Seleccionar...</option>
+                                <option value="M">Masculino</option>
+                                <option value="W">Femenino</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group-inline">
+                            <label class="form-label"><i class="fas fa-birthday-cake"></i>Fecha Nacimiento</label>
+                            <input type="date" id="inp-fecha-nac" class="form-input">
+                        </div>
+                        <div class="form-group-inline">
+                            <label class="form-label"><i class="fas fa-id-badge"></i>WA ID</label>
+                            <input type="text" id="inp-wa-id" class="form-input" readonly placeholder="ID World Athletics">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn-secondary" id="btn-cancel-info">
+                            <i class="fas fa-times"></i> Cancelar
+                        </button>
+                        <button class="btn-primary" id="btn-save-info">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cuenta y Seguridad -->
+                <div class="profile-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div>
+                            <h3>Seguridad de Cuenta</h3>
+                            <p>Contraseña y autenticación</p>
+                        </div>
+                    </div>
+
+                    <!-- Email verification status -->
+                    <div id="email-status-card" style="background:#111; border:1px solid #222; border-radius:14px; padding:16px; margin-bottom:20px; display:flex; align-items:center; gap:12px;">
+                        <div style="width:38px; height:38px; background:rgba(16,185,129,0.12); border-radius:10px; display:flex; align-items:center; justify-content:center; color:#10b981; font-size:1rem; flex-shrink:0;">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div>
+                            <div style="font-size:0.85rem; font-weight:600;">Email verificado</div>
+                            <div style="font-size:0.75rem; color:#666;" id="email-status-sub">Cuenta activa y protegida</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row single" style="margin-bottom:16px;">
+                        <div class="form-group-inline">
+                            <label class="form-label"><i class="fas fa-lock"></i>Nueva Contraseña</label>
+                            <div style="position:relative;">
+                                <input type="password" id="inp-password" class="form-input" placeholder="Mínimo 8 caracteres" style="padding-right:48px;">
+                                <button type="button" id="toggle-pass" style="position:absolute; right:14px; top:50%; transform:translateY(-50%); background:none; border:none; color:#555; cursor:pointer; font-size:1rem; padding:0;">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="password-strength-bar" id="pass-strength-bar"></div>
+                            </div>
+                            <div class="strength-label" id="pass-strength-label">Introduce una contraseña</div>
+                        </div>
+                    </div>
+                    <div class="form-row single">
+                        <div class="form-group-inline">
+                            <label class="form-label"><i class="fas fa-lock"></i>Confirmar Contraseña</label>
+                            <input type="password" id="inp-password-confirm" class="form-input" placeholder="Repite la contraseña">
+                            <div class="strength-label" id="pass-match-label" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn-primary" id="btn-save-password">
+                            <i class="fas fa-key"></i> Cambiar Contraseña
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Redes Sociales -->
+                <div class="profile-card full-width">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-share-alt"></i></div>
+                        <div>
+                            <h3>Redes Sociales</h3>
+                            <p>Tus perfiles en redes sociales y contacto</p>
+                        </div>
+                    </div>
+                    <div class="social-grid">
+                        <div class="social-item">
+                            <div class="social-icon ig"><i class="fab fa-instagram"></i></div>
+                            <input type="text" id="inp-instagram" class="social-input" placeholder="@usuario de Instagram">
+                        </div>
+                        <div class="social-item">
+                            <div class="social-icon tw"><i class="fab fa-twitter"></i></div>
+                            <input type="text" id="inp-twitter" class="social-input" placeholder="@usuario de Twitter/X">
+                        </div>
+                        <div class="social-item">
+                            <div class="social-icon tt"><i class="fab fa-tiktok"></i></div>
+                            <input type="text" id="inp-tiktok" class="social-input" placeholder="@usuario de TikTok">
+                        </div>
+                        <div class="social-item">
+                            <div class="social-icon yt"><i class="fab fa-youtube"></i></div>
+                            <input type="text" id="inp-youtube" class="social-input" placeholder="Canal de YouTube">
+                        </div>
+                        <div class="social-item">
+                            <div class="social-icon wa"><i class="fab fa-whatsapp"></i></div>
+                            <input type="text" id="inp-whatsapp" class="social-input" placeholder="Número de WhatsApp">
+                        </div>
+                        <div class="social-item">
+                            <div class="social-icon web"><i class="fas fa-globe"></i></div>
+                            <input type="text" id="inp-website" class="social-input" placeholder="https://tu-web.com">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn-secondary" id="btn-cancel-social">
+                            <i class="fas fa-times"></i> Cancelar
+                        </button>
+                        <button class="btn-primary" id="btn-save-social">
+                            <i class="fas fa-save"></i> Guardar Redes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Marcas Personales (readonly) -->
+                <div class="profile-card full-width">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                        <div>
+                            <h3>Mis Marcas Personales</h3>
+                            <p>Resumen de tus mejores marcas registradas</p>
+                        </div>
+                        <div style="margin-left:auto;">
+                            <a href="marcas.html" class="btn-secondary" style="text-decoration:none; padding:9px 16px; font-size:0.82rem;">
+                                <i class="fas fa-edit"></i> Editar Marcas
+                            </a>
+                        </div>
+                    </div>
+                    <div class="pb-table-wrap">
+                        <table class="pb-table">
+                            <thead>
+                                <tr>
+                                    <th>Prueba</th>
+                                    <th>Marca</th>
+                                    <th>Lugar</th>
+                                    <th>Fecha</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pb-tbody">
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="no-data-msg">
+                                            <i class="fas fa-spinner fa-spin"></i>
+                                            Cargando marcas...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div><!-- /profile-grid -->
+
+            <!-- TOP 10 HISTÓRICO -->
+            <div class="profile-card" style="margin-bottom:24px;">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-trophy"></i></div>
+                    <div>
+                        <h3>Top 10 Histórico</h3>
+                        <p>Tus mejores resultados en competición de todos los tiempos</p>
+                    </div>
+                </div>
+                <div id="top10-container">
+                    <div class="no-data-msg"><i class="fas fa-spinner fa-spin"></i> Cargando...</div>
+                </div>
+            </div>
+
+            <!-- MEJORES DE TEMPORADA + RESULTADOS RECIENTES -->
+            <div class="profile-grid" style="margin-bottom:24px;">
+                <div class="profile-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-calendar-star"></i></div>
+                        <div>
+                            <h3>Mejores de Temporada</h3>
+                            <p>La mejor marca de cada disciplina por año</p>
+                        </div>
+                    </div>
+                    <div id="temporada-container" style="max-height:400px; overflow-y:auto;">
+                        <div class="no-data-msg"><i class="fas fa-spinner fa-spin"></i> Cargando...</div>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-history"></i></div>
+                        <div>
+                            <h3>Resultados Recientes</h3>
+                            <p>Últimas competiciones registradas</p>
+                        </div>
+                    </div>
+                    <div id="recientes-container" style="max-height:400px; overflow-y:auto;">
+                        <div class="no-data-msg"><i class="fas fa-spinner fa-spin"></i> Cargando...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROGRESIÓN HISTÓRICA -->
+            <div class="profile-card" style="margin-bottom:24px;">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <div>
+                        <h3>Progresión Histórica</h3>
+                        <p>Evolución de tus marcas por disciplina a lo largo de los años</p>
+                    </div>
+                </div>
+                <div id="progresion-container">
+                    <div class="no-data-msg"><i class="fas fa-spinner fa-spin"></i> Cargando...</div>
+                </div>
+            </div>
+
+            <!-- Zona de peligro -->
+            <div class="danger-zone">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div>
+                        <h3>Zona de Peligro</h3>
+                        <p>Acciones irreversibles sobre tu cuenta</p>
+                    </div>
+                </div>
+                <div class="danger-row">
+                    <div class="danger-info">
+                        <h4>Exportar mis datos</h4>
+                        <p>Descarga toda tu información personal y marcas en formato JSON.</p>
+                    </div>
+                    <button class="btn-secondary" id="btn-export-data">
+                        <i class="fas fa-download"></i> Exportar
+                    </button>
+                </div>
+                <div class="danger-row">
+                    <div class="danger-info">
+                        <h4>Cerrar sesión en todos los dispositivos</h4>
+                        <p>Invalida todas las sesiones activas de tu cuenta.</p>
+                    </div>
+                    <button class="btn-danger" id="btn-logout-all">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar todo
+                    </button>
+                </div>
+                <div class="danger-row">
+                    <div class="danger-info">
+                        <h4>Eliminar cuenta</h4>
+                        <p>Borra permanentemente tu cuenta y todos los datos asociados. Esta acción no se puede deshacer.</p>
+                    </div>
+                    <button class="btn-danger" id="btn-delete-account">
+                        <i class="fas fa-trash-alt"></i> Eliminar cuenta
+                    </button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Confirm modal -->
+    <div id="confirm-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(6px); z-index:5000; align-items:center; justify-content:center;">
+        <div style="background:#0f0f0f; border:1px solid #2a2a2a; border-radius:20px; padding:32px; max-width:420px; width:90%; text-align:center;">
+            <div style="width:60px; height:60px; background:rgba(255,77,77,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-size:1.5rem; color:#ff4d4d; border:1px solid rgba(255,77,77,0.2);">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h3 id="confirm-title" style="margin:0 0 10px; font-size:1.3rem;">¿Estás seguro?</h3>
+            <p id="confirm-desc" style="color:#888; font-size:0.9rem; margin:0 0 25px; line-height:1.5;"></p>
+            <div style="display:flex; gap:12px; justify-content:center;">
+                <button id="confirm-cancel" class="btn-secondary">Cancelar</button>
+                <button id="confirm-ok" class="btn-danger">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../utils/js/auth-guard.js"></script>
+    <script src="../utils/js/menu-movil.js"></script>
+    <script src="../utils/js/logout.js"></script>
+    <script src="js/perfil.js"></script>
+</body>
+</html>
