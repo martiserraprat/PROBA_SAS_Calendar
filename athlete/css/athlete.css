@@ -429,9 +429,9 @@
     .dropdown-menu { width: 100%; left: 0; right: auto; }
 }
 
-/* ========================================
+/* ======================================
    RESULTADOS RECIENTES / HIGHLIGHTS
-   ======================================== */
+   ====================================== */
 .highlights-grid {
     display: grid;
     /* Aumentamos de 200px a 260px para que las tarjetas respiren mejor en tablet/PC */
@@ -552,3 +552,4 @@
     font-size: 1.1rem;
     margin-top: 2px;
 }
+
