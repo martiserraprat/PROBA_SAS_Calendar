@@ -1,8 +1,8 @@
 // ========================================
-// athlete-dashboard.js - Optimizado con Caché (sessionStorage)
+// athlete-dashboard.js - VERSIÓN SIN CACHÉ (Siempre actualizado)
 // ========================================
 
-async function cargarDatosAtleta(forceRefresh = false) {
+async function cargarDatosAtleta() {
     const client = window.supabaseClient || window.supabase;
 
     if (!client) {
@@ -14,29 +14,10 @@ async function cargarDatosAtleta(forceRefresh = false) {
     const iconOriginal = btnCargar ? btnCargar.innerHTML : '';
     
     try {
-        if(btnCargar && forceRefresh) btnCargar.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+        if(btnCargar) btnCargar.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+        console.log("☁️ Consultando a Supabase para el Dashboard (Datos en vivo)...");
 
-        // 1. INTENTAR LEER DE LA CACHÉ (Si no estamos forzando la recarga)
-        if (!forceRefresh) {
-            const cacheGuardada = sessionStorage.getItem('apex_dashboard_atleta');
-            if (cacheGuardada) {
-                console.log("⚡ Cargando Dashboard desde la caché local");
-                const datosCacheados = JSON.parse(cacheGuardada);
-                
-                // Pintar datos cacheados
-                actualizarNombresUI(datosCacheados.profile);
-                if (datosCacheados.atleta) {
-                    renderizarDashboard(datosCacheados.atleta);
-                } else {
-                    mostrarEstadosVacios();
-                }
-                return; // Cortamos aquí, ¡0 consultas a la base de datos!
-            }
-        }
-
-        console.log("☁️ Consultando a Supabase para el Dashboard...");
-
-        // 2. Obtener usuario actual
+        // 1. Obtener usuario actual
         const { data: { user }, error: authError } = await client.auth.getUser();
         
         if (authError || !user) {
@@ -44,30 +25,32 @@ async function cargarDatosAtleta(forceRefresh = false) {
             return;
         }
 
-        // 3. CONSULTA 1: Traer el FULL NAME
-        const { data: profile, error: profileError } = await client
+        // 2. CONSULTA 1: Traer el FULL NAME
+        const { data: profile } = await client
             .from('profiles')
             .select('full_name')
             .eq('id', user.id)
             .single();
 
-        if (profileError) console.error("Error en profiles:", profileError);
-
         actualizarNombresUI(profile);
 
-        // 4. CONSULTA 2: Traer datos deportivos
+        // 3. CONSULTA 2: Traer datos deportivos
         const { data: atleta, error: dbError } = await client
             .from('atletas')
             .select('*')
             .eq('atleta_user_id', user.id)
             .single();
 
-        // 5. GUARDAR EN CACHÉ PARA LA PRÓXIMA VEZ
-        const datosParaGuardar = {
-            profile: profile,
-            atleta: atleta || null
-        };
-        sessionStorage.setItem('apex_dashboard_atleta', JSON.stringify(datosParaGuardar));
+        // 4. CONSULTA 3: Traer próximas 3 competiciones confirmadas
+        const hoy = new Date().toISOString().split('T')[0];
+        const { data: competiciones } = await client
+            .from('calendario_atletas')
+            .select('titulo_personalizado, fecha_inicio, lugar')
+            .eq('atleta_user_id', user.id)
+            .eq('estado', 'confirmado')
+            .gte('fecha_inicio', hoy)
+            .order('fecha_inicio', { ascending: true })
+            .limit(3);
 
         if (dbError || !atleta) {
             console.warn("No hay ficha técnica en la tabla 'atletas'.");
@@ -75,16 +58,16 @@ async function cargarDatosAtleta(forceRefresh = false) {
             return;
         }
 
-        renderizarDashboard(atleta);
+        renderizarDashboard(atleta, competiciones || []);
 
     } catch (error) {
         console.error("Error crítico:", error);
     } finally {
-        if(btnCargar && forceRefresh) btnCargar.innerHTML = iconOriginal;
+        if(btnCargar) btnCargar.innerHTML = iconOriginal;
     }
 }
 
-// Función auxiliar para no repetir código
+// Función auxiliar
 function actualizarNombresUI(profile) {
     const nombreCompleto = profile?.full_name || "Atleta";
     const primerNombre = nombreCompleto.split(' ')[0];
@@ -103,13 +86,14 @@ function parsearDatos(campo) {
     return campo;
 }
 
-function renderizarDashboard(atleta) {
+function renderizarDashboard(atleta, competiciones) {
     const paisEl = document.getElementById('stat-pais');
     if(paisEl) paisEl.textContent = atleta.codigo_pais || atleta.pais || 'N/D';
     
     let marcas = parsearDatos(atleta.marcas_personales);
     let recientes = parsearDatos(atleta.resultados_recientes);
     
+    // 1. Tarjeta Mejor Marca
     if (marcas.length > 0) {
         marcas.sort((a, b) => (b.puntuacion || 0) - (a.puntuacion || 0));
         const laMejor = marcas[0];
@@ -120,12 +104,56 @@ function renderizarDashboard(atleta) {
         if(mejorP) mejorP.textContent = laMejor.disciplina || '';
     }
 
+    // 2. Tarjeta Competiciones Registradas
     const compEl = document.getElementById('stat-competiciones');
     if(compEl) compEl.textContent = recientes.length;
 
+    // 🔥 3. NUEVO: Tarjeta Próxima Cita
+    const proximaCitaEl = document.getElementById('stat-proxima-cita');
+    // Buscamos la etiqueta que dice "días" que está justo debajo del número
+    const proximaCitaLabel = proximaCitaEl ? proximaCitaEl.nextElementSibling : null;
+
+    if (competiciones && competiciones.length > 0) {
+        // Cogemos la primera competición (la más cercana)
+        const fechaProxima = new Date(competiciones[0].fecha_inicio);
+        fechaProxima.setHours(0,0,0,0); // Reseteamos la hora para que el cálculo sea exacto
+        
+        const hoy = new Date();
+        hoy.setHours(0,0,0,0);
+        
+        // Calculamos la diferencia en milisegundos y lo pasamos a días
+        const diffTime = fechaProxima - hoy;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+        
+        if (proximaCitaEl && proximaCitaLabel) {
+            proximaCitaEl.style.fontSize = "1.8rem"; // Reseteamos tamaño por si acaso
+            
+            if (diffDays === 0) {
+                proximaCitaEl.textContent = "HOY";
+                proximaCitaEl.style.fontSize = "1.4rem"; // Letra más pequeña para que quepa
+                proximaCitaLabel.textContent = "¡A por todas!";
+            } else if (diffDays === 1) {
+                proximaCitaEl.textContent = "1";
+                proximaCitaLabel.textContent = "día (Mañana)";
+            } else if (diffDays > 1) {
+                proximaCitaEl.textContent = diffDays;
+                proximaCitaLabel.textContent = "días";
+            } else {
+                // Por si se quedó alguna en el pasado sin borrar
+                proximaCitaEl.textContent = "-";
+                proximaCitaLabel.textContent = "Sin planificar";
+            }
+        }
+    } else {
+        // Si no hay competiciones en el calendario
+        if (proximaCitaEl) proximaCitaEl.textContent = "-";
+        if (proximaCitaLabel) proximaCitaLabel.textContent = "Sin planificar";
+    }
+
+    // 4. Renderizar Listas Inferiores
     renderizarMarcasTop(marcas);
     renderizarResultados(recientes);
-    renderizarProximasCompeticiones([]); 
+    renderizarProximasCompeticiones(competiciones);
 }
 
 function renderizarMarcasTop(marcasOrdenadas) {
@@ -188,13 +216,36 @@ function renderizarResultados(resultados) {
 
 function renderizarProximasCompeticiones(eventos) {
     const contenedor = document.getElementById('lista-proximas-competiciones');
-    if(contenedor) {
+    if(!contenedor) return;
+
+    if (!eventos || eventos.length === 0) {
         contenedor.innerHTML = `
             <div style="text-align: center; padding: 30px;">
                 <i class="fas fa-calendar-times" style="font-size: 2.5rem; color: #333; margin-bottom: 10px;"></i>
-                <p style="color: #888; font-size: 0.9rem;">No hay competiciones próximas en tu calendario.</p>
+                <p style="color: #888; font-size: 0.9rem;">No hay competiciones próximas confirmadas en tu calendario.</p>
+                <a href="calendario.html" style="display: inline-block; margin-top: 15px; color: #00d1ff; text-decoration: none; font-size: 0.9rem;"><i class="fas fa-plus"></i> Añadir una</a>
             </div>`;
+        return;
     }
+
+    contenedor.innerHTML = eventos.map(ev => {
+        const fechaObj = new Date(ev.fecha_inicio);
+        const dia = fechaObj.getDate().toString().padStart(2, '0');
+        const mes = fechaObj.toLocaleString('es-ES', { month: 'short' }).toUpperCase();
+        
+        return `
+        <div class="next-event-card" style="display: flex; gap: 15px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; border-left: 4px solid #00d1ff; margin-bottom: 10px;">
+            <div class="date-box" style="text-align: center; min-width: 50px;">
+                <span style="display: block; font-size: 1.2rem; font-weight: bold; color: #fff;">${dia}</span>
+                <span style="display: block; font-size: 0.8rem; color: #00d1ff;">${mes}</span>
+            </div>
+            <div class="info-box" style="display: flex; flex-direction: column; justify-content: center;">
+                <h4 style="margin: 0 0 5px 0; color: #fff; font-size: 1rem;">${ev.titulo_personalizado}</h4>
+                <p style="margin: 0; color: #888; font-size: 0.85rem;"><i class="fas fa-map-marker-alt"></i> ${ev.lugar || 'Lugar por determinar'}</p>
+            </div>
+        </div>
+        `;
+    }).join('');
 }
 
 function mostrarEstadosVacios() {
@@ -208,34 +259,65 @@ function mostrarEstadosVacios() {
 // INICIALIZACIÓN
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Carga normal (intentará leer de la caché primero)
-    setTimeout(() => cargarDatosAtleta(false), 200);
+    // 1. Cargar datos al iniciar la página
+    setTimeout(() => cargarDatosAtleta(), 200);
 
+    // --- Referencias a los elementos del DOM ---
     const btnCargar = document.getElementById('btn-cargar-datos');
     const menuCargar = document.getElementById('menu-cargar-datos');
+    const btnManual = document.getElementById('btn-carga-manual');
+    
+    const btnNotis = document.getElementById('btn-notificaciones');
+    const menuNotis = document.getElementById('noti-dropdown');
 
+    // --- Lógica del botón "Cargar Datos" ---
     if (btnCargar && menuCargar) {
         btnCargar.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation(); 
             menuCargar.classList.toggle('show');
+            
+            // Si abrimos "Cargar", cerramos "Notificaciones" para que no se solapen
+            if (menuNotis) menuNotis.classList.remove('show');
         });
 
-        document.addEventListener('click', (e) => {
-            if (!menuCargar.contains(e.target) && !btnCargar.contains(e.target)) {
-                menuCargar.classList.remove('show');
-            }
-        });
-
-        const btnManual = document.getElementById('btn-carga-manual');
+        // Botón interno de "Carga Manual"
         if (btnManual) {
             btnManual.addEventListener('click', (e) => {
                 e.preventDefault();
                 menuCargar.classList.remove('show'); 
-                
-                // 🚨 MAGIA: Si el usuario le da a "Carga Manual", forzamos refresco saltando la caché
-                cargarDatosAtleta(true);
+                cargarDatosAtleta(); // Vuelve a ejecutar la función limpia
             });
         }
     }
+
+    // --- Lógica del botón "Notificaciones" ---
+    if (btnNotis && menuNotis) {
+        btnNotis.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            menuNotis.classList.toggle('show');
+            
+            // Si abrimos "Notificaciones", cerramos "Cargar"
+            if (menuCargar) menuCargar.classList.remove('show');
+        });
+    }
+
+    // --- Lógica global: Cerrar menús al hacer clic fuera ---
+    document.addEventListener('click', (e) => {
+        // Comprobar click fuera del menú de carga
+        if (menuCargar && menuCargar.classList.contains('show')) {
+            if (!menuCargar.contains(e.target) && !btnCargar.contains(e.target)) {
+                menuCargar.classList.remove('show');
+            }
+        }
+        
+        // Comprobar click fuera del menú de notificaciones
+        if (menuNotis && menuNotis.classList.contains('show')) {
+            if (!menuNotis.contains(e.target) && !btnNotis.contains(e.target)) {
+                menuNotis.classList.remove('show');
+            }
+        }
+    });
 });
+

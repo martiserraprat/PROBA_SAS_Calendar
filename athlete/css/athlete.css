@@ -503,3 +503,52 @@
     align-items: center;
     gap: 4px;
 }
+
+/* ========================================
+   SISTEMA DE NOTIFICACIONES
+   ======================================== */
+
+.btn-icon-only:hover {
+    background: #222 !important;
+    border-color: #555 !important;
+}
+
+.btn-icon-only:hover i {
+    color: var(--accent-athlete);
+    transform: rotate(15deg); /* Pequeño "ding" al pasar el ratón */
+    transition: transform 0.2s ease;
+}
+
+.noti-panel {
+    /* Extiende los estilos base de .dropdown-menu */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+/* Estilo para futuras notificaciones cuando las añadas con JS */
+.noti-item {
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.02);
+    margin-bottom: 5px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.noti-item:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.noti-item.unread {
+    border-left: 3px solid var(--accent-athlete);
+    background: rgba(0, 209, 255, 0.05);
+}
+
+.noti-icon {
+    color: var(--accent-athlete);
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
