@@ -411,8 +411,14 @@ if (signupForm) {
             btn.innerText = "Crear Cuenta";
             btn.disabled = false;
         } else {
-            alert("¡Registro exitoso! Revisa tu correo o inicia sesión directamente.");
-            window.location.href = role === 'manager' ? 'manager/dashboard.html' : 'athlete/carga-datos.js';
+            Swal.fire({
+            title: '¡Bienvenido!',
+            text: 'Tu registro ha sido un éxito. ¡Ya puedes iniciar sesión y empezar a disfrutar de APEX Athletics!',
+            icon: 'success',
+            confirmButtonText: '¡Genial!',
+            confirmButtonColor: '#3085d6' // Puedes poner el color de tu marca aquí
+            });
+            window.location.href = role === 'manager' ? 'manager/dashboard.html' : 'athlete/carga-datos.html';
         }
     });
 }
