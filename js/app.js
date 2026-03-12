@@ -624,3 +624,29 @@ function ensureAbsoluteUrl(url) {
 
 loadData();
 checkCurrentSession();
+
+// Hamburguesa filtros (solo móvil)
+const filterToggleBtn = document.getElementById('filter-toggle-btn');
+const filterWrapper   = document.getElementById('filter-wrapper');
+const filterBadge     = document.getElementById('filter-badge');
+
+if (filterToggleBtn) {
+    filterToggleBtn.addEventListener('click', () => {
+        filterWrapper.classList.toggle('open');
+        filterToggleBtn.classList.toggle('active');
+    });
+}
+
+// Badge: cuenta filtros activos
+function updateFilterBadge() {
+    if (!filterBadge) return;
+    let count = 0;
+    if (selectedValues.continent !== 'all') count++;
+    if (selectedValues.country   !== 'all') count++;
+    if (selectedValues.level     !== 'all') count++;
+    if (selectedValues.discipline!== 'all') count++;
+    if (monthSelect?.value !== 'all') count++;
+    if (currentGender !== 'all') count++;
+    filterBadge.textContent = count;
+    filterBadge.classList.toggle('visible', count > 0);
+}

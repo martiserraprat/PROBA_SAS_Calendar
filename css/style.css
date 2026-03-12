@@ -22,8 +22,9 @@ body {
     z-index: -1;
 }
 
-/* Header */
+/* ── Header ── */
 .main-header {
+    position: relative;
     padding: 60px 20px 30px;
     text-align: center;
 }
@@ -31,181 +32,17 @@ body {
 h1 { font-size: 2.8rem; font-weight: 900; letter-spacing: -1px; margin: 0; }
 h1 span { color: var(--accent); }
 
+/* ── Buscador ── */
 .search-container {
     position: relative;
-    max-width: 600px;
-    margin: 30px auto 0;
-}
-
-.search-container i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-dim); }
-
-#search-input {
-    width: 100%;
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 16px 16px 16px 50px;
-    border-radius: 14px;
-    color: white;
-    font-size: 16px;
-    outline: none;
-    transition: 0.3s;
-}
-
-#search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
-
-/* Filtros Modernos */
-.filter-navigation {
-    position: sticky; 
-    top: 0; 
-    z-index: 1000;
-    background: rgba(5, 5, 5, 0.85);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    padding: 10px 0;
-}
-
-/* COMPORTAMIENTO MÓVIL (Por defecto): Scroll lateral */
-.filter-wrapper {
-    display: flex; 
-    gap: 10px; 
-    padding: 5px 20px;
-    max-width: 1200px; 
-    margin: 0 auto;
-    
-    overflow-x: auto; 
-    white-space: nowrap; 
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; 
-}
-
-.filter-wrapper::-webkit-scrollbar { 
-    display: none; 
-}
-
-/* COMPORTAMIENTO PC: Bajan a la línea inferior (Wrap) */
-@media (min-width: 768px) {
-    .filter-wrapper {
-        flex-wrap: wrap; /* Hace que caigan a la siguiente línea */
-        justify-content: center; /* Los centra en la pantalla */
-        overflow-x: visible; /* Elimina el scroll */
-        white-space: normal;
-    }
-}
-
-.custom-select {
-    display: flex; align-items: center;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 8px 15px;
-    transition: 0.3s;
-    flex-shrink: 0; /* Evita que se encojan de tamaño */
-}
-
-.custom-select:hover { border-color: var(--text-dim); }
-
-.custom-select i { color: var(--accent); margin-right: 10px; font-size: 0.9rem; }
-
-select {
-    background: transparent;
-    color: white; border: none; outline: none;
-    font-weight: 600; font-size: 14px; cursor: pointer;
-}
-
-select option { background: #121212; color: white; }
-
-.gender-pill {
-    display: flex; background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px; padding: 4px;
-    flex-shrink: 0;
-}
-
-.g-btn {
-    background: none; border: none; color: var(--text-dim);
-    padding: 6px 15px; border-radius: 8px;
-    cursor: pointer; font-weight: 700; transition: 0.3s;
-}
-
-.g-btn.active { background: var(--accent); color: white; }
-
-/* Grid de Competiciones */
-.event-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 25px; padding: 40px 20px;
-    max-width: 1200px; margin: 0 auto;
-}
-
-.event-card {
-    background: linear-gradient(145deg, #161b22, #0d1117);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 25px;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.event-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-}
-
-.card-date {
-    display: inline-block;
-    background: rgba(0, 112, 243, 0.1);
-    color: var(--accent);
-    padding: 5px 12px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 800;
-    margin-bottom: 15px;
-}
-
-.event-card h3 {
-    font-size: 1.4rem; margin: 0 0 10px; color: white;
-}
-
-.location-info { color: var(--text-dim); font-size: 14px; margin-bottom: 20px; }
-.location-info i { margin-right: 8px; }
-
-.card-tags { display: flex; gap: 10px; }
-.tag {
-    padding: 6px 14px; border-radius: 8px;
-    font-size: 11px; font-weight: 800; text-transform: uppercase;
-}
-
-.tag-gender { background: #222; color: #fff; }
-
-.level-gold { background: #FFD700; color: #000; font-weight: 900; box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
-.level-silver { background: #C0C0C0; color: #000; font-weight: 800; }
-.level-bronze { background: #CD7F32; color: #fff; font-weight: 700; }
-.level-challenger { background: #0070f3; color: #fff; font-weight: 700; }
-
-.tag-m { background: #00d1ff; color: #000; } 
-.tag-f { background: #ff007a; color: #fff; } 
-.tag-both { 
-    background: linear-gradient(45deg, #00d1ff, #ff007a); 
-    color: #fff; 
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-@media (max-width: 600px) {
-    h1 { font-size: 2rem; }
-    .filter-wrapper { padding: 0 15px; }
-}
-
-/* --- BUSCADOR ADAPTATIVO --- */
-.search-container {
-    position: relative;
-    max-width: 500px; 
+    max-width: 500px;
     margin: 20px auto 0;
-    padding: 0 15px; 
+    padding: 0 15px;
 }
 
 .search-container i {
     position: absolute;
-    left: 30px; 
+    left: 30px;
     top: 50%;
     transform: translateY(-50%);
     color: var(--text-dim);
@@ -217,10 +54,10 @@ select option { background: #121212; color: white; }
     width: 100%;
     background: var(--card);
     border: 1px solid var(--border);
-    padding: 12px 12px 12px 42px; 
+    padding: 12px 12px 12px 42px;
     border-radius: 10px;
     color: white;
-    font-size: 15px; 
+    font-size: 15px;
     outline: none;
     transition: all 0.3s;
     box-sizing: border-box;
@@ -232,49 +69,307 @@ select option { background: #121212; color: white; }
     box-shadow: 0 0 0 1px var(--accent);
 }
 
-/* --- AJUSTE ESPECÍFICO PARA MÓVIL --- */
-@media (max-width: 600px) {
-    .main-header { padding: 30px 15px 20px; }
-    h1 { font-size: 1.8rem; }
-    .search-container { margin-top: 15px; }
-    #search-input { padding: 10px 10px 10px 38px; font-size: 14px; border-radius: 8px; }
-    .search-container i { left: 28px; font-size: 12px; }
-    #event-count { font-size: 0.8rem; margin-bottom: 0; }
+/* ══════════════════════════════════════
+   FILTROS
+══════════════════════════════════════ */
+.filter-navigation {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(5, 5, 5, 0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    overflow: visible !important;
 }
 
-#date-range {
-    background: transparent;
-    border: none;
-    color: white;
-    font-weight: 600;
-    font-size: 14px;
-    width: 180px;
-    cursor: pointer;
+/* Topbar móvil (solo visible en móvil) */
+.filter-topbar {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
 }
+
+/* Botón toggle hamburguesa */
+.filter-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 112, 243, 0.12);
+    border: 1px solid rgba(0, 112, 243, 0.4);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+    box-shadow: 0 0 16px rgba(0, 112, 243, 0.15);
+}
+
+.filter-toggle-btn i { font-size: 16px; transition: transform 0.3s; color: var(--accent); }
+.filter-toggle-btn.active {
+    background: rgba(0, 112, 243, 0.2);
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(0, 112, 243, 0.3);
+}
+.filter-toggle-btn.active i { transform: rotate(90deg); }
+
+/* Badge filtros activos */
+.filter-badge {
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 20px;
+    display: none;
+}
+.filter-badge.visible { display: inline-block; }
+
+/* Chips desktop: siempre visibles en fila */
+.filter-wrapper {
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: visible;
+    flex-wrap: wrap;
+    justify-content: center;
+    white-space: normal;
+}
+
+/* ── Chip genérico ── */
+.custom-select {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 15px;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.custom-select:hover { border-color: var(--text-dim); }
+.custom-select > i { color: var(--accent); margin-right: 10px; font-size: 0.9rem; }
+
+.custom-select:focus-within,
+.cb-wrapper:focus-within {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 1px var(--accent);
+    background: #1a1a1a;
+}
+
+.custom-select:focus-within > i,
+.cb-wrapper:focus-within > i { color: var(--accent) !important; }
+
+/* Select nativo mes */
+select { background: transparent; color: white; border: none; outline: none; font-weight: 600; font-size: 14px; cursor: pointer; }
+select option { background: #121212; color: white; }
+
+#filter-month {
+    background: transparent !important; background-color: transparent !important;
+    border: none !important; outline: none !important; box-shadow: none !important;
+    color: #eaeaea !important; font-family: 'Inter', -apple-system, sans-serif !important;
+    font-weight: 600 !important; font-size: 14px !important; cursor: pointer;
+    -webkit-appearance: none; appearance: none; padding-right: 4px;
+}
+
+#filter-month option { background: #161b22 !important; color: #eaeaea !important; font-weight: 600; }
+
+/* ── Combobox ── */
+.cb-wrapper { position: relative; }
+
+.cb-wrapper input[type="text"] {
+    background: transparent !important; background-color: transparent !important;
+    border: none !important; outline: none !important; box-shadow: none !important;
+    color: #eaeaea !important; font-family: 'Inter', -apple-system, sans-serif !important;
+    font-weight: 600 !important; font-size: 14px !important;
+    letter-spacing: 0.01em; caret-color: var(--accent);
+    min-width: 100px; max-width: 160px;
+}
+
+.cb-wrapper input[type="text"]::placeholder { color: #666 !important; font-weight: 600; }
+.cb-wrapper input[type="text"]:focus::placeholder { color: #444 !important; }
+
+.cb-wrapper input[type="text"]:-webkit-autofill,
+.cb-wrapper input[type="text"]:-webkit-autofill:hover,
+.cb-wrapper input[type="text"]:-webkit-autofill:focus {
+    -webkit-text-fill-color: #eaeaea !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+    caret-color: var(--accent);
+}
+
+.cb-dropdown {
+    display: none; position: absolute;
+    top: calc(100% + 8px); left: 0;
+    min-width: 210px; max-height: 240px; overflow-y: auto;
+    background: #161b22; border: 1px solid #30363d;
+    border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.75);
+    z-index: 99999; padding: 6px; list-style: none; margin: 0;
+    scrollbar-width: thin; scrollbar-color: #30363d transparent;
+}
+
+.cb-wrapper.drop-up .cb-dropdown { top: auto; bottom: calc(100% + 8px); }
+
+.cb-dropdown li {
+    padding: 9px 14px; border-radius: 8px; cursor: pointer;
+    font-size: 14px; font-weight: 600; color: #ccc;
+    transition: background 0.15s, color 0.15s; white-space: nowrap;
+}
+
+.cb-dropdown li:hover,
+.cb-dropdown li.cb-hover { background: rgba(0,112,243,0.2); color: #fff; }
+.cb-dropdown li.cb-active { color: var(--accent); background: rgba(0,112,243,0.1); }
+
+.cb-dropdown::-webkit-scrollbar { width: 4px; }
+.cb-dropdown::-webkit-scrollbar-track { background: transparent; }
+.cb-dropdown::-webkit-scrollbar-thumb { background: #30363d; border-radius: 4px; }
+
+/* ── Género pill ── */
+.gender-pill {
+    display: flex; background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 4px; flex-shrink: 0;
+}
+
+.g-btn {
+    background: none; border: none; color: var(--text-dim);
+    padding: 6px 15px; border-radius: 8px; cursor: pointer; font-weight: 700; transition: 0.3s;
+}
+.g-btn.active { background: var(--accent); color: white; }
+
+/* ── Flatpickr ── */
+#date-range, .flatpickr-input, input.flatpickr-input {
+    background: transparent !important; background-color: transparent !important;
+    border: none !important; color: white !important; font-weight: 600 !important;
+    font-size: 14px !important; width: 170px; cursor: pointer;
+    outline: none !important; box-shadow: none !important;
+    -webkit-appearance: none; appearance: none;
+}
+
+.flatpickr-input.flatpickr-mobile { background: transparent !important; color: white !important; border: none !important; }
 
 .flatpickr-calendar {
-    background: #161b22 !important;
-    border: 1px solid #30363d !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
-}
-.flatpickr-day.selected {
-    background: var(--accent) !important;
-    border-color: var(--accent) !important;
+    background: #161b22 !important; border: 1px solid #30363d !important;
+    box-shadow: 0 16px 50px rgba(0,0,0,0.7) !important;
+    border-radius: 14px !important; z-index: 99999 !important;
 }
 
-.custom-select { position: relative; }
+.flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange { background: var(--accent) !important; border-color: var(--accent) !important; }
+.flatpickr-day.inRange { background: rgba(0,112,243,0.2) !important; border-color: transparent !important; box-shadow: none !important; }
+.flatpickr-day:hover { background: rgba(0,112,243,0.3) !important; }
+.flatpickr-months .flatpickr-month, .flatpickr-weekdays, span.flatpickr-weekday { background: #161b22 !important; color: #aaa !important; }
+.flatpickr-current-month, .flatpickr-current-month .numInputWrapper span, .flatpickr-current-month input.cur-year { color: white !important; }
+.flatpickr-day { color: #ccc !important; }
+.flatpickr-day.flatpickr-disabled { color: #444 !important; }
 
 #clear-date {
-    position: absolute;
-    right: 10px;
-    font-size: 14px;
-    transition: transform 0.2s;
+    position: absolute; right: 10px; font-size: 14px;
+    transition: transform 0.2s; cursor: pointer; color: #ff4d4d;
 }
 #clear-date:hover { transform: scale(1.2); color: #ff6666; }
 
+/* ══════════════════════════════════════
+   MÓVIL ≤767px — hamburguesa
+══════════════════════════════════════ */
+@media (max-width: 767px) {
+
+    .filter-topbar {
+        display: flex;
+        padding: 12px 15px;
+    }
+
+    .filter-wrapper {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 15px 15px;
+        gap: 8px;
+        overflow: visible;
+    }
+
+    .filter-wrapper.open {
+        display: flex;
+        animation: filterSlideDown 0.2s ease;
+    }
+
+    @keyframes filterSlideDown {
+        from { opacity: 0; transform: translateY(-6px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Chips a ancho completo */
+    .custom-select,
+    .cb-wrapper,
+    .gender-pill {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .cb-wrapper input[type="text"] {
+        min-width: unset; max-width: unset; width: 100%; flex: 1;
+    }
+
+    .cb-dropdown { max-width: calc(100vw - 30px); }
+}
+
+/* ══════════════════════════════════════
+   GRID TARJETAS
+══════════════════════════════════════ */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px; padding: 40px 20px;
+    max-width: 1200px; margin: 0 auto;
+}
+
+.event-card {
+    background: linear-gradient(145deg, #161b22, #0d1117);
+    border: 1px solid var(--border);
+    border-radius: 20px; padding: 25px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.card-date {
+    display: inline-block; background: rgba(0,112,243,0.1);
+    color: var(--accent); padding: 5px 12px; border-radius: 8px;
+    font-size: 12px; font-weight: 800; margin-bottom: 15px;
+}
+
+.event-card h3 { font-size: 1.4rem; margin: 0 0 10px; color: white; }
+.location-info { color: var(--text-dim); font-size: 14px; margin-bottom: 20px; }
+.location-info i { margin-right: 8px; }
+.card-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.tag { padding: 6px 14px; border-radius: 8px; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+
+.level-diamond  { background: linear-gradient(135deg,#00C9FF 0%,#92FE9D 100%); color:#000; font-weight:900; box-shadow:0 0 12px rgba(0,201,255,0.6); }
+.level-gold     { background: #FFD700; color:#000; font-weight:900; box-shadow:0 0 10px rgba(255,215,0,0.5); }
+.level-silver   { background: #C0C0C0; color:#000; font-weight:800; }
+.level-bronze   { background: #CD7F32; color:#fff; font-weight:700; }
+.level-challenger { background: var(--accent); color:#fff; font-weight:700; }
+.tag-m    { background: #00d1ff; color:#000; }
+.tag-f    { background: #ff007a; color:#fff; }
+.tag-both { background: linear-gradient(45deg,#00d1ff,#ff007a); color:#fff; text-shadow:1px 1px 2px rgba(0,0,0,0.5); }
+
+/* ── Modal ── */
 .modal-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px);
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
     display: none; justify-content: center; align-items: center; z-index: 2000;
 }
 
@@ -284,633 +379,89 @@ select option { background: #121212; color: white; }
     padding: 30px; position: relative; max-height: 85vh; overflow-y: auto;
 }
 
-#close-modal {
-    position: absolute; top: 20px; right: 20px; background: none; border: none;
-    color: var(--text-dim); font-size: 1.5rem; cursor: pointer;
-}
+#close-modal { position: absolute; top:20px; right:20px; background: none; border:none; color: var(--text-dim); font-size:1.5rem; cursor:pointer; }
 
-.info-section { 
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
+.info-section { background: rgba(255,255,255,0.03); border-radius: 12px; padding: 15px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05); }
+.info-section h4 { margin-top:0; margin-bottom:12px; color: var(--accent); font-size:0.9rem; text-transform:uppercase; letter-spacing:1px; display:flex; align-items:center; gap:8px; }
+.info-section p { margin:8px 0; font-size:0.95rem; color:#eee; }
+.info-section strong { color:#aaa; font-weight:500; }
 
-.info-section h4 { 
-    margin-top: 0;
-    margin-bottom: 12px;
-    color: rgb(0, 112, 243); 
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+.link-buttons { display:flex; gap:10px; flex-wrap:wrap; }
+.link-btn { background: var(--accent); color:#fff; padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:0.9rem; transition: all 0.3s ease; }
+.link-btn:hover { background:#0080ff; transform:translateY(-2px); }
 
-.info-section p { margin: 8px 0; font-size: 0.95rem; color: #eee; }
-.info-section strong { color: #aaa; font-weight: 500; }
+.contact-box { background:#1a1a1a; padding:15px; border-radius:12px; margin-top:10px; border-left:3px solid var(--accent); }
 
-.link-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
-.link-btn {
-    background: rgb(0, 112, 243); color: #000;
-    padding: 10px 18px; border-radius: 8px;
-    text-decoration: none; font-weight: bold; font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-.link-btn:hover { background: rgb(115, 168, 230); transform: translateY(-2px); }
-
-.contact-box { 
-    background: #1a1a1a; padding: 15px; 
-    border-radius: 12px; margin-top: 10px; 
-    border-left: 3px solid var(--accent); 
-}
-
-.level-diamond { 
-    background: linear-gradient(135deg, #00C9FF 0%, #92FE9D 100%); 
-    color: #000; 
-    font-weight: 900; 
-    box-shadow: 0 0 12px rgba(0, 201, 255, 0.6); 
-}
-
-/* --- BOTÓN FLOTANTE PERFIL --- */
-.main-header {
-    position: relative; /* Obligatorio para que el botón flote dentro */
-    padding: 60px 20px 30px;
-    text-align: center;
-}
-
+/* ── Perfil ── */
 .profile-btn-floating {
-    position: absolute;
-    top: 25px;
-    right: 30px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border);
-    color: var(--text-dim);
-    padding: 8px 16px;
-    border-radius: 30px; /* Bordes más redondeados y modernos */
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    z-index: 10;
+    position: absolute; top:25px; right:30px;
+    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+    color: var(--text-dim); padding: 8px 16px; border-radius: 30px;
+    font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+    display: flex; align-items: center; gap: 8px; z-index: 10;
 }
+.profile-btn-floating i { font-size:1.2rem; color:var(--text-dim); transition:0.3s; }
+.profile-btn-floating:hover { background:rgba(255,255,255,0.08); border-color:var(--accent); color:white; }
+.profile-btn-floating:hover i { color:var(--accent); }
 
-.profile-btn-floating i { 
-    font-size: 1.2rem; 
-    color: var(--text-dim); 
-    transition: 0.3s; 
-}
-
-/* Efecto hover elegante */
-.profile-btn-floating:hover { 
-    background: rgba(255, 255, 255, 0.08); 
-    border-color: var(--accent); 
-    color: white;
-}
-.profile-btn-floating:hover i { color: var(--accent); }
-
-/* En móvil, para que no choque con el título, dejamos solo el icono */
-@media (max-width: 600px) {
-    .profile-btn-floating {
-        top: 15px;
-        right: 15px;
-        padding: 10px;
-        border-radius: 50%; /* Se vuelve un círculo perfecto */
-    }
-    .profile-text { display: none; } /* Ocultamos el texto "Acceso Mánager" */
-    .profile-btn-floating i { font-size: 1.4rem; margin: 0; }
-}
-
-/* --- LOGIN POP-UP GORGEOUS STYLE --- */
+/* ── Login ── */
 .login-box {
-    max-width: 400px;
-    background: rgba(15, 15, 15, 0.95); /* Fondo casi negro profundo */
-    backdrop-filter: blur(25px) saturate(180%); /* Efecto cristal esmerilado */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
-    border-radius: 28px;
-    padding: 40px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 
-                0 0 40px rgba(0, 112, 243, 0.1); /* Brillo azul muy suave */
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+    max-width: 400px; background: rgba(15,15,15,0.95);
+    backdrop-filter: blur(25px) saturate(180%); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 28px; padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7), 0 0 40px rgba(0,112,243,0.1);
+    text-align: center; position: relative; overflow: hidden;
 }
 
-/* El destello decorativo superior */
-.login-box::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 50% 20%, rgba(0, 112, 243, 0.15), transparent 40%);
-    pointer-events: none;
-}
+.login-box::before { content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background: radial-gradient(circle at 50% 20%, rgba(0,112,243,0.15), transparent 40%); pointer-events:none; }
 
-.login-header i {
-    font-size: 3.5rem;
-    background: linear-gradient(135deg, #0070f3, #00d1ff);
-    
-    /* Versión para Chrome, Safari, Edge */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.login-header i { font-size:3.5rem; background: linear-gradient(135deg,#0070f3,#00d1ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom:20px; filter: drop-shadow(0 0 10px rgba(0,112,243,0.3)); }
+.login-header h2 { font-size:2rem; font-weight:800; letter-spacing:-1px; margin:0 0 8px; color:white; }
+.login-header p  { color:var(--text-dim); font-size:0.95rem; margin-bottom:35px; }
 
-    /* Versión estándar (la que te pide el aviso) */
-    background-clip: text;
-    
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 10px rgba(0, 112, 243, 0.3));
-}
+.input-group { position:relative; margin-bottom:20px; }
+.input-group i { position:absolute; left:18px; top:50%; transform:translateY(-50%); color:var(--text-dim); font-size:1.1rem; transition:0.3s; }
+.input-group input { width:100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 16px 16px 16px 52px; border-radius:14px; color:white; font-size:1rem; outline:none; box-sizing:border-box; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+.input-group input:focus { background: rgba(255,255,255,0.08); border-color: var(--accent); box-shadow: 0 0 0 4px rgba(0,112,243,0.15); }
 
-.login-header h2 {
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-    margin: 0 0 8px;
-    color: white;
-}
+.auth-btn { width:100%; background:var(--accent); color:white; border:none; padding:16px; border-radius:14px; font-size:1rem; font-weight:700; cursor:pointer; transition: all 0.3s ease; margin-top:15px; box-shadow: 0 10px 20px -5px rgba(0,112,243,0.4); }
+.auth-btn:hover { background:#0080ff; transform:translateY(-2px); }
+.auth-btn:active { transform:translateY(0); }
 
-.login-header p {
-    color: var(--text-dim);
-    font-size: 0.95rem;
-    margin-bottom: 35px;
-}
+#close-login { position:absolute; top:20px; right:20px; background:rgba(255,255,255,0.05); border:none; color:var(--text-dim); width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:0.3s; }
+#close-login:hover { background:rgba(255,255,255,0.1); color:white; }
 
-/* Inputs con estilo moderno */
-.input-group {
-    position: relative;
-    margin-bottom: 20px;
-}
+@keyframes modalFade { from { opacity:0; transform:scale(0.95) translateY(10px); } to { opacity:1; transform:scale(1) translateY(0); } }
+.modal-content.login-box { animation: modalFade 0.4s cubic-bezier(0.165,0.84,0.44,1); }
 
-.input-group i {
-    position: absolute;
-    left: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-dim);
-    font-size: 1.1rem;
-    transition: 0.3s;
-}
+.auth-switch { margin-top:25px; font-size:0.9rem; color:var(--text-dim); }
+.auth-switch a { color:var(--accent); text-decoration:none; font-weight:600; }
+.auth-switch a:hover { text-decoration:underline; }
 
-.input-group input {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 16px 16px 16px 52px;
-    border-radius: 14px;
-    color: white;
-    font-size: 1rem;
-    outline: none;
-    box-sizing: border-box;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+.error-msg { color:#ff4d4d; font-size:0.85rem; margin-top:15px; background:rgba(255,77,77,0.1); padding:10px; border-radius:8px; }
 
-/* Al escribir o hacer focus */
-.input-group input:focus {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: var(--accent);
-    box-shadow: 0 0 0 4px rgba(0, 112, 243, 0.15);
-}
+.auth-select { width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:16px 16px 16px 52px; border-radius:14px; color:white; appearance:none; }
 
-.input-group input:focus + i {
-    color: var(--accent);
-}
+/* ── Mensaje auth ── */
+.auth-message { position:fixed; top:20px; right:20px; background:#0f0f0f; border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:12px; padding:15px 25px; display:flex; align-items:center; gap:12px; color:white; font-size:0.95rem; box-shadow:0 10px 30px rgba(0,0,0,0.5); z-index:9999; max-width:350px; backdrop-filter:blur(10px); animation: slideInRight 0.3s ease; }
+.auth-message i { color:var(--accent); font-size:1.2rem; }
+.auth-message.error { border-left-color:#ff4d4d; }
+.auth-message.error i { color:#ff4d4d; }
+.auth-message.success { border-left-color:#10b981; }
+.auth-message.success i { color:#10b981; }
 
-/* Botón principal potente */
-.auth-btn {
-    width: 100%;
-    background: var(--accent);
-    color: white;
-    border: none;
-    padding: 16px;
-    border-radius: 14px;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 15px;
-    box-shadow: 0 10px 20px -5px rgba(0, 112, 243, 0.4);
-}
+@keyframes slideInRight { from { transform:translateX(100%); opacity:0; } to { transform:translateX(0); opacity:1; } }
 
-.auth-btn:hover {
-    background: #0080ff;
-    transform: translateY(-2px);
-    box-shadow: 0 15px 25px -5px rgba(0, 112, 243, 0.5);
-}
-
-.auth-btn:active {
-    transform: translateY(0);
-}
-
-/* Botón cerrar minimalista */
-#close-login {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border: none;
-    color: var(--text-dim);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#close-login:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-}
-
-/* Animación de entrada */
-@keyframes modalFade {
-    from { opacity: 0; transform: scale(0.95) translateY(10px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-.modal-content.login-box {
-    animation: modalFade 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.auth-switch {
-    margin-top: 25px;
-    font-size: 0.9rem;
-    color: var(--text-dim);
-}
-
-.auth-switch a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.auth-switch a:hover { text-decoration: underline; }
-
-.error-msg {
-    color: #ff4d4d;
-    font-size: 0.85rem;
-    margin-top: 15px;
-    background: rgba(255, 77, 77, 0.1);
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.auth-select {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 16px 16px 16px 52px;
-    border-radius: 14px;
-    color: white;
-    appearance: none; /* Quita la flecha fea por defecto */
-}
-
-/* Mensaje de autenticación */
-.auth-message {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #0f0f0f;
-    border: 1px solid var(--border-color);
-    border-left: 4px solid var(--accent-blue);
-    border-radius: 12px;
-    padding: 15px 25px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: white;
-    font-size: 0.95rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-    animation: slideInRight 0.3s ease;
-    max-width: 350px;
-    backdrop-filter: blur(10px);
-}
-
-.auth-message i {
-    color: var(--accent-blue);
-    font-size: 1.2rem;
-}
-
-.auth-message.error {
-    border-left-color: #ff4d4d;
-}
-
-.auth-message.error i {
-    color: #ff4d4d;
-}
-
-.auth-message.success {
-    border-left-color: #10b981;
-}
-
-.auth-message.success i {
-    color: #10b981;
-}
-
-@keyframes slideInRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-}
-
+/* ── Responsive ── */
 @media (max-width: 600px) {
-    .auth-message {
-        top: 10px;
-        right: 10px;
-        left: 10px;
-        max-width: none;
-        font-size: 0.85rem;
-        padding: 12px 15px;
-    }
-}
-
-/* ============================================================
-   PEGA ESTO EN style.css — PARCHES PARA FECHA Y DROPDOWNS
-   ============================================================ */
-
-/* --- FIX: Input de fecha (flatpickr) fondo blanco --- */
-#date-range,
-.flatpickr-input,
-input.flatpickr-input {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: none !important;
-    color: white !important;
-    font-weight: 600 !important;
-    font-size: 14px !important;
-    width: 170px;
-    cursor: pointer;
-    outline: none !important;
-    box-shadow: none !important;
-    -webkit-appearance: none;
-    appearance: none;
-}
-
-/* Cuando flatpickr clona el input como "mobile" también lo arreglamos */
-.flatpickr-input.flatpickr-mobile {
-    background: transparent !important;
-    color: white !important;
-    border: none !important;
-}
-
-/* El calendario flotante de flatpickr */
-.flatpickr-calendar {
-    background: #161b22 !important;
-    border: 1px solid #30363d !important;
-    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.7) !important;
-    border-radius: 14px !important;
-    /* Asegura que se posicione por encima de la nav si hace falta */
-    z-index: 99999 !important;
-}
-
-.flatpickr-day.selected,
-.flatpickr-day.startRange,
-.flatpickr-day.endRange {
-    background: #0070f3 !important;
-    border-color: #0070f3 !important;
-}
-
-.flatpickr-day.inRange {
-    background: rgba(0, 112, 243, 0.2) !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
-}
-
-.flatpickr-day:hover {
-    background: rgba(0, 112, 243, 0.3) !important;
-}
-
-.flatpickr-months .flatpickr-month,
-.flatpickr-weekdays,
-span.flatpickr-weekday {
-    background: #161b22 !important;
-    color: #aaa !important;
-}
-
-.flatpickr-current-month,
-.flatpickr-current-month .numInputWrapper span,
-.flatpickr-current-month input.cur-year {
-    color: white !important;
-}
-
-.flatpickr-day {
-    color: #ccc !important;
-}
-
-.flatpickr-day.flatpickr-disabled {
-    color: #444 !important;
-}
-
-/* --- FIX: Dropdowns combobox — salen bien aunque la nav tenga overflow --- */
-
-/*
-   El truco: la nav NO puede tener overflow:hidden si queremos que los
-   dropdowns salgan por debajo. Quitamos overflow:hidden de la nav
-   y lo reemplazamos por un clip solo en el wrapper de scroll móvil.
-*/
-
-.filter-navigation {
-    overflow: visible !important; /* ← clave, anula cualquier overflow:hidden */
-}
-
-/* En móvil el scroll lateral lo hacemos con clip-path para no afectar
-   al eje Y (donde salen los dropdowns) */
-@media (max-width: 767px) {
-    .filter-wrapper {
-        /* Permitimos scroll X sin cortar el eje Y */
-        overflow-x: auto;
-        overflow-y: visible;
-        /* clip solo en X */
-        -webkit-mask-image: none;
-        mask-image: none;
-    }
-}
-
-/* El dropdown se posiciona relativo al .cb-wrapper,
-   pero como la nav tiene overflow:visible ahora sale limpio */
-.cb-dropdown {
-    display: none;
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    min-width: 210px;
-    max-height: 240px;
-    overflow-y: auto;
-    background: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 12px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
-    z-index: 99999;
-    padding: 6px;
-    list-style: none;
-    margin: 0;
-    scrollbar-width: thin;
-    scrollbar-color: #30363d transparent;
-}
-
-/* En móvil, si el wrapper hace scroll horizontal y el dropdown
-   queda fuera de la ventana, lo redirigimos hacia arriba */
-@media (max-width: 767px) {
-    .cb-dropdown {
-        /* Por defecto sale abajo */
-        top: calc(100% + 8px);
-        bottom: auto;
-        /* Asegura que no se salga por la derecha */
-        max-width: 90vw;
-    }
-
-    /* Si el wrapper lo tiene marcado como "flip", sale arriba */
-    .cb-wrapper.drop-up .cb-dropdown {
-        top: auto;
-        bottom: calc(100% + 8px);
-    }
-}
-
-.cb-dropdown li {
-    padding: 9px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    color: #ccc;
-    transition: background 0.15s, color 0.15s;
-    white-space: nowrap;
-}
-
-.cb-dropdown li:hover,
-.cb-dropdown li.cb-hover {
-    background: rgba(0, 112, 243, 0.2);
-    color: #fff;
-}
-
-.cb-dropdown li.cb-active {
-    color: #0070f3;
-    background: rgba(0, 112, 243, 0.1);
-}
-
-/* Scrollbar del dropdown */
-.cb-dropdown::-webkit-scrollbar { width: 4px; }
-.cb-dropdown::-webkit-scrollbar-track { background: transparent; }
-.cb-dropdown::-webkit-scrollbar-thumb { background: #30363d; border-radius: 4px; }
-
-/* ============================================================
-   PEGA ESTO AL FINAL DE style.css
-   Fix: inputs del combobox con estética dark acorde al resto
-   ============================================================ */
-
-/* Input del combobox */
-.cb-wrapper input[type="text"] {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-    color: #eaeaea !important;
-    font-family: 'Inter', -apple-system, sans-serif !important;
-    font-weight: 600 !important;
-    font-size: 14px !important;
-    letter-spacing: 0.01em;
-    caret-color: #0070f3;
-    min-width: 100px;
-    max-width: 160px;
-    /* Quita el fondo blanco que mete el autofill del navegador */
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-}
-
-/* Placeholder sutil */
-.cb-wrapper input[type="text"]::placeholder {
-    color: #666 !important;
-    font-weight: 600;
-}
-
-/* Cuando está activo, el placeholder se aclara un poco */
-.cb-wrapper input[type="text"]:focus::placeholder {
-    color: #444 !important;
-    transition: color 0.2s;
-}
-
-/* Fix autofill Chrome/Safari que pone fondo amarillo o blanco */
-.cb-wrapper input[type="text"]:-webkit-autofill,
-.cb-wrapper input[type="text"]:-webkit-autofill:hover,
-.cb-wrapper input[type="text"]:-webkit-autofill:focus {
-    -webkit-text-fill-color: #eaeaea !important;
-    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
-    transition: background-color 5000s ease-in-out 0s;
-    caret-color: #0070f3;
-}
-
-/* El wrapper custom-select se ilumina al hacer focus en el input */
-.cb-wrapper:focus-within {
-    border-color: #0070f3 !important;
-    box-shadow: 0 0 0 1px #0070f3;
-    background: #1a1a1a;
-}
-
-/* Icono del wrapper se pone azul al escribir */
-.cb-wrapper:focus-within > i {
-    color: #0070f3 !important;
-    transition: color 0.2s;
-}
-
-/* ============================================================
-   PEGA ESTO AL FINAL DE style.css
-   Fix: select de mes con estética dark igual que los combobox
-   ============================================================ */
-
-#filter-month {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-    color: #eaeaea !important;
-    font-family: 'Inter', -apple-system, sans-serif !important;
-    font-weight: 600 !important;
-    font-size: 14px !important;
-    cursor: pointer;
-    -webkit-appearance: none;
-    appearance: none;
-    padding-right: 4px;
-}
-
-/* Opciones del dropdown nativo */
-#filter-month option {
-    background: #161b22 !important;
-    color: #eaeaea !important;
-    font-weight: 600;
-}
-
-/* El wrapper se ilumina al hacer focus igual que los combobox */
-.custom-select:focus-within {
-    border-color: #0070f3 !important;
-    box-shadow: 0 0 0 1px #0070f3;
-    background: #1a1a1a;
-}
-
-.custom-select:focus-within > i {
-    color: #0070f3 !important;
-    transition: color 0.2s;
+    .main-header { padding:30px 15px 20px; }
+    h1 { font-size:1.8rem; }
+    .search-container { margin-top:15px; }
+    #search-input { padding:10px 10px 10px 38px; font-size:14px; border-radius:8px; }
+    .search-container i { left:28px; font-size:12px; }
+    #event-count { font-size:0.8rem; margin-bottom:0; }
+    .profile-btn-floating { top:15px; right:15px; padding:10px; border-radius:50%; }
+    .profile-text { display:none; }
+    .profile-btn-floating i { font-size:1.4rem; margin:0; }
+    .auth-message { top:10px; right:10px; left:10px; max-width:none; font-size:0.85rem; padding:12px 15px; }
 }
