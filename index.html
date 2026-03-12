@@ -233,6 +233,16 @@
         </div>
     </div>
     <script type="module" src="js/app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/js/sw.js')
+        .then(reg => console.log('SW registrado', reg))
+        .catch(err => console.log('Error al registrar SW', err));
+    });
+  }
+</script>
+
 </body>
 
 </html>
