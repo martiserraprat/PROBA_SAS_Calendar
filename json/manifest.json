@@ -2,11 +2,15 @@
   "short_name": "APEX",
   "name": "APEX ATHLETICS",
   "start_url": "/index.html",
-  "scope": "/",
   "display": "standalone",
   "theme_color": "#050505",
   "background_color": "#050505",
   "icons": [
+    {
+      "src": "img/icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
     {
       "src": "img/icon.png",
       "type": "image/png",
