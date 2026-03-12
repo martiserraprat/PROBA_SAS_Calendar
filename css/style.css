@@ -645,3 +645,272 @@ select option { background: #121212; color: white; }
         padding: 12px 15px;
     }
 }
+
+/* ============================================================
+   PEGA ESTO EN style.css — PARCHES PARA FECHA Y DROPDOWNS
+   ============================================================ */
+
+/* --- FIX: Input de fecha (flatpickr) fondo blanco --- */
+#date-range,
+.flatpickr-input,
+input.flatpickr-input {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    width: 170px;
+    cursor: pointer;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Cuando flatpickr clona el input como "mobile" también lo arreglamos */
+.flatpickr-input.flatpickr-mobile {
+    background: transparent !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* El calendario flotante de flatpickr */
+.flatpickr-calendar {
+    background: #161b22 !important;
+    border: 1px solid #30363d !important;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.7) !important;
+    border-radius: 14px !important;
+    /* Asegura que se posicione por encima de la nav si hace falta */
+    z-index: 99999 !important;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+    background: #0070f3 !important;
+    border-color: #0070f3 !important;
+}
+
+.flatpickr-day.inRange {
+    background: rgba(0, 112, 243, 0.2) !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.flatpickr-day:hover {
+    background: rgba(0, 112, 243, 0.3) !important;
+}
+
+.flatpickr-months .flatpickr-month,
+.flatpickr-weekdays,
+span.flatpickr-weekday {
+    background: #161b22 !important;
+    color: #aaa !important;
+}
+
+.flatpickr-current-month,
+.flatpickr-current-month .numInputWrapper span,
+.flatpickr-current-month input.cur-year {
+    color: white !important;
+}
+
+.flatpickr-day {
+    color: #ccc !important;
+}
+
+.flatpickr-day.flatpickr-disabled {
+    color: #444 !important;
+}
+
+/* --- FIX: Dropdowns combobox — salen bien aunque la nav tenga overflow --- */
+
+/*
+   El truco: la nav NO puede tener overflow:hidden si queremos que los
+   dropdowns salgan por debajo. Quitamos overflow:hidden de la nav
+   y lo reemplazamos por un clip solo en el wrapper de scroll móvil.
+*/
+
+.filter-navigation {
+    overflow: visible !important; /* ← clave, anula cualquier overflow:hidden */
+}
+
+/* En móvil el scroll lateral lo hacemos con clip-path para no afectar
+   al eje Y (donde salen los dropdowns) */
+@media (max-width: 767px) {
+    .filter-wrapper {
+        /* Permitimos scroll X sin cortar el eje Y */
+        overflow-x: auto;
+        overflow-y: visible;
+        /* clip solo en X */
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+}
+
+/* El dropdown se posiciona relativo al .cb-wrapper,
+   pero como la nav tiene overflow:visible ahora sale limpio */
+.cb-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 210px;
+    max-height: 240px;
+    overflow-y: auto;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+    z-index: 99999;
+    padding: 6px;
+    list-style: none;
+    margin: 0;
+    scrollbar-width: thin;
+    scrollbar-color: #30363d transparent;
+}
+
+/* En móvil, si el wrapper hace scroll horizontal y el dropdown
+   queda fuera de la ventana, lo redirigimos hacia arriba */
+@media (max-width: 767px) {
+    .cb-dropdown {
+        /* Por defecto sale abajo */
+        top: calc(100% + 8px);
+        bottom: auto;
+        /* Asegura que no se salga por la derecha */
+        max-width: 90vw;
+    }
+
+    /* Si el wrapper lo tiene marcado como "flip", sale arriba */
+    .cb-wrapper.drop-up .cb-dropdown {
+        top: auto;
+        bottom: calc(100% + 8px);
+    }
+}
+
+.cb-dropdown li {
+    padding: 9px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ccc;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+}
+
+.cb-dropdown li:hover,
+.cb-dropdown li.cb-hover {
+    background: rgba(0, 112, 243, 0.2);
+    color: #fff;
+}
+
+.cb-dropdown li.cb-active {
+    color: #0070f3;
+    background: rgba(0, 112, 243, 0.1);
+}
+
+/* Scrollbar del dropdown */
+.cb-dropdown::-webkit-scrollbar { width: 4px; }
+.cb-dropdown::-webkit-scrollbar-track { background: transparent; }
+.cb-dropdown::-webkit-scrollbar-thumb { background: #30363d; border-radius: 4px; }
+
+/* ============================================================
+   PEGA ESTO AL FINAL DE style.css
+   Fix: inputs del combobox con estética dark acorde al resto
+   ============================================================ */
+
+/* Input del combobox */
+.cb-wrapper input[type="text"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: #eaeaea !important;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    letter-spacing: 0.01em;
+    caret-color: #0070f3;
+    min-width: 100px;
+    max-width: 160px;
+    /* Quita el fondo blanco que mete el autofill del navegador */
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+}
+
+/* Placeholder sutil */
+.cb-wrapper input[type="text"]::placeholder {
+    color: #666 !important;
+    font-weight: 600;
+}
+
+/* Cuando está activo, el placeholder se aclara un poco */
+.cb-wrapper input[type="text"]:focus::placeholder {
+    color: #444 !important;
+    transition: color 0.2s;
+}
+
+/* Fix autofill Chrome/Safari que pone fondo amarillo o blanco */
+.cb-wrapper input[type="text"]:-webkit-autofill,
+.cb-wrapper input[type="text"]:-webkit-autofill:hover,
+.cb-wrapper input[type="text"]:-webkit-autofill:focus {
+    -webkit-text-fill-color: #eaeaea !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+    caret-color: #0070f3;
+}
+
+/* El wrapper custom-select se ilumina al hacer focus en el input */
+.cb-wrapper:focus-within {
+    border-color: #0070f3 !important;
+    box-shadow: 0 0 0 1px #0070f3;
+    background: #1a1a1a;
+}
+
+/* Icono del wrapper se pone azul al escribir */
+.cb-wrapper:focus-within > i {
+    color: #0070f3 !important;
+    transition: color 0.2s;
+}
+
+/* ============================================================
+   PEGA ESTO AL FINAL DE style.css
+   Fix: select de mes con estética dark igual que los combobox
+   ============================================================ */
+
+#filter-month {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: #eaeaea !important;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    padding-right: 4px;
+}
+
+/* Opciones del dropdown nativo */
+#filter-month option {
+    background: #161b22 !important;
+    color: #eaeaea !important;
+    font-weight: 600;
+}
+
+/* El wrapper se ilumina al hacer focus igual que los combobox */
+.custom-select:focus-within {
+    border-color: #0070f3 !important;
+    box-shadow: 0 0 0 1px #0070f3;
+    background: #1a1a1a;
+}
+
+.custom-select:focus-within > i {
+    color: #0070f3 !important;
+    transition: color 0.2s;
+}
