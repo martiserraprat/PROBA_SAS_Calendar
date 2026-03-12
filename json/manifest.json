@@ -1,8 +1,8 @@
 {
   "short_name": "APEX",
   "name": "APEX ATHLETICS",
-  "start_url": "/PROBA_SAS_Calendar/index.html",
-  "scope": "/PROBA_SAS_Calendar/",
+  "start_url": "/index.html",
+  "scope": "/",
   "display": "standalone",
   "theme_color": "#050505",
   "background_color": "#050505",
