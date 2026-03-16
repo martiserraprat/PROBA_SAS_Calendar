@@ -255,7 +255,7 @@ function renderEstadoVacio(mensaje, mostrarBoton) {
             <i class="fas fa-user-shield" style="font-size: 3rem; color: #444; margin-bottom: 15px;"></i>
             <h3 style="color: #fff; margin-bottom: 5px;">Panel de Atletas</h3>
             <p style="color: #888; margin-bottom: 20px;">${mensaje}</p>
-            ${mostrarBoton ? `<a href="ajustes.html" class="btn-primary" style="display:inline-block; text-decoration:none;">Ir a Ajustes</a>` : ''}
+            ${mostrarBoton ? `<a href="ajustes.html" class="btn-primary-dos" style="display:inline-block; text-decoration:none;">Ir a Ajustes</a>` : ''}
         </div>
     `;
     

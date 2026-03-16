@@ -18,7 +18,7 @@ body {
 /* --- SIDEBAR --- */
 .sidebar {
     width: 280px;
-    height: 100vh;
+    height: 100dvh !important;
     position: fixed;
     background: var(--sidebar-bg);
     border-right: 1px solid var(--border-color);
@@ -33,7 +33,17 @@ body {
 .logo { font-size: 1.4rem; font-weight: 900; color: var(--accent-blue); margin-bottom: 40px; }
 .logo span { color: #fff; font-weight: 400; }
 
-.sidebar-nav { flex-grow: 1; }
+.sidebar-nav { 
+    flex-grow: 1; 
+    overflow-y: auto; /* Permite scroll interno */
+    min-height: 0; /* ¡ESTO ES LA MAGIA! Evita que el contenedor empuje el perfil hacia abajo */
+    margin-bottom: 15px; /* Espacio antes del perfil */
+    padding-right: 5px; /* Para que el scrollbar no pegue a los textos */
+}
+
+.sidebar-nav::-webkit-scrollbar { width: 4px; }
+.sidebar-nav::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+
 .nav-item {
     display: flex; align-items: center; gap: 12px;
     padding: 14px 18px; color: var(--text-gray);
@@ -44,9 +54,18 @@ body {
 .nav-item.active i { color: var(--accent-blue); }
 
 .user-pill {
-    background: #111; padding: 12px; border-radius: 16px;
-    display: flex; align-items: center; gap: 12px;
+    background: #111; 
+    padding: 12px; 
+    border-radius: 16px;
+    display: flex; 
+    align-items: center; 
+    gap: 12px;
+    
+    /* Agrega esto: */
+    flex-shrink: 0; /* Evita que el contenedor de enlaces lo aplaste o lo empuje fuera de la pantalla */
+    margin-top: auto; /* Empuja el perfil al fondo, pero respetando el límite de la pantalla */
 }
+
 .user-pill img { width: 35px; height: 35px; border-radius: 50%; }
 .user-info { flex-grow: 1; overflow: hidden; }
 .user-name { display: block; font-size: 0.85rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -871,4 +890,33 @@ body {
 
 .fa-spinner {
     animation: spin 1s linear infinite;
+}
+
+.btn-primary-dos {
+    background: var(--accent-blue); color: #fff; border: none;
+    padding: 12px 24px; border-radius: 10px; font-weight: 600;
+    cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px;
+    width: 40%;
+}
+
+.nav-links-container {
+    flex-grow: 1; /* Esto empuja el contenedor de logout hacia abajo */
+    overflow-y: auto; /* Permite scroll solo en los enlaces si hay muchos */
+}
+
+/* El contenedor del perfil y el botón de salir */
+.logout-container {
+    padding-bottom: 20px; /* Ajusta este valor para que no quede pegado al borde */
+    /* flex-shrink: 0; (Opcional) para evitar que se comprima */
+}
+
+/* --- AJUSTE EXTRA PARA MÓVILES --- */
+@media (max-width: 992px) {
+    /* ... el resto de tu código móvil ... */
+
+    .sidebar {
+        /* Añade este padding al final de tu .sidebar dentro del @media.
+           Evita que la barra gestual de los iPhone (la raya de abajo) tape tu botón */
+        padding-bottom: calc(20px + env(safe-area-inset-bottom)); 
+    }
 }
