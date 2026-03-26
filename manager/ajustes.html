@@ -19,6 +19,7 @@
             <nav class="sidebar-nav">
                 <a href="dashboard.html" class="nav-item"><i class="fas fa-user-friends"></i> Atletas</a>
                 <a href="../index.html" class="nav-item"><i class="fas fa-search-location"></i> Buscar Mítines</a>
+                <a href="vinculaciones.html" class="nav-item"><i class="fas fa-link"></i> vinculaciones</a>
                 <a href="#" class="nav-item"><i class="fas fa-file-signature"></i> Inscripciones</a>
                 <a href="ajustes.html" class="nav-item active"><i class="fas fa-cog"></i> Ajustes</a>
             </nav>
@@ -48,68 +49,91 @@
             </div>
         </header>
 
-        <div class="settings-container">
-            <!-- Tarjeta principal de verificación -->
+    <div class="settings-container">
+        <div id="section-verificacion" style="display: none;">
             <div class="settings-card">
                 <div class="settings-header">
-                    <div class="settings-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
+                    <div class="settings-icon"><i class="fas fa-shield-alt"></i></div>
                     <div>
                         <h3>Verificación Oficial</h3>
                         <p>Conviértete en manager verificado</p>
                     </div>
                 </div>
-
                 <div class="info-message">
                     <i class="fas fa-info-circle"></i>
                     <p>
                         <strong>¿Cómo funciona?</strong> Introduce el correo electrónico que tienes registrado en 
                         World Athletics. Si coincides con nuestra base de datos, te enviaremos un enlace mágico 
-                        para acceder al panel de atletas de forma segura.
+                        para acceder al panel de forma segura.
                     </p>
                 </div>
-
                 <div class="form-group">
-                    <label for="repre-email">
-                        <i class="fas fa-envelope"></i>
-                        Correo Electrónico Oficial
-                    </label>
+                    <label for="repre-email"><i class="fas fa-envelope"></i> Correo Electrónico Oficial</label>
                     <div class="input-wrapper">
                         <i class="fas fa-at input-icon"></i>
-                        <input 
-                            type="email" 
-                            id="repre-email" 
-                            placeholder="tucorreo@worldathletics.org" 
-                            class="custom-input"
-                            autocomplete="off"
-                        >
+                        <input type="email" id="repre-email" placeholder="tucorreo@worldathletics.org" class="custom-input" autocomplete="off">
                     </div>
                 </div>
-
-                <button id="save-settings-btn" class="btn-primary">
-                    <i class="fas fa-paper-plane"></i>
-                    Verificar y Enviar Enlace
-                </button>
-
+                <button id="save-settings-btn" class="btn-primary"><i class="fas fa-paper-plane"></i> Verificar y Enviar Enlace</button>
                 <div id="save-message"></div>
             </div>
 
-            <!-- Tarjeta de ayuda adicional -->
-            <div class="settings-help-card">
-                <div class="help-icon">
-                    <i class="fas fa-question-circle"></i>
-                </div>
+            <div class="settings-help-card" style="margin-top: 20px;">
+                <div class="help-icon"><i class="fas fa-question-circle"></i></div>
                 <div class="help-content">
                     <h4>¿No recibes el correo?</h4>
-                    <p>
-                        Revisa tu bandeja de spam o asegúrate de que el correo introducido coincide 
-                        exactamente con el registrado en World Athletics. Si el problema persiste, 
-                        contacta con <a href="#">soporte@apexathletics.com</a>
-                    </p>
+                    <p>Revisa tu bandeja de spam o asegúrate de que el correo coincide. Si persiste, contacta con soporte.</p>
                 </div>
             </div>
         </div>
+
+        <div id="section-codigo" style="display: none;">
+            <div class="settings-card" style="border-color: rgba(16,185,129,0.3);">
+                <div class="settings-header">
+                    <div class="settings-icon" style="background: rgba(16,185,129,0.1); color: #10b981;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h3>Cuenta Verificada</h3>
+                        <p>Manager Oficial</p>
+                    </div>
+                </div>
+                
+                <hr style="border: 1px solid #1a1a1a; margin: 20px 0;">
+
+                <div class="settings-header" style="margin-bottom: 15px;">
+                    <div class="settings-icon" style="background: rgba(0,112,243,0.1); color: #0070f3;">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <div>
+                        <h3>Código de Vinculación</h3>
+                        <p>Comparte este código con tus atletas</p>
+                    </div>
+                </div>
+                
+                <div class="info-message" style="background: rgba(0,112,243,0.05); border-color: rgba(0,112,243,0.2);">
+                    <i class="fas fa-info-circle" style="color:#0070f3;"></i>
+                    <p style="color:#ddd;">
+                        Envía este código a tus atletas. Ellos lo introducirán en su perfil para quedar vinculados automáticamente a tu cuenta.
+                    </p>
+                </div>
+
+                <div style="background: #0a0a0a; border: 2px dashed #333; border-radius: 12px; padding: 25px; text-align: center; margin-bottom: 20px;">
+                    <h2 id="current-code" style="margin: 0; font-size: 2.2rem; letter-spacing: 3px; color: #fff;">CARGANDO...</h2>
+                </div>
+
+                <div style="display: flex; gap: 15px;">
+                    <button id="btn-copy-code" class="btn-primary" style="flex: 1; background: #2a2a2a; color: #fff; border: 1px solid #444;">
+                        <i class="fas fa-copy"></i> Copiar
+                    </button>
+                    <button id="btn-generate-code" class="btn-primary" style="flex: 2;">
+                        <i class="fas fa-sync-alt"></i> Generar Nuevo Código
+                    </button>
+                </div>
+                <div id="code-message" style="margin-top: 15px; display: none; padding: 10px; border-radius: 8px; font-size: 0.9rem;"></div>
+            </div>
+        </div>
+    </div>
     </main>
     </div>
 <!-- Scripts compartidos -->

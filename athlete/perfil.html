@@ -120,7 +120,29 @@
                     <div class="stat-mini-label">Actualización</div>
                 </div>
             </div>
+            <div id="manager-bar-container" class="manager-bar-minimal">
+                
+                <div id="wrapper-unlinked" class="mbar-content" style="display: none;">
+                    <div class="mbar-left">
+                        <i class="fas fa-user-tie"></i>
+                        <span>¿Tienes representante? Introduce su código:</span>
+                    </div>
+                    <div class="mbar-right">
+                        <input type="text" id="inp-manager-code" placeholder="APEX-XXXXX" maxlength="12">
+                        <button id="btn-submit-code">Vincular</button>
+                    </div>
+                </div>
 
+                <div id="wrapper-linked" class="mbar-content" style="display: none;">
+                    <div class="mbar-left">
+                        <span id="txt-manager-name">Cargando...</span>
+                    </div>
+                    <div class="mbar-right">
+                        <button id="btn-unlink-manager" class="btn-unlink-small">Desvincular</button>
+                    </div>
+                </div>
+                
+            </div>
             <!-- Grid principal -->
             <div class="profile-grid">
 
@@ -182,7 +204,6 @@
                         </button>
                     </div>
                 </div>
-
                 <!-- Cuenta y Seguridad -->
                 <div class="profile-card">
                     <div class="card-header">

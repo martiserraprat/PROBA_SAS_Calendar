@@ -809,3 +809,70 @@ body {
     .stats-mini { grid-template-columns: 1fr 1fr; gap: 6px; }
     .stat-mini-card { padding: 10px 8px; }
 }
+
+.manager-bar-minimal {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    margin: 20px 0;
+    padding: 12px 20px;
+    min-height: 50px; /* Evita que se vea como una línea vacía */
+    display: flex;
+    align-items: center;
+}
+
+.mbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.mbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #eee;
+    font-size: 0.9rem;
+}
+
+.mbar-right {
+    display: flex;
+    gap: 10px;
+}
+
+#inp-manager-code {
+    background: #000;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    width: 130px;
+    text-transform: uppercase;
+}
+
+#btn-submit-code {
+    background: #0070f3;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-unlink-small {
+    background: rgba(255, 77, 77, 0.1);
+    color: #ff4d4d;
+    border: 1px solid rgba(255, 77, 77, 0.3);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-unlink-small:hover {
+    background: #ff4d4d;
+    color: #fff;
+}

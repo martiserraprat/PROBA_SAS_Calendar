@@ -1,0 +1,416 @@
+.vinc-header-banner {
+    background: linear-gradient(135deg, rgba(0,112,243,0.08) 0%, rgba(0,112,243,0.02) 100%);
+    border: 1px solid rgba(0,112,243,0.15);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.vinc-header-banner .banner-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(0,112,243,0.12);
+    border: 1px solid rgba(0,112,243,0.25);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #0070f3;
+    flex-shrink: 0;
+}
+
+.vinc-header-banner .banner-text h4 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.vinc-header-banner .banner-text p {
+    margin: 0;
+    color: #888;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.vinc-header-banner .banner-text p strong {
+    color: #ccc;
+}
+
+/* Stats rápidas */
+.vinc-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.vinc-stat {
+    background: #0f0f0f;
+    border: 1px solid #1a1a1a;
+    border-radius: 16px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.vinc-stat .stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.vinc-stat .stat-icon.blue   { background: rgba(0,112,243,0.12); color: #0070f3; }
+.vinc-stat .stat-icon.green  { background: rgba(16,185,129,0.12); color: #10b981; }
+.vinc-stat .stat-icon.yellow { background: rgba(245,158,11,0.12); color: #f59e0b; }
+
+.vinc-stat .stat-body .stat-val {
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #fff;
+}
+
+.vinc-stat .stat-body .stat-lbl {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #555;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+/* Sección por atleta */
+.athlete-vinc-block {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.athlete-vinc-block:hover {
+    border-color: #2a2a2a;
+}
+
+.athlete-vinc-header {
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid #111;
+    cursor: pointer;
+    user-select: none;
+}
+
+.athlete-vinc-header .avh-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.athlete-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 1px solid #2a2a2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0070f3;
+    flex-shrink: 0;
+    font-family: -apple-system, sans-serif;
+}
+
+.avh-info .athlete-fullname {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 3px;
+}
+
+.avh-info .athlete-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.72rem;
+    color: #555;
+}
+
+.avh-info .athlete-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.avh-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Badge estado vinculación del atleta */
+.vinc-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.vinc-status-badge.none    { background: rgba(255,255,255,0.04); color: #555; border: 1px solid #222; }
+.vinc-status-badge.partial { background: rgba(245,158,11,0.1);   color: #f59e0b; border: 1px solid rgba(245,158,11,0.2); }
+.vinc-status-badge.linked  { background: rgba(16,185,129,0.1);   color: #10b981; border: 1px solid rgba(16,185,129,0.2); }
+
+/* Toggle chevron */
+.avh-chevron {
+    color: #444;
+    font-size: 0.85rem;
+    transition: transform 0.25s;
+}
+
+.athlete-vinc-block.open .avh-chevron {
+    transform: rotate(180deg);
+}
+
+/* Lista de candidatos */
+.candidates-list {
+    display: none;
+    padding: 0 16px 16px;
+}
+
+.athlete-vinc-block.open .candidates-list {
+    display: block;
+}
+
+.candidate-row {
+    background: #0f0f0f;
+    border: 1px solid #1a1a1a;
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: border-color 0.2s;
+}
+
+.candidate-row:hover {
+    border-color: #2a2a2a;
+}
+
+.candidate-row.is-approved {
+    border-color: rgba(16,185,129,0.3);
+    background: rgba(16,185,129,0.03);
+}
+
+.candidate-row.is-approved:hover {
+    border-color: rgba(16,185,129,0.5);
+}
+
+.cand-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #111;
+    border: 1px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.candidate-row.is-approved .cand-icon {
+    background: rgba(16,185,129,0.1);
+    border-color: rgba(16,185,129,0.2);
+    color: #10b981;
+}
+
+.cand-body {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.cand-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cand-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cand-detail {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    color: #555;
+}
+
+.cand-detail i {
+    color: #333;
+    font-size: 0.65rem;
+}
+
+.cand-detail.highlight {
+    color: #0070f3;
+}
+
+.cand-detail.highlight i {
+    color: #0070f3;
+}
+
+/* Botón aprobar / desvincular */
+.btn-approve {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.btn-approve.approve {
+    background: rgba(0,112,243,0.12);
+    color: #0070f3;
+    border: 1px solid rgba(0,112,243,0.25);
+}
+
+.btn-approve.approve:hover {
+    background: #0070f3;
+    color: #fff;
+    border-color: #0070f3;
+    box-shadow: 0 4px 15px rgba(0,112,243,0.3);
+}
+
+.btn-approve.unlink {
+    background: rgba(239,68,68,0.08);
+    color: #ef4444;
+    border: 1px solid rgba(239,68,68,0.2);
+}
+
+.btn-approve.unlink:hover {
+    background: rgba(239,68,68,0.18);
+    border-color: rgba(239,68,68,0.4);
+}
+
+.btn-approve:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Estado vacío candidatos */
+.no-candidates {
+    margin-top: 10px;
+    padding: 20px;
+    text-align: center;
+    color: #444;
+    font-size: 0.85rem;
+    background: #0f0f0f;
+    border: 1px dashed #222;
+    border-radius: 12px;
+}
+
+.no-candidates i {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+}
+
+/* Loading skeleton */
+.skeleton-block {
+    background: linear-gradient(90deg, #111 25%, #1a1a1a 50%, #111 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 14px;
+    height: 76px;
+    margin-bottom: 12px;
+}
+
+@keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Toast notificación */
+.vinc-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 14px 20px;
+    border-radius: 14px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 9999;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    max-width: 340px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+
+.vinc-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.vinc-toast.success { background: #0d2b1f; border: 1px solid rgba(16,185,129,0.3); color: #10b981; }
+.vinc-toast.error   { background: #2b0d0d; border: 1px solid rgba(239,68,68,0.3);  color: #ef4444;  }
+.vinc-toast.info    { background: #0d1b2b; border: 1px solid rgba(0,112,243,0.3);   color: #0070f3;  }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .vinc-stats { grid-template-columns: 1fr 1fr; }
+    .vinc-stats .vinc-stat:last-child { grid-column: 1 / -1; }
+    .candidate-row { flex-wrap: wrap; }
+    .cand-details { flex-direction: column; gap: 4px; }
+    .btn-approve { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+    .vinc-stats { grid-template-columns: 1fr; }
+    .vinc-stats .vinc-stat:last-child { grid-column: auto; }
+    .athlete-vinc-header { flex-wrap: wrap; }
+}

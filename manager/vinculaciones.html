@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinculaciones | APEX ATHLETICS</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/vis.css">
+</head>
+<body>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="dashboard-layout">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">APEX<span>ATHLETICS</span></div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item"><i class="fas fa-user-friends"></i> Atletas</a>
+                <a href="../index.html" class="nav-item"><i class="fas fa-search-location"></i> Buscar Mítines</a>
+                <a href="vinculaciones.html" class="nav-item active"><i class="fas fa-link"></i> Vinculaciones</a>
+                <a href="#" class="nav-item"><i class="fas fa-file-signature"></i> Inscripciones</a>
+                <a href="ajustes.html" class="nav-item"><i class="fas fa-cog"></i> Ajustes</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-pill">
+                    <img src="https://ui-avatars.com/api/?name=M&background=0070f3&color=fff" alt="Avatar" id="user-avatar">
+                    <div class="user-info">
+                        <span class="user-name">Cargando...</span>
+                        <span class="user-role">...</span>
+                    </div>
+                    <i class="fas fa-sign-out-alt" id="logout-btn"></i>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main-viewport">
+            <div class="mobile-header">
+                <div class="logo">APEX<span>ATHLETICS</span></div>
+                <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+
+            <header class="view-header">
+                <div class="header-text">
+                    <h1>Vinculaciones</h1>
+                    <p>Aprueba qué cuenta de atleta es la oficial</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-primary" id="btn-refresh" onclick="recargarVinculaciones()">
+                        <i class="fas fa-sync-alt"></i> Actualizar
+                    </button>
+                </div>
+            </header>
+
+            <!-- Banner informativo -->
+            <div class="vinc-header-banner">
+                <div class="banner-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="banner-text">
+                    <h4>¿Cómo funciona la vinculación?</h4>
+                    <p>
+                        Cada atleta que se registra en la plataforma aparece aquí. 
+                        Para vincularlos, <strong>dales tu Código de Vinculación</strong> (puedes generarlo en Ajustes). 
+                        Cuando lo introduzcan, aparecerán aquí como <strong>Vinculados</strong>. 
+                        Usa el botón de <strong>Desvincular</strong> solo si necesitas romper la conexión.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="vinc-stats">
+                <div class="vinc-stat">
+                    <div class="stat-icon blue"><i class="fas fa-users"></i></div>
+                    <div class="stat-body">
+                        <div class="stat-val" id="stat-total">—</div>
+                        <div class="stat-lbl">Atletas en JSON</div>
+                    </div>
+                </div>
+                <div class="vinc-stat">
+                    <div class="stat-icon green"><i class="fas fa-check-circle"></i></div>
+                    <div class="stat-body">
+                        <div class="stat-val" id="stat-linked">—</div>
+                        <div class="stat-lbl">Vinculados</div>
+                    </div>
+                </div>
+                <div class="vinc-stat">
+                    <div class="stat-icon yellow"><i class="fas fa-clock"></i></div>
+                    <div class="stat-body">
+                        <div class="stat-val" id="stat-pending">—</div>
+                        <div class="stat-lbl">Pendientes</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lista de atletas -->
+            <div id="vinc-list">
+                <!-- Skeletons de carga -->
+                <div class="skeleton-block"></div>
+                <div class="skeleton-block"></div>
+                <div class="skeleton-block"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast -->
+    <div class="vinc-toast" id="vinc-toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-msg">Mensaje</span>
+    </div>
+
+    <!-- Scripts compartidos -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../utils/js/auth-guard.js"></script>
+    <script src="../utils/js/menu-movil.js"></script>
+    <script src="../utils/js/logout.js"></script>
+
+    <!-- Script específico -->
+    <script src="js/vinculaciones.js"></script>
+</body>
+</html>

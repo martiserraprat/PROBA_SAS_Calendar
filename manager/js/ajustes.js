@@ -1,161 +1,124 @@
-// Elementos del DOM
-const emailInput = document.getElementById('repre-email');
-const saveBtn = document.getElementById('save-settings-btn');
-const saveMsg = document.getElementById('save-message');
+// --- NUEVA LÓGICA DE VERIFICACIÓN Y CÓDIGOS ---
 
-// Función mejorada para mostrar notificaciones
-function mostrarNotificacion(texto, tipo) {
-    saveMsg.style.display = 'block';
-    saveMsg.className = tipo; // 'success' o 'error'
-    saveMsg.innerHTML = `<i class="fas ${tipo === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i> ${texto}`;
-    
-    // Scroll suave hasta el mensaje
-    saveMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+const sectionVerificacion = document.getElementById('section-verificacion');
+const sectionCodigo = document.getElementById('section-codigo');
+const currentCodeEl = document.getElementById('current-code');
+const btnGenerateCode = document.getElementById('btn-generate-code');
+const btnCopyCode = document.getElementById('btn-copy-code');
+const codeMessage = document.getElementById('code-message');
+
+function mostrarMsgCodigo(texto, tipo) {
+    codeMessage.style.display = 'block';
+    codeMessage.style.backgroundColor = tipo === 'success' ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)';
+    codeMessage.style.color = tipo === 'success' ? '#10b981' : '#ef4444';
+    codeMessage.style.border = `1px solid ${tipo === 'success' ? 'rgba(16,185,129,0.3)' : 'rgba(239,68,68,0.3)'}`;
+    codeMessage.innerHTML = `<i class="fas ${tipo === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i> ${texto}`;
+    setTimeout(() => { codeMessage.style.display = 'none'; }, 4000);
 }
 
-// Validación de email mejorada
-function validarEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-saveBtn.addEventListener('click', async () => {
-    const emailBuscado = emailInput.value.trim().toLowerCase();
-    
-    // Validaciones
-    if (!emailBuscado) {
-        mostrarNotificacion('Por favor, introduce un correo electrónico.', 'error');
-        emailInput.focus();
-        return;
-    }
-
-    if (!validarEmail(emailBuscado)) {
-        mostrarNotificacion('Por favor, introduce un correo electrónico válido.', 'error');
-        emailInput.focus();
-        return;
-    }
-
-    // Bloquear botón y mostrar carga
-    saveBtn.disabled = true;
-    saveBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verificando...';
-
-    try {
-        // 1. Cargar el JSON con manejo de errores
-        const response = await fetch('json/datos_world_athletics.json');
-        
-        if (!response.ok) {
-            throw new Error('No se pudo cargar la base de datos de managers');
-        }
-        
-        const agentes = await response.json();
-        
-        // 2. Buscar si el correo existe en el JSON
-        const agenteEncontrado = agentes.find(a => 
-            a.email && a.email.toLowerCase() === emailBuscado
-        );
-
-        if (!agenteEncontrado) {
-            mostrarNotificacion('Este correo no está registrado como manager oficial en nuestra base de datos.', 'error');
-            resetBtn();
-            return;
-        }
-
-        // 3. Guardar datos temporalmente para el Dashboard
-        localStorage.setItem('wa_id_pendiente', agenteEncontrado.id);
-        localStorage.setItem('nombreRepresentante', agenteEncontrado.name);
-        
-        // Guardar también para saber que venimos de ajustes
-        sessionStorage.setItem('paginaAnterior', 'ajustes');
-
-        // 4. Enviar Magic Link de Supabase
-        const { error } = await supabaseClient.auth.signInWithOtp({
-            email: emailBuscado,
-            options: {
-                emailRedirectTo: 'https://martiserraprat.github.io/PROBA_SAS_Calendar/manager/dashboard.html'
-            }
-        });
-
-        if (error) throw error;
-
-        // 5. Mostrar éxito y limpiar campo
-        mostrarNotificacion(
-            `✅ ¡Correo verificado! Hemos enviado un enlace de acceso a <strong>${emailBuscado}</strong>. Revisa tu bandeja de entrada.`, 
-            'success'
-        );
-        emailInput.value = '';
-        
-    } catch (err) {
-        console.error('Error detallado:', err);
-        mostrarNotificacion('Error al procesar la solicitud. Por favor, inténtalo de nuevo.', 'error');
-    } finally {
-        resetBtn();
-    }
-});
-
-function resetBtn() {
-    saveBtn.disabled = false;
-    saveBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Verificar y Enviar Enlace';
-}
-
-// Permitir enviar con Enter
-emailInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        e.preventDefault();
-        saveBtn.click();
-    }
-});
-
-// Logout mejorado
-const logoutBtn = document.getElementById('logout-btn');
-if (logoutBtn) {
-    logoutBtn.addEventListener('click', async () => {
-        try {
-            // Cambiar icono a loading
-            const originalHTML = logoutBtn.innerHTML;
-            logoutBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-            logoutBtn.style.pointerEvents = 'none';
-            
-            // 1. Cerramos la sesión oficial en Supabase
-            await supabaseClient.auth.signOut();
-            
-            // 2. Limpiamos cualquier dato guardado
-            localStorage.clear();
-            sessionStorage.clear();
-            
-            // 3. Redirigimos
-            window.location.href = '../index.html';
-        } catch (error) {
-            console.error('Error al cerrar sesión:', error);
-            // Forzar redirección incluso si hay error
-            window.location.href = '../index.html';
-        }
-    });
-}
-
-// Verificar sesión actual al cargar la página
+// Verificar sesión actual y estado de verificación
 async function checkCurrentSession() {
     try {
         const { data: { session } } = await supabaseClient.auth.getSession();
         if (session) {
-            // Si hay sesión activa, mostrar info del usuario
+            // Traer el perfil completo
             const { data: profile } = await supabaseClient
                 .from('profiles')
-                .select('full_name')
+                .select('full_name, is_verified, id')
                 .eq('id', session.user.id)
                 .single();
             
             if (profile) {
-                // Actualizar nombre en el sidebar si existe
+                // Actualizar Sidebar
                 const userNameEl = document.querySelector('.user-name');
                 const userRoleEl = document.querySelector('.user-role');
                 if (userNameEl) userNameEl.textContent = profile.full_name || 'Usuario';
-                if (userRoleEl) userRoleEl.textContent = 'Sesión Activa';
+                if (userRoleEl) userRoleEl.textContent = profile.is_verified ? 'Manager Oficial' : 'Pendiente';
+
+                // Mostrar una sección u otra
+                if (profile.is_verified) {
+                    sectionVerificacion.style.display = 'none';
+                    sectionCodigo.style.display = 'block';
+                    await cargarCodigoActivo(profile.id);
+                } else {
+                    sectionVerificacion.style.display = 'block';
+                    sectionCodigo.style.display = 'none';
+                }
             }
+        } else {
+            // Sin sesión -> por seguridad, redirigir al login
+            window.location.href = '../index.html';
         }
     } catch (error) {
-        console.log('No hay sesión activa');
+        console.log('Error comprobando sesión:', error);
     }
 }
+
+async function cargarCodigoActivo(managerId) {
+    try {
+        const { data, error } = await supabaseClient
+            .from('codigos_vinculacion')
+            .select('codigo')
+            .eq('manager_id', managerId)
+            //.eq('usado', false)
+            .order('created_at', { ascending: false })
+            .limit(1);
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+            currentCodeEl.innerText = data[0].codigo;
+        } else {
+            currentCodeEl.innerText = 'NO HAY CÓDIGO';
+        }
+    } catch (err) {
+        currentCodeEl.innerText = 'ERROR';
+        console.error(err);
+    }
+}
+
+// Generar un código nuevo en Supabase
+btnGenerateCode.addEventListener('click', async () => {
+    btnGenerateCode.disabled = true;
+    btnGenerateCode.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generando...';
+
+    try {
+        const { data: { session } } = await supabaseClient.auth.getSession();
+        const managerId = session.user.id;
+
+        // Generar string alfanumérico aleatorio (ej. APEX-A4F9K)
+        const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // Quitadas O, 0, 1, I para evitar confusiones
+        let randomPart = '';
+        for(let i=0; i<5; i++) randomPart += chars.charAt(Math.floor(Math.random() * chars.length));
+        const nuevoCodigo = `APEX-${randomPart}`;
+
+        const { error } = await supabaseClient
+            .from('codigos_vinculacion')
+            .insert([{ manager_id: managerId, codigo: nuevoCodigo, usado: false }]);
+
+        if (error) throw error;
+
+        currentCodeEl.innerText = nuevoCodigo;
+        mostrarMsgCodigo('Nuevo código generado con éxito.', 'success');
+
+    } catch (err) {
+        console.error(err);
+        mostrarMsgCodigo('Error al generar código.', 'error');
+    } finally {
+        btnGenerateCode.disabled = false;
+        btnGenerateCode.innerHTML = '<i class="fas fa-sync-alt"></i> Generar Nuevo Código';
+    }
+});
+
+// Copiar al portapapeles
+btnCopyCode.addEventListener('click', () => {
+    const code = currentCodeEl.innerText;
+    if (code === 'CARGANDO...' || code === 'ERROR' || code === 'NO HAY CÓDIGO') return;
+    
+    navigator.clipboard.writeText(code).then(() => {
+        mostrarMsgCodigo('Código copiado al portapapeles.', 'success');
+    });
+});
 
 // Ejecutar al cargar
 checkCurrentSession();

@@ -97,58 +97,41 @@ function getAnio(fecha) {
 // =============================================
 
 // --- HERO ---
-function actualizarHero(atleta, email, nombreUsuario) {
-    // 1. Usamos el nombre del profile siempre que esté disponible
+function actualizarHero(atleta, email, nombreUsuario, nombreManager = null) {
     const nombre = nombreUsuario || `${atleta?.nombre || ''} ${atleta?.apellido || ''}`.trim() || 'Atleta';
     
     document.getElementById('hero-name').textContent = nombre;
     document.getElementById('hero-email').textContent = email || '';
 
-    // Avatar dinámico con el nombre del usuario
     const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(nombre)}&background=0070f3&color=fff&size=200`;
     document.getElementById('hero-avatar').src = avatarUrl;
-    document.getElementById('sidebar-avatar').src = `https://ui-avatars.com/api/?name=${encodeURIComponent(nombre)}&background=00d1ff&color=fff`;
+    document.getElementById('sidebar-avatar').src = avatarUrl;
     document.getElementById('sidebar-user-name').textContent = nombre;
 
     const metaEl = document.getElementById('hero-meta');
     metaEl.innerHTML = '';
 
+    // --- NUEVO BADGE DE VINCULACIÓN DINÁMICO ---
+    if (atleta?.manager_id) {
+        const displayManager = nombreManager || "Manager Oficial";
+        metaEl.innerHTML += `
+            <span class="meta-tag linked-badge" style="background: rgba(16, 185, 129, 0.12); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); font-weight: 700; padding: 4px 10px; border-radius: 8px;">
+                <i class="fas fa-check-circle"></i> Vinculado con ${displayManager}
+            </span>`;
+    }
+
+    // Resto de badges (Género, País, etc.)
     const genero = atleta?.genero;
     if (genero) {
-        // Normalización del género para los badges
         const isMale = genero.toUpperCase().startsWith('M') || genero.toUpperCase() === 'HOMBRE';
-        const gb = document.createElement('span');
-        gb.className = `gender-badge-hero ${isMale ? 'man' : 'woman'}`;
-        gb.innerHTML = `<i class="fas ${isMale ? 'fa-mars' : 'fa-venus'}"></i> ${isMale ? 'Masculino' : 'Femenino'}`;
-        metaEl.appendChild(gb);
+        const gbClass = isMale ? 'man' : 'woman';
+        metaEl.innerHTML += `<span class="gender-badge-hero ${gbClass}"><i class="fas ${isMale ? 'fa-mars' : 'fa-venus'}"></i> ${isMale ? 'Masculino' : 'Femenino'}</span>`;
     }
 
-    if (atleta?.pais) {
-        const tag = document.createElement('span');
-        tag.className = 'meta-tag';
-        tag.innerHTML = `<i class="fas fa-flag"></i> ${atleta.pais}`;
-        metaEl.appendChild(tag);
-    }
-
+    if (atleta?.pais) metaEl.innerHTML += `<span class="meta-tag"><i class="fas fa-flag"></i> ${atleta.pais}</span>`;
     const edad = calcularEdad(atleta?.fecha_nacimiento);
-    if (edad) {
-        const tag = document.createElement('span');
-        tag.className = 'meta-tag';
-        tag.innerHTML = `<i class="fas fa-birthday-cake"></i> ${edad} años`;
-        metaEl.appendChild(tag);
-    }
-
-    if (atleta?.wa_id) {
-        const tag = document.createElement('span');
-        tag.className = 'meta-tag';
-        tag.innerHTML = `<i class="fas fa-id-badge"></i> WA #${atleta.wa_id}`;
-        if (atleta?.url_perfil) {
-            tag.style.cursor = 'pointer';
-            tag.title = 'Ver perfil en World Athletics';
-            tag.onclick = () => window.open(atleta.url_perfil, '_blank');
-        }
-        metaEl.appendChild(tag);
-    }
+    if (edad) metaEl.innerHTML += `<span class="meta-tag"><i class="fas fa-birthday-cake"></i> ${edad} años</span>`;
+    if (atleta?.wa_id) metaEl.innerHTML += `<span class="meta-tag"><i class="fas fa-id-badge"></i> WA #${atleta.wa_id}</span>`;
 }
 
 // --- STATS MINI ---
@@ -485,7 +468,7 @@ async function cargarPerfil() {
         renderMejoresTemporada(_atletaData?.mejores_temporada || []);
         renderProgresion(_atletaData?.progresion_historica || []);
         renderResultadosRecientes(_atletaData?.resultados_recientes || []);
-
+        await checkVinculacionManager();
         // Si no tiene WA ID, lanzamos un aviso amistoso
         if (!_atletaData) {
             setTimeout(() => showToast('Sin ID de World Athletics vinculado. Algunas funciones están limitadas.', 'info', 5000), 500);
@@ -780,4 +763,100 @@ function initWhenReady() {
         setTimeout(initWhenReady, 150);
     }
 }
+
+async function checkVinculacionManager() {
+    const unlinkedWrap = document.getElementById('wrapper-unlinked');
+    const linkedWrap = document.getElementById('wrapper-linked');
+    const nameTxt = document.getElementById('txt-manager-name');
+
+    if (!unlinkedWrap || !linkedWrap) return;
+
+    // Si NO hay manager vinculado
+    if (!_atletaData || !_atletaData.manager_id) {
+        unlinkedWrap.style.display = 'flex';
+        linkedWrap.style.display = 'none';
+        return;
+    }
+
+    // Si SÍ hay manager vinculado
+    try {
+        const { data: profile, error } = await window.supabaseClient
+            .from('profiles')
+            .select('full_name')
+            .eq('id', _atletaData.manager_id)
+            .single();
+
+        if (profile && profile.full_name) {
+            console.log("Manager encontrado, actualizando UI...");
+            // Ocultamos la caja de introducir código
+            unlinkedWrap.style.display = 'none';
+            // Mostramos la caja de vinculado
+            linkedWrap.style.display = 'flex';
+            
+            // Cambiamos el texto para que sea exactamente lo que pides
+            if (nameTxt) {
+                nameTxt.innerHTML = `<i class="fas fa-user-check" style="color:#10b981; margin-right:8px;"></i> Tu representante es: <span style="color:#fff; font-weight:700;">${profile.full_name}</span>`;
+            }
+
+            // También forzamos la actualización del Hero (el badge de arriba) con el nombre real
+            actualizarHero(_atletaData, window.currentSession.user.email, null, profile.full_name);
+        } else {
+            // Fallback si no encontramos el perfil del manager
+            unlinkedWrap.style.display = 'flex';
+            linkedWrap.style.display = 'none';
+        }
+    } catch (err) {
+        console.error("Error al verificar manager:", err);
+        unlinkedWrap.style.display = 'flex';
+        linkedWrap.style.display = 'none';
+    }
+}
+
+// Botón Vincular
+document.getElementById('btn-submit-code').addEventListener('click', async () => {
+    const inp = document.getElementById('inp-manager-code');
+    const btn = document.getElementById('btn-submit-code');
+    const codigo = inp.value.trim().toUpperCase();
+
+    if (!codigo) return;
+    btn.disabled = true;
+
+    try {
+        const sc = window.supabaseClient;
+        const { data: validCode, error: errCode } = await sc
+            .from('codigos_vinculacion')
+            .select('manager_id, id')
+            .eq('codigo', codigo)
+            //.eq('usado', false)
+            .single();
+
+        if (errCode || !validCode) {
+            showToast('Código inválido', 'error');
+            btn.disabled = false;
+            return;
+        }
+
+        await sc.from('atletas').update({ manager_id: validCode.manager_id }).eq('atleta_user_id', window.currentSession.user.id);
+        await sc.from('codigos_vinculacion').update({ usado: true }).eq('id', validCode.id);
+
+        showToast('Vinculado', 'success');
+
+        _atletaData.manager_id = validCode.manager_id;
+        actualizarHero(_atletaData, window.currentSession.user.email, null);
+        checkVinculacionManager();
+    } catch (err) {
+        showToast('Error', 'error');
+        btn.disabled = false;
+    }
+});
+
+// Botón Desvincular
+document.getElementById('btn-unlink-manager').addEventListener('click', async () => {
+    const ok = await showConfirm('Desvincular', '¿Quieres quitar a tu manager?');
+    if (!ok) return;
+    await window.supabaseClient.from('atletas').update({ manager_id: null }).eq('atleta_user_id', window.currentSession.user.id);
+    _atletaData.manager_id = null;
+    checkVinculacionManager();
+});
+
 initWhenReady();
