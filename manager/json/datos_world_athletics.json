@@ -1524,22 +1524,6 @@
         ],
         "url": "https://worldathletics.org/athletes/_/14413305",
         "wa_id": 14413305
-      },
-      {
-        "name": "Armand DUPLANTIS",
-        "country": "Sweden",
-        "birthdate": "10 NOV 1999",
-        "gender": "Man",
-        "personal_bests": [
-          {
-            "discipline": "Pole Vault",
-            "mark": "6.26",
-            "venue": "Chorzów (POL)",
-            "date": "25 AUG 2024"
-          }
-        ],
-        "url": "https://worldathletics.org/athletes/sweden/armand-duplantis-14679502",
-        "wa_id": 14679502
       }
     ]
   }
